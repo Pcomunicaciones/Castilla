@@ -1,0 +1,61 @@
+"use client"
+
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { cn } from "@/lib/utils"
+import { Factory, Sprout, Briefcase, Building2, Layers, ChevronRight } from "lucide-react"
+
+const menuOperacion = [
+  { name: "Cadena de Valor", href: "/Operacion/cadena-de-valor", icon: Factory, desc: "Eficiencia integrada" },
+  { name: "Desarrollo Cultivos", href: "/Operacion/desarrollo-cultivos", icon: Sprout, desc: "Innovación agrícola" },
+  { name: "Belagro", href: "/Operacion/belagro", icon: Briefcase, desc: "Insumos y servicios" },
+  { name: "Proyectos Inmobiliarios", href: "/Operacion/proyectos-inmobiliarios", icon: Building2, desc: "Visión de territorio" },
+  { name: "Otras Líneas", href: "/Operacion/otras-lineas", icon: Layers, desc: "Diversificación" },
+]
+
+export function OperacionSidebar() {
+  const pathname = usePathname()
+
+  return (
+    <div className="bg-castilla-green-dark rounded-3xl p-6 text-white shadow-xl sticky top-32">
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold italic">Operación</h2>
+        <p className="text-castilla-green-light text-xs uppercase tracking-widest font-semibold opacity-80">Navegación</p>
+      </div>
+      
+      <nav className="space-y-3">
+        {menuOperacion.map((item) => {
+          const isActive = pathname === item.href
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={cn(
+                "flex items-center justify-between p-3 rounded-2xl transition-all duration-300 group",
+                isActive 
+                  ? "bg-white text-castilla-green-dark shadow-lg" 
+                  : "hover:bg-white/10 text-white/80 hover:text-white"
+              )}
+            >
+              <div className="flex items-center gap-3">
+                <div className={cn(
+                  "p-2 rounded-xl transition-colors",
+                  isActive ? "bg-castilla-green-dark/10" : "bg-white/10 group-hover:bg-white/20"
+                )}>
+                  <item.icon size={18} />
+                </div>
+                <div>
+                  <p className="font-bold text-sm leading-none">{item.name}</p>
+                  <p className={cn("text-[10px] mt-1", isActive ? "text-castilla-green" : "text-white/40")}>
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+              <ChevronRight className={cn("w-4 h-4 transition-transform", isActive ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100")} />
+            </Link>
+          )
+        })}
+      </nav>
+    </div>
+  )
+}
