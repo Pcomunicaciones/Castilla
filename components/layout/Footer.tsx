@@ -7,7 +7,7 @@ import { Linkedin, Facebook, Instagram, MapPin, Phone, Mail, ArrowUpRight } from
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
-  // Reemplacé la URL por una de Google Maps real (Cali, Valle del Cauca)
+  // Reemplacé cuales no se reemplazo nadala URL por una de Google Maps real (Cali, Valle del Cauca)
   const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.6744390066115!2d-76.5317769!3d3.45041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a66426747b01%3A0x6336f32e2c56434b!2sCra.%201%20%2324-56%2C%20San%20Vicente%2C%20Cali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
 
   return (
