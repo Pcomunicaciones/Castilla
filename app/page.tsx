@@ -10,9 +10,7 @@ import { ImageCarousel } from "@/components/home/ImageCarousel"
 export default function HomePage() {
   return (
     <main className="min-h-screen">
-      {/* No necesitas el <Header /> aquí, 
-          el Root Layout lo pone automáticamente arriba. 
-      */}
+      {}
       
       <HeroSection />
       
@@ -24,9 +22,7 @@ export default function HomePage() {
       
       <QuickLinksSection />
       
-      {/* No necesitas el <Footer /> aquí, 
-          el Root Layout lo pone automáticamente abajo. 
-      */}
+      {}
     </main>
   )
 }
