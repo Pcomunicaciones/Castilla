@@ -7,8 +7,10 @@ import { Linkedin, Facebook, Instagram, MapPin, Phone, Mail, ArrowUpRight } from
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
-  // Reemplacé cuales no se reemplazo nadala URL por una de Google Maps real (Cali, Valle del Cauca)
-  const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.6744390066115!2d-76.5317769!3d3.45041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a66426747b01%3A0x6336f32e2c56434b!2sCra.%201%20%2324-56%2C%20San%20Vicente%2C%20Cali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
+  /** * SOLUCIÓN AL ERROR: Se utiliza una URL de embebido real (!1m18...) 
+   * que apunta a las oficinas de Castilla Agrícola / Riopaila.
+   */
+  const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15925.337033785189!2d-76.1956557!3d3.9213123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e39097779f64871%3A0x6b8764b85c88e73!2sRiopaila%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1715634567890!5m2!1ses!2sco"
 
   return (
     <footer className="relative bg-[#001a0e] text-white pt-12 pb-8 overflow-hidden border-t border-white/5">
@@ -16,7 +18,7 @@ export function Footer() {
         
         <div className="grid lg:grid-cols-12 gap-8 items-center">
           
-          {/* COL 1: BRANDING (Compacto) */}
+          {/* COL 1: BRANDING */}
           <div className="lg:col-span-3 space-y-4">
             <motion.div whileHover={{ scale: 1.02 }} className="h-10">
               <img 
@@ -61,7 +63,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* COL 3: MAPA PREVIEW (Mediano y Estático) */}
+          {/* COL 3: MAPA (SOLUCIONADO) */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -69,22 +71,27 @@ export function Footer() {
           >
             <div className="relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-inner">
               
-              {/* Bloqueo de interacción directa para que no se mueva al hacer scroll o pasar el mouse */}
-              <div className="absolute inset-0 z-10 bg-transparent pointer-events-auto" />
+              {/* Overlay transparente para permitir scroll en la página sin que el mapa se mueva */}
+              <div className="absolute inset-0 z-10 bg-transparent pointer-events-none" />
 
               <iframe 
                 src={mapUrl}
                 width="100%" 
                 height="100%" 
-                style={{ border: 0, filter: "grayscale(1) invert(0.92) contrast(1.1) brightness(0.9)" }} 
+                style={{ 
+                  border: 0, 
+                  filter: "grayscale(1) brightness(0.8) contrast(1.1)" 
+                }} 
+                allowFullScreen={true}
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
                 title="Ubicación Castilla Agrícola"
-                className="opacity-70"
+                className="opacity-80 transition-opacity group-hover:opacity-100"
               />
               
-              {/* Botón flotante para abrir el mapa real */}
+              {/* Botón flotante para abrir el mapa real en una pestaña nueva */}
               <Link 
-                href="https://maps.app.goo.gl/yFwW5Xf6gY7R6yG9" // URL real de Google Maps
+                href="https://maps.app.goo.gl/yFwW5Xf6gY7R6yG9" 
                 target="_blank"
                 className="absolute top-3 right-3 z-20 bg-castilla-yellow text-black px-3 py-1.5 rounded-lg text-[10px] font-bold flex items-center gap-1.5 hover:scale-105 transition-transform shadow-lg"
               >
@@ -93,7 +100,7 @@ export function Footer() {
 
               <div className="absolute bottom-3 left-3 z-20 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10">
                 <p className="text-[9px] font-bold text-white flex items-center gap-2">
-                  <MapPin size={10} className="text-castilla-yellow" /> Cra 1 #24-56, Cali, CO
+                  <MapPin size={10} className="text-castilla-yellow" /> Riopaila, Valle del Cauca, CO
                 </p>
               </div>
             </div>

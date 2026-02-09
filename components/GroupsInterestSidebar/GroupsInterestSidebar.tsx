@@ -7,7 +7,7 @@ import { Users, FileCheck, HardHat, ExternalLink, ChevronRight } from "lucide-re
 
 const menuItems = [
   {
-    name: "Gestión Ambiental", // Cambiar nombres según corresponda a la sección
+    name: "Proveedores y Clientes", // Cambiar nombres según corresponda a la sección
     subtext: "Cuidado del entorno",
     href: "/grupos-de-interes/proveedores-clientes",
     icon: HardHat,
