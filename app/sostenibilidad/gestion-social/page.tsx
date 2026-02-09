@@ -1,10 +1,10 @@
 "use client"
 
-import { Users, GraduationCap, Heart, CheckCircle, ArrowRight, Sparkles } from "lucide-react"
+import { Users, GraduationCap, Heart, ArrowRight, Sparkles } from "lucide-react"
 import { motion, Variants } from "framer-motion"
 
 /* --------------------------------------------------------------------------
-   ANIMACIONES: SOCIAL IMPACT SYSTEM
+   ANIMACIONES
    -------------------------------------------------------------------------- */
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -79,7 +79,7 @@ export default function GestionSocial() {
         <div className="h-1.5 w-32 bg-[#a3c74a] mt-4 rounded-full" />
       </motion.div>
       
-      {/* SECCIÓN: BANNER INMERSIVO */}
+      {/* SECCIÓN: BANNER INMERSIVO (Con imagen, pero SIN cifras de familias) */}
       <motion.div 
         variants={itemVariants}
         className="relative h-[400px] rounded-[3rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,100,55,0.2)] group"
@@ -101,20 +101,13 @@ export default function GestionSocial() {
             transition={{ delay: 0.5 }}
             className="max-w-2xl"
           >
-            <h2 className="text-white font-bold text-3xl md:text-4xl leading-tight mb-4">
+            <h2 className="text-white font-bold text-3xl md:text-4xl leading-tight">
               Construyendo tejido social con <br /> 
               <span className="text-[#a3c74a]">identidad Vallecaucana.</span>
             </h2>
-            <div className="flex items-center gap-6 text-white/80">
-               <div className="flex -space-x-3">
-                 {[1,2,3,4].map(i => (
-                   <div key={i} className="w-10 h-10 rounded-full border-2 border-[#006437] bg-gray-200 overflow-hidden">
-                     <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="user" />
-                   </div>
-                 ))}
-               </div>
-               <p className="text-sm font-bold tracking-wide">+2,500 Familias Beneficiadas</p>
-            </div>
+            
+            {/* AQUÍ ELIMINÉ EL BLOQUE DE LAS FAMILIAS BENEFICIADAS */}
+            
           </motion.div>
         </div>
       </motion.div>
