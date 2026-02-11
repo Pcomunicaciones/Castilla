@@ -129,20 +129,7 @@ export default function GestionEconomica() {
           </div>
         </motion.div>
 
-        <motion.div 
-          variants={itemVariants}
-          className="p-8 bg-[#006437]/5 rounded-[2.5rem] border border-[#006437]/10 flex items-center gap-8 group hover:bg-white hover:shadow-lg transition-all"
-        >
-          <div className="bg-white p-5 rounded-3xl shadow-sm border border-gray-50 group-hover:scale-110 transition-transform">
-            <Globe className="text-[#006437]" size={36} />
-          </div>
-          <div>
-            <h3 className="font-bold text-[#006437] text-xl mb-1 tracking-tight">Mercado Global</h3>
-            <p className="text-gray-500 text-sm font-normal leading-relaxed">
-              Conectamos la producción local con estándares internacionales, abriendo puertas a mercados de alta exigencia.
-            </p>
-          </div>
-        </motion.div>
+       
       </div>
 
       {/* MÉTRICA DE CIERRE SUTIL */}
@@ -152,12 +139,12 @@ export default function GestionEconomica() {
       >
         <div className="flex items-center gap-12 opacity-40">
            <div className="text-center">
-              <p className="text-xs font-black">AUDITADO</p>
+              <p className="text-xs font-black"></p>
               <div className="h-0.5 w-full bg-current" />
            </div>
            <PieChart size={24} />
            <div className="text-center">
-              <p className="text-xs font-black">ISO 9001</p>
+              <p className="text-xs font-black"></p>
               <div className="h-0.5 w-full bg-current" />
            </div>
         </div>

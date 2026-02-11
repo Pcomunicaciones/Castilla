@@ -101,7 +101,7 @@ export default function InformesPage() {
         className="p-8 bg-[#f8f9fa] rounded-[2.5rem] border border-dashed border-gray-200 text-center"
       >
         <p className="text-gray-500 text-sm italic">
-          ¿Necesita un informe de años anteriores? Por favor contáctenos a través de nuestro canal de atención.
+          
         </p>
       </motion.div>
     </motion.div>

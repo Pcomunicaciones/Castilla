@@ -1,10 +1,10 @@
 "use client"
 
-import { Users, GraduationCap, Heart, CheckCircle, ArrowRight, Sparkles } from "lucide-react"
+import { Users, GraduationCap, Heart, ArrowRight, Sparkles } from "lucide-react"
 import { motion, Variants } from "framer-motion"
 
 /* --------------------------------------------------------------------------
-   ANIMACIONES: SOCIAL IMPACT SYSTEM
+   ANIMACIONES
    -------------------------------------------------------------------------- */
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -105,16 +105,9 @@ export default function GestionSocial() {
               Construyendo tejido social con <br /> 
               <span className="text-[#a3c74a]">identidad Vallecaucana.</span>
             </h2>
-            <div className="flex items-center gap-6 text-white/80">
-               <div className="flex -space-x-3">
-                 {[1,2,3,4].map(i => (
-                   <div key={i} className="w-10 h-10 rounded-full border-2 border-[#006437] bg-gray-200 overflow-hidden">
-                     <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="user" />
-                   </div>
-                 ))}
-               </div>
-               <p className="text-sm font-bold tracking-wide">+2,500 Familias Beneficiadas</p>
-            </div>
+            
+            {/* AQUÍ SE ELIMINÓ EL BLOQUE DE AVATARES Y TEXTO DE FAMILIAS BENEFICIADAS */}
+            
           </motion.div>
         </div>
       </motion.div>

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Plus, Minus, Beef, Zap, Landmark, LeafyGreen, ChevronRight, Share2 } from "lucide-react"
+import { Plus, Minus, Beef, Landmark, LeafyGreen, ChevronRight, Share2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const lineasNegocio = [
@@ -14,15 +14,6 @@ const lineasNegocio = [
     details: "Implementamos sistemas silvopastoriles que integran árboles con pasturas, mejorando el bienestar animal y capturando carbono de manera eficiente. Nuestra genética está enfocada en la adaptabilidad y el rendimiento.",
     image: "/Imagenes/Exportado 2.jpg",
     color: "from-emerald-500/10 to-emerald-600/5"
-  },
-  {
-    id: "energia",
-    icon: Zap,
-    title: "Generación de Energía",
-    short: "Aprovechamiento de biomasa para cogeneración eléctrica.",
-    details: "Transformamos los residuos del proceso industrial en energía limpia. Esta línea no solo nos hace autosuficientes, sino que contribuye a la matriz energética nacional con fuentes renovables.",
-    image: "/Imagenes/Exportado 1.jpg",
-    color: "from-amber-400/10 to-amber-500/5"
   },
   {
     id: "arrendamientos",
