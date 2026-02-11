@@ -47,16 +47,6 @@ export function SostenibilidadSidebar() {
             </Link>
           )
         })}
-
-        {/* Link Externo: Hipervínculo página de gobierno */}
-        <a 
-          href="https://www.minambiente.gov.co" 
-          target="_blank" 
-          className="flex items-center gap-3 p-3 rounded-2xl hover:bg-white/10 text-white/80 transition-all border-t border-white/10 mt-4"
-        >
-          <div className="p-2 bg-white/10 rounded-xl"><ExternalLink size={18} /></div>
-          <p className="font-bold text-sm leading-none">Página de Gobierno</p>
-        </a>
       </nav>
     </div>
   )

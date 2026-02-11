@@ -1,9 +1,11 @@
 "use client"
 
 import { Users, GraduationCap, Heart, ArrowRight, Sparkles } from "lucide-react"
+import { Users, GraduationCap, Heart, ArrowRight, Sparkles } from "lucide-react"
 import { motion, Variants } from "framer-motion"
 
 /* --------------------------------------------------------------------------
+   ANIMACIONES
    ANIMACIONES
    -------------------------------------------------------------------------- */
 const containerVariants: Variants = {
@@ -79,7 +81,7 @@ export default function GestionSocial() {
         <div className="h-1.5 w-32 bg-[#a3c74a] mt-4 rounded-full" />
       </motion.div>
       
-      {/* SECCIÓN: BANNER INMERSIVO */}
+      {/* SECCIÓN: BANNER INMERSIVO (Con imagen, pero SIN cifras de familias) */}
       <motion.div 
         variants={itemVariants}
         className="relative h-[400px] rounded-[3rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,100,55,0.2)] group"
@@ -101,10 +103,13 @@ export default function GestionSocial() {
             transition={{ delay: 0.5 }}
             className="max-w-2xl"
           >
-            <h2 className="text-white font-bold text-3xl md:text-4xl leading-tight mb-4">
+            <h2 className="text-white font-bold text-3xl md:text-4xl leading-tight">
               Construyendo tejido social con <br /> 
               <span className="text-[#a3c74a]">identidad Vallecaucana.</span>
             </h2>
+            
+            {/* AQUÍ ELIMINÉ EL BLOQUE DE LAS FAMILIAS BENEFICIADAS */}
+            
             
             {/* AQUÍ SE ELIMINÓ EL BLOQUE DE AVATARES Y TEXTO DE FAMILIAS BENEFICIADAS */}
             
