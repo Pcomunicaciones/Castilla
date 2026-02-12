@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, Variants } from "framer-motion"
-import { Factory, Truck, Leaf, Settings, ArrowRight, CheckCircle2, Sprout, Gauge } from "lucide-react"
+import { Factory, Truck, CheckCircle2, Sprout, Gauge, Leaf, Recycle, BarChart3 } from "lucide-react"
 
 /* --------------------------------------------------------------------------
    CONFIGURACIÓN DE ANIMACIONES
@@ -10,118 +10,141 @@ const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 }
+    transition: { staggerChildren: 0.2 }
   }
 }
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, x: -20 },
+  hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
-    x: 0, 
-    transition: { duration: 0.5, ease: "easeOut" } 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" } 
   }
 }
 
 const procesos = [
   {
+    id: "01",
     icon: Sprout,
     title: "Siembra y Cosecha",
-    description: "Gestión agrícola de precisión basada en datos para obtener materia prima premium.",
+    description: "Agricultura de precisión. Utilizamos sensores de suelo y drones para garantizar la materia prima más dulce y sostenible.",
     tag: "Origen",
-    color: "bg-emerald-500"
+    color: "bg-emerald-500",
+    lightColor: "bg-emerald-50 text-emerald-600"
   },
   {
+    id: "02",
     icon: Factory,
     title: "Procesamiento",
-    description: "Transformación industrial con tecnología de punta y huella de carbono neutral.",
+    description: "Transformación industrial en nuestro ingenio con tecnología de punta, maximizando la extracción de sacarosa.",
     tag: "Industria",
-    color: "bg-castilla-green"
+    color: "bg-castilla-green", 
+    lightColor: "bg-green-50 text-green-700"
   },
   {
+    id: "03",
     icon: Gauge,
     title: "Control de Calidad",
-    description: "Monitoreo en tiempo real con sensores IoT para garantizar estándares globales.",
+    description: "Laboratorios certificados monitorean cada lote en tiempo real para cumplir estándares internacionales.",
     tag: "Excelencia",
-    color: "bg-castilla-green-dark"
+    color: "bg-castilla-green-dark", 
+    lightColor: "bg-teal-50 text-teal-800"
   },
   {
+    id: "04",
     icon: Truck,
     title: "Distribución",
-    description: "Logística inteligente y trazabilidad total hasta el destino final.",
+    description: "Logística inteligente y flota monitoreada para asegurar la entrega oportuna y trazabilidad total.",
     tag: "Entrega",
-    color: "bg-castilla-yellow text-castilla-green-dark"
+    color: "bg-yellow-500",
+    lightColor: "bg-yellow-50 text-yellow-700"
   },
 ]
 
 export default function CadenaValorPage() {
   return (
-    <div className="space-y-16 pb-20">
+    <div className="space-y-24 pb-20">
       
-      {/* SECCIÓN: ENCABEZADO TIPO HERO */}
+      {/* 1. SECCIÓN: HERO */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative"
+        className="relative pt-10 max-w-6xl mx-auto px-4"
       >
-        <div className="absolute -left-4 top-0 w-1 h-20 bg-castilla-yellow rounded-full hidden md:block" />
-        <span className="text-castilla-green font-black text-xs uppercase tracking-[0.3em] mb-4 block">
-          Ecosistema Operativo
-        </span>
-        <h1 className="text-5xl md:text-6xl font-black text-castilla-green-dark mb-6 tracking-tight">
-          Cadena de <span className="text-castilla-green">Valor</span>
+        <div className="absolute -left-6 top-10 w-2 h-24 bg-yellow-400 rounded-r-full hidden md:block" />
+        
+        <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-50 rounded-full mb-6 border border-green-100">
+           <Leaf size={14} className="text-green-600" />
+           <span className="text-green-800 font-bold text-[10px] uppercase tracking-widest">Modelo Sostenible</span>
+        </div>
+
+        <h1 className="text-5xl md:text-7xl font-black text-[#006437] mb-6 tracking-tight leading-none">
+          Cadena de <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#006437] to-emerald-500">Valor</span>
         </h1>
-        <p className="text-xl text-castilla-gray leading-relaxed max-w-2xl font-light">
+        <p className="text-xl text-gray-500 leading-relaxed max-w-3xl font-light">
           Integramos ciencia, tecnología y respeto por la tierra para crear un ciclo 
-          de producción <span className="font-semibold text-castilla-green-dark">100% circular</span>.
+          de producción <span className="font-bold text-[#006437] bg-green-50 px-2 rounded-lg">100% circular</span> y eficiente.
         </p>
       </motion.div>
 
-      {/* SECCIÓN: BANNER DE IMPACTO (Diseño de Tarjeta de Datos) */}
+      {/* 2. SECCIÓN: BANNER DE IMPACTO (CORREGIDO) */}
       <motion.section
-        initial={{ opacity: 0, scale: 0.98 }}
+        initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="relative overflow-hidden bg-castilla-green-dark text-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl"
+        className="relative overflow-hidden bg-[#006437] text-white rounded-[3rem] p-8 md:p-12 shadow-2xl max-w-7xl mx-auto"
       >
-        {/* Decoración de fondo */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full -mr-20 -mt-20 blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-400 opacity-10 rounded-full -ml-20 -mb-20 blur-3xl" />
         
-        <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
-          <div className="flex-1 space-y-6">
-            <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-md">
-              <CheckCircle2 size={18} className="text-castilla-yellow" />
-              <span className="text-sm font-bold uppercase tracking-wider">Eficiencia Integrada</span>
+        {/* Ajuste de gap y alineación para evitar solapamiento */}
+        <div className="relative z-10 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+          
+          <div className="flex-1 space-y-6 md:space-y-8 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-md border border-white/10">
+              <Recycle size={18} className="text-yellow-400" />
+              <span className="text-xs md:text-sm font-bold uppercase tracking-wider">Eficiencia Integrada</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-              Optimizamos cada gramo de materia prima.
+            
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+              Optimizamos cada gramo de <span className="text-yellow-400 italic">materia prima.</span>
             </h2>
-            <p className="text-white/70 text-lg leading-relaxed font-light">
+            
+            <p className="text-white/80 text-base md:text-lg leading-relaxed font-light max-w-xl mx-auto lg:mx-0">
               Nuestra integración vertical permite minimizar el desperdicio. 
-              Transformamos subproductos como el bagazo en energía limpia, cerrando el círculo de sostenibilidad.
+              Transformamos subproductos como el bagazo en energía limpia.
             </p>
           </div>
 
-          {/* Estadísticas rápidas */}
-          <div className="grid grid-cols-2 gap-4 w-full lg:w-auto">
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-3xl border border-white/10 text-center">
-              <span className="block text-4xl font-black text-castilla-yellow mb-1">100%</span>
-              <span className="text-xs uppercase font-bold tracking-tighter opacity-60">Trazabilidad Total</span>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-3xl border border-white/10 text-center">
-              <span className="block text-4xl font-black text-white mb-1">∞</span>
-              <span className="text-xs uppercase font-bold tracking-tighter opacity-60">Economía Circular</span>
-            </div>
+          {/* Tarjetas de estadísticas corregidas */}
+          <div className="grid grid-cols-2 gap-4 md:gap-6 w-full lg:w-auto min-w-[300px]">
+            <motion.div whileHover={{ scale: 1.05 }} className="bg-white/10 backdrop-blur-sm p-6 rounded-3xl border border-white/10 text-center group flex flex-col items-center justify-center">
+              <div className="mb-3 flex justify-center text-yellow-400 group-hover:scale-110 transition-transform">
+                <BarChart3 size={28} />
+              </div>
+              {/* Ajuste de tamaño de fuente para evitar corte */}
+              <span className="block text-3xl md:text-4xl font-black text-white mb-2 leading-none">100%</span>
+              <span className="text-[10px] md:text-xs uppercase font-bold tracking-widest opacity-70">Trazabilidad</span>
+            </motion.div>
+            
+            <motion.div whileHover={{ scale: 1.05 }} className="bg-white/10 backdrop-blur-sm p-6 rounded-3xl border border-white/10 text-center group flex flex-col items-center justify-center">
+              <div className="mb-3 flex justify-center text-yellow-400 group-hover:scale-110 transition-transform">
+                <Recycle size={28} />
+              </div>
+              <span className="block text-4xl md:text-5xl font-black text-white mb-2 leading-none">∞</span>
+              <span className="text-[10px] md:text-xs uppercase font-bold tracking-widest opacity-70">Circularidad</span>
+            </motion.div>
           </div>
         </div>
       </motion.section>
 
-      {/* SECCIÓN: FLUJO DE PROCESOS (Diseño dinámico) */}
-      <section className="relative">
-        <div className="flex items-center justify-between mb-12">
-          <h2 className="text-2xl font-black text-castilla-green-dark uppercase tracking-tighter">
-            Etapas del Ciclo Productivo
+      {/* 3. SECCIÓN: FLUJO DE PROCESOS (GRID 2x2) */}
+      <section className="relative max-w-6xl mx-auto px-4">
+        <div className="flex items-end justify-between mb-16 border-b border-gray-100 pb-6">
+          <h2 className="text-3xl font-black text-[#006437] uppercase tracking-tighter">
+            Ciclo Productivo
           </h2>
         </div>
 
@@ -130,66 +153,63 @@ export default function CadenaValorPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 relative"
+          className="grid md:grid-cols-2 gap-8 md:gap-12 relative"
         >
           {procesos.map((proceso, index) => (
             <motion.div
               key={proceso.title}
               variants={cardVariants}
-              whileHover={{ y: -8 }}
-              className="group relative p-8 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500"
+              whileHover={{ y: -10 }}
+              className="group relative p-10 bg-white rounded-[3rem] border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(0,100,55,0.15)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[320px]"
             >
-              {/* Badge de Categoría */}
-              <span className="absolute top-6 right-6 text-[10px] font-black uppercase tracking-[0.2em] text-gray-300 group-hover:text-castilla-yellow transition-colors">
-                {proceso.tag}
-              </span>
-
-              {/* Icono Animado */}
-              <div className={`w-14 h-14 ${proceso.color} text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300`}>
-                <proceso.icon size={28} />
+              {/* Cabecera segura */}
+              <div className="flex justify-between items-start mb-8 relative z-20 w-full">
+                <div className={`w-20 h-20 ${proceso.lightColor} rounded-3xl flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500`}>
+                  <proceso.icon size={36} />
+                </div>
+                <span className="inline-block py-2 px-4 rounded-xl text-[10px] font-black uppercase tracking-widest bg-gray-50 text-gray-400 border border-gray-100 group-hover:bg-[#006437] group-hover:text-white transition-all">
+                  {proceso.tag}
+                </span>
               </div>
 
-              <h3 className="text-xl font-bold text-castilla-green-dark mb-3 group-hover:text-castilla-green transition-colors">
-                {proceso.title}
-              </h3>
-              
-              <p className="text-sm text-castilla-gray leading-relaxed font-light">
-                {proceso.description}
-              </p>
+              {/* Contenido */}
+              <div className="relative z-20">
+                <h3 className="text-3xl font-bold text-[#006437] mb-4 tracking-tight">
+                  {proceso.title}
+                </h3>
+                <p className="text-base text-gray-500 leading-relaxed font-medium max-w-sm">
+                  {proceso.description}
+                </p>
+              </div>
 
-              {/* Flecha de conexión (Solo visible en desktop y no en el último) */}
-              {index < procesos.length - 1 && (
-                <div className="absolute -right-6 top-1/2 -translate-y-1/2 z-20 hidden lg:block">
-                  <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ repeat: Infinity, duration: 2 }}
-                    className="text-gray-200"
-                  >
-                    <ArrowRight size={24} />
-                  </motion.div>
-                </div>
-              )}
+              {/* Número de fondo */}
+              <span className="absolute -right-6 -bottom-10 text-[10rem] font-black text-gray-50 opacity-60 select-none group-hover:text-gray-100 transition-colors pointer-events-none z-0">
+                {proceso.id}
+              </span>
             </motion.div>
           ))}
         </motion.div>
       </section>
 
-      {/* SECCIÓN: CIERRE / CERTIFICACIÓN */}
+      {/* 4. SECCIÓN: CERTIFICACIÓN */}
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="flex flex-col md:flex-row items-center gap-4 p-6 border-t border-gray-100 opacity-60 hover:opacity-100 transition-opacity"
+        className="max-w-4xl mx-auto mt-12 flex flex-col md:flex-row items-center justify-center gap-6 p-8 bg-gray-50/50 rounded-3xl border border-dashed border-gray-200"
       >
-        <div className="flex -space-x-2">
+        <div className="flex -space-x-3">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="w-8 h-8 rounded-full bg-gray-100 border-2 border-white flex items-center justify-center">
-              <CheckCircle2 size={14} className="text-castilla-green" />
+            <div key={i} className="w-12 h-12 rounded-full bg-white border-2 border-gray-50 flex items-center justify-center shadow-sm">
+              <CheckCircle2 size={20} className="text-[#006437]" />
             </div>
           ))}
         </div>
-        <p className="text-xs font-medium text-castilla-gray">
-          Procesos auditados bajo estándares internacionales de calidad y sostenibilidad ISO 14001.
-        </p>
+        <div className="text-center md:text-left">
+            <h4 className="text-base font-bold text-[#006437] uppercase tracking-wide">Calidad Certificada</h4>
+            <p className="text-sm text-gray-500">
+          
+            </p>
+        </div>
       </motion.div>
 
     </div>

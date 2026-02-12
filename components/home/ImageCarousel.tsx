@@ -118,8 +118,9 @@ export function ImageCarousel() {
               {/* OVERLAY DINÁMICO */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent z-10" />
 
-              {/* CONTENIDO DE TEXTO ANIMADO */}
-              <div className="relative z-20 h-full flex flex-col justify-center px-10 md:px-20 text-white max-w-3xl">
+              {/* CONTENIDO DE TEXTO ANIMADO (AJUSTADO) */}
+              {/* Se cambió el padding: pl (padding-left) para margen izquierdo y pr (padding-right) MUY GRANDE para evitar la flecha derecha */}
+              <div className="relative z-20 h-full flex flex-col justify-center pl-14 md:pl-24 pr-24 md:pr-40 text-white max-w-4xl">
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
