@@ -151,7 +151,7 @@ export default function QuienesSomosPage() {
       </motion.section>
 
       {/* ================================================================
-          VALORES (Grid Interactivo con Reveal)
+          VALORES (CORREGIDO: Layout 2 columnas x 2 filas)
           ================================================================ */}
       <section>
         <div className="text-center mb-16">
@@ -159,7 +159,12 @@ export default function QuienesSomosPage() {
           <div className="w-24 h-2 bg-castilla-yellow mx-auto mt-4 rounded-full" />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* CAMBIO CLAVE: 
+           - 'grid-cols-1 md:grid-cols-2': En tablet y escritorio serán 2 columnas.
+           - 'max-w-5xl mx-auto': Centra el bloque para que no se estiren demasiado.
+           - 'gap-8': Buen espacio entre tarjetas.
+        */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {valores.map((valor, index) => (
             <motion.div
               key={valor.title}
@@ -167,15 +172,17 @@ export default function QuienesSomosPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.05 }}
-              className="group p-8 bg-white rounded-[2rem] border border-gray-100 shadow-xl hover:shadow-2xl transition-all cursor-default"
+              className="group p-8 bg-white rounded-[2rem] border border-gray-100 shadow-xl hover:shadow-2xl transition-all cursor-default flex flex-col items-start"
             >
               <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${valor.color} flex items-center justify-center mb-6 text-white shadow-lg group-hover:rotate-12 transition-transform`}>
                 <valor.icon size={28} />
               </div>
-              <h3 className="text-xl font-bold text-castilla-green-dark mb-3 group-hover:text-castilla-green transition-colors">
+              
+              <h3 className="text-2xl font-bold text-castilla-green-dark mb-3 group-hover:text-castilla-green transition-colors tracking-tight">
                 {valor.title}
               </h3>
-              <p className="text-sm text-castilla-gray leading-relaxed">
+              
+              <p className="text-sm text-castilla-gray leading-relaxed font-medium">
                 {valor.description}
               </p>
             </motion.div>
