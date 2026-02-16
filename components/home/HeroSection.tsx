@@ -31,7 +31,7 @@ const HERO_SLIDES = [
     tag: "Nuestra Operación",
     title: "Eficiencia y calidad en cada proceso",
     description: "Conoce nuestra cadena de valor y cómo integramos tecnología en nuestros cultivos.",
-    image: "/Imagenes/trabajadores.jpg",
+    image: "/Imagenes/DSC_0422.jpg",
     theme: "#88c336",
     primaryBtn: { text: "Cadena de Valor", href: "/Operacion/cadena-de-valor" },
     secondaryBtn: { text: "Proyectos", href: "/Operacion/proyectos-inmobiliarios" }
@@ -131,21 +131,7 @@ export function HeroSection() {
 
           {/* Logo en caja Glassmorphism mejorada */}
           <div className="hidden lg:flex justify-end pr-12">
-              <motion.div 
-                animate={{ 
-                  y: [0, -15, 0],
-                  rotateY: [0, 5, 0] 
-                }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="relative w-72 h-72 bg-white/10 backdrop-blur-2xl rounded-[4rem] border border-white/20 flex items-center justify-center shadow-[0_0_50px_rgba(0,0,0,0.3)] group"
-              >
-                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-[4rem]" />
-                 <img 
-                   src="/Imagenes/Logo retina.png" 
-                   className="w-40 h-40 object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity" 
-                   alt="Logo"
-                 />
-              </motion.div>
+             
           </div>
         </div>
       </div>

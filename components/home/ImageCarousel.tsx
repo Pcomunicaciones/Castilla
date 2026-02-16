@@ -9,7 +9,7 @@ const carouselItems = [
     id: 1,
     title: "Campos de Caña de Azúcar",
     description: "Extensas hectáreas cultivadas con las mejores prácticas agrícolas.",
-    image: "/Imagenes/Exportado 5.jpg", 
+    image: "/Imagenes/DSC_0131.JPG", 
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const carouselItems = [
     id: 3,
     title: "Innovación Agrícola",
     description: "Tecnología de punta aplicada al campo colombiano.",
-    image: "/Imagenes/Exportado 6.jpg", 
+    image: "/Imagenes/DSC_0094.jpg", 
   },
   {
     id: 4,
