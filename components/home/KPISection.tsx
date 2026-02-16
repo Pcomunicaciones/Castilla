@@ -1,7 +1,6 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useInView } from "framer-motion"
+import { motion, useScroll, useTransform, useInView } from "framer-motion"
 import { useRef } from "react"
 import { KPICard } from "./KPICard"
 
@@ -14,32 +13,36 @@ const kpiData = [
 
 export function KPISection() {
   const containerRef = useRef(null)
-  const isInView = useInView(containerRef, { once: false, margin: "-100px" })
+  
+  // OPTIMIZACIÓN 1: 'once: true' ahorra recursos al no re-animar al scrollear hacia arriba
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" })
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   })
 
-  // Parallax: La imagen se mueve ligeramente hacia arriba
+  // Parallax optimizado (Valores más cortos para evitar saltos grandes)
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"])
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
 
   return (
     <section ref={containerRef} className="relative py-40 overflow-hidden bg-black">
-      {/* 1. IMAGEN DE FONDO ORIGINAL CON TRATAMIENTO */}
+      
+      {/* 1. IMAGEN DE FONDO (Optimizado con will-change) */}
       <motion.div 
         style={{ y: backgroundY, opacity }}
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 will-change-[transform,opacity]"
       >
         <img 
           src="/Imagenes/Exportado 8.jpg" 
           alt="Cifras Castilla Agrícola"
+          loading="lazy"
           className="w-full h-full object-cover scale-110"
         />
-        {/* Overlay Verde Intenso para profundidad */}
-        <div className="absolute inset-0 bg-[#002b18]/85 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+        {/* Overlays estáticos (CSS puro es más rápido que motion.div si no se animan) */}
+        <div className="absolute inset-0 bg-[#002b18]/85 mix-blend-multiply pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none" />
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -48,8 +51,10 @@ export function KPISection() {
             <motion.div
               initial={{ x: -20, opacity: 0 }}
               animate={isInView ? { x: 0, opacity: 1 } : {}}
-              className="inline-flex items-center gap-3 px-4 py-2 bg-castilla-yellow/10 border border-castilla-yellow/20 rounded-full text-castilla-yellow text-xs font-bold uppercase tracking-[0.5em] mb-6"
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="inline-flex items-center gap-3 px-4 py-2 bg-castilla-yellow/10 border border-castilla-yellow/20 rounded-full text-castilla-yellow text-xs font-bold uppercase tracking-[0.5em] mb-6 will-change-[transform,opacity]"
             >
+              {/* Ping optimizado con CSS nativo si es posible, o mantenemos este si es suave */}
               <div className="w-2 h-2 bg-castilla-yellow rounded-full animate-ping" />
               Impacto Real
             </motion.div>
@@ -62,8 +67,8 @@ export function KPISection() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.5 }}
-            className="md:max-w-xs"
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="md:max-w-xs will-change-[transform,opacity]"
           >
             <p className="text-white/50 text-xl font-light border-l-2 border-castilla-yellow pl-6">
               Nuestra operación se mide en resultados, pero se vive en el bienestar de nuestra gente.
@@ -71,7 +76,7 @@ export function KPISection() {
           </motion.div>
         </header>
 
-        {/* 2. GRID DE TARJETAS GLASS INTERACTIVAS */}
+        {/* 2. GRID DE TARJETAS (Renderizado eficiente) */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {kpiData.map((kpi, index) => (
             <KPICard
@@ -80,17 +85,19 @@ export function KPISection() {
               suffix={kpi.suffix}
               label={kpi.label}
               description={kpi.description}
-              delay={index * 0.15}
+              delay={index * 0.1} // Delay ligeramente reducido para sensación más rápida
             />
           ))}
         </div>
       </div>
 
-      {/* 3. ELEMENTO DECORATIVO: LÍNEA DE MOVIMIENTO */}
+      {/* 3. ELEMENTO DECORATIVO (Optimizado) */}
       <motion.div 
+        // Usar animate en lugar de style para loops infinitos es correcto, pero...
+        // ...aseguramos que use transform: translateX
         animate={{ x: ["-100%", "100%"] }}
         transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-20 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"
+        className="absolute bottom-20 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent will-change-transform pointer-events-none"
       />
     </section>
   )

@@ -12,13 +12,35 @@ export function Footer() {
    */
   const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.656208035345!2d-76.52455038865666!3d3.4598737965099395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ebad0068ec4a81%3A0x9c1cc2b4e3289ba2!2sCra.%201%20%2324-56%2C%20San%20Nicolas%2C%20Cali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1707486000000!5m2!1ses!2sco"
 
+  /**
+   * CONFIGURACIÓN DE REDES SOCIALES
+   * Enlaces actualizados:
+   */
+  const socialLinks = [
+    {
+      Icon: Linkedin,
+      href: "https://www.linkedin.com/company/agricolacastillasa/?originalSubdomain=co", // Link LinkedIn Actualizado
+      label: "LinkedIn"
+    },
+    {
+      Icon: Facebook,
+      href: "https://www.facebook.com/people/Castilla-Agr%C3%ADcola-Riopaila-Agr%C3%ADcola/100083044706351/?locale=es_ES#", // Link Facebook Actualizado
+      label: "Facebook"
+    },
+    {
+      Icon: Instagram,
+      href: "https://www.instagram.com/riocasben/", // Link Instagram Actualizado
+      label: "Instagram"
+    }
+  ]
+
   return (
     <footer className="relative bg-[#001a0e] text-white pt-12 pb-8 overflow-hidden border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         <div className="grid lg:grid-cols-12 gap-8 items-center">
           
-          {/* COL 1: BRANDING */}
+          {/* COL 1: BRANDING Y REDES SOCIALES */}
           <div className="lg:col-span-3 space-y-4">
             <motion.div whileHover={{ scale: 1.02 }} className="h-10">
               <img 
@@ -30,15 +52,20 @@ export function Footer() {
             <p className="text-xs text-gray-400 leading-relaxed max-w-xs">
               Sostenibilidad y tradición transformando el campo colombiano.
             </p>
+            
+            {/* REDES SOCIALES CON LINKS REALES */}
             <div className="flex gap-2">
-              {[Linkedin, Facebook, Instagram].map((Icon, i) => (
+              {socialLinks.map((item, i) => (
                 <motion.a
                   key={i}
-                  href="#"
+                  href={item.href}
+                  target="_blank"             // Abrir en nueva pestaña
+                  rel="noopener noreferrer"   // Seguridad
+                  aria-label={item.label}
                   whileHover={{ y: -2, backgroundColor: "#fbbf24", color: "#000" }}
-                  className="p-2 bg-white/5 rounded-lg border border-white/10 transition-all shadow-sm"
+                  className="p-2 bg-white/5 rounded-lg border border-white/10 transition-all shadow-sm cursor-pointer"
                 >
-                  <Icon size={16} />
+                  <item.Icon size={16} />
                 </motion.a>
               ))}
             </div>
@@ -57,7 +84,7 @@ export function Footer() {
             <div className="space-y-3">
               <h4 className="text-castilla-yellow font-bold text-[10px] uppercase tracking-[0.2em]">Contacto</h4>
               <div className="text-[11px] text-gray-400 space-y-2">
-                <p className="flex items-center gap-2"><Phone size={10} className="text-castilla-yellow"/> +57 (2) 660 6666</p>
+                <p className="flex items-center gap-2"><Phone size={10} className="text-castilla-yellow"/> (57)(602)4855974</p>
                 <p className="flex items-center gap-2 truncate"><Mail size={10} className="text-castilla-yellow"/> Administracion.Corp@Agroriocas.Com</p>
               </div>
             </div>
