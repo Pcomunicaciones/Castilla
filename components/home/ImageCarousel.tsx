@@ -75,6 +75,7 @@ export function ImageCarousel() {
     <section className="py-24 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
+        {/* TÍTULO DE SECCIÓN */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,6 +88,7 @@ export function ImageCarousel() {
           <div className="w-24 h-1 bg-castilla-yellow mx-auto mt-4 rounded-full" />
         </motion.div>
 
+        {/* CONTENEDOR PRINCIPAL DEL CARRUSEL */}
         <div
           className="relative overflow-hidden rounded-[2.5rem] shadow-2xl bg-stone-900 h-[500px] md:h-[650px] group"
           onMouseEnter={() => setIsAutoPlaying(false)}
@@ -106,7 +108,7 @@ export function ImageCarousel() {
               }}
               className="absolute inset-0"
             >
-              {/* IMAGEN CON EFECTO KEN BURNS (Zoom lento) */}
+              {/* IMAGEN DE FONDO */}
               <motion.img 
                 animate={{ scale: [1, 1.1] }}
                 transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
@@ -115,24 +117,24 @@ export function ImageCarousel() {
                 className="absolute inset-0 w-full h-full object-cover"
               />
               
-              {/* OVERLAY DINÁMICO */}
+              {/* OVERLAY DEGRADADO */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent z-10" />
 
-              {/* CONTENIDO DE TEXTO ANIMADO (AJUSTADO) */}
-              {/* Se cambió el padding: pl (padding-left) para margen izquierdo y pr (padding-right) MUY GRANDE para evitar la flecha derecha */}
-              <div className="relative z-20 h-full flex flex-col justify-center pl-14 md:pl-24 pr-24 md:pr-40 text-white max-w-4xl">
+              {/* CONTENIDO DE TEXTO */}
+              {/* Ajuste: pb-24 para dar espacio a los controles inferiores en móvil */}
+              <div className="relative z-20 h-full flex flex-col justify-center pl-10 md:pl-24 pr-10 pb-24 md:pb-0 text-white max-w-4xl">
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3, duration: 0.8 }}
                 >
-                  <span className="inline-block px-4 py-1 bg-castilla-yellow text-castilla-green-dark text-xs font-black uppercase tracking-widest rounded-full mb-6">
+                  <span className="inline-block px-4 py-1 bg-castilla-yellow text-castilla-green-dark text-xs font-black uppercase tracking-widest rounded-full mb-6 shadow-md">
                     Castilla en Acción
                   </span>
-                  <h3 className="text-5xl md:text-7xl font-extrabold mb-6 leading-none">
+                  <h3 className="text-4xl md:text-7xl font-extrabold mb-6 leading-none drop-shadow-lg">
                     {currentItem.title}
                   </h3>
-                  <p className="text-xl md:text-2xl text-white/80 font-light max-w-xl border-l-4 border-castilla-yellow pl-6">
+                  <p className="text-lg md:text-2xl text-white/90 font-light max-w-xl border-l-4 border-castilla-yellow pl-6">
                     {currentItem.description}
                   </p>
                 </motion.div>
@@ -140,35 +142,39 @@ export function ImageCarousel() {
             </motion.div>
           </AnimatePresence>
 
-          {/* BARRA DE PROGRESO */}
+          {/* BARRA DE PROGRESO INFERIOR (Opcional, se mantiene si te gusta) */}
           {isAutoPlaying && (
             <motion.div 
               key={`progress-${currentIndex}`}
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
               transition={{ duration: 6, ease: "linear" }}
-              className="absolute bottom-0 left-0 h-1.5 bg-castilla-yellow z-40 shadow-[0_0_10px_#facc15]"
+              className="absolute bottom-0 left-0 h-1 bg-castilla-yellow z-40"
             />
           )}
 
-          {/* BOTONES DE NAVEGACIÓN (Solo visibles en hover) */}
-          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-6 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {/* --- BOTONES DE NAVEGACIÓN (NUEVA UBICACIÓN: ABAJO DERECHA) --- */}
+          {/* Ajuste: p-2 md:p-3 para ser más pequeños que en el Hero */}
+          <div className="absolute bottom-8 right-8 flex gap-3 z-30">
             <button 
               onClick={() => paginate(-1)} 
-              className="p-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-castilla-yellow hover:text-castilla-green-dark transition-all active:scale-90"
+              className="p-2 md:p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-castilla-yellow hover:text-castilla-green-dark transition-all active:scale-90 shadow-lg"
+              aria-label="Anterior"
             >
-              <ChevronLeft size={32} />
+              <ChevronLeft size={24} /> {/* Icono un poco más pequeño */}
             </button>
             <button 
               onClick={() => paginate(1)} 
-              className="p-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-castilla-yellow hover:text-castilla-green-dark transition-all active:scale-90"
+              className="p-2 md:p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-castilla-yellow hover:text-castilla-green-dark transition-all active:scale-90 shadow-lg"
+              aria-label="Siguiente"
             >
-              <ChevronRight size={32} />
+              <ChevronRight size={24} />
             </button>
           </div>
 
-          {/* INDICADORES (DOTS) */}
-          <div className="absolute bottom-10 right-10 flex gap-3 z-30">
+          {/* --- INDICADORES / PUNTOS (NUEVA UBICACIÓN: ABAJO IZQUIERDA) --- */}
+          {/* Movidos a la izquierda para balancear el diseño */}
+          <div className="absolute bottom-8 left-8 flex gap-3 z-30">
             {carouselItems.map((_, index) => (
               <button
                 key={index}
@@ -176,14 +182,16 @@ export function ImageCarousel() {
                   const dir = index > currentIndex ? 1 : -1;
                   setPage([index, dir]);
                 }}
-                className={`transition-all duration-500 rounded-full ${
+                className={`transition-all duration-500 rounded-full shadow-sm ${
                   currentIndex === index 
-                  ? "w-10 h-2 bg-castilla-yellow" 
-                  : "w-2 h-2 bg-white/40 hover:bg-white"
+                  ? "w-8 h-1.5 bg-castilla-yellow" 
+                  : "w-2 h-1.5 bg-white/40 hover:bg-white"
                 }`}
+                aria-label={`Ir a imagen ${index + 1}`}
               />
             ))}
           </div>
+
         </div>
       </div>
     </section>

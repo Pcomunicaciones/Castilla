@@ -78,7 +78,7 @@ export function HeroSection() {
 
       {/* 2. CONTENIDO DE TEXTO */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full h-full flex flex-col justify-center">
-        <div className="max-w-4xl pb-16 md:pb-0"> {/* Padding bottom extra en móvil para no chocar con botones */}
+        <div className="max-w-4xl pb-24 md:pb-0"> {/* Padding bottom aumentado para seguridad */}
           
           <AnimatePresence mode="wait">
             <motion.div
@@ -100,7 +100,7 @@ export function HeroSection() {
                 </span>
               </motion.div>
 
-              {/* Título Principal - Ajustado para móvil */}
+              {/* Título Principal */}
               <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] md:leading-[1] mb-6 drop-shadow-2xl">
                 {HERO_SLIDES[current].title}
               </h1>
@@ -138,44 +138,25 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* 3. CONTROLES DE NAVEGACIÓN - RESPONSIVE (LA SOLUCIÓN CLAVE) */}
-
-      {/* VISTA MÓVIL: Botones abajo a la derecha (Juntos) */}
-      <div className="absolute bottom-8 right-6 flex gap-3 z-30 md:hidden">
+      {/* 3. CONTROLES DE NAVEGACIÓN - UNIFICADOS (ESQUINA INFERIOR DERECHA) */}
+      <div className="absolute bottom-8 right-6 md:bottom-12 md:right-12 flex gap-3 md:gap-4 z-30">
         <button 
           onClick={prevSlide} 
-          className="p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white hover:bg-castilla-yellow hover:text-black transition-all active:scale-95"
+          className="p-3 md:p-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-castilla-yellow hover:text-black hover:scale-105 transition-all duration-300 active:scale-95"
+          aria-label="Anterior"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
         </button>
         <button 
           onClick={nextSlide} 
-          className="p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white hover:bg-castilla-yellow hover:text-black transition-all active:scale-95"
+          className="p-3 md:p-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-castilla-yellow hover:text-black hover:scale-105 transition-all duration-300 active:scale-95"
+          aria-label="Siguiente"
         >
-          <ChevronRight size={24} />
+          <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
         </button>
       </div>
 
-      {/* VISTA DE ESCRITORIO: Botones a los lados (Centrados verticalmente) */}
-      <div className="hidden md:flex absolute inset-0 justify-between items-center px-8 pointer-events-none z-30">
-        {/* Botón Izquierda */}
-        <button 
-          onClick={prevSlide} 
-          className="pointer-events-auto p-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-castilla-yellow hover:text-black transition-all hover:scale-110 opacity-0 group-hover:opacity-100 duration-300 transform translate-x-4 group-hover:translate-x-0"
-        >
-          <ChevronLeft size={32} />
-        </button>
-
-        {/* Botón Derecha */}
-        <button 
-          onClick={nextSlide} 
-          className="pointer-events-auto p-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-castilla-yellow hover:text-black transition-all hover:scale-110 opacity-0 group-hover:opacity-100 duration-300 transform -translate-x-4 group-hover:translate-x-0"
-        >
-          <ChevronRight size={32} />
-        </button>
-      </div>
-
-      {/* 4. INDICADORES DE PROGRESO (BARRITAS) */}
+      {/* 4. INDICADORES DE PROGRESO (BARRITAS - IZQUIERDA) */}
       <div className="absolute bottom-8 left-6 md:bottom-12 md:left-12 flex items-center gap-4 z-20">
         <div className="text-white/40 font-mono text-xs tracking-widest hidden sm:block">
           0{current + 1} / 0{HERO_SLIDES.length}
@@ -188,6 +169,7 @@ export function HeroSection() {
               className={`h-1.5 rounded-full transition-all duration-700 ${
                 current === index ? "w-8 md:w-12 bg-castilla-yellow" : "w-2 md:w-3 bg-white/20"
               }`}
+              aria-label={`Ir a diapositiva ${index + 1}`}
             />
           ))}
         </div>
