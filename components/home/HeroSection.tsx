@@ -52,13 +52,12 @@ export function HeroSection() {
   const prevSlide = () => setCurrent(current === 0 ? HERO_SLIDES.length - 1 : current - 1)
 
   return (
-    // CAMBIO 1: min-h-screen para ocupar el 100% de la pantalla sin fugas
     <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden bg-black">
       
       <AnimatePresence mode="wait">
         <motion.div
           key={HERO_SLIDES[current].image}
-          initial={{ opacity: 0, scale: 1.1 }} // Zoom inicial ligeramente mayor
+          initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
@@ -69,19 +68,19 @@ export function HeroSection() {
             alt="Fondo Castilla"
             className="w-full h-full object-cover"
           />
-          {/* CAMBIO 2: Overlays ajustados para evitar transparencia en la base */}
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#002b18]" />
         </motion.div>
       </AnimatePresence>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Se cambió el grid para que el contenido ocupe todo el ancho o se centre si prefieres */}
+        <div className="flex flex-col justify-center items-start h-full max-w-3xl">
           
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0, y: 30 }} // Entrada desde abajo
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.6, ease: "anticipate" }}
@@ -129,28 +128,12 @@ export function HeroSection() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Logo en caja Glassmorphism mejorada */}
-          <div className="hidden lg:flex justify-end pr-12">
-              <motion.div 
-                animate={{ 
-                  y: [0, -15, 0],
-                  rotateY: [0, 5, 0] 
-                }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="relative w-72 h-72 bg-white/10 backdrop-blur-2xl rounded-[4rem] border border-white/20 flex items-center justify-center shadow-[0_0_50px_rgba(0,0,0,0.3)] group"
-              >
-                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-[4rem]" />
-                 <img 
-                   src="/Imagenes/Logo retina.png" 
-                   className="w-40 h-40 object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity" 
-                   alt="Logo"
-                 />
-              </motion.div>
-          </div>
+          {/* AQUÍ SE ELIMINÓ EL DIV DEL LOGO GRANDE */}
+
         </div>
       </div>
 
-      {/* Controles de Navegación Refinados */}
+      {/* Controles de Navegación */}
       <div className="absolute bottom-12 right-12 flex gap-4 z-20">
         <button onClick={prevSlide} className="group p-4 border border-white/20 rounded-2xl text-white hover:bg-castilla-yellow hover:text-black transition-all duration-300">
           <ChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
@@ -160,7 +143,7 @@ export function HeroSection() {
         </button>
       </div>
 
-      {/* Indicadores de progreso laterales o inferiores */}
+      {/* Indicadores de progreso */}
       <div className="absolute bottom-12 left-12 flex items-center gap-4 z-20">
         <div className="text-white/40 font-mono text-xs tracking-widest">
           0{current + 1} / 0{HERO_SLIDES.length}

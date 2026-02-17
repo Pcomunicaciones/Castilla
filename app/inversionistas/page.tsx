@@ -194,10 +194,10 @@ const AsambleaView = ({ subId }: { subId: string }) => (
         <SectionTitle title="Convocatoria" subtitle="Asamblea General Ordinaria" />
         <div className="bg-[#f1f8e9] p-10 rounded-[2.5rem] border border-[#a3c74a]/20 mb-8 relative overflow-hidden shadow-sm">
            <div className="relative z-10">
-              <p className="text-[#006437] text-base font-medium leading-relaxed mb-6 max-w-2xl">
-                Documento oficial de citación a la reunión ordinaria del máximo órgano social de Castilla Agrícola S.A.
-              </p>
-              <DocumentCell title="Aviso de Convocatoria 2026" subtitle="Publicación en Prensa" />
+             <p className="text-[#006437] text-base font-medium leading-relaxed mb-6 max-w-2xl">
+               Documento oficial de citación a la reunión ordinaria del máximo órgano social de Castilla Agrícola S.A.
+             </p>
+             <DocumentCell title="Aviso de Convocatoria 2026" subtitle="Publicación en Prensa" />
            </div>
            <Users className="absolute -top-6 -right-6 text-[#a3c74a] opacity-10 w-48 h-48 rotate-12" />
         </div>
@@ -331,7 +331,7 @@ export default function InversionistasPage() {
   }
 
   return (
-    <div className="flex bg-[#fcfdfc] min-h-screen font-[Tahoma,Geneva,sans-serif] selection:bg-[#a3c74a] selection:text-[#006437]">
+    <div style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }} className="flex bg-[#fcfdfc] min-h-screen selection:bg-[#a3c74a] selection:text-[#006437]">
       
       {/* SIDEBAR */}
       <>
@@ -342,7 +342,6 @@ export default function InversionistasPage() {
           {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* AJUSTE CLAVE: top-0 -> top-24 para bajar el sidebar */}
         <aside className={`
           fixed lg:sticky top-0 lg:top-24 left-0 h-[calc(100vh-6rem)] w-[360px] bg-white border-r border-gray-100 flex flex-col transition-transform duration-300 z-40 overflow-y-auto custom-scrollbar shadow-2xl lg:shadow-none rounded-tr-[2rem]
           ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
@@ -350,8 +349,9 @@ export default function InversionistasPage() {
           {/* Header Sidebar */}
           <div className="p-12 pb-8 border-b border-gray-50">
             <span className="text-[10px] font-black text-[#a3c74a] tracking-[0.3em] uppercase block mb-3">PORTAL WEB</span>
-            <h2 className="text-4xl font-black text-[#006437] italic uppercase tracking-tighter leading-none">
-              Inversio<br/>nistas
+            {/* CORRECCIÓN: Se eliminó el salto de línea <br/> para que Inversionistas se lea completo */}
+            <h2 className="text-3xl font-black text-[#006437] italic uppercase tracking-tighter leading-none">
+              Inversionistas
             </h2>
           </div>
 
@@ -418,7 +418,7 @@ export default function InversionistasPage() {
         </aside>
       </>
 
-      {/* 2. ÁREA DE CONTENIDO (CON MÁS ESPACIO SUPERIOR) */}
+      {/* 2. ÁREA DE CONTENIDO */}
       <main className="flex-1 px-6 md:px-12 lg:px-20 pt-32 lg:pt-40 overflow-x-hidden min-h-screen flex flex-col">
         
         {/* Banner Hero */}

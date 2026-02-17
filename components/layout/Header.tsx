@@ -42,7 +42,6 @@ export function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const pathname = usePathname()
 
-  // Determinar si estamos en el Home
   const isHome = pathname === "/"
 
   useEffect(() => {
@@ -51,7 +50,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // El Header es sólido si NO estamos en Home O si hay scroll
   const isSolid = !isHome || isScrolled
 
   const renderLink = (item: any) => {
@@ -61,7 +59,7 @@ export function Header() {
           href={item.href} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="flex items-center justify-between px-4 py-3 text-sm text-castilla-gray hover:bg-castilla-green-light/10 hover:text-castilla-green-dark transition-colors"
+          className="flex items-center justify-between px-4 py-3 text-sm text-gray-600 hover:bg-castilla-green-light/10 hover:text-castilla-green-dark transition-colors"
         >
           {item.name} <ExternalLink size={14} className="ml-2 opacity-50" />
         </a>
@@ -75,7 +73,7 @@ export function Header() {
           "block px-4 py-3 text-sm transition-colors", 
           pathname === item.href 
             ? "bg-castilla-green-dark text-white font-bold" 
-            : "text-castilla-gray hover:bg-castilla-green-light/10 hover:text-castilla-green-dark"
+            : "text-gray-600 hover:bg-castilla-green-light/10 hover:text-castilla-green-dark"
         )}
       >
         {item.name}
@@ -96,12 +94,9 @@ export function Header() {
             <img 
               src="/Imagenes/Logo retina.png" 
               alt="Logo" 
-              className={cn(
-                "h-10 w-auto object-contain transition-all duration-300",
-                isSolid ? "brightness-0 invert" : "" // Vuelve el logo blanco en fondo verde
-              )} 
+              className="h-10 w-auto object-contain transition-all duration-300" 
             />
-            <div className={cn("hidden sm:block transition-colors", isSolid ? "text-white" : "text-castilla-green-dark")}>
+            <div className="hidden sm:block transition-colors text-white">
               <p className="font-bold text-lg leading-tight tracking-tight">Castilla Agrícola</p>
               <p className="text-[10px] font-black opacity-80 uppercase tracking-widest">S.A.</p>
             </div>
@@ -111,15 +106,11 @@ export function Header() {
           <div className="hidden lg:flex items-center space-x-6">
             <Link 
               href="/" 
-              className={cn(
-                "text-sm font-semibold transition-colors", 
-                isSolid ? "text-white/70 hover:text-white" : "text-castilla-gray hover:text-castilla-green-dark"
-              )}
+              className="text-sm font-semibold transition-colors text-white/80 hover:text-white"
             >
               Inicio
             </Link>
             
-            {/* Mapeo de Dropdowns corregido */}
             {[
               { label: "Compañía", menu: companySubmenu, id: "compania" },
               { label: "Operación", menu: operationSubmenu, id: "Operacion" },
@@ -137,9 +128,7 @@ export function Header() {
                 >
                   <button className={cn(
                     "flex items-center space-x-1 text-sm font-semibold py-2 transition-colors outline-none", 
-                    isSolid 
-                      ? (isActive ? "text-[#a3c74a]" : "text-white/70 hover:text-white") 
-                      : (isActive ? "text-[#006437] font-bold" : "text-castilla-gray hover:text-castilla-green-dark")
+                    isActive ? "text-[#a3c74a] font-bold" : "text-white/80 hover:text-white"
                   )}>
                     <span>{d.label}</span>
                     <ChevronDown size={14} className={cn("transition-transform duration-300", openDropdown === d.id && "rotate-180")} />
@@ -165,14 +154,10 @@ export function Header() {
               );
             })}
 
+            {/* BOTÓN INVERSIONISTAS (DESKTOP) - COLOR ACTUALIZADO */}
             <Link 
               href="/inversionistas" 
-              className={cn(
-                "text-sm font-bold py-2 px-6 rounded-full border-2 transition-all", 
-                isSolid 
-                  ? "border-white/20 text-white hover:bg-white hover:text-[#006437]" 
-                  : "border-castilla-green-dark text-castilla-green-dark hover:bg-castilla-green-dark hover:text-white"
-              )}
+              className="text-sm font-bold py-2 px-6 rounded-full border-2 transition-all border-[#88c336] text-[#88c336] hover:bg-[#88c336] hover:text-white"
             >
               Inversionistas
             </Link>
@@ -181,7 +166,7 @@ export function Header() {
           {/* BOTÓN MÓVIL */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-            className={cn("lg:hidden p-2 transition-colors", isSolid ? "text-white" : "text-castilla-gray")}
+            className="lg:hidden p-2 transition-colors text-white"
           >
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -197,7 +182,7 @@ export function Header() {
             exit={{ opacity: 0, height: 0 }} 
             className="lg:hidden bg-white border-t border-gray-100 shadow-2xl overflow-y-auto max-h-[85vh]"
           >
-            <div className="px-6 py-8 space-y-8">
+            <div className="px-6 py-8 space-y-8 text-left">
               {[
                 { label: "Compañía", menu: companySubmenu },
                 { label: "Operación", menu: operationSubmenu },
@@ -214,10 +199,11 @@ export function Header() {
                 </div>
               ))}
               <div className="pt-6 border-t border-gray-100">
+                {/* BOTÓN INVERSIONISTAS (MÓVIL) - COLOR ACTUALIZADO */}
                 <Link 
                   href="/inversionistas" 
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block text-center py-4 bg-[#006437] text-white rounded-2xl font-bold"
+                  className="block text-center py-4 border-2 border-[#88c336] text-[#88c336] rounded-2xl font-bold hover:bg-[#88c336] hover:text-white transition-all"
                 >
                   Inversionistas
                 </Link>
