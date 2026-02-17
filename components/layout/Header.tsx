@@ -89,11 +89,11 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
-          {/* LOGO */}
+          {/* LOGO - CORREGIDO AQUÍ 👇 */}
           <Link href="/" className="flex items-center space-x-3 group">
             <img 
               src="/Imagenes/Logo retina.png" 
-              alt="Logo" 
+              alt="Logo Castilla Agrícola" 
               className="h-10 w-auto object-contain transition-all duration-300" 
             />
             <div className="hidden sm:block transition-colors text-white">
@@ -154,7 +154,7 @@ export function Header() {
               );
             })}
 
-            {/* BOTÓN INVERSIONISTAS (DESKTOP) - COLOR ACTUALIZADO */}
+            {/* BOTÓN INVERSIONISTAS (DESKTOP) */}
             <Link 
               href="/inversionistas" 
               className="text-sm font-bold py-2 px-6 rounded-full border-2 transition-all border-[#88c336] text-[#88c336] hover:bg-[#88c336] hover:text-white"
@@ -199,7 +199,7 @@ export function Header() {
                 </div>
               ))}
               <div className="pt-6 border-t border-gray-100">
-                {/* BOTÓN INVERSIONISTAS (MÓVIL) - COLOR ACTUALIZADO */}
+                {/* BOTÓN INVERSIONISTAS (MÓVIL) */}
                 <Link 
                   href="/inversionistas" 
                   onClick={() => setMobileMenuOpen(false)}
