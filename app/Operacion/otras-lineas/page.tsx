@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Plus, Minus, Beef, Landmark, LeafyGreen, ChevronRight, Share2 } from "lucide-react"
+import { Plus, Minus, Beef, Share2, Trees, Wheat, Sprout } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const lineasNegocio = [
@@ -16,13 +16,31 @@ const lineasNegocio = [
     color: "from-emerald-500/10 to-emerald-600/5"
   },
   {
-    id: "arrendamientos",
-    icon: Landmark,
-    title: "Gestión de Arrendamientos",
-    short: "Administración estratégica de activos territoriales.",
-    details: "Contamos con una robusta gestión de tierras para terceros y socios estratégicos, garantizando que cada predio bajo nuestra administración cumpla con las normativas ambientales y productivas.",
+    id: "limon",
+    icon: Sprout,
+    title: "Cultivo de Limón",
+    short: "Producción citrícola tecnificada y de alta calidad.",
+    details: "Manejamos huertos citrícolas bajo estrictos estándares agronómicos y ambientales. Optimizamos el uso del agua mediante riego tecnificado y aplicamos un manejo integrado para garantizar frutos con calidad de exportación.",
+    image: "/Imagenes/Exportado 2.jpg", 
+    color: "from-lime-500/10 to-lime-600/5"
+  },
+  {
+    id: "mango",
+    icon: Trees,
+    title: "Cultivo de Mango",
+    short: "Variedades seleccionadas con manejo agronómico óptimo.",
+    details: "Producimos mangos con excelentes características organolépticas. Nuestras prácticas agrícolas respetan los ciclos naturales, promoviendo la conservación del suelo y la biodiversidad en nuestros campos de cultivo.",
     image: "/Imagenes/Exportado 2.jpg",
-    color: "from-blue-500/10 to-blue-600/5"
+    color: "from-amber-500/10 to-amber-600/5"
+  },
+  {
+    id: "arroz",
+    icon: Wheat,
+    title: "Cultivo de Arroz",
+    short: "Producción eficiente con manejo responsable del recurso hídrico.",
+    details: "Desarrollamos cultivos de arroz implementando tecnologías de precisión para optimizar el riego y el manejo de suelos. Producimos granos de alta calidad nutricional e industrial reduciendo nuestra huella ambiental.",
+    image: "/Imagenes/Exportado 2.jpg",
+    color: "from-yellow-500/10 to-yellow-600/5"
   }
 ]
 
@@ -46,7 +64,7 @@ export default function OtrasLineasPage() {
         </h1>
         <p className="text-lg text-castilla-gray font-normal leading-relaxed">
           Nuestra capacidad operativa se extiende a diversos sectores clave, 
-          optimizando recursos mediante la <span className="text-castilla-green-dark font-bold">economía circular</span> y la excelencia.
+          optimizizando recursos mediante la <span className="text-castilla-green-dark font-bold">economía circular</span> y la excelencia.
         </p>
       </motion.div>
 
@@ -151,31 +169,6 @@ export default function OtrasLineasPage() {
           </motion.div>
         ))}
       </div>
-
-      {/* CALL TO ACTION FINAL */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="relative group p-1 bg-gradient-to-r from-gray-100 via-castilla-yellow/20 to-gray-100 rounded-[2.5rem]"
-      >
-        <div className="bg-white rounded-[2.4rem] p-10 text-center space-y-4">
-          <div className="w-16 h-16 bg-castilla-green/10 rounded-full flex items-center justify-center mx-auto mb-2 text-castilla-green group-hover:scale-110 transition-transform">
-            <LeafyGreen size={32} />
-          </div>
-          <h4 className="text-2xl font-bold text-castilla-green-dark italic tracking-tight">
-            ¿Busca una alianza en otra área estratégica?
-          </h4>
-          <p className="text-castilla-gray max-w-xl mx-auto font-normal">
-            Nuestra infraestructura y experiencia territorial nos permiten explorar nuevas oportunidades 
-            que generen valor mutuo y desarrollo sostenible.
-          </p>
-          <button className="mt-4 px-8 py-3 bg-castilla-green-dark text-white rounded-xl font-bold hover:bg-castilla-green transition-all shadow-lg flex items-center gap-2 mx-auto uppercase text-xs tracking-widest">
-            Contactar con Diversificación <ChevronRight size={16} />
-          </button>
-        </div>
-      </motion.div>
-      
     </div>
   )
 }
