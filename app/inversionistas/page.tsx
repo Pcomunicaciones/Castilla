@@ -271,14 +271,78 @@ const ConglomeradosView = () => (
 // --- VISTA: INFORMACIÓN RELEVANTE ---
 const InfoRelevanteView = () => {
   const hechos = [
-    { f: "14/11/2025", t: "Informes de fin de Ejercicio", r: "Informe correspondiente al Tercer Trimestre de 2025, bajo CE 012 de 2022 de la SFC.", doc: "informe_3T_2025.pdf" },
-    { f: "15/08/2025", t: "Informes de fin de Ejercicio", r: "Informe correspondiente al Segundo trimestre de 2025, bajo CE 012 de 2022 de la SFC.", doc: "informe_2T_2025.pdf" },
-    { f: "16/05/2025", t: "Informes de fin de Ejercicio", r: "Informe Periódico del primer trimestre del año 2025.", doc: "informe_1T_2025.pdf" },
-    { f: "09/05/2025", t: "Informes de fin de Ejercicio", r: "Informe fin de ejercicio dic 31 de 2024. Revelación asuntos sociales y ambientales.", doc: "informe_ejercicio_2024.pdf" },
-    { f: "26/03/2025", t: "Decisiones Asamblea", r: "Decisiones aprobadas en la reunión ordinaria de la Asamblea General de Accionistas.", doc: "decisiones_asamblea_2025.pdf" },
-    { f: "26/03/2025", t: "Proyecto Dividendos", r: "Distribución de Utilidades del año 2024 aprobado por la Asamblea.", doc: "distribucion_2024.pdf" },
-    { f: "26/03/2025", t: "Novedades Directores", r: "Nueva Junta Directiva Castilla Agrícola S.A. periodo 2025-2026.", doc: "junta_2025.pdf" },
-    { f: "03/03/2025", t: "Convocatoria Asamblea", r: "Citación reunión ordinaria Mixta para el día 26 de marzo de 2025.", doc: "convocatoria_2025.pdf" }
+    { 
+      f: "14/11/2025", 
+      t: "Informes de fin de Ejercicio", 
+      r: "Se presenta el informe correspondiente al Tercer Trimestre de 2025, en cumplimiento de lo establecido en la Circular Externa 012 de 2022 de la Superintendencia Financiera de Colombia.", 
+      doc: "informacion relevante/CAST_INFO-PERIODICO-III-TRIM-2025-EEFF-1.pdf" 
+    },
+    { 
+      f: "15/08/2025", 
+      t: "Informes de fin de Ejercicio", 
+      r: "Se presenta el informe correspondiente al Segundo trimestre de 2025, en cumplimiento de lo establecido en la Circular Externa 012 de 2022 de la Superintendencia Financiera de Colombia.", 
+      doc: "informacion relevante/CASTILLA-INFO-PERIODICO-II-TRIM-2025-Def.pdf" 
+    },
+    { 
+      f: "16/05/2025", 
+      t: "Informes de fin de Ejercicio", 
+      r: "En cumplimiento a la CE 012 de 2022 de la Superintendencia Financiera de Colombia, se publica el Informe Periódico del primer trimestre del año 2025.", 
+      doc: "informacion relevante/INFORME-PERIODICO-IER-TRIMESTRE-2025-CASTILLA.pdf" 
+    },
+    { 
+      f: "09/05/2025", 
+      t: "Informes de fin de Ejercicio", 
+      r: "En cumplimiento a la CE 012 y CE 031 emitida por la Superintendencia Financiera de Colombia, se pública el informe periódico de fin de ejercicio al corte de diciembre 31 de 2024, aprobado en Asamblea General de Accionistas el 26 de marzo de 2025, el cual contiene la revelación de información sobre asuntos sociales y ambientales, incluidos los climáticos.", 
+      doc: "informacion relevante/Informe-Gestion-y-Sostenibilidad-Fin-Ejercicio-2024_Castilla-Agricola.pdf" 
+    },
+    { 
+      f: "26/03/2025", 
+      t: "Decisiones Asamblea", 
+      r: "Castilla Agrícola informa al mercado de valores sobre las decisiones aprobadas en la reunión ordinaria de la Asamblea General de Accionistas, celebrada de manera mixta el 26 de marzo de 2025.", 
+      doc: "informacion relevante/Alcance_Desiciones-Asamblea-General_mzo-26-de-2025_CASTILLA-AGRICOLA.pdf" 
+    },
+    { 
+      f: "26/03/2025", 
+      t: "Otros Eventos", 
+      r: "Se adjunta Proyecto de Distribución de Utilidades del año 2024, aprobado por la Asamblea General de Accionistas en reunión ordinaria, celebrada de manera mixta el día de hoy 26 de marzo de 2025.", 
+      doc: "informacion relevante/CAST_PDU_Util-2024_AGA_Mzo-26_2025.pdf" 
+    },
+    { 
+      f: "26/03/2025", 
+      t: "Novedades Directores", 
+      r: "Se adjunta composición de la nueva Junta Directiva de la sociedad Castilla Agrícola S.A., para el periodo comprendido entre marzo de 2025 a marzo de 2026, elegida por la Asamblea de Accionistas en la reunión ordinaria celebrada hoy 26 de marzo de 2025.", 
+      doc: "informacion relevante/CAST_JUNTA-DIRECTIVA-_AGA_mzo-26_2025.pdf" 
+    },
+    { 
+      f: "04/03/2025", 
+      t: "Otros Eventos", 
+      r: "Se adjunta comunicado que adopta medidas y mecanismos orientados a evitar prácticas ilegales, no autorizadas e inseguras en la representación de los Accionistas en reunión ordinaria de Asamblea General el 26 de marzo de 2025, en Cali, domicilio de la Sociedad.", 
+      doc: "informacion relevante/Castilla-Carta.pdf" 
+    },
+    { 
+      f: "03/03/2025", 
+      t: "Convocatoria Asamblea", 
+      r: "Se adjunta convocatoria a la reunión ordinaria de la Asamblea de Accionistas de Castilla Agrícola S.A., que se celebrará en forma Mixta (virtual y presencial), el día 26 de marzo de 2025, en Cali, domicilio de la Sociedad. Se incluye el Orden del Día.", 
+      doc: "informacion relevante/CAST.-AGRI-CITACION-REUNION-ORDINARIA-MARZO-2025-1.pdf" 
+    },
+    { 
+      f: "03/03/2025", 
+      t: "Informe de fin de Ejercicio", 
+      r: "En cumplimiento de la Circular Externa 031 de 2021, se adjunta información del proyecto dedicado a las prácticas, políticas, procesos e indicadores en relación con los asuntos sociales y ambientales, incluidos los climáticos, que será presentado con el informe de fin de ejercicio 2024 en la asamblea general de accionistas.", 
+      doc: "informacion relevante/CASTILLA-INFORME-AMBIENTAL-ANO-2024-comprimido.pdf" 
+    },
+    { 
+      f: "03/03/2025", 
+      t: "Otros Eventos", 
+      r: "Se adjunta el Proyecto de Distribución de Utilidades del año 2024, que se presentará a consideración de la Asamblea General de Accionistas, en reunión ordinaria el 26 de marzo de 2025 en Cali, domicilio de la Sociedad.", 
+      doc: "informacion relevante/PDU_Castilla_AGA_mzo-26_2025.pdf" 
+    },
+    { 
+      f: "31/01/2025", 
+      t: "Otros Eventos", 
+      r: "En cumplimiento a la circular externa 028 de 2014 de la SFC, se informa que Castilla Agrícola S.A. diligenció y trasmitió el día 31 de enero de 2025, la encuesta Código País correspondiente al año 2024", 
+      doc: "informacion relevante/CAST_Encuesta-Codigo-Pais-2024.pdf" 
+    }
   ];
 
   return (
@@ -292,7 +356,7 @@ const InfoRelevanteView = () => {
                   <span className="text-sm font-bold text-[#006437]">{h.f}</span>
                   <span className="text-[10px] font-black text-[#a3c74a] uppercase bg-[#f1f8e9] px-2 py-1 rounded-md">{h.t}</span>
                 </div>
-                <a href={`/docs/${h.doc}`} download className="text-[10px] font-black text-gray-400 hover:text-[#006437] uppercase flex items-center gap-2">
+                <a href={`/docs/${h.doc}`} download className="text-[10px] font-black text-gray-400 hover:text-[#006437] uppercase flex items-center gap-2 min-w-max">
                   <Download size={14} /> Descargar PDF
                 </a>
               </div>
@@ -311,15 +375,15 @@ const ConvocatoriaView = () => (
       <div className="grid gap-2">
         <DocumentCell 
           title="Citación Asamblea General de Accionistas en reunión ordinaria marzo 26 de 2025" 
-          fileName="convocatoria_asamblea_ordinaria_2025.pdf" 
+          fileName="convocatoria/CAST.-AGRI-CITACION-REUNION-ORDINARIA-MARZO-2025.pdf" 
         />
         <DocumentCell 
           title="Poder Persona Jurídica" 
-          fileName="poder_persona_juridica.pdf" 
+          fileName="convocatoria/CAST.-AGRI-MODELO-PODER-PERSONA-JURIDICA-AGA-ORDINARIA-2025.pdf" 
         />
         <DocumentCell 
           title="Poder Persona Natural" 
-          fileName="poder_persona_natural.pdf" 
+          fileName="convocatoria/CAST-AGRI-MODELO-PODER-AGA-ORDINARIA-MAR.-2025-PERSONA-NATURAL-.pdf" 
         />
       </div>
     </DataCard>
@@ -333,15 +397,15 @@ const InfoGeneralView = () => (
       <div className="grid gap-2">
         <DocumentCell 
           title="Informe de Gestión" 
-          fileName="informe_gestion.pdf" 
+          fileName="informacion general/1-Castilla-Informe-de-gestion-y-sostenibilidad-2024-DEFINITIVO.pdf" 
         />
         <DocumentCell 
           title="Estados Financieros Separados al 31 de diciembre de 2024, con notas" 
-          fileName="estados_financieros_separados_2024.pdf" 
+          fileName="informacion general/2-Castilla-Estados-financieros-separados.pdf" 
         />
         <DocumentCell 
           title="Estados Financieros Consolidados al 31 de diciembre de 2024, con notas" 
-          fileName="estados_financieros_consolidados_2024.pdf" 
+          fileName="informacion general/3-Castilla-Estados-financieros-consolidados.pdf" 
         />
       </div>
     </DataCard>
@@ -355,11 +419,11 @@ const ProyectoDividendosView = () => (
       <div className="grid gap-2">
         <DocumentCell 
           title="Proyecto de Distribución de Utilidades 2024, aprobado por la Asamblea General de Accionistas en reunión ordinaria el 26 de marzo de 2025" 
-          fileName="proyecto_utilidades_2024_aprobado.pdf" 
+          fileName="proyecto distribucion dividendos/PDU_Castilla_AGA_mzo-26_2025.pdf" 
         />
         <DocumentCell 
           title="Fecha de Ex – Dividendos" 
-          fileName="fecha_ex_dividendos.pdf" 
+          fileName="proyecto distribucion dividendos/CASTILLA_Fecha-Exdividendo_PDU-Utilidades-2024.pdf" 
         />
       </div>
     </DataCard>
@@ -371,10 +435,22 @@ const ArquitecturaControlView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Arquitectura de Control">
       <div className="grid gap-2">
-        <DocumentCell title="Estatutos de Auditoria Interna" fileName="estatutos_auditoria_interna.pdf" />
-        <DocumentCell title="Reglamento Comité Auditoria y Riesgos" fileName="reglamento_comite_auditoria_riesgos.pdf" />
-        <DocumentCell title="Reglamento Comité de Sostenibilidad y Gobierno Corporativo" fileName="reglamento_comite_sostenibilidad_gobierno.pdf" />
-        <DocumentCell title="Política General de Control y Gestión de Riesgos" fileName="politica_general_control_riesgos.pdf" />
+        <DocumentCell 
+          title="Estatutos de Auditoria Interna" 
+          fileName="arquitectura control/Estatuto-Auditoria-Interna.pdf" 
+        />
+        <DocumentCell 
+          title="Reglamento Comité Auditoria y Riesgos" 
+          fileName="arquitectura control/R-BAC-001-Comite-de-Auditoria-y-Riesgo-Castilla.pdf" 
+        />
+        <DocumentCell 
+          title="Reglamento Comité de Sostenibilidad y Gobierno Corporativo" 
+          fileName="arquitectura control/R-BAC-002-Comite-Sostenibilidad-y-Gobierno-Corporativo-Castilla.pdf" 
+        />
+        <DocumentCell 
+          title="Política General de Control y Gestión de Riesgos" 
+          fileName="arquitectura control/PO-BGR-001-General-de-Control-y-de-Riesgos-Cast.pdf" 
+        />
       </div>
     </DataCard>
   </div>
@@ -386,70 +462,119 @@ const InformeGestionView = () => (
       <div className="grid gap-2">
         <DocumentCell 
           title="Informe de Gestión 2024" 
-          fileName="informe_gestion_2024.pdf" 
+          fileName="informes de gestion/1-Castilla-Informe-de-gestion-y-sostenibilidad-2024-DEFINITIVO.pdf" 
         />
         <DocumentCell 
           title="Informe de Gestión y Sostenibilidad 2023" 
-          fileName="informe_gestion_sostenibilidad_2023.pdf" 
+          fileName="informes de gestion/Castilla-Informe-de-Gestion-y-Sostenibilidad-2023-3-1.pdf" 
         />
         <DocumentCell 
           title="Informe de Gestión 2022" 
-          fileName="informe_gestion_2022.pdf" 
+          fileName="informes de gestion/CASTILLA-informe-de-gestion-2022_compressed.pdf" 
         />
         <DocumentCell 
           title="Informe de Gestión 2021" 
-          fileName="informe_gestion_2021.pdf" 
+          fileName="informes de gestion/INFORME-GESTION-CASTILLA-2021-ASAMBLEA-1_compressed.pdf" 
         />
         <DocumentCell 
           title="Informe de Gestión 2020" 
-          fileName="informe_gestion_2020.pdf" 
+          fileName="informes de gestion/INFORME-DE-GESTION-CASTILLA-BAJA.pdf" 
         />
       </div>
     </DataCard>
   </div>
 )
 // --- VISTA: ESTADOS FINANCIEROS (INFORMACIÓN FINANCIERA) ---
-const EstadosFinancierosView = () => (
-  <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
-    <DataCard title="Estados Financieros con Notas y Dictamen del Revisor Fiscal">
-      <div className="grid gap-2">
-        {["2024", "2023", "2022", "2021", "2020"].map((año) => (
-          <DocumentCell 
-            key={año}
-            title={`Año ${año}`} 
-            fileName={`estados_financieros_${año}.pdf`} 
-          />
-        ))}
-        <DocumentCell 
-          title="Históricos" 
-          fileName="historico_estados_financieros.pdf" 
-        />
-      </div>
-    </DataCard>
-  </div>
-)
-// --- VISTA: INFORMES FINANCIEROS TRIMESTRALES (INFORMACIÓN FINANCIERA) ---
-const InformesTrimestralesView = () => {
-  const informes = [
-    "EEFF Consolidados Junio 2025", "EEFF Separados Junio 2025",
-    "EEFF Consolidados Marzo 2025", "EEFF Separados Marzo 2025",
-    "EEFF Consolidados Septiembre 2024", "EEFF Separados Septiembre 2024",
-    "EEFF Consolidados Junio 2024", "EEFF Separados Junio 2024",
-    "EEFF Consolidados Marzo 2024", "EEFF Separados Marzo 2024",
-    "EEFF Consolidados Septiembre 2023", "EEFF Separados Septiembre 2023",
-    "EEFF Consolidados Junio 2023", "EEFF Separados Junio 2023",
-    "EEFF Consolidados Marzo 2023", "EEFF Separados Marzo 2023"
+const EstadosFinancierosView = () => {
+  const archivos = [
+    { year: "2024", file: "CAST-EEFF-Fin-de-Ejercicio-Diciembre-2024.pdf" },
+    { year: "2023", file: "Castilla-Estados-Financieros-Ano-2023.pdf" },
+    { year: "2022", file: "CASTILLA-EEFF-Separados-y-Consolidados-1.pdf" },
+    { year: "2021", file: "EEFFF2021AsambleaCastilla.pdf" },
+    { year: "2020", file: "ESTADOS-FINANCIEROS-CASTILLA-2020.pdf" }
   ];
 
   return (
     <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
-      <DataCard title="Informes Financieros Trimestrales del Año en Curso">
-        <div className="grid md:grid-cols-2 gap-x-6 gap-y-2">
-          {informes.map((informe, i) => {
-            // Genera el nombre del archivo en minúsculas y con guiones bajos (ej: eeff_consolidados_junio_2025.pdf)
-            const fileName = informe.toLowerCase().replace(/ /g, '_') + ".pdf";
-            return <DocumentCell key={i} title={informe} fileName={fileName} />;
-          })}
+      <DataCard title="Estados Financieros con Notas y Dictamen del Revisor Fiscal">
+        <div className="grid gap-2">
+          {archivos.map((item) => (
+            <DocumentCell 
+              key={item.year}
+              title={`Año ${item.year}`} 
+              fileName={`estados financieros/${item.file}`} 
+            />
+          ))}
+          {}
+          <DocumentCell 
+            title="Históricos" 
+            fileName="estados financieros/historico_estados_financieros.pdf" 
+          />
+        </div>
+      </DataCard>
+    </div>
+  )
+}
+// --- VISTA: INFORMES FINANCIEROS TRIMESTRALES (INFORMACIÓN FINANCIERA) ---
+const InformesTrimestralesView = () => {
+  // Lista ordenada estrictamente del más reciente al más antiguo
+  const informesList = [
+    // 2025
+    { title: "EEFF Consolidados - Junio 2025", doc: "AS-6868-25-E.F.-Castilla-Agricola-S.A.-y-sus-Subsidiarias-Consolidados-30-jun-2025.pdf" },
+    { title: "EEFF Separados - Junio 2025", doc: "AS-6867-25-Castilla-Agricola-S.A.-EEFF-Separados-Junio-2025.pdf" },
+    { title: "EEFF Consolidados - Marzo 2025", doc: "AS-4969-25-Castilla-Agricola-EEFF-Completos-Consolidados-al-31-Marzo-2025.pdf" },
+    { title: "EEFF Separados - Marzo 2025", doc: "AS-4855-25-Castilla-Agricola-EEFF-completos-Separados-Marzo-2025.pdf" },
+    
+    // 2024
+    { title: "EEFF Consolidados - Septiembre 2024", doc: "CAST-EEFF-Consolidados-Septiembre-2024-PROJD.pdf" },
+    { title: "EEFF Separados - Septiembre 2024", doc: "CAST-EEFF-Separados-Septiembre-2024-PROJD.pdf" },
+    { title: "EEFF Consolidados - Junio 2024", doc: "CAST-EEFF-Consolidados-Junio-2024-PROJD.pdf" },
+    { title: "EEFF Separados - Junio 2024", doc: "CAST-EEFF-Separados-Junio-2024.pdf" },
+    { title: "EEFF Consolidados - Marzo 2024", doc: "CAST-EEFF-Consolidados-Firmado.pdf" },
+    { title: "EEFF Separados - Marzo 2024", doc: "CAST-EEFF-Separados-Firmado.pdf" },
+
+    // 2023
+    { title: "EEFF Consolidados - Septiembre 2023", doc: "CAST-EEFF-Consolidados-Septiembre-2023.pdf" },
+    { title: "EEFF Separados - Septiembre 2023", doc: "CAST-EEFF-Separados-Septiembre-2023.pdf" },
+    { title: "EEFF Consolidados - Junio 2023", doc: "CAST-EEFF-Consolidados-Junio-2023.pdf" },
+    { title: "EEFF Separados - Junio 2023", doc: "CAST-EEFF-Separados-Junio-2023.pdf" },
+    { title: "EEFF Consolidados - Marzo 2023", doc: "EEFF-CAST-Consolidados-Marzo-2023.pdf" },
+    { title: "EEFF Separados - Marzo 2023", doc: "CAST-EEFF-Separados-Marzo-2023.pdf" },
+
+    // 2022
+    { title: "EEFF Consolidados - Septiembre 2022", doc: "CAST-EEFF-Consolidados-Septiembre-2022.pdf" },
+    { title: "EEFF Separados - Septiembre 2022", doc: "EEFF-Castilla-Separado-Septiembre-2022.pdf" },
+    { title: "EEFF Consolidados - Junio 2022", doc: "Castilla-Estados-Financieros-Consolidados-Junio-2022-Revision-LR-10-08-2022.pdf" },
+    { title: "EEFF Separados - Junio 2022", doc: "EEFF-Castilla-Separado-Junio-2022-Rev.-LR-10-08-2022.pdf" },
+    { title: "EEFF Consolidados - Marzo 2022", doc: "Castilla-Estados-Financieros-Consolidados-Marzo-2022.pdf" },
+    { title: "EEFF Separados - Marzo 2022", doc: "EEFF-Castilla-Separado-Marzo-2022.pdf" },
+
+    // 2021
+    { title: "EEFF Consolidados - Septiembre 2021", doc: "Castilla-EEFF-Consolidados-Septiembre-2021.pdf" },
+    { title: "EEFF Separados - Septiembre 2021", doc: "castilla-EEFF-Separado-Septiembre-2021.pdf" },
+    { title: "EEFF Consolidados - Junio 2021", doc: "Castilla-EEFF-Consolidados-a-junio-2021-V-05-08-2021.pdf" },
+    { title: "EEFF Consolidados - Marzo 2021", doc: "vf13-05-2021Cast-Estados-Financieros-Consolidados-a-marzo-2021.pdf" },
+    { title: "EEFF Separados - Marzo 2021", doc: "vf-13-05-2021-EEFF-Castilla-separado-a-marzo-2021.pdf" },
+
+    // 2020 (Históricos)
+    { title: "EEFF Separados - Tercer Trimestre 2020", doc: "EE.FF-CAST-SEPARADOS-TERCER-TRIMESTRE-2020-1.pdf" },
+    { title: "EEFF Consolidados - Junio 2020", doc: "562.pdf" },
+    { title: "EEFF Consolidados - Marzo 2020", doc: "559.pdf" },
+    { title: "EEFF Separados - Marzo 2020", doc: "558.pdf" }
+  ];
+
+  return (
+    <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
+      <DataCard title="Informes Financieros Trimestrales e Históricos">
+        {/* Usamos 'grid gap-2' para forzar una sola columna vertical */}
+        <div className="grid gap-2">
+          {informesList.map((item, i) => (
+            <DocumentCell 
+              key={i} 
+              title={item.title} 
+              fileName={`informes trimestrales/${item.doc}`} 
+            />
+          ))}
         </div>
       </DataCard>
     </div>
