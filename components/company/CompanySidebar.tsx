@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { Building2, History, Users2, ChevronRight } from "lucide-react"
+import { Building2, History, Users2, ChevronRight, ShieldCheck } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const menuItems = [
@@ -24,6 +24,13 @@ const menuItems = [
     href: "/compania/gobierno-corporativo",
     icon: Users2,
     description: "Estructura organizacional",
+  },
+  {
+    name: "Políticas y Cumplimiento",
+    // RUTA SINCRONIZADA CON TU CARPETA: politicasycumplimiento
+    href: "/compania/politicasycumplimiento", 
+    icon: ShieldCheck,
+    description: "Transparencia y ética",
   },
 ]
 

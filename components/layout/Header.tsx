@@ -7,11 +7,12 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown, Menu, X, ExternalLink } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-// 1. Submenús definidos
+// 1. Submenús definidos - SECCIÓN ACTUALIZADA AQUÍ 👇
 const companySubmenu = [
   { name: "Quienes Somos", href: "/compania/quienes-somos" },
   { name: "Historia y Evolución", href: "/compania/historia" },
   { name: "Gobierno Corporativo", href: "/compania/gobierno-corporativo" },
+  { name: "Políticas y Cumplimiento", href: "/compania/politicasycumplimiento" }, // Nueva ruta conectada
 ]
 
 const operationSubmenu = [
@@ -35,6 +36,7 @@ const groupsSubmenu = [
   { name: "Reglamento y Políticas", href: "/grupos-de-interes/politicas" },
   { name: "Portal de Autogestión Buk", href: "https://castillaagricola.buk.co", isExternal: true },
 ]
+
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -89,7 +91,7 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
-          {/* LOGO - CORREGIDO AQUÍ 👇 */}
+          {/* LOGO */}
           <Link href="/" className="flex items-center space-x-3 group">
             <img 
               src="/Imagenes/Logo retina.png" 
@@ -199,7 +201,6 @@ export function Header() {
                 </div>
               ))}
               <div className="pt-6 border-t border-gray-100">
-                {/* BOTÓN INVERSIONISTAS (MÓVIL) */}
                 <Link 
                   href="/inversionistas" 
                   onClick={() => setMobileMenuOpen(false)}
