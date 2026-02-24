@@ -135,7 +135,7 @@ const EstructuraView = () => (
       </div>
     </DataCard>
 
-    <DataCard title="Principales Accionistas">
+  <DataCard title="Principales Accionistas">
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead>
@@ -153,8 +153,26 @@ const EstructuraView = () => (
               { n: "Titan Gea S.A.S.", a: "1.234.923", p: "6,31%" },
               { n: "Inversiones Bellavista y Cia S. en C.", a: "1.021.575", p: "5,22%" },
               { n: "San Martin Botero S.A.S.", a: "1.020.336", p: "5,21%" },
+              { n: "Aratamma S.A.S.", a: "1.019.800", p: "5,21%" },
               { n: "San Mateo y Cia S.A.S.", a: "1.019.800", p: "5,21%" },
-              { n: "Otros accionistas", a: "962.649", p: "4,92%" }
+              { n: "Santa Carolina Botero S.A.S.", a: "1.011.808", p: "5,17%" },
+              { n: "San Antonio Botero S.A.S", a: "1.010.637", p: "5,16%" },
+              { n: "Colombina S.A.", a: "950.904", p: "4,86%" },
+              { n: "Gonzalez Holmann S.A.S.", a: "637.518", p: "3,26%" },
+              { n: "Proyectos González y Cia.S.C.A.", a: "637.499", p: "3,26%" },
+              { n: "B.G. Ulloa y Cia S.C.A.", a: "637.492", p: "3,26%" },
+              { n: "F.G.Victoria y Cia. S.C.A.", a: "637.474", p: "3,26%" },
+              { n: "B.G. Garrido S.A.S.", a: "637.471", p: "3,26%" },
+              { n: "J.M.C. y Cia. S.A.", a: "602.533", p: "3,08%" },
+              { n: "La Campiña Caicedo y Cia S.A.S.", a: "412.917", p: "2,11%" },
+              { n: "Lumumba S.A.S", a: "412.913", p: "2,11%" },
+              { n: "Belisario Caicedo Capurro", a: "412.881", p: "2,11%" },
+              { n: "Alianza Fiduciaria S.A.- Fideicomiso 3535-1493 acciones Cali", a: "407.512", p: "2,08%" },
+              { n: "Inversiones González Garcés y Cía. S.C.A.", a: "318.406", p: "1,63%" },
+              { n: "Inversiones González Cabal y Cía. S.C.A.", a: "318.405", p: "1,63%" },
+              { n: "Inversiones B.J. González S.A.S.", a: "214.034", p: "1,09%" },
+              { n: "Valores González Peñaranda SAS", a: "201.644", p: "1,03%" },
+              { n: "Otros accionistas con menor participación", a: "962.649", p: "4,92%" }
             ].map((row, i) => (
               <tr key={i} className="border-b border-gray-50 hover:bg-gray-50">
                 <td className="py-3 px-2 font-bold">{row.n}</td>
@@ -163,7 +181,7 @@ const EstructuraView = () => (
               </tr>
             ))}
             <tr className="bg-[#f8fcf4] font-black border-t-2 border-[#a3c74a]">
-              <td className="py-4 px-4 text-[#006437]">ACCIONES EN CIRCULACIÓN</td>
+              <td className="py-4 px-4 text-[#006437]">ACCIONES SUSCRITAS, PAGADAS Y EN CIRCULACIÓN</td>
               <td className="py-4 text-right tabular-nums pr-2">19.578.078</td>
               <td className="py-4 text-right pr-2 text-[#006437]">100,00%</td>
             </tr>
@@ -173,19 +191,37 @@ const EstructuraView = () => (
     </DataCard>
 
     <div className="grid md:grid-cols-2 gap-8">
-      <DataCard title="Comités de Junta">
+     <DataCard title="Comités de Junta">
         <div className="space-y-6">
+          {/* --- COMITÉ AUDITORÍA Y RIESGOS --- */}
           <div>
-            <p className="text-[10px] font-black text-[#a3c74a] uppercase mb-2">Comité Auditoría y Riesgos</p>
-            <div className="text-sm font-bold text-[#006437] space-y-1 mb-3">
-              <p>Maria Alejandra Cabal González</p><p>Juan Guillermo Salazar Vallecilla</p><p>Rodrigo Caicedo Lourido</p>
+            <p className="text-[10px] font-black text-[#a3c74a] uppercase mb-3 tracking-widest">Comité Auditoría y Riesgos</p>
+            <div className="text-sm font-bold text-[#006437] space-y-2 mb-4">
+              <p>Maria Alejandra Cabal González</p>
+              <p>Juan Guillermo Salazar Vallecilla</p>
+              <p>Rodrigo Caicedo Lourido</p>
             </div>
             <DocumentCell title="Reglamento Comité Auditoría y Riesgos" fileName="estructura corporativa/425.pdf" />
           </div>
+
+          <div className="border-t border-gray-50 pt-4"></div> {/* Divisor sutil */}
+
+          {/* --- COMITÉ SOSTENIBILIDAD Y GOBIERNO --- */}
           <div>
-            <p className="text-[10px] font-black text-[#a3c74a] uppercase mb-2">Sostenibilidad y Gobierno</p>
-            <div className="text-sm font-bold text-[#006437] space-y-1 mb-3">
-              <p>Felipe Victoria González</p><p>Juan Guillermo Salazar Vallecilla</p><p>Rodrigo Caicedo Lourido</p>
+            <p className="text-[10px] font-black text-[#a3c74a] uppercase mb-3 tracking-widest">Sostenibilidad y Gobierno</p>
+            <div className="space-y-3 mb-4">
+              <div className="border-l-2 border-gray-100 pl-3">
+                <p className="text-sm font-bold text-[#006437]">Felipe Victoria González</p>
+                <p className="text-[11px] text-gray-500 font-medium">Principal <span className="mx-1">|</span> C.C. 16.828.594</p>
+              </div>
+              <div className="border-l-2 border-gray-100 pl-3">
+                <p className="text-sm font-bold text-[#006437]">Juan Guillermo Salazar Vallecilla</p>
+                <p className="text-[11px] text-gray-500 font-medium">Principal <span className="mx-1">|</span> C.C. 94.400.436</p>
+              </div>
+              <div className="border-l-2 border-gray-100 pl-3">
+                <p className="text-sm font-bold text-[#006437]">Rodrigo Caicedo Lourido</p>
+                <p className="text-[11px] text-gray-500 font-medium">Principal <span className="mx-1">|</span> C.C. 14.960.455</p>
+              </div>
             </div>
             <DocumentCell title="Reglamento Comité Sostenibilidad" fileName="estructura corporativa/426.pdf" />
           </div>
@@ -194,14 +230,24 @@ const EstructuraView = () => (
       <DataCard title="Arquitectura de Control">
         <div className="space-y-6">
           <div>
-            <p className="text-[10px] font-bold text-gray-400 mb-1 tracking-widest">REVISORÍA FISCAL (PWC)</p>
-            <p className="font-bold text-[#006437] text-sm">NIT. 900.943.048-4</p>
-            <p className="text-xs text-gray-600">Principal: Jhon Alexander Pineda Mejía</p>
-            <p className="text-xs text-gray-500">Suplente: Fabian Alexis Pardo Higuera</p>
+            <p className="text-[10px] font-bold text-gray-400 mb-1 tracking-widest uppercase">Revisor Fiscal</p>
+            <p className="font-bold text-[#006437] text-sm">PWC Contadores y Auditores S.A.S.</p>
+            <p className="text-xs text-gray-500 mb-3">NIT. 900.943.048-4</p>
+            
+            <div className="space-y-2 border-l-2 border-gray-100 pl-3">
+              <div>
+                <p className="text-xs font-bold text-gray-700">Principal: Jhon Alexander Pineda Mejía</p>
+                <p className="text-[11px] text-gray-500">C.C. 94.415.859 <span className="mx-1">|</span> T.P. 79093-T</p>
+              </div>
+              <div>
+                <p className="text-xs font-bold text-gray-700">Suplente: Fabian Alexis Pardo Higuera</p>
+                <p className="text-[11px] text-gray-500">C.C. 1.018.432.341 <span className="mx-1">|</span> T.P. 258597-T</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <p className="text-[10px] font-bold text-gray-400 mb-1 tracking-widest">AUDITORÍA INTERNA</p>
-            <p className="font-bold text-[#006437] text-sm">Holmes Carvajal Botero</p>
+          <div className="pt-4 border-t border-gray-50">
+            <p className="text-[10px] font-bold text-gray-400 mb-1 tracking-widest uppercase">Auditoría Interna</p>
+            <p className="font-bold text-[#006437] text-sm mb-3">Holmes Carvajal Botero</p>
             <DocumentCell title="Estatuto Auditoría Interna" fileName="estructura corporativa/393.pdf" />
           </div>
         </div>
