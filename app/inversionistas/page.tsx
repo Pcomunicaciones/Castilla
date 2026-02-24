@@ -103,7 +103,7 @@ const EstructuraView = () => (
           </div>
         ))}
       </div>
-      <DocumentCell title="Nombramiento Representante Legal" fileName="nombramiento_representante.pdf" />
+      <DocumentCell title="Nombramiento Representante Legal" fileName="estructura corporativa/PDF.pdf" />
     </DataCard>
 
     <DataCard title="Junta Directiva 2025 - 2026">
@@ -131,7 +131,7 @@ const EstructuraView = () => (
         ))}
       </div>
       <div className="mt-8 border-t border-gray-50 pt-6">
-        <DocumentCell title="Reglamento Funcionamiento Junta Directiva" fileName="reglamento_junta.pdf" />
+        <DocumentCell title="Reglamento Funcionamiento Junta Directiva" fileName="estructura corporativa/415.pdf" />
       </div>
     </DataCard>
 
@@ -180,14 +180,14 @@ const EstructuraView = () => (
             <div className="text-sm font-bold text-[#006437] space-y-1 mb-3">
               <p>Maria Alejandra Cabal González</p><p>Juan Guillermo Salazar Vallecilla</p><p>Rodrigo Caicedo Lourido</p>
             </div>
-            <DocumentCell title="Reglamento Comité Auditoría y Riesgos" fileName="reglamento_auditoria_riesgos.pdf" />
+            <DocumentCell title="Reglamento Comité Auditoría y Riesgos" fileName="estructura corporativa/425.pdf" />
           </div>
           <div>
             <p className="text-[10px] font-black text-[#a3c74a] uppercase mb-2">Sostenibilidad y Gobierno</p>
             <div className="text-sm font-bold text-[#006437] space-y-1 mb-3">
               <p>Felipe Victoria González</p><p>Juan Guillermo Salazar Vallecilla</p><p>Rodrigo Caicedo Lourido</p>
             </div>
-            <DocumentCell title="Reglamento Comité Sostenibilidad" fileName="reglamento_sostenibilidad_gobierno.pdf" />
+            <DocumentCell title="Reglamento Comité Sostenibilidad" fileName="estructura corporativa/426.pdf" />
           </div>
         </div>
       </DataCard>
@@ -202,7 +202,7 @@ const EstructuraView = () => (
           <div>
             <p className="text-[10px] font-bold text-gray-400 mb-1 tracking-widest">AUDITORÍA INTERNA</p>
             <p className="font-bold text-[#006437] text-sm">Holmes Carvajal Botero</p>
-            <DocumentCell title="Estatuto Auditoría Interna" fileName="estatuto_auditoria.pdf" />
+            <DocumentCell title="Estatuto Auditoría Interna" fileName="estructura corporativa/393.pdf" />
           </div>
         </div>
       </DataCard>
@@ -215,15 +215,15 @@ const BuenasPracticasView = () => (
   <div className="animate-in fade-in duration-700 pb-20">
     <DataCard title="Buenas Prácticas Corporativas">
       <div className="grid gap-2">
-        <DocumentCell title="Encuesta Código País año 2025" fileName="codigo_pais_2025.pdf" />
-        <DocumentCell title="Encuesta Código País año 2024" fileName="codigo_pais_2024.pdf" />
-        <DocumentCell title="Encuesta Código País año 2023" fileName="codigo_pais_2023.pdf" />
-        <DocumentCell title="Encuesta Código País año 2022" fileName="codigo_pais_2022.pdf" />
-        <DocumentCell title="Reforma de Estatutos" fileName="reforma_estatutos.pdf" />
-        <DocumentCell title="Encuesta Código País año 2021" fileName="codigo_pais_2021.pdf" />
-        <DocumentCell title="Estatutos Sociales" fileName="estatutos_sociales.pdf" />
-        <DocumentCell title="Código de Mejores Prácticas Corporativas" fileName="codigo_mejores_practicas.pdf" />
-        <DocumentCell title="Documentos Anteriores" fileName="documentos_anteriores_practicas.pdf" />
+        <DocumentCell title="Encuesta Código País año 2025" fileName="buenas practicas/codigo_pais_2025.pdf" />
+        <DocumentCell title="Encuesta Código País año 2024" fileName="buenas practicas/CAST_Encuesta-Codigo-Pais-2024.pdf" />
+        <DocumentCell title="Encuesta Código País año 2023" fileName="buenas practicas/CAS2023CodigoPais.pdf" />
+        <DocumentCell title="Encuesta Código País año 2022" fileName="buenas practicas/CAS2022CodigoPais.pdf" />
+        <DocumentCell title="Reforma de Estatutos" fileName="buenas practicas/ESCRITURA-PUBLICA-2630.pdf" />
+        <DocumentCell title="Encuesta Código País año 2021" fileName="buenas practicas/CAST_Encuesta-Codigo-Pais-2021.pdf" />
+        <DocumentCell title="Estatutos Sociales" fileName="buenas practicas/" />
+        <DocumentCell title="Código de Mejores Prácticas Corporativas" fileName="buenas practicas/ESTATUTOS-CASTILLA-0244-4-79.pdf" />
+        <DocumentCell title="Documentos Anteriores" fileName="buenas practicas/PO-BAC-002-CODIGO-DE-MEJORES-PRACTICAS-CORPORATIVAS-CAST.pdf" />
       </div>
     </DataCard>
   </div>

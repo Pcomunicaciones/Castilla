@@ -15,31 +15,31 @@ import {
 const politicasFiles = [
   {
     title: "Política de Conflicto de Interés",
-    fileName: "politica_conflicto_interes.pdf",
+    fileName: "politicas y cumplimientos/GNE1-PO04.pdf",
     icon: FileText,
     theme: "slate"
   },
   {
     title: "Prevención Lavado de Activos y Financiación del Terrorismo",
-    fileName: "prevencion_lavado_activos.pdf",
+    fileName: "politicas y cumplimientos/PO-FOF-001-PREVENCION-LAVADO-DE-ACTIVOS-Y-FINANCIACION-DEL-TERRRORISMO.pdf",
     icon: ShieldCheck,
     theme: "emerald"
   },
   {
-    title: "Certificado de Lavado de Activos - SARLAFT",
-    fileName: "certificado_sarlaft.pdf",
+    title: "Certificado de Nombramiento Oficial de Cumplimiento",
+    fileName: "politicas y cumplimientos/Certificado-Nombramiento-Oficial-de-Cumplimiento-Castilla.pdf",
     icon: ShieldCheck,
     theme: "slate"
   },
   {
     title: "Política de Tratamiento de Datos Personales",
-    fileName: "politica_tratamiento_datos.pdf",
+    fileName: "politicas y cumplimientos/PO-DNE-003-TRATAMIENTO-DATOS-PERSONALES-CASTILLA.pdf",
     icon: Lock,
     theme: "slate"
   },
   {
     title: "Código de Ética y Conducta Empresarial",
-    fileName: "codigo_etica_conducta.pdf",
+    fileName: "politicas y cumplimientos/PO-BEC-001-CODIGO-DE-ETICA-Y-CONDUCTA-EMPRESARIAL-CAST.pdf",
     icon: FileText,
     theme: "emerald"
   }
@@ -86,7 +86,6 @@ export default function PoliticasCumplimientoPage() {
               {file.title}
             </h3>
             
-            {/* LINK PREPARADO: Solo debes subir el archivo a public/docs/ con el nombre indicado */}
             <a 
               href={`/docs/${file.fileName}`} 
               download
