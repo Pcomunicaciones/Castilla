@@ -7,12 +7,13 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown, Menu, X, ExternalLink } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-// 1. Submenús definidos - SECCIÓN ACTUALIZADA AQUÍ 👇
+// 1. Submenús definidos
 const companySubmenu = [
   { name: "Quienes Somos", href: "/compania/quienes-somos" },
   { name: "Historia y Evolución", href: "/compania/historia" },
   { name: "Gobierno Corporativo", href: "/compania/gobierno-corporativo" },
-  { name: "Políticas y Cumplimiento", href: "/compania/politicasycumplimiento" }, // Nueva ruta conectada
+  { name: "Políticas y Cumplimiento", href: "/compania/politicasycumplimiento" },
+  { name: "Línea Transparente", href: "/compania/linea-transparente" },
 ]
 
 const operationSubmenu = [
@@ -86,7 +87,8 @@ export function Header() {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-500", 
-      isSolid ? "bg-[#006437] shadow-xl py-2" : "bg-transparent py-5"
+      // 👇 AQUÍ ESTÁ EL AJUSTE: Mismos colores pero con ligera transparencia (/95) y desenfoque (backdrop-blur) para bajar la saturación visual.
+      isSolid ? "bg-gradient-to-r from-[#04683A]/95 to-[#048450]/90 backdrop-blur-md shadow-lg py-2 border-b border-white/10" : "bg-transparent py-5"
     )}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">

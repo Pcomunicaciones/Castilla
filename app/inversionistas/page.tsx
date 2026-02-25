@@ -4,7 +4,9 @@ import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { 
   FileText, Download, ChevronDown, Menu, X, PieChart, 
-  Users, Building2, Scale, Info, Globe, ShieldCheck, Calendar, Tag, Phone, ExternalLink
+  Users, Building2, Scale, Info, Globe, ShieldCheck, 
+  Calendar, Tag, Phone, ExternalLink, User, MessageSquare, 
+  AlertCircle, Lightbulb, CheckCircle2, MapPin, Mail
 } from "lucide-react"
 
 /* --- 1. CONFIGURACIÓN DE ESTRUCTURAS --- */
@@ -50,8 +52,17 @@ const MENU_STRUCTURE = [
       { id: 'informe_gestion', label: 'INFORME DE GESTIÓN' },
       { id: 'informes_trimestrales', label: 'INFORMES TRIMESTRALES' }
     ]
+  },
+  // 👇 AQUÍ ESTÁ LA NUEVA SECCIÓN AÑADIDA 👇
+  {
+    id: 'atencion',
+    label: 'ATENCIÓN AL INVERSIONISTA',
+    icon: Phone, 
+    description: "Canales de comunicación directa y soporte para nuestros accionistas.",
+    subItems: [] // 👈 Dejado vacío para que funcione como botón directo
   }
 ]
+
 
 /* --- 2. COMPONENTES DE DISEÑO (TAHOMA) --- */
 
@@ -64,7 +75,7 @@ const DataCard = ({ title, children }: { title: string, children: React.ReactNod
   </div>
 )
 
-// --- COMPONENTE: DocumentCell ACTUALIZADO (Doble Botón) ---
+// --- COMPONENTE: DocumentCell ACTUALIZADO (Solo vista previa) ---
 const DocumentCell = ({ title, fileName }: { title: string, fileName: string }) => (
   <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3 p-3 mt-2 border border-gray-100 bg-white rounded-xl hover:border-[#a3c74a] transition-all group shadow-sm">
     <div className="flex items-center gap-3">
@@ -76,23 +87,15 @@ const DocumentCell = ({ title, fileName }: { title: string, fileName: string }) 
       </span>
     </div>
     
-    <div className="flex gap-2 w-full sm:w-auto shrink-0">
+    <div className="flex w-full sm:w-auto shrink-0">
       <a
         href={`/docs/${fileName}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-50 text-slate-500 hover:bg-slate-200 hover:text-slate-700 rounded-lg text-[10px] font-bold transition-colors"
-        title="Abrir en pestaña nueva"
+        className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-[#f1f8e9] text-[#006437] hover:bg-[#006437] hover:text-white rounded-lg text-[10px] font-bold transition-colors uppercase"
+        title="Abrir documento en pestaña nueva"
       >
-        <ExternalLink size={14} /> VER
-      </a>
-      <a
-        href={`/docs/${fileName}`}
-        download
-        className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3 py-2 bg-[#f1f8e9] text-[#006437] hover:bg-[#006437] hover:text-white rounded-lg text-[10px] font-bold transition-colors"
-        title="Descargar archivo"
-      >
-        <Download size={14} /> DESCARGAR
+        <ExternalLink size={14} /> VER DOCUMENTO
       </a>
     </div>
   </div>
@@ -422,24 +425,16 @@ const InfoRelevanteView = () => {
                   <span className="text-[10px] font-black text-[#a3c74a] uppercase bg-[#f1f8e9] px-2 py-1 rounded-md">{h.t}</span>
                 </div>
                 
-                {/* Botonera Doble (Ver y Descargar) */}
-                <div className="flex gap-2 w-full md:w-auto shrink-0">
+                {/* Botonera Única (Solo vista previa) */}
+                <div className="flex w-full md:w-auto shrink-0">
                   <a
                     href={`/docs/${h.doc}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-50 text-slate-500 hover:bg-slate-200 hover:text-slate-700 rounded-lg text-[10px] font-bold transition-colors uppercase"
-                    title="Abrir en pestaña nueva"
+                    className="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-[#f1f8e9] text-[#006437] hover:bg-[#006437] hover:text-white rounded-lg text-[10px] font-bold transition-colors uppercase"
+                    title="Abrir documento en pestaña nueva"
                   >
-                    <ExternalLink size={14} /> VER
-                  </a>
-                  <a
-                    href={`/docs/${h.doc}`}
-                    download
-                    className="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-3 py-2 bg-[#f1f8e9] text-[#006437] hover:bg-[#006437] hover:text-white rounded-lg text-[10px] font-bold transition-colors uppercase"
-                    title="Descargar archivo"
-                  >
-                    <Download size={14} /> DESCARGAR
+                    <ExternalLink size={14} /> VER DOCUMENTO
                   </a>
                 </div>
               </div>
@@ -664,6 +659,132 @@ const InformesTrimestralesView = () => {
     </div>
   )
 }
+const AtencionInversionistaView = () => {
+  return (
+    <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
+      
+      {/* TARJETA 1: CONTACTO PRINCIPAL */}
+      <DataCard title="Secretaría General">
+        <div className="flex items-start gap-4 mb-6 p-6 bg-slate-50 rounded-2xl border border-gray-100">
+          <div className="w-12 h-12 bg-[#f1f8e9] rounded-xl flex items-center justify-center text-[#006437] shrink-0">
+            <User size={24} />
+          </div>
+          <div>
+            <h4 className="text-lg font-bold text-[#006437]">VICTOR HUGO URDANETA TOLOSA</h4>
+            <p className="text-[11px] font-black text-[#a3c74a] uppercase tracking-widest mb-4">Secretario General</p>
+            
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-sm text-gray-600">
+                <Building2 size={16} className="text-gray-400" />
+                <span>Carrera 1 N° 24-56 Edificio Colombina. Cali - Colombia</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm text-gray-600">
+                <Phone size={16} className="text-gray-400" />
+                <span>(602) 8836020</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm text-gray-600">
+                <Mail size={16} className="text-gray-400" />
+                <a href="mailto:secretario@riopaila-castilla.com" className="hover:text-[#006437] hover:underline font-bold transition-colors">
+                  secretario@riopaila-castilla.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </DataCard>
+
+      {/* TARJETA 2: ACCESO AL INVERSIONISTA (PQRS) */}
+      <DataCard title="Acceso al Inversionista (PQRS)">
+        <p className="text-sm text-gray-600 leading-relaxed mb-8">
+          Le damos la bienvenida al servicio de <strong>PQRS (Peticiones, Quejas, Reclamos y Sugerencias)</strong>, canal de atención al titular de datos para ejercer sus derechos de acceso, corrección, supresión o revocación del tratamiento de datos personales. A través del servicio de PQRS, usted puede enviar lo siguiente:
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-4 mb-8">
+          <div className="p-5 border border-gray-100 rounded-xl bg-white hover:border-[#a3c74a] transition-colors shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <MessageSquare size={16} className="text-[#006437]" />
+              <h5 className="font-bold text-[#006437] text-sm uppercase">Petición</h5>
+            </div>
+            <p className="text-xs text-gray-500 leading-relaxed">Solicitud expresa que presenta el titular de los datos a fin de obtener información o respuesta conforme a los derechos y deberes del titular de la información.</p>
+          </div>
+          
+          <div className="p-5 border border-gray-100 rounded-xl bg-white hover:border-[#a3c74a] transition-colors shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <AlertCircle size={16} className="text-orange-500" />
+              <h5 className="font-bold text-[#006437] text-sm uppercase">Queja</h5>
+            </div>
+            <p className="text-xs text-gray-500 leading-relaxed">Manifestación de protesta censura, descontento o inconformidad que formula el titular en relación con una conducta que considera irregular en el uso de sus datos personales.</p>
+          </div>
+
+          <div className="p-5 border border-gray-100 rounded-xl bg-white hover:border-[#a3c74a] transition-colors shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <AlertCircle size={16} className="text-red-500" />
+              <h5 className="font-bold text-[#006437] text-sm uppercase">Reclamo</h5>
+            </div>
+            <p className="text-xs text-gray-500 leading-relaxed">Expresión de insatisfacción del titular de datos con respecto al uso de sus datos personales.</p>
+          </div>
+
+          <div className="p-5 border border-gray-100 rounded-xl bg-white hover:border-[#a3c74a] transition-colors shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <Lightbulb size={16} className="text-yellow-500" />
+              <h5 className="font-bold text-[#006437] text-sm uppercase">Sugerencias</h5>
+            </div>
+            <p className="text-xs text-gray-500 leading-relaxed">Expresión para mejorar el servicio o gestión de la compañía relacionada con datos personales. También para expresar agrado o satisfacción.</p>
+          </div>
+        </div>
+
+        <div className="bg-[#f8fcf4] p-6 rounded-2xl border border-green-50">
+          <h5 className="text-[11px] font-black text-[#006437] uppercase tracking-widest mb-4">La solicitud deberá contener como mínimo:</h5>
+          <ul className="space-y-3">
+            {[
+              "El nombre y domicilio del Titular o representante o cualquier otro medio para recibir la respuesta.",
+              "Los documentos que acrediten la identidad o la representación del Titular de los datos personales.",
+              "Descripción clara y precisa de los datos personales y de los hechos que dan lugar al reclamo.",
+              "Los documentos que se desean hacer valer en la reclamación. (Opcional)"
+            ].map((req, i) => (
+              <li key={i} className="flex items-start gap-3 text-sm text-gray-600">
+                <CheckCircle2 size={16} className="text-[#a3c74a] mt-0.5 shrink-0" />
+                <span>{req}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </DataCard>
+
+      {/* TARJETA 3: CANALES DE COMUNICACIÓN */}
+      <DataCard title="Canales de Comunicación">
+        <p className="text-sm text-gray-600 leading-relaxed mb-6">
+          Los titulares de los Datos personales podrán en cualquier momento solicitar la actualización, ratificación o supresión de dicha información e incluso revocar la autorización otorgada mediante los siguientes canales:
+        </p>
+        
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="flex items-start gap-4 p-5 bg-white border border-gray-100 rounded-xl shadow-sm">
+            <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-[#006437] shrink-0">
+              <MapPin size={20} />
+            </div>
+            <div>
+              <h5 className="font-bold text-sm text-[#006437] mb-1">Comunicación Escrita</h5>
+              <p className="text-xs text-gray-500">Radicada en la Carrera 1 N° 24-56 Edificio Colombina, piso 7, oficina 722 de Santiago de Cali.</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4 p-5 bg-white border border-gray-100 rounded-xl shadow-sm hover:border-[#a3c74a] transition-colors">
+            <div className="w-10 h-10 bg-[#f1f8e9] rounded-lg flex items-center justify-center text-[#006437] shrink-0">
+              <Mail size={20} />
+            </div>
+            <div>
+              <h5 className="font-bold text-sm text-[#006437] mb-1">Correo Electrónico</h5>
+              <a href="mailto:administracion.corp@agroriocas.com" className="text-xs font-bold text-gray-500 hover:text-[#006437] transition-colors break-all">
+                administracion.corp@agroriocas.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </DataCard>
+
+    </div>
+  )
+}
 
 /* --- 4. LAYOUT PRINCIPAL (TAHOMA FULL) --- */
 
@@ -676,7 +797,6 @@ export default function InversionistasPage() {
     <div className="flex bg-[#fcfdfc] min-h-screen" style={{ fontFamily: 'Tahoma, sans-serif' }}>
       
       {/* SIDEBAR INVERSIONISTAS */}
-    {/* SIDEBAR INVERSIONISTAS */}
       <aside className={`fixed lg:sticky top-0 lg:top-28 left-0 h-[calc(100vh-8rem)] w-[360px] bg-white border border-gray-100 flex flex-col transition-transform z-40 rounded-r-[2.5rem] shadow-2xl lg:shadow-sm self-start ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         
         {/* ENCABEZADO FIJO */}
@@ -732,20 +852,25 @@ export default function InversionistasPage() {
         </nav>
       </aside>
 
-      {/* ÁREA DE CONTENIDO */}
+  {/* ÁREA DE CONTENIDO */}
       <main className="flex-1 px-8 lg:px-20 pt-32 lg:pt-40 pb-20 overflow-x-hidden">
-        <div className="relative w-full h-[280px] bg-[#006437] rounded-[3rem] overflow-hidden mb-12 flex items-center px-12 shadow-2xl shadow-green-900/20">
+        {/* 👇 AQUÍ ESTÁ EL CAMBIO: Quité h-[280px] y puse min-h-[160px] con py-10. También ajusté el borde a rounded-3xl 👇 */}
+        <div className="relative w-full min-h-[160px] py-10 bg-[#006437] rounded-3xl overflow-hidden mb-10 flex items-center px-10 shadow-xl shadow-green-900/10">
           <div className="relative z-10">
-            <h1 className="text-5xl font-bold text-white uppercase italic tracking-tighter leading-none mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white uppercase italic tracking-tighter leading-none">
               {MENU_STRUCTURE.find(m => m.id === openMenuId)?.label || "INVERSIONISTAS"}
             </h1>
-            <p className="text-white/70 text-lg border-l-4 border-[#a3c74a] pl-6 max-w-xl">
-              {MENU_STRUCTURE.find(m => m.id === openMenuId)?.description}
-            </p>
+            
+            {/* Le puse un margen superior (mt-4) para que la línea y la descripción se separen bonito del título */}
+            {MENU_STRUCTURE.find(m => m.id === openMenuId)?.description && (
+              <p className="text-white/80 text-base md:text-lg border-l-4 border-[#a3c74a] pl-5 max-w-2xl mt-4">
+                {MENU_STRUCTURE.find(m => m.id === openMenuId)?.description}
+              </p>
+            )}
           </div>
         </div>
-{/* ESTE ES EL ANIMATE PRESENCE DEL CONTENIDO (AQUÍ VAN LAS VISTAS) */}
-        {/* ESTE ES EL ANIMATE PRESENCE DEL CONTENIDO (AQUÍ VAN LAS VISTAS) */}
+
+        {/* AQUÍ ESTÁN LAS VISTAS CONECTADAS */}
         <AnimatePresence mode="wait">
           {activeSubItem === 'estructura' && <EstructuraView key="estructura" />}
           {activeSubItem === 'buenas_practicas' && <BuenasPracticasView key="buenas_practicas" />}
@@ -757,12 +882,13 @@ export default function InversionistasPage() {
           {activeSubItem === 'control' && <ArquitecturaControlView key="control" />}
           {activeSubItem === 'informe_gestion' && <InformeGestionView key="informe_gestion" />}
           {activeSubItem === 'estados_financieros' && <EstadosFinancierosView key="estados_financieros" />}
-          
-          {/* 👇 NUEVA LÍNEA AÑADIDA 👇 */}
           {activeSubItem === 'informes_trimestrales' && <InformesTrimestralesView key="informes_trimestrales" />}
           
-          {/* 👇 ARRAY ACTUALIZADO 👇 */}
-          {!['estructura', 'buenas_practicas', 'conglomerados', 'info_relevante', 'convocatoria', 'info_general', 'proyecto_dividendos', 'control', 'informe_gestion', 'estados_financieros', 'informes_trimestrales'].includes(activeSubItem) && (
+          {/* 👇 ESTA ES LA LÍNEA QUE FALTABA PARA MOSTRAR LA VISTA 👇 */}
+          {activeSubItem === 'atencion' && <AtencionInversionistaView key="atencion" />}
+          
+          {/* 👇 TAMBIÉN FALTABA AGREGAR 'atencion' A ESTA LISTA DE EXCLUSIÓN 👇 */}
+          {!['estructura', 'buenas_practicas', 'conglomerados', 'info_relevante', 'convocatoria', 'info_general', 'proyecto_dividendos', 'control', 'informe_gestion', 'estados_financieros', 'informes_trimestrales', 'atencion'].includes(activeSubItem) && (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="text-center py-20">
                <Info className="mx-auto text-gray-100 mb-6" size={64} />
                <p className="text-gray-400 font-bold uppercase text-xs tracking-widest">Información en actualización</p>
