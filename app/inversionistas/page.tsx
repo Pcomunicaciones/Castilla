@@ -455,7 +455,7 @@ const ArquitecturaControlView = () => (
     </DataCard>
   </div>
 )
-// --- VISTA: INFORME DE GESTIÓN (INFORMACIÓN FINANCIERA) ---
+// VISTA: INFORME DE GESTIÓN 
 const InformeGestionView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Informes de Gestión Anual">
@@ -484,7 +484,7 @@ const InformeGestionView = () => (
     </DataCard>
   </div>
 )
-// --- VISTA: ESTADOS FINANCIEROS (INFORMACIÓN FINANCIERA) ---
+//VISTA: ESTADOS FINANCIEROS
 const EstadosFinancierosView = () => {
   const archivos = [
     { year: "2024", file: "CAST-EEFF-Fin-de-Ejercicio-Diciembre-2024.pdf" },
@@ -515,9 +515,9 @@ const EstadosFinancierosView = () => {
     </div>
   )
 }
-// --- VISTA: INFORMES FINANCIEROS TRIMESTRALES (INFORMACIÓN FINANCIERA) ---
+ //INFORMES FINANCIEROS TRIMESTRALE
 const InformesTrimestralesView = () => {
-  // Lista ordenada estrictamente del más reciente al más antiguo
+  
   const informesList = [
     // 2025
     { title: "EEFF Consolidados - Junio 2025", doc: "AS-6868-25-E.F.-Castilla-Agricola-S.A.-y-sus-Subsidiarias-Consolidados-30-jun-2025.pdf" },
@@ -556,7 +556,7 @@ const InformesTrimestralesView = () => {
     { title: "EEFF Consolidados - Marzo 2021", doc: "vf13-05-2021Cast-Estados-Financieros-Consolidados-a-marzo-2021.pdf" },
     { title: "EEFF Separados - Marzo 2021", doc: "vf-13-05-2021-EEFF-Castilla-separado-a-marzo-2021.pdf" },
 
-    // 2020 (Históricos)
+    // 2020 
     { title: "EEFF Separados - Tercer Trimestre 2020", doc: "EE.FF-CAST-SEPARADOS-TERCER-TRIMESTRE-2020-1.pdf" },
     { title: "EEFF Consolidados - Junio 2020", doc: "562.pdf" },
     { title: "EEFF Consolidados - Marzo 2020", doc: "559.pdf" },
