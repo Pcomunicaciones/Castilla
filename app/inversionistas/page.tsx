@@ -4,7 +4,9 @@ import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { 
   FileText, Download, ChevronDown, Menu, X, PieChart, 
-  Users, Building2, Scale, Info, Globe, ShieldCheck, Calendar, Tag, Phone
+  Users, Building2, Scale, Info, Globe, ShieldCheck, 
+  Calendar, Tag, Phone, ExternalLink, User, MessageSquare, 
+  AlertCircle, Lightbulb, CheckCircle2, MapPin, Mail
 } from "lucide-react"
 
 /* --- 1. CONFIGURACIÓN DE ESTRUCTURAS --- */
@@ -50,8 +52,17 @@ const MENU_STRUCTURE = [
       { id: 'informe_gestion', label: 'INFORME DE GESTIÓN' },
       { id: 'informes_trimestrales', label: 'INFORMES TRIMESTRALES' }
     ]
+  },
+  // 👇 AQUÍ ESTÁ LA NUEVA SECCIÓN AÑADIDA 👇
+  {
+    id: 'atencion',
+    label: 'ATENCIÓN AL INVERSIONISTA',
+    icon: Phone, 
+    description: "Canales de comunicación directa y soporte para nuestros accionistas.",
+    subItems: [] // 👈 Dejado vacío para que funcione como botón directo
   }
 ]
+
 
 /* --- 2. COMPONENTES DE DISEÑO (TAHOMA) --- */
 
@@ -64,22 +75,30 @@ const DataCard = ({ title, children }: { title: string, children: React.ReactNod
   </div>
 )
 
+// --- COMPONENTE: DocumentCell ACTUALIZADO (Solo vista previa) ---
 const DocumentCell = ({ title, fileName }: { title: string, fileName: string }) => (
-  <motion.a 
-    href={`/docs/${fileName}`} download
-    whileHover={{ y: -4 }}
-    className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:border-[#a3c74a] transition-all flex items-center justify-between group mb-3"
-  >
-    <div className="flex items-center gap-4">
-      <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-[#006437] group-hover:bg-[#006437] group-hover:text-white transition-colors">
-        <FileText size={20} />
+  <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3 p-3 mt-2 border border-gray-100 bg-white rounded-xl hover:border-[#a3c74a] transition-all group shadow-sm">
+    <div className="flex items-center gap-3">
+      <div className="w-8 h-8 bg-slate-50 rounded-lg flex items-center justify-center text-[#006437] group-hover:bg-[#006437] group-hover:text-white transition-colors shrink-0">
+        <FileText size={16} />
       </div>
-      <span className="font-bold text-[#006437] text-sm group-hover:text-black">{title}</span>
+      <span className="text-xs font-bold text-gray-600 group-hover:text-[#006437] transition-colors leading-tight">
+        {title}
+      </span>
     </div>
-    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-300 group-hover:bg-[#a3c74a] group-hover:text-white transition-all shadow-inner">
-      <Download size={16} />
+    
+    <div className="flex w-full sm:w-auto shrink-0">
+      <a
+        href={`/docs/${fileName}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-[#f1f8e9] text-[#006437] hover:bg-[#006437] hover:text-white rounded-lg text-[10px] font-bold transition-colors uppercase"
+        title="Abrir documento en pestaña nueva"
+      >
+        <ExternalLink size={14} /> VER DOCUMENTO
+      </a>
     </div>
-  </motion.a>
+  </div>
 )
 
 /* --- 3. VISTAS DE CONTENIDO --- */
@@ -153,8 +172,26 @@ const EstructuraView = () => (
               { n: "Titan Gea S.A.S.", a: "1.234.923", p: "6,31%" },
               { n: "Inversiones Bellavista y Cia S. en C.", a: "1.021.575", p: "5,22%" },
               { n: "San Martin Botero S.A.S.", a: "1.020.336", p: "5,21%" },
+              { n: "Aratamma S.A.S.", a: "1.019.800", p: "5,21%" },
               { n: "San Mateo y Cia S.A.S.", a: "1.019.800", p: "5,21%" },
-              { n: "Otros accionistas", a: "962.649", p: "4,92%" }
+              { n: "Santa Carolina Botero S.A.S.", a: "1.011.808", p: "5,17%" },
+              { n: "San Antonio Botero S.A.S", a: "1.010.637", p: "5,16%" },
+              { n: "Colombina S.A.", a: "950.904", p: "4,86%" },
+              { n: "Gonzalez Holmann S.A.S.", a: "637.518", p: "3,26%" },
+              { n: "Proyectos González y Cia.S.C.A.", a: "637.499", p: "3,26%" },
+              { n: "B.G. Ulloa y Cia S.C.A.", a: "637.492", p: "3,26%" },
+              { n: "F.G.Victoria y Cia. S.C.A.", a: "637.474", p: "3,26%" },
+              { n: "B.G. Garrido S.A.S.", a: "637.471", p: "3,26%" },
+              { n: "J.M.C. y Cia. S.A.", a: "602.533", p: "3,08%" },
+              { n: "La Campiña Caicedo y Cia S.A.S.", a: "412.917", p: "2,11%" },
+              { n: "Lumumba S.A.S", a: "412.913", p: "2,11%" },
+              { n: "Belisario Caicedo Capurro", a: "412.881", p: "2,11%" },
+              { n: "Alianza Fiduciaria S.A.- Fideicomiso 3535-1493 acciones Cali", a: "407.512", p: "2,08%" },
+              { n: "Inversiones González Garcés y Cía. S.C.A.", a: "318.406", p: "1,63%" },
+              { n: "Inversiones González Cabal y Cía. S.C.A.", a: "318.405", p: "1,63%" },
+              { n: "Inversiones B.J. González S.A.S.", a: "214.034", p: "1,09%" },
+              { n: "Valores González Peñaranda SAS", a: "201.644", p: "1,03%" },
+              { n: "Otros accionistas con menor participación", a: "962.649", p: "4,92%" }
             ].map((row, i) => (
               <tr key={i} className="border-b border-gray-50 hover:bg-gray-50">
                 <td className="py-3 px-2 font-bold">{row.n}</td>
@@ -163,7 +200,7 @@ const EstructuraView = () => (
               </tr>
             ))}
             <tr className="bg-[#f8fcf4] font-black border-t-2 border-[#a3c74a]">
-              <td className="py-4 px-4 text-[#006437]">ACCIONES EN CIRCULACIÓN</td>
+              <td className="py-4 px-4 text-[#006437]">ACCIONES SUSCRITAS, PAGADAS Y EN CIRCULACIÓN</td>
               <td className="py-4 text-right tabular-nums pr-2">19.578.078</td>
               <td className="py-4 text-right pr-2 text-[#006437]">100,00%</td>
             </tr>
@@ -175,17 +212,35 @@ const EstructuraView = () => (
     <div className="grid md:grid-cols-2 gap-8">
       <DataCard title="Comités de Junta">
         <div className="space-y-6">
+          {/* --- COMITÉ AUDITORÍA Y RIESGOS --- */}
           <div>
-            <p className="text-[10px] font-black text-[#a3c74a] uppercase mb-2">Comité Auditoría y Riesgos</p>
-            <div className="text-sm font-bold text-[#006437] space-y-1 mb-3">
-              <p>Maria Alejandra Cabal González</p><p>Juan Guillermo Salazar Vallecilla</p><p>Rodrigo Caicedo Lourido</p>
+            <p className="text-[10px] font-black text-[#a3c74a] uppercase mb-3 tracking-widest">Comité Auditoría y Riesgos</p>
+            <div className="text-sm font-bold text-[#006437] space-y-2 mb-4">
+              <p>Maria Alejandra Cabal González</p>
+              <p>Juan Guillermo Salazar Vallecilla</p>
+              <p>Rodrigo Caicedo Lourido</p>
             </div>
             <DocumentCell title="Reglamento Comité Auditoría y Riesgos" fileName="estructura corporativa/425.pdf" />
           </div>
+
+          <div className="border-t border-gray-50 pt-4"></div> {/* Divisor sutil */}
+
+          {/* --- COMITÉ SOSTENIBILIDAD Y GOBIERNO --- */}
           <div>
-            <p className="text-[10px] font-black text-[#a3c74a] uppercase mb-2">Sostenibilidad y Gobierno</p>
-            <div className="text-sm font-bold text-[#006437] space-y-1 mb-3">
-              <p>Felipe Victoria González</p><p>Juan Guillermo Salazar Vallecilla</p><p>Rodrigo Caicedo Lourido</p>
+            <p className="text-[10px] font-black text-[#a3c74a] uppercase mb-3 tracking-widest">Sostenibilidad y Gobierno</p>
+            <div className="space-y-3 mb-4">
+              <div className="border-l-2 border-gray-100 pl-3">
+                <p className="text-sm font-bold text-[#006437]">Felipe Victoria González</p>
+                <p className="text-[11px] text-gray-500 font-medium">Principal <span className="mx-1">|</span> C.C. 16.828.594</p>
+              </div>
+              <div className="border-l-2 border-gray-100 pl-3">
+                <p className="text-sm font-bold text-[#006437]">Juan Guillermo Salazar Vallecilla</p>
+                <p className="text-[11px] text-gray-500 font-medium">Principal <span className="mx-1">|</span> C.C. 94.400.436</p>
+              </div>
+              <div className="border-l-2 border-gray-100 pl-3">
+                <p className="text-sm font-bold text-[#006437]">Rodrigo Caicedo Lourido</p>
+                <p className="text-[11px] text-gray-500 font-medium">Principal <span className="mx-1">|</span> C.C. 14.960.455</p>
+              </div>
             </div>
             <DocumentCell title="Reglamento Comité Sostenibilidad" fileName="estructura corporativa/426.pdf" />
           </div>
@@ -194,14 +249,24 @@ const EstructuraView = () => (
       <DataCard title="Arquitectura de Control">
         <div className="space-y-6">
           <div>
-            <p className="text-[10px] font-bold text-gray-400 mb-1 tracking-widest">REVISORÍA FISCAL (PWC)</p>
-            <p className="font-bold text-[#006437] text-sm">NIT. 900.943.048-4</p>
-            <p className="text-xs text-gray-600">Principal: Jhon Alexander Pineda Mejía</p>
-            <p className="text-xs text-gray-500">Suplente: Fabian Alexis Pardo Higuera</p>
+            <p className="text-[10px] font-bold text-gray-400 mb-1 tracking-widest uppercase">Revisor Fiscal</p>
+            <p className="font-bold text-[#006437] text-sm">PWC Contadores y Auditores S.A.S.</p>
+            <p className="text-xs text-gray-500 mb-3">NIT. 900.943.048-4</p>
+            
+            <div className="space-y-2 border-l-2 border-gray-100 pl-3">
+              <div>
+                <p className="text-xs font-bold text-gray-700">Principal: Jhon Alexander Pineda Mejía</p>
+                <p className="text-[11px] text-gray-500">C.C. 94.415.859 <span className="mx-1">|</span> T.P. 79093-T</p>
+              </div>
+              <div>
+                <p className="text-xs font-bold text-gray-700">Suplente: Fabian Alexis Pardo Higuera</p>
+                <p className="text-[11px] text-gray-500">C.C. 1.018.432.341 <span className="mx-1">|</span> T.P. 258597-T</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <p className="text-[10px] font-bold text-gray-400 mb-1 tracking-widest">AUDITORÍA INTERNA</p>
-            <p className="font-bold text-[#006437] text-sm">Holmes Carvajal Botero</p>
+          <div className="pt-4 border-t border-gray-50">
+            <p className="text-[10px] font-bold text-gray-400 mb-1 tracking-widest uppercase">Auditoría Interna</p>
+            <p className="font-bold text-[#006437] text-sm mb-3">Holmes Carvajal Botero</p>
             <DocumentCell title="Estatuto Auditoría Interna" fileName="estructura corporativa/393.pdf" />
           </div>
         </div>
@@ -212,7 +277,7 @@ const EstructuraView = () => (
 
 // --- VISTA: BUENAS PRÁCTICAS ---
 const BuenasPracticasView = () => (
-  <div className="animate-in fade-in duration-700 pb-20">
+  <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Buenas Prácticas Corporativas">
       <div className="grid gap-2">
         <DocumentCell title="Encuesta Código País año 2025" fileName="buenas practicas/codigo_pais_2025.pdf" />
@@ -221,9 +286,10 @@ const BuenasPracticasView = () => (
         <DocumentCell title="Encuesta Código País año 2022" fileName="buenas practicas/CAS2022CodigoPais.pdf" />
         <DocumentCell title="Reforma de Estatutos" fileName="buenas practicas/ESCRITURA-PUBLICA-2630.pdf" />
         <DocumentCell title="Encuesta Código País año 2021" fileName="buenas practicas/CAST_Encuesta-Codigo-Pais-2021.pdf" />
-        <DocumentCell title="Estatutos Sociales" fileName="buenas practicas/" />
-        <DocumentCell title="Código de Mejores Prácticas Corporativas" fileName="buenas practicas/ESTATUTOS-CASTILLA-0244-4-79.pdf" />
-        <DocumentCell title="Documentos Anteriores" fileName="buenas practicas/PO-BAC-002-CODIGO-DE-MEJORES-PRACTICAS-CORPORATIVAS-CAST.pdf" />
+        {/* Aquí corregí los nombres de los archivos que estaban cruzados */}
+        <DocumentCell title="Estatutos Sociales" fileName="buenas practicas/ESTATUTOS-CASTILLA-0244-4-79.pdf" />
+        <DocumentCell title="Código de Mejores Prácticas Corporativas" fileName="buenas practicas/PO-BAC-002-CODIGO-DE-MEJORES-PRACTICAS-CORPORATIVAS-CAST.pdf" />
+        <DocumentCell title="Documentos Anteriores" fileName="buenas practicas/documentos_anteriores.pdf" /> 
       </div>
     </DataCard>
   </div>
@@ -346,20 +412,34 @@ const InfoRelevanteView = () => {
   ];
 
   return (
-    <div className="animate-in fade-in duration-700 pb-20">
+    <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
       <DataCard title="Hechos Relevantes">
         <div className="space-y-4">
           {hechos.map((h, i) => (
             <div key={i} className="group relative bg-white border border-gray-100 rounded-2xl p-6 hover:border-[#a3c74a] transition-all">
               <div className="flex flex-col md:flex-row justify-between gap-4 mb-3">
+                
+                {/* Fechas y Etiquetas */}
                 <div className="flex items-center gap-3">
                   <span className="text-sm font-bold text-[#006437]">{h.f}</span>
                   <span className="text-[10px] font-black text-[#a3c74a] uppercase bg-[#f1f8e9] px-2 py-1 rounded-md">{h.t}</span>
                 </div>
-                <a href={`/docs/${h.doc}`} download className="text-[10px] font-black text-gray-400 hover:text-[#006437] uppercase flex items-center gap-2 min-w-max">
-                  <Download size={14} /> Descargar PDF
-                </a>
+                
+                {/* Botonera Única (Solo vista previa) */}
+                <div className="flex w-full md:w-auto shrink-0">
+                  <a
+                    href={`/docs/${h.doc}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-[#f1f8e9] text-[#006437] hover:bg-[#006437] hover:text-white rounded-lg text-[10px] font-bold transition-colors uppercase"
+                    title="Abrir documento en pestaña nueva"
+                  >
+                    <ExternalLink size={14} /> VER DOCUMENTO
+                  </a>
+                </div>
               </div>
+              
+              {/* Descripción del Hecho Relevante */}
               <p className="text-sm text-gray-500 leading-relaxed">{h.r}</p>
             </div>
           ))}
@@ -429,7 +509,6 @@ const ProyectoDividendosView = () => (
     </DataCard>
   </div>
 )
-
 // --- VISTA: ARQUITECTURA DE CONTROL (SIN SUBMENÚ) ---
 const ArquitecturaControlView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
@@ -580,6 +659,132 @@ const InformesTrimestralesView = () => {
     </div>
   )
 }
+const AtencionInversionistaView = () => {
+  return (
+    <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
+      
+      {/* TARJETA 1: CONTACTO PRINCIPAL */}
+      <DataCard title="Secretaría General">
+        <div className="flex items-start gap-4 mb-6 p-6 bg-slate-50 rounded-2xl border border-gray-100">
+          <div className="w-12 h-12 bg-[#f1f8e9] rounded-xl flex items-center justify-center text-[#006437] shrink-0">
+            <User size={24} />
+          </div>
+          <div>
+            <h4 className="text-lg font-bold text-[#006437]">VICTOR HUGO URDANETA TOLOSA</h4>
+            <p className="text-[11px] font-black text-[#a3c74a] uppercase tracking-widest mb-4">Secretario General</p>
+            
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-sm text-gray-600">
+                <Building2 size={16} className="text-gray-400" />
+                <span>Carrera 1 N° 24-56 Edificio Colombina. Cali - Colombia</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm text-gray-600">
+                <Phone size={16} className="text-gray-400" />
+                <span>(602) 8836020</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm text-gray-600">
+                <Mail size={16} className="text-gray-400" />
+                <a href="mailto:secretario@riopaila-castilla.com" className="hover:text-[#006437] hover:underline font-bold transition-colors">
+                  secretario@riopaila-castilla.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </DataCard>
+
+      {/* TARJETA 2: ACCESO AL INVERSIONISTA (PQRS) */}
+      <DataCard title="Acceso al Inversionista (PQRS)">
+        <p className="text-sm text-gray-600 leading-relaxed mb-8">
+          Le damos la bienvenida al servicio de <strong>PQRS (Peticiones, Quejas, Reclamos y Sugerencias)</strong>, canal de atención al titular de datos para ejercer sus derechos de acceso, corrección, supresión o revocación del tratamiento de datos personales. A través del servicio de PQRS, usted puede enviar lo siguiente:
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-4 mb-8">
+          <div className="p-5 border border-gray-100 rounded-xl bg-white hover:border-[#a3c74a] transition-colors shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <MessageSquare size={16} className="text-[#006437]" />
+              <h5 className="font-bold text-[#006437] text-sm uppercase">Petición</h5>
+            </div>
+            <p className="text-xs text-gray-500 leading-relaxed">Solicitud expresa que presenta el titular de los datos a fin de obtener información o respuesta conforme a los derechos y deberes del titular de la información.</p>
+          </div>
+          
+          <div className="p-5 border border-gray-100 rounded-xl bg-white hover:border-[#a3c74a] transition-colors shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <AlertCircle size={16} className="text-orange-500" />
+              <h5 className="font-bold text-[#006437] text-sm uppercase">Queja</h5>
+            </div>
+            <p className="text-xs text-gray-500 leading-relaxed">Manifestación de protesta censura, descontento o inconformidad que formula el titular en relación con una conducta que considera irregular en el uso de sus datos personales.</p>
+          </div>
+
+          <div className="p-5 border border-gray-100 rounded-xl bg-white hover:border-[#a3c74a] transition-colors shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <AlertCircle size={16} className="text-red-500" />
+              <h5 className="font-bold text-[#006437] text-sm uppercase">Reclamo</h5>
+            </div>
+            <p className="text-xs text-gray-500 leading-relaxed">Expresión de insatisfacción del titular de datos con respecto al uso de sus datos personales.</p>
+          </div>
+
+          <div className="p-5 border border-gray-100 rounded-xl bg-white hover:border-[#a3c74a] transition-colors shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <Lightbulb size={16} className="text-yellow-500" />
+              <h5 className="font-bold text-[#006437] text-sm uppercase">Sugerencias</h5>
+            </div>
+            <p className="text-xs text-gray-500 leading-relaxed">Expresión para mejorar el servicio o gestión de la compañía relacionada con datos personales. También para expresar agrado o satisfacción.</p>
+          </div>
+        </div>
+
+        <div className="bg-[#f8fcf4] p-6 rounded-2xl border border-green-50">
+          <h5 className="text-[11px] font-black text-[#006437] uppercase tracking-widest mb-4">La solicitud deberá contener como mínimo:</h5>
+          <ul className="space-y-3">
+            {[
+              "El nombre y domicilio del Titular o representante o cualquier otro medio para recibir la respuesta.",
+              "Los documentos que acrediten la identidad o la representación del Titular de los datos personales.",
+              "Descripción clara y precisa de los datos personales y de los hechos que dan lugar al reclamo.",
+              "Los documentos que se desean hacer valer en la reclamación. (Opcional)"
+            ].map((req, i) => (
+              <li key={i} className="flex items-start gap-3 text-sm text-gray-600">
+                <CheckCircle2 size={16} className="text-[#a3c74a] mt-0.5 shrink-0" />
+                <span>{req}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </DataCard>
+
+      {/* TARJETA 3: CANALES DE COMUNICACIÓN */}
+      <DataCard title="Canales de Comunicación">
+        <p className="text-sm text-gray-600 leading-relaxed mb-6">
+          Los titulares de los Datos personales podrán en cualquier momento solicitar la actualización, ratificación o supresión de dicha información e incluso revocar la autorización otorgada mediante los siguientes canales:
+        </p>
+        
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="flex items-start gap-4 p-5 bg-white border border-gray-100 rounded-xl shadow-sm">
+            <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-[#006437] shrink-0">
+              <MapPin size={20} />
+            </div>
+            <div>
+              <h5 className="font-bold text-sm text-[#006437] mb-1">Comunicación Escrita</h5>
+              <p className="text-xs text-gray-500">Radicada en la Carrera 1 N° 24-56 Edificio Colombina, piso 7, oficina 722 de Santiago de Cali.</p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4 p-5 bg-white border border-gray-100 rounded-xl shadow-sm hover:border-[#a3c74a] transition-colors">
+            <div className="w-10 h-10 bg-[#f1f8e9] rounded-lg flex items-center justify-center text-[#006437] shrink-0">
+              <Mail size={20} />
+            </div>
+            <div>
+              <h5 className="font-bold text-sm text-[#006437] mb-1">Correo Electrónico</h5>
+              <a href="mailto:administracion.corp@agroriocas.com" className="text-xs font-bold text-gray-500 hover:text-[#006437] transition-colors break-all">
+                administracion.corp@agroriocas.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </DataCard>
+
+    </div>
+  )
+}
 
 /* --- 4. LAYOUT PRINCIPAL (TAHOMA FULL) --- */
 
@@ -592,7 +797,6 @@ export default function InversionistasPage() {
     <div className="flex bg-[#fcfdfc] min-h-screen" style={{ fontFamily: 'Tahoma, sans-serif' }}>
       
       {/* SIDEBAR INVERSIONISTAS */}
-    {/* SIDEBAR INVERSIONISTAS */}
       <aside className={`fixed lg:sticky top-0 lg:top-28 left-0 h-[calc(100vh-8rem)] w-[360px] bg-white border border-gray-100 flex flex-col transition-transform z-40 rounded-r-[2.5rem] shadow-2xl lg:shadow-sm self-start ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         
         {/* ENCABEZADO FIJO */}
@@ -648,20 +852,25 @@ export default function InversionistasPage() {
         </nav>
       </aside>
 
-      {/* ÁREA DE CONTENIDO */}
+  {/* ÁREA DE CONTENIDO */}
       <main className="flex-1 px-8 lg:px-20 pt-32 lg:pt-40 pb-20 overflow-x-hidden">
-        <div className="relative w-full h-[280px] bg-[#006437] rounded-[3rem] overflow-hidden mb-12 flex items-center px-12 shadow-2xl shadow-green-900/20">
+        {/* 👇 AQUÍ ESTÁ EL CAMBIO: Quité h-[280px] y puse min-h-[160px] con py-10. También ajusté el borde a rounded-3xl 👇 */}
+        <div className="relative w-full min-h-[160px] py-10 bg-[#006437] rounded-3xl overflow-hidden mb-10 flex items-center px-10 shadow-xl shadow-green-900/10">
           <div className="relative z-10">
-            <h1 className="text-5xl font-bold text-white uppercase italic tracking-tighter leading-none mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white uppercase italic tracking-tighter leading-none">
               {MENU_STRUCTURE.find(m => m.id === openMenuId)?.label || "INVERSIONISTAS"}
             </h1>
-            <p className="text-white/70 text-lg border-l-4 border-[#a3c74a] pl-6 max-w-xl">
-              {MENU_STRUCTURE.find(m => m.id === openMenuId)?.description}
-            </p>
+            
+            {/* Le puse un margen superior (mt-4) para que la línea y la descripción se separen bonito del título */}
+            {MENU_STRUCTURE.find(m => m.id === openMenuId)?.description && (
+              <p className="text-white/80 text-base md:text-lg border-l-4 border-[#a3c74a] pl-5 max-w-2xl mt-4">
+                {MENU_STRUCTURE.find(m => m.id === openMenuId)?.description}
+              </p>
+            )}
           </div>
         </div>
-{/* ESTE ES EL ANIMATE PRESENCE DEL CONTENIDO (AQUÍ VAN LAS VISTAS) */}
-        {/* ESTE ES EL ANIMATE PRESENCE DEL CONTENIDO (AQUÍ VAN LAS VISTAS) */}
+
+        {/* AQUÍ ESTÁN LAS VISTAS CONECTADAS */}
         <AnimatePresence mode="wait">
           {activeSubItem === 'estructura' && <EstructuraView key="estructura" />}
           {activeSubItem === 'buenas_practicas' && <BuenasPracticasView key="buenas_practicas" />}
@@ -673,12 +882,13 @@ export default function InversionistasPage() {
           {activeSubItem === 'control' && <ArquitecturaControlView key="control" />}
           {activeSubItem === 'informe_gestion' && <InformeGestionView key="informe_gestion" />}
           {activeSubItem === 'estados_financieros' && <EstadosFinancierosView key="estados_financieros" />}
-          
-          {/* 👇 NUEVA LÍNEA AÑADIDA 👇 */}
           {activeSubItem === 'informes_trimestrales' && <InformesTrimestralesView key="informes_trimestrales" />}
           
-          {/* 👇 ARRAY ACTUALIZADO 👇 */}
-          {!['estructura', 'buenas_practicas', 'conglomerados', 'info_relevante', 'convocatoria', 'info_general', 'proyecto_dividendos', 'control', 'informe_gestion', 'estados_financieros', 'informes_trimestrales'].includes(activeSubItem) && (
+          {/* 👇 ESTA ES LA LÍNEA QUE FALTABA PARA MOSTRAR LA VISTA 👇 */}
+          {activeSubItem === 'atencion' && <AtencionInversionistaView key="atencion" />}
+          
+          {/* 👇 TAMBIÉN FALTABA AGREGAR 'atencion' A ESTA LISTA DE EXCLUSIÓN 👇 */}
+          {!['estructura', 'buenas_practicas', 'conglomerados', 'info_relevante', 'convocatoria', 'info_general', 'proyecto_dividendos', 'control', 'informe_gestion', 'estados_financieros', 'informes_trimestrales', 'atencion'].includes(activeSubItem) && (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="text-center py-20">
                <Info className="mx-auto text-gray-100 mb-6" size={64} />
                <p className="text-gray-400 font-bold uppercase text-xs tracking-widest">Información en actualización</p>

@@ -35,17 +35,15 @@ export function Footer() {
           {/* COL 1: BRANDING */}
           <div className="lg:col-span-4 space-y-6">
             
-            {/* CAMBIO: Contenedor Flex sin Link global */}
+            {/* Contenedor Flex sin Link global */}
             <div className="flex items-center gap-4">
               
-              {/* 1. Logo (Opcional: se deja con Link por estándar de UX, pero separado del texto) */}
+              {/* 1. Logo (Estático, sin efecto de giro) */}
               <Link href="/">
-                <motion.img 
-                  whileHover={{ rotate: 180 }}
-                  transition={{ duration: 0.8 }}
+                <img 
                   src="/Imagenes/intento 4.png" 
                   alt="Logo Icono" 
-                  className="h-14 w-auto object-contain cursor-pointer" 
+                  className="h-14 w-auto object-contain cursor-pointer hover:opacity-90 transition-opacity" 
                 />
               </Link>
               
