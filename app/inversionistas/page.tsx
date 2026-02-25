@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { 
   FileText, Download, ChevronDown, Menu, X, PieChart, 
-  Users, Building2, Scale, Info, Globe, ShieldCheck, Calendar, Tag, Phone
+  Users, Building2, Scale, Info, Globe, ShieldCheck, Calendar, Tag, Phone, ExternalLink
 } from "lucide-react"
 
 /* --- 1. CONFIGURACIÓN DE ESTRUCTURAS --- */
@@ -64,22 +64,38 @@ const DataCard = ({ title, children }: { title: string, children: React.ReactNod
   </div>
 )
 
+// --- COMPONENTE: DocumentCell ACTUALIZADO (Doble Botón) ---
 const DocumentCell = ({ title, fileName }: { title: string, fileName: string }) => (
-  <motion.a 
-    href={`/docs/${fileName}`} download
-    whileHover={{ y: -4 }}
-    className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:border-[#a3c74a] transition-all flex items-center justify-between group mb-3"
-  >
-    <div className="flex items-center gap-4">
-      <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-[#006437] group-hover:bg-[#006437] group-hover:text-white transition-colors">
-        <FileText size={20} />
+  <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3 p-3 mt-2 border border-gray-100 bg-white rounded-xl hover:border-[#a3c74a] transition-all group shadow-sm">
+    <div className="flex items-center gap-3">
+      <div className="w-8 h-8 bg-slate-50 rounded-lg flex items-center justify-center text-[#006437] group-hover:bg-[#006437] group-hover:text-white transition-colors shrink-0">
+        <FileText size={16} />
       </div>
-      <span className="font-bold text-[#006437] text-sm group-hover:text-black">{title}</span>
+      <span className="text-xs font-bold text-gray-600 group-hover:text-[#006437] transition-colors leading-tight">
+        {title}
+      </span>
     </div>
-    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-300 group-hover:bg-[#a3c74a] group-hover:text-white transition-all shadow-inner">
-      <Download size={16} />
+    
+    <div className="flex gap-2 w-full sm:w-auto shrink-0">
+      <a
+        href={`/docs/${fileName}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-50 text-slate-500 hover:bg-slate-200 hover:text-slate-700 rounded-lg text-[10px] font-bold transition-colors"
+        title="Abrir en pestaña nueva"
+      >
+        <ExternalLink size={14} /> VER
+      </a>
+      <a
+        href={`/docs/${fileName}`}
+        download
+        className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3 py-2 bg-[#f1f8e9] text-[#006437] hover:bg-[#006437] hover:text-white rounded-lg text-[10px] font-bold transition-colors"
+        title="Descargar archivo"
+      >
+        <Download size={14} /> DESCARGAR
+      </a>
     </div>
-  </motion.a>
+  </div>
 )
 
 /* --- 3. VISTAS DE CONTENIDO --- */
@@ -135,7 +151,7 @@ const EstructuraView = () => (
       </div>
     </DataCard>
 
-  <DataCard title="Principales Accionistas">
+    <DataCard title="Principales Accionistas">
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead>
@@ -191,7 +207,7 @@ const EstructuraView = () => (
     </DataCard>
 
     <div className="grid md:grid-cols-2 gap-8">
-     <DataCard title="Comités de Junta">
+      <DataCard title="Comités de Junta">
         <div className="space-y-6">
           {/* --- COMITÉ AUDITORÍA Y RIESGOS --- */}
           <div>
@@ -258,7 +274,7 @@ const EstructuraView = () => (
 
 // --- VISTA: BUENAS PRÁCTICAS ---
 const BuenasPracticasView = () => (
-  <div className="animate-in fade-in duration-700 pb-20">
+  <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Buenas Prácticas Corporativas">
       <div className="grid gap-2">
         <DocumentCell title="Encuesta Código País año 2025" fileName="buenas practicas/codigo_pais_2025.pdf" />
@@ -267,9 +283,10 @@ const BuenasPracticasView = () => (
         <DocumentCell title="Encuesta Código País año 2022" fileName="buenas practicas/CAS2022CodigoPais.pdf" />
         <DocumentCell title="Reforma de Estatutos" fileName="buenas practicas/ESCRITURA-PUBLICA-2630.pdf" />
         <DocumentCell title="Encuesta Código País año 2021" fileName="buenas practicas/CAST_Encuesta-Codigo-Pais-2021.pdf" />
-        <DocumentCell title="Estatutos Sociales" fileName="buenas practicas/" />
-        <DocumentCell title="Código de Mejores Prácticas Corporativas" fileName="buenas practicas/ESTATUTOS-CASTILLA-0244-4-79.pdf" />
-        <DocumentCell title="Documentos Anteriores" fileName="buenas practicas/PO-BAC-002-CODIGO-DE-MEJORES-PRACTICAS-CORPORATIVAS-CAST.pdf" />
+        {/* Aquí corregí los nombres de los archivos que estaban cruzados */}
+        <DocumentCell title="Estatutos Sociales" fileName="buenas practicas/ESTATUTOS-CASTILLA-0244-4-79.pdf" />
+        <DocumentCell title="Código de Mejores Prácticas Corporativas" fileName="buenas practicas/PO-BAC-002-CODIGO-DE-MEJORES-PRACTICAS-CORPORATIVAS-CAST.pdf" />
+        <DocumentCell title="Documentos Anteriores" fileName="buenas practicas/documentos_anteriores.pdf" /> 
       </div>
     </DataCard>
   </div>
@@ -392,20 +409,42 @@ const InfoRelevanteView = () => {
   ];
 
   return (
-    <div className="animate-in fade-in duration-700 pb-20">
+    <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
       <DataCard title="Hechos Relevantes">
         <div className="space-y-4">
           {hechos.map((h, i) => (
             <div key={i} className="group relative bg-white border border-gray-100 rounded-2xl p-6 hover:border-[#a3c74a] transition-all">
               <div className="flex flex-col md:flex-row justify-between gap-4 mb-3">
+                
+                {/* Fechas y Etiquetas */}
                 <div className="flex items-center gap-3">
                   <span className="text-sm font-bold text-[#006437]">{h.f}</span>
                   <span className="text-[10px] font-black text-[#a3c74a] uppercase bg-[#f1f8e9] px-2 py-1 rounded-md">{h.t}</span>
                 </div>
-                <a href={`/docs/${h.doc}`} download className="text-[10px] font-black text-gray-400 hover:text-[#006437] uppercase flex items-center gap-2 min-w-max">
-                  <Download size={14} /> Descargar PDF
-                </a>
+                
+                {/* Botonera Doble (Ver y Descargar) */}
+                <div className="flex gap-2 w-full md:w-auto shrink-0">
+                  <a
+                    href={`/docs/${h.doc}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-50 text-slate-500 hover:bg-slate-200 hover:text-slate-700 rounded-lg text-[10px] font-bold transition-colors uppercase"
+                    title="Abrir en pestaña nueva"
+                  >
+                    <ExternalLink size={14} /> VER
+                  </a>
+                  <a
+                    href={`/docs/${h.doc}`}
+                    download
+                    className="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-3 py-2 bg-[#f1f8e9] text-[#006437] hover:bg-[#006437] hover:text-white rounded-lg text-[10px] font-bold transition-colors uppercase"
+                    title="Descargar archivo"
+                  >
+                    <Download size={14} /> DESCARGAR
+                  </a>
+                </div>
               </div>
+              
+              {/* Descripción del Hecho Relevante */}
               <p className="text-sm text-gray-500 leading-relaxed">{h.r}</p>
             </div>
           ))}
@@ -475,7 +514,6 @@ const ProyectoDividendosView = () => (
     </DataCard>
   </div>
 )
-
 // --- VISTA: ARQUITECTURA DE CONTROL (SIN SUBMENÚ) ---
 const ArquitecturaControlView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>

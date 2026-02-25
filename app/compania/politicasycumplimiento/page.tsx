@@ -8,7 +8,8 @@ import {
   AlertTriangle, 
   Download,
   Zap,
-  CheckCircle2
+  CheckCircle2,
+  ExternalLink // <-- Añadido el ícono para abrir en nueva pestaña
 } from "lucide-react"
 
 // --- DATOS EXACTOS DE LA TABLA DE ARCHIVOS ---
@@ -86,14 +87,26 @@ export default function PoliticasCumplimientoPage() {
               {file.title}
             </h3>
             
-            <a 
-              href={`/docs/${file.fileName}`} 
-              download
-              className="flex items-center justify-between w-full p-3 rounded-xl bg-slate-50 text-[#048450] text-xs font-bold hover:bg-[#048450] hover:text-white transition-colors group/btn"
-            >
-              <span>DESCARGAR PDF</span>
-              <Download size={16} className="group-hover/btn:translate-y-0.5 transition-transform" />
-            </a>
+            {/* --- NUEVA BOTONERA DOBLE --- */}
+            <div className="flex gap-2 w-full mt-auto">
+              <a 
+                href={`/docs/${file.fileName}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-slate-50 text-slate-500 text-[11px] font-bold hover:bg-slate-200 hover:text-slate-700 transition-colors"
+                title="Abrir en pestaña nueva"
+              >
+                <ExternalLink size={16} /> VER
+              </a>
+              <a 
+                href={`/docs/${file.fileName}`} 
+                download
+                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-[#f1f8e9] text-[#006437] text-[11px] font-bold hover:bg-[#048450] hover:text-white transition-colors group/btn"
+                title="Descargar archivo"
+              >
+                <Download size={16} className="group-hover/btn:translate-y-0.5 transition-transform" /> DESCARGAR
+              </a>
+            </div>
           </motion.div>
         ))}
       </section>
