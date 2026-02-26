@@ -1,6 +1,6 @@
 "use client"
 
-import { Handshake, FileText, ShieldCheck, Download } from "lucide-react"
+import { Handshake, ShieldCheck, ExternalLink, Globe } from "lucide-react"
 import { motion, Variants } from "framer-motion"
 
 /* --------------------------------------------------------------------------
@@ -88,7 +88,7 @@ export default function ProveedoresPage() {
         </div>
       </motion.div>
 
-      {/* PORTALES Y DOCUMENTOS (MANUAL DE PROVEEDORES CENTRADO) */}
+      {/* PORTALES Y GESTIÓN (PORTAL DE PROVEEDORES) */}
       <div className="space-y-10">
         <h3 className="text-3xl font-bold text-[#006437] flex items-center gap-4">
            Portales y Gestión <div className="h-[1px] flex-1 bg-gray-100" />
@@ -96,7 +96,7 @@ export default function ProveedoresPage() {
         
         {/* Contenedor Flex para centrar la tarjeta única */}
         <div className="flex justify-center w-full">
-          {/* Tarjeta: Manual de Proveedores */}
+          {/* Tarjeta: Portal de Proveedores */}
           <motion.div
             variants={itemVariants}
             whileHover={{ y: -10 }}
@@ -105,24 +105,25 @@ export default function ProveedoresPage() {
             <div className="p-10 space-y-6 text-center">
               <div className="flex justify-center items-start w-full relative">
                 <div className="p-6 bg-white shadow-inner rounded-3xl text-[#006437] group-hover:bg-[#006437] group-hover:text-white transition-all duration-500 mb-4">
-                  <FileText size={48} />
+                  <Globe size={48} />
                 </div>
-                <span className="absolute top-0 right-0 text-[10px] font-black text-gray-300 group-hover:text-[#a3c74a] transition-colors uppercase tracking-widest">PDF • 2.4 MB</span>
+                <span className="absolute top-0 right-0 text-[10px] font-black text-gray-300 group-hover:text-[#a3c74a] transition-colors uppercase tracking-widest">Acceso Seguro</span>
               </div>
               
               <div>
-                <h4 className="font-bold text-3xl text-[#006437] mb-3 tracking-tight">Manual de Proveedores</h4>
+                <h4 className="font-bold text-3xl text-[#006437] mb-3 tracking-tight">Portal de Proveedores</h4>
                 <p className="text-gray-500 text-base font-normal leading-relaxed max-w-xs mx-auto">
-                  Consulte nuestra normativa de calidad, ética empresarial y procedimientos logísticos.
+                  Acceda a la intranet corporativa para la gestión transparente de sus procesos.
                 </p>
               </div>
               
               <a
-                href="/documentos/manual-proveedores.pdf"
-                download
+                href="http://201.219.242.106:8283/Intranet-Proveedores/login"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 w-full py-5 bg-[#f1f8e9] text-[#006437] font-black rounded-2xl text-xs uppercase tracking-widest hover:bg-[#a3c74a] transition-all duration-300 group/btn"
               >
-                Descargar Documento <Download size={18} className="group-hover/btn:translate-y-1 transition-transform" />
+                Ingresar al Portal <ExternalLink size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
               </a>
             </div>
           </motion.div>

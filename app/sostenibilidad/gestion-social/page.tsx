@@ -1,6 +1,6 @@
 "use client"
 
-import { Users, GraduationCap, Heart, ArrowRight, Sparkles } from "lucide-react"
+import { Users, Heart, ArrowRight, Sparkles, Landmark } from "lucide-react"
 import { motion, Variants } from "framer-motion"
 
 /* --------------------------------------------------------------------------
@@ -36,24 +36,24 @@ const imageVariants: Variants = {
 export default function GestionSocial() {
   const pilares = [
     { 
-      title: "Educación y Capacitación", 
-      icon: GraduationCap, 
-      text: "Programas de formación continua para nuestros colaboradores y sus familias, impulsando el crecimiento profesional.",
-      stats: "+500 Becas",
+      title: "Educación Financiera", 
+      icon: Landmark, 
+      text: "Acompañamiento en la gestión de libranzas y préstamos para vivienda o educación, fomentando la cultura del ahorro en las familias.",
+      stats: "$612 MM Gestionados",
       color: "from-blue-500 to-cyan-500"
     },
     { 
-      title: "Bienestar Laboral", 
+      title: "Bienestar y Subsidios", 
       icon: Heart, 
-      text: "Entornos seguros con estándares internacionales de salud ocupacional y programas de salud preventiva.",
-      stats: "Riesgo 0",
+      text: "En alianza estratégica con COMFANDI, gestionamos servicios y beneficios integrales que contribuyen a la calidad de vida de nuestros colaboradores.",
+      stats: "Alianzas Activas",
       color: "from-rose-500 to-orange-500"
     },
     { 
-      title: "Apoyo Comunitario", 
+      title: "Valor Compartido", 
       icon: Users, 
-      text: "Alianzas estratégicas para el desarrollo de infraestructura local y proyectos productivos regionales.",
-      stats: "12 Veredas",
+      text: "Fortalecemos las relaciones con nuestros grupos de interés, minimizando el impacto ambiental y alineados con los ODS de la ONU.",
+      stats: "Sostenibilidad",
       color: "from-emerald-500 to-teal-500"
     }
   ]
@@ -71,12 +71,15 @@ export default function GestionSocial() {
       <motion.div variants={itemVariants} className="relative">
         <div className="flex items-center gap-3 mb-2">
           <Sparkles className="text-[#a3c74a] w-5 h-5 animate-pulse" />
-          <span className="text-[#a3c74a] font-bold text-xs uppercase tracking-[0.4em]">Inversión Humana</span>
+          <span className="text-[#a3c74a] font-bold text-xs uppercase tracking-[0.4em]">Bienestar Laboral</span>
         </div>
         <h1 className="text-5xl md:text-6xl font-black text-[#006437] tracking-tighter italic">
           Gestión Social
         </h1>
-        <div className="h-1.5 w-32 bg-[#a3c74a] mt-4 rounded-full" />
+        <p className="text-gray-600 mt-6 text-xl leading-relaxed max-w-3xl font-normal">
+          Nuestra Estrategia de Sostenibilidad crea <span className="text-[#006437] font-bold">valor compartido</span> como una oportunidad de desarrollo, generando confianza y rentabilidad.
+        </p>
+        <div className="h-1.5 w-32 bg-[#a3c74a] mt-6 rounded-full" />
       </motion.div>
       
       {/* SECCIÓN: BANNER INMERSIVO */}
@@ -102,8 +105,8 @@ export default function GestionSocial() {
             className="max-w-2xl"
           >
             <h2 className="text-white font-bold text-3xl md:text-4xl leading-tight mb-4">
-              Construyendo tejido social con <br /> 
-              <span className="text-[#a3c74a]">identidad Vallecaucana.</span>
+              Contribuyendo e impactando positivamente a las <br /> 
+              <span className="text-[#a3c74a]">familias del sector.</span>
             </h2>
           </motion.div>
         </div>
@@ -157,20 +160,20 @@ export default function GestionSocial() {
         ))}
       </div>
 
-      {/* FOOTER: DATA SUMMARY */}
+      {/* FOOTER: DATA SUMMARY - BLOQUES DE A DOS */}
       <motion.div 
         variants={itemVariants}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4"
+        className="grid grid-cols-2 gap-4 md:gap-6"
       >
         {[
-          { lab: "Impacto Local", val: "95%" },
-          { lab: "Retención Laboral", val: "98%" },
-          { lab: "Inversión Anual", val: "12%" },
-          { lab: "Voluntariado", val: "+300" },
+          { lab: "Trabajadores Beneficiados", val: "76" },
+          { lab: "Libranzas Gestionadas", val: "$612M" },
+          { lab: "Alianza Estratégica", val: "COMFANDI" },
+          { lab: "Compromiso Global", val: "ODS ONU" },
         ].map((d, i) => (
-          <div key={i} className="bg-white p-6 rounded-[2rem] border border-gray-100 text-center shadow-sm hover:border-[#a3c74a] transition-colors">
-            <p className="text-2xl font-black text-[#006437]">{d.val}</p>
-            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{d.lab}</p>
+          <div key={i} className="bg-white p-6 md:p-8 rounded-[2rem] border border-gray-100 text-center shadow-sm hover:border-[#a3c74a] transition-colors flex flex-col justify-center">
+            <p className="text-2xl sm:text-3xl md:text-4xl font-black text-[#006437]">{d.val}</p>
+            <p className="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-widest mt-2 md:mt-3 leading-tight">{d.lab}</p>
           </div>
         ))}
       </motion.div>
