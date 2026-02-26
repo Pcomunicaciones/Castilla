@@ -27,7 +27,7 @@ const carouselItems = [
     id: 4,
     title: "Sostenibilidad",
     description: "Compromiso real con el medio ambiente.",
-    image: "/Imagenes/Foto 2.png", 
+    image: "/Imagenes/DSC_0391-2.jpg", 
   },
 ]
 

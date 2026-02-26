@@ -25,11 +25,16 @@ export function GroupsInterestSidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="hidden lg:block w-80 flex-shrink-0">
+    <aside 
+      // 👇 Aquí forzamos la tipografía Tahoma para todo el Sidebar
+      style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}
+      className="hidden lg:block w-80 flex-shrink-0"
+    >
       <div className="sticky top-32 bg-[#006437] rounded-[40px] p-8 shadow-2xl">
         {/* Encabezado del Sidebar */}
         <div className="mb-8 pl-2">
-          <h2 className="text-3xl font-black italic text-white leading-none tracking-tight">
+          {/* 👇 Título sin inclinación (not-italic) 👇 */}
+          <h2 className="text-3xl font-black not-italic text-white leading-none tracking-tight">
             Grupos de Interés
           </h2>
           <p className="text-[#a3c74a] text-xs font-bold uppercase tracking-widest mt-1">

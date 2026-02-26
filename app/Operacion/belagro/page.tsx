@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, Variants } from "framer-motion"
-import { ShieldCheck, Zap, ArrowUpRight, TrendingUp, Target, Eye, Sprout, Leaf } from "lucide-react"
+import { ShieldCheck, ArrowUpRight, TrendingUp, Droplets, Leaf, FlaskConical, Truck } from "lucide-react"
 import Image from "next/image"
 
 /* --------------------------------------------------------------------------
@@ -77,17 +77,17 @@ export default function BelagroPage() {
           />
         </h1>
         
-        {/* TEXTO: ¿QUIÉNES SOMOS? */}
+        {/* TEXTO INTRODUCTORIO ACTUALIZADO */}
         <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto font-light leading-relaxed px-4">
-          Somos generadores de soluciones agronómicas para la fertilización líquida de cultivos. Especializados en desarrollar productos innovadores que agregan valor al <span className="font-bold text-castilla-green">campo colombiano</span>.
+          Generadores de soluciones agronómicas para la fertilización líquida. Desarrollamos productos innovadores que agregan valor al campo colombiano, con una capacidad instalada de <span className="font-bold text-castilla-green">8 millones de litros anuales</span>.
         </p>
       </motion.div>
 
-      {/* ================= SECCIÓN: IMAGEN Y ENTORNO (APILADA VERTICALMENTE) ================= */}
+      {/* ================= SECCIÓN: IMAGEN Y ENTORNO ================= */}
       <section className="py-12 relative z-10 max-w-6xl mx-auto px-6 mb-16">
         <div className="bg-white/60 backdrop-blur-md rounded-[3rem] p-8 md:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.03)] border border-white flex flex-col items-center">
           
-          {/* --- 1. Título y Texto (Centrados en la parte superior) --- */}
+          {/* --- 1. Título y Texto --- */}
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -97,17 +97,17 @@ export default function BelagroPage() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-green-50 border border-green-100 rounded-full mb-6 shadow-sm">
               <Leaf size={14} className="text-castilla-green" />
-              <span className="text-[10px] font-bold tracking-[0.2em] text-castilla-green-dark uppercase">Nuestro Entorno</span>
+              <span className="text-[10px] font-bold tracking-[0.2em] text-castilla-green-dark uppercase">Sostenibilidad y Rendimiento</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-castilla-green-dark mb-6 leading-tight">
-              El origen de nuestra <span className="text-transparent bg-clip-text bg-gradient-to-r from-castilla-green to-emerald-500">Inspiración</span>.
+              Nutrición vegetal que <span className="text-transparent bg-clip-text bg-gradient-to-r from-castilla-green to-emerald-500">optimiza y protege</span>.
             </h2>
             <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
-              Integrando operaciones eficientes en total armonía con la naturaleza que nos rodea. Nuestro compromiso con el campo se refleja en cada hectárea que impulsamos hacia el futuro.
+              Nuestra planta de fertilizantes suple las necesidades del sector agrícola incrementando la rentabilidad. A través de nuestra línea de concentrados solubles, aportamos un enfoque sostenible aplicando bajas dosis por hectárea, optimizando la logística y garantizando un mejor margen de utilidad.
             </p>
           </motion.div>
 
-          {/* --- 2. Imagen (Parte Inferior, mucho más grande y con marco beige) --- */}
+          {/* --- 2. Imagen --- */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 30 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -115,13 +115,13 @@ export default function BelagroPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative w-full"
           >
-            {/* Marco/Sombra Beige idéntico al de tus imágenes de referencia */}
+            {/* Marco Beige */}
             <div className="absolute -inset-3 md:-inset-5 bg-[#fef4e3] rounded-[2.5rem] md:rounded-[3rem] z-0"></div>
             
             <div className="relative z-10 rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-xl border-[6px] md:border-[8px] border-white group">
               <Image
                 src={BELAGRO_IMAGE_PATH}
-                alt="Instalaciones y cultivos de Belagro"
+                alt="Planta de fertilizantes líquidos Belagro"
                 width={1200}
                 height={600}
                 layout="responsive"
@@ -133,9 +133,8 @@ export default function BelagroPage() {
 
         </div>
       </section>
-      {/* ================= FIN SECCIÓN IMAGEN ================= */}
 
-      {/* GRID DE INFORMACIÓN (Misión, Visión, Promesa) */}
+      {/* GRID DE INFORMACIÓN (Portafolio y Beneficios) */}
       <motion.div 
         variants={containerVariants}
         initial="hidden"
@@ -145,25 +144,25 @@ export default function BelagroPage() {
       >
         {[
           {
-            title: "Nuestra Misión",
-            desc: "Desarrollar, producir y suministrar fertilizantes líquidos con enfoque técnico e industrial, orientados a una nutrición vegetal eficiente y precisa.",
-            icon: Target,
+            title: "Disoluciones",
+            desc: "Fertilizantes líquidos simples que contienen una o dos materias primas, diseñados para el aporte directo y eficiente de nutrientes primarios al cultivo.",
+            icon: Droplets,
+            color: "text-blue-500",
+            border: "border-blue-400",
+            bg: "hover:bg-blue-50"
+          },
+          {
+            title: "Concentrados",
+            desc: "Fertilizantes compuestos por múltiples materias primas. Incluyen auxiliares de formulación especializados para garantizar una perfecta estabilidad fisicoquímica.",
+            icon: FlaskConical,
             color: "text-amber-500",
             border: "border-amber-400",
             bg: "hover:bg-amber-50"
           },
           {
-            title: "Nuestra Visión",
-            desc: "Ser para el año 2027 el principal aliado estratégico de los productores agrícolas de la región, a través de la generación de fertilizantes líquidos, diseñados para potencializar el cultivo en cada una de sus etapas.",
-            icon: Eye,
-            color: "text-castilla-green",
-            border: "border-castilla-green",
-            bg: "hover:bg-green-50"
-          },
-          {
-            title: "Nuestra Promesa",
-            desc: "Soluciones agronómicas respaldadas por tecnología e investigación, diseñadas específicamente para maximizar el rendimiento y agregar valor real a cada hectárea de su cultivo.",
-            icon: Sprout,
+            title: "Optimización Logística",
+            desc: "Nuestros productos de bajas dosis por hectárea facilitan el transporte y almacenamiento, reduciendo costos operativos e incrementando la utilidad.",
+            icon: Truck,
             color: "text-castilla-green-dark",
             border: "border-castilla-green-dark",
             bg: "hover:bg-slate-50"
@@ -194,7 +193,7 @@ export default function BelagroPage() {
             </p>
 
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-castilla-green-dark/40 group-hover:text-castilla-green transition-colors mt-auto pt-4 border-t border-slate-100">
-              <TrendingUp size={14} /> Nutrición Eficiente
+              <TrendingUp size={14} /> Calidad y Confiabilidad
             </div>
           </motion.div>
         ))}
@@ -205,10 +204,10 @@ export default function BelagroPage() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mt-20 p-8 rounded-[2rem] bg-castilla-green-dark text-white flex flex-col md:flex-row items-center justify-between gap-6 max-w-7xl mx-auto"
+        className="mt-20 p-8 rounded-[2rem] bg-castilla-green-dark text-white flex flex-col md:flex-row items-center justify-between gap-6 max-w-7xl mx-auto mx-4 md:mx-auto"
       >
         <div className="flex items-center gap-6">
-          <div className="w-16 h-16 rounded-full border-4 border-castilla-yellow flex items-center justify-center font-black text-2xl">B</div>
+          <div className="w-16 h-16 rounded-full border-4 border-castilla-yellow flex items-center justify-center font-black text-2xl shrink-0">B</div>
           <div>
             <h4 className="text-xl font-bold text-white">¿Busca potenciar su cultivo?</h4>
             <p className="text-white/60">Conozca nuestro portafolio de fertilizantes líquidos de alta precisión.</p>
@@ -217,7 +216,7 @@ export default function BelagroPage() {
         <motion.button 
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-white text-castilla-green-dark px-10 py-4 rounded-2xl font-black text-sm hover:bg-castilla-yellow transition-colors shadow-xl"
+          className="bg-white text-castilla-green-dark px-10 py-4 rounded-2xl font-black text-sm hover:bg-castilla-yellow transition-colors shadow-xl shrink-0"
         >
           CONTACTAR CON BELAGRO
         </motion.button>

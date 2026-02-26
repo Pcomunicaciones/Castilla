@@ -1,6 +1,6 @@
 "use client"
 
-import { Users, Heart, ArrowRight, Sparkles, Landmark } from "lucide-react"
+import { Users, ShieldCheck, ArrowRight, Sparkles, GraduationCap, Building2, TrendingDown } from "lucide-react"
 import { motion, Variants } from "framer-motion"
 
 /* --------------------------------------------------------------------------
@@ -36,30 +36,31 @@ const imageVariants: Variants = {
 export default function GestionSocial() {
   const pilares = [
     { 
-      title: "Educación Financiera", 
-      icon: Landmark, 
-      text: "Acompañamiento en la gestión de libranzas y préstamos para vivienda o educación, fomentando la cultura del ahorro en las familias.",
-      stats: "$612 MM Gestionados",
+      title: "Desarrollo del Talento", 
+      icon: GraduationCap, 
+      text: "Promovemos el bienestar integral, la seguridad y la salud en el trabajo, reconociendo que las personas son el pilar clave para el logro de nuestros objetivos estratégicos.",
+      stats: "Formación",
       color: "from-blue-500 to-cyan-500"
     },
     { 
-      title: "Bienestar y Subsidios", 
-      icon: Heart, 
-      text: "En alianza estratégica con COMFANDI, gestionamos servicios y beneficios integrales que contribuyen a la calidad de vida de nuestros colaboradores.",
-      stats: "Alianzas Activas",
+      title: "Inclusión y Cultura", 
+      icon: Users, 
+      text: "Fomentamos una cultura organizacional basada en el respeto, la diversidad y la inclusión, garantizando un entorno de trabajo seguro para todos nuestros colaboradores.",
+      stats: "Equidad",
       color: "from-rose-500 to-orange-500"
     },
     { 
-      title: "Valor Compartido", 
-      icon: Users, 
-      text: "Fortalecemos las relaciones con nuestros grupos de interés, minimizando el impacto ambiental y alineados con los ODS de la ONU.",
-      stats: "Sostenibilidad",
+      title: "Programa Alianza E", 
+      icon: Building2, 
+      text: "Graduación de 22 famiempresas (68% familiares de trabajadores) con capital semilla, y capacitación de 21 contratistas en sostenibilidad mediante Design Thinking.",
+      stats: "$4M Inversión Semilla",
       color: "from-emerald-500 to-teal-500"
     }
   ]
 
   return (
     <motion.div 
+      // 👇 Se fuerza el uso estricto de Tahoma
       style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}
       className="space-y-16 pb-20"
       initial="hidden"
@@ -71,18 +72,21 @@ export default function GestionSocial() {
       <motion.div variants={itemVariants} className="relative">
         <div className="flex items-center gap-3 mb-2">
           <Sparkles className="text-[#a3c74a] w-5 h-5 animate-pulse" />
-          <span className="text-[#a3c74a] font-bold text-xs uppercase tracking-[0.4em]">Bienestar Laboral</span>
+          <span className="text-[#a3c74a] font-bold text-xs uppercase tracking-[0.4em]">Valor Compartido</span>
         </div>
-        <h1 className="text-5xl md:text-6xl font-black text-[#006437] tracking-tighter italic">
+        
+        {/* 👇 Título sin inclinación (not-italic) 👇 */}
+        <h1 className="text-5xl md:text-6xl font-black text-[#006437] tracking-tight not-italic">
           Gestión Social
         </h1>
+        
         <p className="text-gray-600 mt-6 text-xl leading-relaxed max-w-3xl font-normal">
-          Nuestra Estrategia de Sostenibilidad crea <span className="text-[#006437] font-bold">valor compartido</span> como una oportunidad de desarrollo, generando confianza y rentabilidad.
+          Promovemos entornos de trabajo seguros y relaciones sólidas con nuestras comunidades, generando <span className="text-[#006437] font-bold">inversión social y económica</span> en nuestro territorio de influencia.
         </p>
         <div className="h-1.5 w-32 bg-[#a3c74a] mt-6 rounded-full" />
       </motion.div>
       
-      {/* SECCIÓN: BANNER INMERSIVO */}
+      {/* SECCIÓN: BANNER INMERSIVO (Inversión Social) */}
       <motion.div 
         variants={itemVariants}
         className="relative h-[400px] rounded-[3rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,100,55,0.2)] group"
@@ -90,23 +94,25 @@ export default function GestionSocial() {
         <motion.img 
           variants={imageVariants}
           src="/Imagenes/Exportado 1.jpg" 
-          alt="Comunidad" 
+          alt="Comunidad y Educación" 
           className="w-full h-full object-cover" 
         />
         
         {/* Overlay Inteligente */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#006437] via-transparent to-transparent opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#006437] via-[#006437]/60 to-transparent opacity-90" />
         
         <div className="absolute bottom-0 left-0 p-10 md:p-14 w-full">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
-            className="max-w-2xl"
+            className="max-w-3xl"
           >
-            <h2 className="text-white font-bold text-3xl md:text-4xl leading-tight mb-4">
-              Contribuyendo e impactando positivamente a las <br /> 
-              <span className="text-[#a3c74a]">familias del sector.</span>
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-white text-xs font-bold mb-4 border border-white/30">
+              <ShieldCheck size={16} /> Inversión en el Territorio
+            </div>
+            <h2 className="text-white font-bold text-2xl md:text-3xl leading-tight mb-4">
+              Mejorando la calidad educativa con dotación a la <span className="text-[#a3c74a]">Institución La Heroica (Corinto)</span> y apoyando infraestructura vial, cultura y deporte.
             </h2>
           </motion.div>
         </div>
@@ -160,23 +166,60 @@ export default function GestionSocial() {
         ))}
       </div>
 
-      {/* FOOTER: DATA SUMMARY - BLOQUES DE A DOS */}
+      {/* SECCIÓN DE IMPACTO: CASO "CARRETILLEROS" */}
       <motion.div 
         variants={itemVariants}
-        className="grid grid-cols-2 gap-4 md:gap-6"
+        className="bg-[#006437] rounded-[3rem] p-10 md:p-14 relative overflow-hidden shadow-2xl flex flex-col md:flex-row items-center gap-12"
       >
-        {[
-          { lab: "Trabajadores Beneficiados", val: "76" },
-          { lab: "Libranzas Gestionadas", val: "$612M" },
-          { lab: "Alianza Estratégica", val: "COMFANDI" },
-          { lab: "Compromiso Global", val: "ODS ONU" },
-        ].map((d, i) => (
-          <div key={i} className="bg-white p-6 md:p-8 rounded-[2rem] border border-gray-100 text-center shadow-sm hover:border-[#a3c74a] transition-colors flex flex-col justify-center">
-            <p className="text-2xl sm:text-3xl md:text-4xl font-black text-[#006437]">{d.val}</p>
-            <p className="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-widest mt-2 md:mt-3 leading-tight">{d.lab}</p>
+        {/* Decoración de fondo */}
+        <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#a3c74a]/10 rounded-full blur-3xl" />
+
+        <div className="flex-1 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 text-[#a3c74a] rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-white/20">
+            <TrendingDown size={14} /> Impacto Comunitario Directo
           </div>
-        ))}
+          <h3 className="text-3xl md:text-4xl font-black text-white mb-4">
+            Inclusión de <span className="text-[#a3c74a]">Líderes</span> Comunitarios
+          </h3>
+          <p className="text-white/80 text-lg leading-relaxed font-light">
+            A través del proyecto social, logramos la vinculación directa de <strong>8 líderes comunitarios</strong>. Esta estrategia de inclusión y valor compartido nos permitió generar un impacto altamente positivo en la seguridad de la región.
+          </p>
+        </div>
+
+        {/* Tarjeta de Métricas de Reducción de Hurto */}
+        <div className="bg-white p-8 rounded-[2rem] w-full md:w-[350px] shrink-0 relative z-10 shadow-xl">
+          <p className="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">Reducción de Hurto de Caña</p>
+          
+          <div className="flex items-end justify-center gap-6 mb-6">
+            <div className="flex flex-col items-center">
+              <div className="h-24 w-12 bg-gray-200 rounded-t-xl relative group">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 font-bold text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity">809t</div>
+              </div>
+              <p className="text-xs font-bold text-gray-500 mt-2">2024</p>
+            </div>
+
+            <div className="flex flex-col items-center">
+              {/* Representación visual de la reducción drástica */}
+              <motion.div 
+                initial={{ height: 96 }} // 24 * 4 (altura inicial visual)
+                whileInView={{ height: 24 }} // Altura final reducida
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+                className="w-12 bg-[#a3c74a] rounded-t-xl relative group"
+              >
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 font-bold text-[#006437] text-sm opacity-0 group-hover:opacity-100 transition-opacity">186t</div>
+              </motion.div>
+              <p className="text-xs font-bold text-[#006437] mt-2">2025</p>
+            </div>
+          </div>
+
+          <div className="text-center pt-6 border-t border-gray-100">
+            <p className="text-5xl font-black text-[#006437] leading-none mb-1">-77%</p>
+            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Disminución lograda</p>
+          </div>
+        </div>
       </motion.div>
+
     </motion.div>
   )
 }

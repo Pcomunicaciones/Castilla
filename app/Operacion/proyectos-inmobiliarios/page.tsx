@@ -1,14 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Building2, Map, Trees, Landmark, ArrowRight, CheckCircle } from "lucide-react"
+import { Building2, MapPin, Home, TrendingUp, CheckCircle, CircleDollarSign } from "lucide-react"
 
 export default function ProyectosInmobiliariosPage() {
-  // Aplicamos Tahoma a nivel de contenedor principal
+  // Aplicamos Tahoma a nivel de contenedor principal para forzar la tipografía en todo el componente
   return (
     <div className="space-y-16 pb-10" style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}>
       
-      {/* HERO SECTION - Refinado */}
+      {/* ================= HERO SECTION ================= */}
       <motion.section 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -20,7 +20,7 @@ export default function ProyectosInmobiliariosPage() {
           alt="Terrenos y Proyectos"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-castilla-green-dark/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-castilla-green-dark/90" />
         
         <div className="relative z-10 text-white px-6">
           <motion.span 
@@ -29,99 +29,159 @@ export default function ProyectosInmobiliariosPage() {
             transition={{ delay: 0.2 }}
             className="inline-block bg-castilla-yellow text-castilla-green-dark px-4 py-1 rounded-md text-xs font-bold mb-4 uppercase tracking-widest"
           >
-            Unidad de Negocio
+            Programas Especiales
           </motion.span>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">Visión de Territorio</h1>
+          <h1 className="text-4xl md:text-6xl font-black mb-4 tracking-tight not-italic">
+            Proyectos Inmobiliarios
+          </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-normal leading-relaxed">
-            Desarrollamos proyectos inmobiliarios que armonizan el crecimiento urbano con el respeto ambiental y la valorización del suelo.
+            Hitos y gestión administrativa 2025: Desarrollando el territorio, generando vivienda propia y fortaleciendo el balance financiero.
           </p>
         </div>
       </motion.section>
 
-      {/* CONTENIDO PRINCIPAL - Mejora de Grilla */}
-      <div className="grid lg:grid-cols-2 gap-16 items-center px-2">
+      {/* ================= RESULTADOS FINANCIEROS (BANNER) ================= */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-gradient-to-r from-castilla-green-dark to-castilla-green p-8 md:p-12 rounded-[2.5rem] shadow-xl text-white flex flex-col md:flex-row items-center justify-between gap-8 mx-2"
+      >
+        <div className="max-w-md">
+          <div className="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+            <TrendingUp size={14} /> Balance 2025
+          </div>
+          <h2 className="text-3xl font-black tracking-tight mb-2">Sector Constructor</h2>
+          <p className="text-white/80 leading-relaxed text-sm">
+            Los logros regionales contribuyeron a un balance financiero altamente positivo al finalizar el periodo.
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-6 md:gap-12">
+          <div className="text-center md:text-left">
+            <p className="text-[10px] uppercase font-black text-castilla-yellow tracking-widest mb-1">Ingreso Bruto</p>
+            <p className="text-4xl md:text-5xl font-black">$12.539 <span className="text-lg font-normal opacity-80">M</span></p>
+          </div>
+          <div className="hidden sm:block w-px bg-white/20" />
+          <div className="text-center md:text-left">
+            <p className="text-[10px] uppercase font-black text-castilla-yellow tracking-widest mb-1">Utilidad</p>
+            <p className="text-4xl md:text-5xl font-black">$10.416 <span className="text-lg font-normal opacity-80">M</span></p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* ================= CONTENIDO PRINCIPAL: GRID 2x2 ================= */}
+      <div className="grid md:grid-cols-2 gap-8 px-2">
         
+        {/* TARJETA 1: Puerto Tejada */}
         <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="space-y-10"
+          className="group flex flex-col p-10 bg-white border border-gray-100 rounded-[3rem] shadow-sm hover:shadow-2xl hover:border-castilla-green/30 transition-all duration-300"
         >
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold text-castilla-green-dark italic">Compromiso con el Desarrollo</h2>
-            <div className="h-1 w-20 bg-castilla-yellow" />
-          </div>
-
-          <div className="space-y-8">
-            {/* Ítem 1 */}
-            <div className="group flex gap-5 p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300">
-              <div className="flex-shrink-0 w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center border border-gray-100">
-                <Landmark className="w-6 h-6 text-castilla-yellow" />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-castilla-green-dark mb-1">Valorización Estratégica</h3>
-                <p className="text-castilla-gray text-sm leading-relaxed">
-                  Identificamos zonas con alto potencial de desarrollo para proyectos residenciales e industriales, asegurando rentabilidad a largo plazo.
-                </p>
-              </div>
+          <div className="flex items-center justify-between mb-8">
+            <div className="w-16 h-16 bg-[#f1f8e9] group-hover:bg-castilla-green rounded-2xl flex items-center justify-center transition-colors duration-300">
+              <Home className="w-8 h-8 text-castilla-green group-hover:text-white transition-colors" />
             </div>
-
-            {/* Ítem 2 */}
-            <div className="group flex gap-5 p-4 rounded-xl hover:bg-gray-50 transition-colors duration-300">
-              <div className="flex-shrink-0 w-12 h-12 bg-white shadow-md rounded-lg flex items-center justify-center border border-gray-100">
-                <Trees className="w-6 h-6 text-castilla-green" />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-castilla-green-dark mb-1">Diseño Sostenible</h3>
-                <p className="text-castilla-gray text-sm leading-relaxed">
-                  Cada proyecto integra corredores biológicos y áreas de preservación activa, respetando la topografía y el ecosistema local.
-                </p>
-              </div>
-            </div>
+            <span className="bg-castilla-yellow/20 text-castilla-green-dark text-xs font-black uppercase px-4 py-1.5 rounded-full border border-castilla-yellow/30">
+              Avance 24.8%
+            </span>
           </div>
+          <h3 className="text-3xl font-bold text-castilla-green-dark mb-4 tracking-tight">Puerto Tejada</h3>
+          <p className="text-gray-500 text-lg leading-relaxed flex-1">
+            El proyecto de vivienda <strong>"Ciudad Amiga Hogares Felices"</strong> se materializó para <strong>518 familias</strong> que lograron adquirir su vivienda propia durante el 2025.
+          </p>
         </motion.div>
 
-        {/* ÁREA DE VISUALIZACIÓN - Estilo Plano Técnico */}
+        {/* TARJETA 2: Miranda */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="group flex flex-col p-10 bg-white border border-gray-100 rounded-[3rem] shadow-sm hover:shadow-2xl hover:border-castilla-green/30 transition-all duration-300"
+        >
+          <div className="flex items-center justify-between mb-8">
+            <div className="w-16 h-16 bg-[#f1f8e9] group-hover:bg-castilla-green rounded-2xl flex items-center justify-center transition-colors duration-300">
+              <CircleDollarSign className="w-8 h-8 text-castilla-green group-hover:text-white transition-colors" />
+            </div>
+            <span className="bg-gray-100 text-gray-500 text-xs font-black uppercase px-4 py-1.5 rounded-full border border-gray-200">
+              Venta de Tierras
+            </span>
+          </div>
+          <h3 className="text-3xl font-bold text-castilla-green-dark mb-4 tracking-tight">Miranda</h3>
+          <p className="text-gray-500 text-lg leading-relaxed flex-1">
+            Se concretó la venta de <strong>18,27 hectáreas brutas</strong> de la hacienda Reporter al Grupo Empresarial Falcon Zomac S.A.S. Esta operación se realizó por un valor de <strong>$9.050 millones de pesos</strong>.
+          </p>
+        </motion.div>
+
+        {/* TARJETA 3: Florida */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="group flex flex-col p-10 bg-white border border-gray-100 rounded-[3rem] shadow-sm hover:shadow-2xl hover:border-castilla-green/30 transition-all duration-300"
+        >
+          <div className="flex items-center justify-between mb-8">
+            <div className="w-16 h-16 bg-[#f1f8e9] group-hover:bg-castilla-green rounded-2xl flex items-center justify-center transition-colors duration-300">
+              <Building2 className="w-8 h-8 text-castilla-green group-hover:text-white transition-colors" />
+            </div>
+            <span className="bg-blue-50 text-blue-600 text-[10px] font-black uppercase px-4 py-1.5 rounded-full border border-blue-100 text-center leading-tight">
+              San Antonio de <br />los Caballeros
+            </span>
+          </div>
+          <h3 className="text-3xl font-bold text-castilla-green-dark mb-4 tracking-tight">Florida</h3>
+          <p className="text-gray-500 text-lg leading-relaxed flex-1">
+            Comercialización de 10 lotes en la urbanización <strong>La Molienda</strong>, beneficiando a nuestros trabajadores. Se logró la escrituración de 2 predios en 2025, proyectando finalizar los 8 restantes en 2026.
+          </p>
+        </motion.div>
+
+        {/* TARJETA 4: ESPACIO PARA IMAGEN */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative group"
+          transition={{ delay: 0.3 }}
+          className="relative group h-full min-h-[350px] rounded-[3rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100"
         >
-          <div className="absolute -inset-2 bg-castilla-green/5 rounded-[2.5rem] rotate-1 group-hover:rotate-0 transition-transform duration-500" />
-          <div className="relative bg-white aspect-video rounded-[2rem] shadow-xl border border-gray-200 overflow-hidden flex flex-col">
-            <div className="bg-gray-50 border-b border-gray-200 px-6 py-3 flex justify-between items-center">
-              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Master Plan / Visualizador</span>
-              <div className="flex gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-red-300" />
-                <div className="w-2 h-2 rounded-full bg-yellow-300" />
-                <div className="w-2 h-2 rounded-full bg-green-300" />
+          {/* 👇 AQUÍ VA TU IMAGEN (Corregido a .png) 👇 */}
+          <img 
+            src="/Imagenes/proyecto-inmobiliario.png" 
+            alt="Vista de Proyectos Inmobiliarios"
+            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-gray-100"
+          />
+          
+          {/* Overlay sutil para el texto sobre la imagen */}
+          <div className="absolute inset-0 bg-gradient-to-t from-castilla-green-dark/90 via-castilla-green-dark/20 to-transparent" />
+          
+          <div className="absolute bottom-8 left-8 right-8">
+            <div className="flex items-center gap-3 text-white">
+              <div className="p-3 bg-white/20 backdrop-blur-md rounded-xl">
+                <MapPin className="w-6 h-6 text-castilla-yellow" />
               </div>
-            </div>
-            <div className="flex-1 flex items-center justify-center bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px]">
-               <div className="text-center space-y-4">
-                 <div className="p-5 bg-gray-50 rounded-full inline-block border border-gray-100 shadow-inner">
-                   <Map className="w-12 h-12 text-gray-300" />
-                 </div>
-                 <p className="text-xs text-gray-400 font-bold uppercase tracking-tighter">Proyecciones Geográficas en Proceso</p>
-               </div>
+              <div>
+                <p className="text-lg font-bold tracking-tight">Desarrollo Regional</p>
+                <p className="text-xs text-white/70 uppercase tracking-widest font-bold mt-1">Impacto Positivo</p>
+              </div>
             </div>
           </div>
         </motion.div>
+
       </div>
 
-      {/* FOOTER DE SECCIÓN - Sutil */}
+      {/* ================= FOOTER DE SECCIÓN ================= */}
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="pt-8 border-t border-gray-100 flex items-center gap-3"
+        className="pt-8 border-t border-gray-100 flex items-start md:items-center gap-4 px-4"
       >
-        <CheckCircle className="text-castilla-green w-5 h-5" />
-        <p className="text-sm text-castilla-gray italic">
-          Proyectos desarrollados bajo la normativa vigente de ordenamiento territorial.
+        <CheckCircle className="text-castilla-green w-6 h-6 shrink-0 mt-1 md:mt-0" />
+        <p className="text-sm md:text-base text-gray-500 font-normal leading-relaxed">
+          Todos los proyectos son desarrollados bajo la normativa vigente de ordenamiento territorial, priorizando el bienestar de nuestros colaboradores y la comunidad.
         </p>
       </motion.div>
     </div>
   )
 }
-  

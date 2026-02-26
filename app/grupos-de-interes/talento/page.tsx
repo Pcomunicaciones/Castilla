@@ -62,6 +62,7 @@ const BENEFICIOS: Beneficio[] = [
 export default function TalentoPage() {
   return (
     <motion.div 
+      // 👇 Aquí forzamos la tipografía Tahoma para todo el componente
       style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}
       className="space-y-20 pb-20"
       initial="hidden"
@@ -75,10 +76,14 @@ export default function TalentoPage() {
           <div className="h-[2px] w-12 bg-[#a3c74a]" />
           <span className="text-[#a3c74a] font-bold text-xs uppercase tracking-[0.4em]">Cultura Castilla</span>
         </div>
-        <h1 className="text-5xl md:text-7xl font-black text-[#006437] italic tracking-tighter leading-none">
+        
+        {/* 👇 Título sin inclinación (not-italic) 👇 */}
+        <h1 className="text-5xl md:text-7xl font-black text-[#006437] not-italic tracking-tighter leading-none">
           Trabaja con nosotros
         </h1>
-        <p className="text-xl text-gray-500 max-w-2xl leading-relaxed font-normal italic border-l-4 border-[#f1f8e9] pl-6">
+        
+        {/* 👇 Párrafo sin inclinación (not-italic) 👇 */}
+        <p className="text-xl text-gray-500 max-w-2xl leading-relaxed font-normal not-italic border-l-4 border-[#f1f8e9] pl-6">
           Valoramos el talento humano como motor de innovación. Buscamos mentes creativas.
         </p>
       </motion.div>
@@ -116,7 +121,8 @@ export default function TalentoPage() {
             <Users size={40} className="text-[#a3c74a]" />
           </motion.div>
 
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight italic">Portal de Candidatos</h3>
+          {/* 👇 Título sin inclinación (not-italic) 👇 */}
+          <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight not-italic">Portal de Candidatos</h3>
           
           <a 
             href="https://castillaagricola.buk.co/trabaja-con-nosotros" 

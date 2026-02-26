@@ -40,6 +40,8 @@ const itemVariants: Variants = {
 export default function PoliticasPage() {
   return (
     <motion.div 
+      // 👇 Aquí se fuerza el uso de Tahoma para todo este componente
+      style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}
       className="space-y-10"
       initial="hidden"
       animate="visible"
@@ -47,7 +49,8 @@ export default function PoliticasPage() {
     >
       {/* Encabezado animado */}
       <motion.div variants={itemVariants}>
-        <h1 className="text-4xl font-extrabold text-[#006437] italic tracking-tight">
+        {/* 👇 Título sin inclinación (not-italic) 👇 */}
+        <h1 className="text-4xl font-extrabold text-[#006437] not-italic tracking-tight">
           Reglamento y Políticas
         </h1>
         <p className="text-gray-500 mt-2 text-lg max-w-2xl">

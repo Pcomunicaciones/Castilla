@@ -6,10 +6,9 @@ import {
   FileText, 
   Lock, 
   AlertTriangle, 
-  Download,
   Zap,
   CheckCircle2,
-  ExternalLink // <-- Añadido el ícono para abrir en nueva pestaña
+  ExternalLink 
 } from "lucide-react"
 
 // --- DATOS EXACTOS DE LA TABLA DE ARCHIVOS ---
@@ -64,7 +63,7 @@ export default function PoliticasCumplimientoPage() {
           Políticas y <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-500">Cumplimiento</span>
         </h1>
         <p className="text-slate-500 text-lg">
-          Acceda y descargue los lineamientos éticos y normativos que rigen nuestra operación corporativa.
+          Acceda y lea los lineamientos éticos y normativos que rigen nuestra operación corporativa.
         </p>
       </motion.section>
 
@@ -87,24 +86,16 @@ export default function PoliticasCumplimientoPage() {
               {file.title}
             </h3>
             
-            {/* --- NUEVA BOTONERA DOBLE --- */}
-            <div className="flex gap-2 w-full mt-auto">
+            {/* --- BOTÓN ÚNICO DE VISUALIZACIÓN --- */}
+            <div className="w-full mt-auto">
               <a 
                 href={`/docs/${file.fileName}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-slate-50 text-slate-500 text-[11px] font-bold hover:bg-slate-200 hover:text-slate-700 transition-colors"
+                className="w-full flex items-center justify-center gap-2 p-3 rounded-xl bg-[#f1f8e9] text-[#006437] text-[11px] font-bold hover:bg-[#048450] hover:text-white transition-colors group/btn"
                 title="Abrir en pestaña nueva"
               >
-                <ExternalLink size={16} /> VER
-              </a>
-              <a 
-                href={`/docs/${file.fileName}`} 
-                download
-                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-[#f1f8e9] text-[#006437] text-[11px] font-bold hover:bg-[#048450] hover:text-white transition-colors group/btn"
-                title="Descargar archivo"
-              >
-                <Download size={16} className="group-hover/btn:translate-y-0.5 transition-transform" /> DESCARGAR
+                <ExternalLink size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" /> VER DOCUMENTO
               </a>
             </div>
           </motion.div>

@@ -16,10 +16,15 @@ export function SostenibilidadSidebar() {
   const pathname = usePathname()
 
   return (
-    <div className="bg-castilla-green-dark rounded-3xl p-6 text-white shadow-xl sticky top-32">
+    <div 
+      // 👇 Aquí forzamos la tipografía Tahoma para todo el Sidebar
+      style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}
+      className="bg-castilla-green-dark rounded-3xl p-6 text-white shadow-xl sticky top-32"
+    >
       <div className="mb-8">
-        <h2 className="text-2xl font-bold italic">Sostenibilidad</h2>
-        <p className="text-castilla-green-light text-xs uppercase tracking-widest font-semibold opacity-80">Nuestro Legado</p>
+        {/* 👇 Quité la inclinación (italic) para mantener la consistencia corporativa 👇 */}
+        <h2 className="text-2xl font-bold not-italic">Sostenibilidad</h2>
+        <p className="text-castilla-green-light text-xs uppercase tracking-widest font-semibold opacity-80 mt-1">Nuestro Legado</p>
       </div>
       
       <nav className="space-y-3">

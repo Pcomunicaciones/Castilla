@@ -44,6 +44,8 @@ const itemVariants: Variants = {
 export default function InformesPage() {
   return (
     <motion.div 
+      // 👇 Aquí se fuerza el uso de Tahoma para todo este componente
+      style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}
       className="space-y-10"
       initial="hidden"
       animate="visible"
@@ -51,7 +53,8 @@ export default function InformesPage() {
     >
       {/* Cabecera */}
       <motion.div variants={itemVariants}>
-        <h1 className="text-4xl font-extrabold text-[#006437] italic tracking-tight">
+        {/* 👇 Título sin inclinación (not-italic) 👇 */}
+        <h1 className="text-4xl font-extrabold text-[#006437] not-italic tracking-tight">
           Centro de Documentación
         </h1>
         <p className="text-gray-500 mt-2 text-lg">
@@ -101,7 +104,7 @@ export default function InformesPage() {
         className="p-8 bg-[#f8f9fa] rounded-[2.5rem] border border-dashed border-gray-200 text-center"
       >
         <p className="text-gray-500 text-sm italic">
-          
+          Los documentos aquí publicados son de carácter oficial y están sujetos a nuestras políticas de transparencia.
         </p>
       </motion.div>
     </motion.div>

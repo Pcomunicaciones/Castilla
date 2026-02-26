@@ -36,6 +36,7 @@ const pulseVariants: Variants = {
 export default function ProveedoresPage() {
   return (
     <motion.div
+      // 👇 Aquí se fuerza el uso estricto de Tahoma para este componente
       style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}
       className="space-y-20 pb-20"
       initial="hidden"
@@ -49,7 +50,8 @@ export default function ProveedoresPage() {
           <div className="h-[2px] w-12 bg-[#a3c74a]" />
           <span className="text-[#a3c74a] font-bold text-xs uppercase tracking-[0.4em]">Alianzas Estratégicas</span>
         </div>
-        <h1 className="text-5xl md:text-6xl font-black text-[#006437] tracking-tighter italic">
+        {/* 👇 Título sin inclinación (not-italic) 👇 */}
+        <h1 className="text-5xl md:text-6xl font-black text-[#006437] tracking-tight not-italic">
           Proveedores y Clientes
         </h1>
         <p className="text-xl text-gray-500 mt-6 max-w-2xl leading-relaxed font-normal italic">
