@@ -41,7 +41,7 @@ export default function GestionAmbiental() {
         <div className="flex items-center gap-3 mb-4">
           <div className="h-[2px] w-12 bg-[#a3c74a]" />
           <span className="text-[#a3c74a] font-bold text-xs uppercase tracking-[0.3em]">
-            Compromiso Ético
+            Asuntos Ambientales
           </span>
         </div>
         
@@ -50,8 +50,7 @@ export default function GestionAmbiental() {
         </h1>
         
         <p className="text-gray-600 mt-8 text-xl leading-relaxed max-w-3xl font-normal">
-          No solo cultivamos la tierra; la <span className="text-[#006437] font-bold">protegemos</span>. 
-          Nuestra operación en el Valle del Cauca integra ciencia y respeto para asegurar la regeneración de cada recurso.
+          El fortalecimiento de una cultura de preservación es parte de nuestra filosofía. Propiciamos la implementación de acciones para <span className="text-[#006437] font-bold">mitigar el cambio climático</span> y reducir los impactos ambientales.
         </p>
       </motion.div>
 
@@ -63,23 +62,22 @@ export default function GestionAmbiental() {
         <div className="bg-gray-50/50 rounded-[2.8rem] p-8 md:p-12 flex flex-col lg:flex-row justify-between items-center gap-12">
           <div className="max-w-md space-y-6">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold">
-              <Waves size={16} className="animate-pulse" /> Optimización de Recurso
+              <Waves size={16} className="animate-pulse" /> Elemento Esencial de Vida
             </div>
-            <h3 className="text-[#006437] font-bold text-3xl tracking-tight">Eficiencia Hídrica</h3>
+            <h3 className="text-[#006437] font-bold text-3xl tracking-tight">Comprometidos con el Agua</h3>
             <p className="text-gray-500 leading-relaxed font-normal">
-              Implementamos tecnología de riego por precisión para reducir el consumo hídrico. 
-              Garantizamos que cada gota sea aprovechada al máximo.
+              Frente a una disminución del 19.5% en las precipitaciones durante el segundo trimestre de 2024, hemos incrementado el uso de sistemas de riego eficientes para reducir pérdidas y fortalecer nuestra resiliencia climática.
             </p>
             {/* Barra de progreso animada */}
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-bold text-[#006437]">
-                <span>REDUCCIÓN DE CONSUMO</span>
-                <span>40%</span>
+                <span>EFICIENCIA EN SISTEMAS DE RIEGO</span>
+                <span>En aumento</span>
               </div>
               <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
                 <motion.div 
                   initial={{ width: 0 }}
-                  whileInView={{ width: "40%" }}
+                  whileInView={{ width: "75%" }}
                   transition={{ duration: 1.5, ease: "easeOut" }}
                   className="h-full bg-[#a3c74a]"
                 />
@@ -90,21 +88,21 @@ export default function GestionAmbiental() {
           <div className="flex gap-6 w-full lg:w-auto">
             <motion.div 
               whileHover={{ y: -10 }}
-              className="flex-1 lg:flex-none bg-white p-8 rounded-[2.5rem] text-center border border-gray-100 shadow-sm"
+              className="flex-1 lg:flex-none bg-white p-8 rounded-[2.5rem] text-center border border-gray-100 shadow-sm flex flex-col justify-center"
             >
-              <p className="text-5xl font-black text-[#006437] mb-1">100%</p>
-              <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Trazable</p>
+              <p className="text-4xl md:text-5xl font-black text-[#006437] mb-1">-19.5%</p>
+              <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest mt-1">Lluvias (T2 2024)</p>
             </motion.div>
 
             <motion.div 
               whileHover={{ y: -10 }}
-              className="flex-1 lg:flex-none bg-[#006437] p-8 rounded-[2.5rem] text-center shadow-2xl relative overflow-hidden group"
+              className="flex-1 lg:flex-none bg-[#006437] p-8 rounded-[2.5rem] text-center shadow-2xl relative overflow-hidden group flex flex-col justify-center"
             >
               <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-150 transition-transform">
-                <Sprout size={60} />
+                <Droplets size={60} />
               </div>
-              <p className="text-5xl font-black text-white mb-1">Bio</p>
-              <p className="text-[10px] uppercase font-bold text-white/60 tracking-widest">Control</p>
+              <p className="text-4xl md:text-5xl font-black text-white mb-1">Eco</p>
+              <p className="text-[10px] uppercase font-bold text-white/60 tracking-widest mt-1">Resiliencia</p>
             </motion.div>
           </div>
         </div>
@@ -114,18 +112,18 @@ export default function GestionAmbiental() {
       <div className="grid md:grid-cols-2 gap-8">
         {[
           { 
-            title: "Suelo Vivo", 
+            title: "Cultura de Preservación", 
             icon: Leaf, 
             color: "text-green-600", 
             bg: "bg-green-50",
-            desc: "Uso de abonos orgánicos y rotación de cultivos para mantener la microbiota del suelo."
+            desc: "Fomentamos la participación activa de nuestros colaboradores en estrategias que garanticen el cuidado a largo plazo de nuestro entorno."
           },
           { 
-            title: "Energía Limpia", 
+            title: "Mitigación Climática", 
             icon: Wind, 
             color: "text-amber-600", 
             bg: "bg-amber-50",
-            desc: "Aprovechamiento de corrientes de aire y biomasa para reducir la dependencia de fósiles."
+            desc: "Adoptamos nuevas tecnologías sostenibles y prácticas responsables para adaptarnos y mitigar activamente el cambio climático."
           }
         ].map((pilar, index) => (
           <motion.div
@@ -159,7 +157,7 @@ export default function GestionAmbiental() {
           <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
             <Sun className="text-amber-500" size={24} />
           </div>
-          <p className="text-sm font-bold text-[#006437] italic">Operando bajo estándares de agricultura regenerativa.</p>
+          <p className="text-sm font-bold text-[#006437] italic">Construyendo resiliencia climática a través de la tecnología.</p>
         </div>
         <button className="text-xs font-black uppercase tracking-widest text-[#006437] hover:text-[#a3c74a] transition-colors border-b-2 border-[#a3c74a]">
           Ver Reporte de Sostenibilidad

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Users, Gavel, Building2, Shield, Eye, Scale, FileText, ArrowRight, CheckCircle2, Zap, ClipboardList } from "lucide-react"
+import { Users, Gavel, Building2, Shield, Eye, Scale, FileText, Zap, ClipboardList } from "lucide-react"
 
 // --- 1. DATOS DEL EJE CENTRAL (Las 5 tarjetas principales) ---
 const mainOrgData = {
@@ -23,7 +23,7 @@ const supportCommittees = [
 
 // --- 3. TARJETA PRINCIPAL (Escala Reducida) ---
 const OrgCard = ({ data, delay, className = "" }: { data: any, delay: number, className?: string }) => {
-  // Temas de color (igual que antes)
+  // Temas de color
   const themes = {
     gold: "border-[3px] border-yellow-400 shadow-[0_4px_15px_rgb(250,204,21,0.15)] text-yellow-600",
     emerald: "border-[3px] border-[#048450] shadow-[0_4px_15px_rgb(4,132,80,0.15)] text-[#048450]",
@@ -40,8 +40,7 @@ const OrgCard = ({ data, delay, className = "" }: { data: any, delay: number, cl
       viewport={{ once: true, margin: "-5%" }}
       transition={{ duration: 0.4, delay, ease: "easeOut" }}
       whileHover={{ y: -3, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
-      // REDUCCIÓN DE TAMAÑO: Ancho, alto, padding y fuentes más pequeñas
-      className={`relative z-20 flex flex-col items-center justify-startpt-5 pb-4 px-3 w-[180px] md:w-[200px] min-h-[110px] bg-white rounded-xl group cursor-default ${colorTheme} ${className}`}
+      className={`relative z-20 flex flex-col items-center justify-start pt-5 pb-4 px-3 w-[180px] md:w-[200px] min-h-[110px] bg-white rounded-xl group cursor-default ${colorTheme} ${className}`}
     >
       {/* Icono más pequeño */}
       <div className={`w-10 h-10 flex items-center justify-center rounded-lg mb-3 bg-white shadow-sm group-hover:scale-105 transition-transform`}>
@@ -77,7 +76,7 @@ const MiniOrgCard = ({ title, delay }: { title: string, delay: number }) => {
   )
 }
 
-// --- 5. LÍNEAS ANIMADAS (Ajustadas a la nueva escala) ---
+// --- 5. LÍNEAS ANIMADAS ---
 const GrowLineVertical = ({ height = "h-10", delay }: { height?: string, delay: number }) => (
   <div className={`w-[2px] ${height} bg-green-100 relative mx-auto z-0`}>
     <motion.div 
@@ -133,10 +132,8 @@ export default function GobiernoCorporativoPage() {
 
           {/* NIVEL 2: CONTROLES Y JUNTA */}
           <div className="relative w-full flex justify-center items-center py-3">
-             {/* Ancho de línea ajustado para las tarjetas más pequeñas */}
              <GrowLineHorizontal width="w-[450px]" delay={0.5} />
 
-             {/* Gap reducido entre tarjetas */}
              <div className="flex items-center gap-4 z-10">
                 <OrgCard data={mainOrgData.revisoria} delay={0.7} />
                 <OrgCard data={mainOrgData.junta} delay={0.5} />
@@ -157,7 +154,6 @@ export default function GobiernoCorporativoPage() {
         <div className="text-center mb-8">
             <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Órganos de Soporte y Gestión</h3>
         </div>
-        {/* Grid simple para las mini tarjetas */}
         <div className="flex flex-wrap justify-center gap-3">
             {supportCommittees.map((name, i) => (
                 <MiniOrgCard key={i} title={name} delay={1.3 + (i * 0.1)} />
@@ -195,61 +191,6 @@ export default function GobiernoCorporativoPage() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* ================= 4. CÓDIGO DE ÉTICA ================= */}
-      <section className="max-w-4xl mx-auto px-6 pb-16 z-10 relative">
-         <motion.div 
-           initial={{ scale: 0.98, opacity: 0 }}
-           whileInView={{ scale: 1, opacity: 1 }}
-           viewport={{ once: true }}
-           className="relative overflow-hidden rounded-[2.5rem] bg-[#048450] text-white shadow-xl"
-         >
-            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)", backgroundSize: "24px 24px" }}></div>
-            <div className="relative z-10 p-10 md:p-16 grid md:grid-cols-2 gap-10 items-center">
-               <div>
-                  <div className="inline-block px-3 py-1 bg-castilla-yellow/20 rounded-full text-castilla-yellow text-[10px] font-bold uppercase tracking-widest mb-4 border border-castilla-yellow/20">
-                    Documento Oficial
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-black mb-4 leading-none">Código de <br/>Conducta</h2>
-                  <p className="text-sm text-white/90 mb-6 font-light leading-relaxed">
-                    Descarga el documento que rige cada interacción en el grupo corporativo.
-                  </p>
-                  <motion.button
-                     whileHover={{ scale: 1.05 }}
-                     whileTap={{ scale: 0.95 }}
-                     className="bg-white text-[#048450] px-6 py-3 rounded-lg font-bold flex items-center gap-2 shadow-md hover:shadow-white/20 transition-all text-sm"
-                  >
-                     Descargar PDF <ArrowRight size={18} />
-                  </motion.button>
-               </div>
-               <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
-                  <div className="flex items-center gap-3 mb-4 pb-4 border-b border-white/20">
-                     <div className="w-10 h-10 bg-castilla-yellow rounded-full flex items-center justify-center text-[#048450]">
-                        <CheckCircle2 size={20} />
-                     </div>
-                     <div>
-                        <p className="font-bold text-base">Cumplimiento Total</p>
-                        <p className="text-[10px] text-white/80 uppercase tracking-wider">Gestión Transparente</p>
-                     </div>
-                  </div>
-                  <ul className="space-y-2">
-                     {["Derechos Humanos", "Anti-Corrupción", "Sostenibilidad"].map((item, i) => (
-                        <motion.li 
-                           key={i}
-                           initial={{ x: 10, opacity: 0 }}
-                           whileInView={{ x: 0, opacity: 1 }}
-                           transition={{ delay: 0.3 + (i * 0.1) }}
-                           className="flex items-center gap-2 text-xs text-white/90 font-medium"
-                        >
-                           <div className="w-1 h-1 bg-castilla-yellow rounded-full shadow-[0_0_6px_#facc15]" />
-                           {item}
-                        </motion.li>
-                     ))}
-                  </ul>
-               </div>
-            </div>
-         </motion.div>
       </section>
 
     </div>

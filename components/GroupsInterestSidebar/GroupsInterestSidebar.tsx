@@ -18,12 +18,7 @@ const menuItems = [
     href: "/grupos-de-interes/talento",
     icon: Users,
   },
-  {
-    name: "Reglamento y Políticas",
-    subtext: "Transparencia",
-    href: "/grupos-de-interes/politicas",
-    icon: FileCheck,
-  },
+  
 ]
 
 export function GroupsInterestSidebar() {

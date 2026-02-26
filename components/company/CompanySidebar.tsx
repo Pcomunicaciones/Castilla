@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { Building2, History, Users2, ChevronRight, ShieldCheck } from "lucide-react"
+import { Building2, History, Users2, ChevronRight, ShieldCheck, ShieldAlert } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const menuItems = [
@@ -27,10 +27,16 @@ const menuItems = [
   },
   {
     name: "Políticas y Cumplimiento",
-    // RUTA SINCRONIZADA CON TU CARPETA: politicasycumplimiento
     href: "/compania/politicasycumplimiento", 
     icon: ShieldCheck,
     description: "Transparencia y ética",
+  },
+  // 👇 AQUÍ ESTÁ EL NUEVO BOTÓN AGREGADO 👇
+  {
+    name: "Línea Transparente",
+    href: "/compania/linea-transparente",
+    icon: ShieldAlert,
+    description: "Canal de denuncias éticas",
   },
 ]
 
