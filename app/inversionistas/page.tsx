@@ -337,6 +337,21 @@ const ConglomeradosView = () => (
 // --- VISTA: INFORMACIÓN RELEVANTE ---
 const InfoRelevanteView = () => {
   const hechos = [
+    // ================== 2026 ==================
+    { 
+      f: "25/02/2026", 
+      t: "Convocatorias de Asambleas", 
+      r: "Convocatoria a reunión extraordinaria de la Asamblea General de Accionistas de Castilla Agrícola S.A., que se celebrará el día 5 de marzo de 2026, bajo modalidad mixta (presencial y virtual), en la ciudad de Cali, domicilio principal de la Sociedad.", 
+      doc: "informacion relevante 2/Castilla-Convocatoria-RE-AGA_marzo-5_2026.pdf" 
+    },
+    { 
+      f: "25/02/2026", 
+      t: "Otros Eventos", 
+      r: "Se adjunta comunicado mediante el cual se adoptan medidas y mecanismos orientados a prevenir prácticas ilegales, no autorizadas o inseguras en la representación de los Accionistas, con ocasión de la reunión extraordinaria de la Asamblea General que se celebrará el 5 de marzo de 2026, en la ciudad de Cali, domicilio principal de la Sociedad.", 
+      doc: "informacion relevante 2/CE-003_RNVE_CASTILLA-AGRICOLA_AGA-Mzo-5_2026.pdf" 
+    },
+    
+    // ================== 2025 ==================
     { 
       f: "14/11/2025", 
       t: "Informes de fin de Ejercicio", 
@@ -408,6 +423,204 @@ const InfoRelevanteView = () => {
       t: "Otros Eventos", 
       r: "En cumplimiento a la circular externa 028 de 2014 de la SFC, se informa que Castilla Agrícola S.A. diligenció y trasmitió el día 31 de enero de 2025, la encuesta Código País correspondiente al año 2024", 
       doc: "informacion relevante/CAST_Encuesta-Codigo-Pais-2024.pdf" 
+    },
+
+    // ================== 2024 ==================
+    { 
+      f: "15/11/2024", 
+      t: "Informes de fin de Ejercicio", 
+      r: "En cumplimiento a la CE 012 de 2022 de la Superintendencia Financiera de Colombia, se publica el Informe Periódico del tercer Trimestre del año 2024.", 
+      doc: "informacion relevante 2/CASTILLA-INFORME-PERIODICO-III-TRIM.2024-DEFINITIVO.pdf" 
+    },
+    { 
+      f: "15/08/2024", 
+      t: "Informe Periódico II Trim", 
+      r: "En cumplimiento a la CE 012 de 2022 de la Superintendencia Financiera de Colombia, se da cumplimiento al Informe Periódico del segundo Trimestre del año 2024.", 
+      doc: "informacion relevante 2/INFORME-PERIODICO-II-TRIM.2024-CASTILLA-DEFINITIVO_compressed.pdf" 
+    },
+    { 
+      f: "14/06/2024", 
+      t: "Decisiones Asamblea", 
+      r: "En alcance a la publicación de la decisión aprobada en reunión extraordinaria de Asamblea General de Accionistas, celebrada de manera mixta el día de hoy 14 de junio de 2024, se informa, que realizado el reconteo de votos se ajustó la votación correspondiente.", 
+      doc: "informacion relevante 2/Alcance_Desiciones-AGA_Extraor_junio14-de-2024_CASTILLA_AGRICOLA_reconteo-1.pdf" 
+    },
+    { 
+      f: "14/06/2024", 
+      t: "Decisiones Asamblea", 
+      r: "Castilla Agrícola, informa al mercado de valores, la decisión aprobada en reunión extraordinaria de Asamblea General de Accionistas, celebrada de manera mixta el día de hoy 14 de junio de 2024.", 
+      doc: "informacion relevante 2/Alcance_Desiciones-AGA_Extraor_junio14-de-2024_CASTILLA_AGRICOLA.pdf" 
+    },
+    { 
+      f: "14/06/2024", 
+      t: "Otros Eventos", 
+      r: "Se adjunta Proyecto de Distribución de Utilidades retenidas de año 2016 y anteriores, aprobado por la Asamblea General de Accionistas en reunión extraordinaria, celebrada de manera mixta el día de hoy 14 de junio de 2024.", 
+      doc: "informacion relevante 2/PDU_Aprobado-AGA_extraor_Jun-14_2024.pdf" 
+    },
+    { 
+      f: "05/06/2024", 
+      t: "Otros Eventos", 
+      r: "Se adjunta comunicado que adopta medidas y mecanismos orientados a evitar prácticas ilegales, no autorizadas e inseguras en la representación de los Accionistas en reunión extraordinaria de Asamblea General el 14 de junio de 2024, en Cali, domicilio de la Sociedad.", 
+      doc: "informacion relevante 2/Cumplimiento-CE-003_RNVE_CASTILLA_AGRICOLA_Firmado.pdf" 
+    },
+    { 
+      f: "04/06/2024", 
+      t: "Citación a Asamblea", 
+      r: "Convocatoria Asamblea General de Accionistas de Castilla Agrícola S.A en reunión extraordinaria, que se celebrará en forma Mixta (virtual y presencial), el 14 de junio de 2024 en Cali, domicilio de la Sociedad. Se someterá a consideración el proyecto de distribución de utilidades por liberación de reservas de utilidades de años anteriores.", 
+      doc: "informacion relevante 2/CASTILLA-AGRICOLA-CITACION-14-JUN.-2024.pdf" 
+    },
+    { 
+      f: "04/06/2024", 
+      t: "Otros Eventos", 
+      r: "Se adjunta Proyecto de Distribución de Utilidades por liberación de reservas de utilidades de años anteriores., que se presentará a consideración de la Asamblea General de Accionistas, en la reunión extraordinaria que se celebrará el día 14 de junio de 2024 en el domicilio de la sociedad.", 
+      doc: "informacion relevante 2/CASTILLA-AGRICOLA-PDU-JUNIO-2024.pdf" 
+    },
+    { 
+      f: "15/05/2024", 
+      t: "Informe Periódico I Trim", 
+      r: "En cumplimiento a la CE 012 de 2022 de la Superintendencia Financiera de Colombia, se da cumplimiento al Informe Periódico del primer Trimestre del año 2024.", 
+      doc: "informacion relevante 2/CASTILLA-INFORME-PERIODICO-Ier.TRIMESTRE-2024-3-comprimido-1.pdf" 
+    },
+    { 
+      f: "16/04/2024", 
+      t: "Informes de fin de Ejercicio", 
+      r: "En cumplimiento a la CE 012 y CE 031 emitida por la Superintendencia Financiera de Colombia, se pública el informe periódico de fin de ejercicio al corte de diciembre 31 de 2023, aprobado en Asamblea General de Accionistas el 21 de marzo de 2024. el cual contiene la revelación de información sobre asuntos sociales y ambientales, incluidos los climáticos.", 
+      doc: "informacion relevante 2/Informe-Castilla-2023.pdf" 
+    },
+    { 
+      f: "21/03/2024", 
+      t: "Decisiones Asamblea", 
+      r: "Se adjunta convocatoria a la reunión ordinaria de la Asamblea de Accionistas de Riopaila Agrícola S.A., que se celebrará en forma Mixta (virtual y presencial), el día 21 de marzo de 2024, en Cali, domicilio de la Sociedad. Se incluye el Orden del Día.", 
+      doc: "informacion relevante 2/Alcance_Desiciones-Asamblea-General_mzo-21-de-2024_CASTILLA_AGRICOLA.pdf" 
+    },
+    { 
+      f: "21/03/2024", 
+      t: "Otros Eventos", 
+      r: "Se adjunta Proyecto de Distribución de Utilidades del año 2023, aprobado por la Asamblea General de Accionistas en reunión ordinaria, celebrada de manera mixta el día de hoy 21 de marzo de 2024.", 
+      doc: "informacion relevante 2/PDU_Castilla-Agricola_aprob-AGA-marzo-21_2024.pdf" 
+    },
+    { 
+      f: "21/03/2024", 
+      t: "Novedades Directores", 
+      r: "Se adjunta composición de la nueva Junta Directiva de la sociedad Riopaila Agrícola S.A., para el periodo comprendido entre marzo de 2024 a marzo de 2025, elegida por la Asamblea de Accionistas en la reunión ordinaria celebrada hoy 21 de marzo de 2024.", 
+      doc: "informacion relevante 2/Junta-Directiva-2024-2025_Castilla-Agricola.pdf" 
+    },
+    { 
+      f: "28/01/2024", 
+      t: "Convocatoria Asamblea", 
+      r: "Se adjunta convocatoria a la reunión ordinaria de la Asamblea de Accionistas de Riopaila Agrícola S.A., que se celebrará en forma Mixta (virtual y presencial), el día 21 de marzo de 2024, en Cali, domicilio de la Sociedad. Se incluye el Orden del Día.", 
+      doc: "informacion relevante 2/Convocatoria-Asamblea_Castilla-Agricola.pdf" 
+    },
+    { 
+      f: "28/01/2024", 
+      t: "Otros Eventos", 
+      r: "Se adjunta el Proyecto de Distribución de Utilidades del año 2023, que se presentará a consideración de la Asamblea General de Accionistas, en reunión ordinaria el 21 de marzo de 2024 en Cali, domicilio de la Sociedad.", 
+      doc: "informacion relevante 2/CAST_PDU_Util-2023_IR.pdf" 
+    },
+    { 
+      f: "28/01/2024", 
+      t: "Otros Eventos", 
+      r: "Se adjunta comunicado que adopta medidas y mecanismos orientados a evitar prácticas ilegales, no autorizadas e inseguras en la representación de los Accionistas en reunión de Asamblea General el 21 de marzo de 2024, en Cali, domicilio de la Sociedad.", 
+      doc: "informacion relevante 2/Cumplimiento-CE-003_RNVE_CASTILLA_AGRICOLA_Firmado.pdf" 
+    },
+    { 
+      f: "27/01/2024", 
+      t: "Informe de fin de Ejercicio", 
+      r: "En cumplimiento de la Circular Externa 031 de 2021, se adjunta información del proyecto dedicado a las prácticas, políticas, procesos e indicadores en relación con los asuntos sociales y ambientales, incluidos los climáticos, que será presentado con el informe de fin de ejercicio 2023 en la asamblea general de accionistas.", 
+      doc: "informacion relevante 2/Proyecto-Informe-asuntos-sociales_ambientales-y-climatico_CASTILLA-2023.pdf" 
+    },
+    { 
+      f: "31/01/2024", 
+      t: "Códigos Buen Gobierno", 
+      r: "En cumplimiento a la circular externa 028 de 2014 de la SFC, se informa que Riopaila Agrícola S.A. diligenció y trasmitió el día 31 de enero de 2024, la encuesta Código País correspondiente al año 2023.", 
+      doc: "informacion relevante 2/CAS2023CodigoPais-1.pdf" 
+    },
+
+    // ================== 2023 ==================
+    { 
+      f: "14/11/2023", 
+      t: "Informes de fin de Ejercicio", 
+      r: "Se da cumplimiento al tercer Trimestre del año 2023, del Informe Periódico Trimestral de conformidad con la CE 012 de 2022 de la Superintendencia Financiera de Colombia.", 
+      doc: "informacion relevante 2/CASTILLA-INFORME-PERIODICO-III-TRIM.-2023.pdf" 
+    },
+    { 
+      f: "14/08/2023", 
+      t: "Informes de fin de Ejercicio", 
+      r: "Se da cumplimiento al segundo Trimestre del año 2023, del Informe Periódico Trimestral de conformidad con la CE 012 de 2022 de la Superintendencia Financiera de Colombia.", 
+      doc: "informacion relevante 2/CASTILLA-INFORME-PERIODICO-II-TRIM.-AGO.14-2023.pdf" 
+    },
+    { 
+      f: "15/05/2023", 
+      t: "Informes de fin de ejercicio", 
+      r: "Se da cumplimiento al primer Trimestre del año 2023, del Informe Periódico Trimestral de conformidad con la CE 012 de 2022 de la Superintendencia Financiera de Colombia.", 
+      doc: "informacion relevante 2/CASTILLA-INFORME-PERIODICO-PRIMER-TRIMESTRE-2023-1.pdf" 
+    },
+    { 
+      f: "28/04/2023", 
+      t: "Decisiones Asamblea", 
+      r: "Se da alcance a la información publicada el 29 de marzo de 2023, en atención a lo establecido en el numeral 5.5.del artículo 5.2.4.3.1.del Decreto 2555 de 2010.", 
+      doc: "informacion relevante 2/Alcance_Desiciones-Asamblea-General_mzo-29-de-2023_CASTILLA-AGRICOLA.pdf" 
+    },
+    { 
+      f: "21/04/2023", 
+      t: "Informes de fin de ejercicio", 
+      r: "Se adjunta informe periódico de fin de ejercicio 2022, en cumplimiento a la CE 012 de 2022 emitida por la Superintendencia Financiera de Colombia, el cual fue presentado en Asamblea General de Accionistas el 29 de marzo de 2023.", 
+      doc: "informacion relevante 2/CASTILLA_Informe-fin-de-ejercicio-2022.pdf" 
+    },
+    { 
+      f: "29/03/2023", 
+      t: "Decisiones Asamblea", 
+      r: "Riopaila Agrícola, informa al mercado de valores, la decisión aprobada en reunión extraordinaria de Asamblea General de Accionistas, celebrada de manera mixta el día de hoy 29 de marzo de 2023.", 
+      doc: "informacion relevante 2/Desiciones-reunion-Ord-Asamblea-General-Accionistas_mzo-29-de-2023_CASTILLA-AGRICOLA.pdf" 
+    },
+    { 
+      f: "29/03/2023", 
+      t: "Otros Eventos", 
+      r: "Se adjunta Proyecto de Distribución de Utilidades Acumuladas de noviembre a diciembre del año 2022, aprobado por la Asamblea General de Accionistas en reunión ordinaria, celebrada de manera mixta el día de hoy 29 de marzo de 2023.", 
+      doc: "informacion relevante 2/CAST_PDU_Util-acum-nov-dic-2022_Asamblea-mzo-2023.pdf" 
+    },
+    { 
+      f: "03/03/2023", 
+      t: "Citación a Asamblea", 
+      r: "Se adjunta convocatoria a la reunión ordinaria de la Asamblea de Accionistas de Riopaila Agrícola S.A., que se celebrará en forma Mixta (virtual y presencial), el día 29 de marzo de 2023, en Cali, domicilio de la Sociedad. Se incluye el Orden del Día", 
+      doc: "informacion relevante 2/CASTILLA-AGRICOLA-CITACION-REUNION-ORDINARIA-MARZO-2023-1.pdf" 
+    },
+    { 
+      f: "03/03/2023", 
+      t: "Otros Eventos", 
+      r: "Se adjunta Proyecto de Distribución de Utilidades -PDU- del periodo acumulado noviembre y diciembre de 2022, que se presentará a consideración de la Asamblea General de Accionistas, en la reunión ordinaria que se celebrará el día 29 de marzo de 2023.", 
+      doc: "informacion relevante 2/PDU-Dic-31_2022_CASTILLA-AGRICOLA.pdf" 
+    },
+    { 
+      f: "06/03/2023", 
+      t: "Otros Eventos", 
+      r: "Se adjunta comunicado que adopta medidas y mecanismos orientados a evitar prácticas ilegales, no autorizadas e inseguras en la representación de los Accionistas en reunión de Asamblea General el 29 de marzo de 2023, en Cali, domicilio de la Sociedad.", 
+      doc: "informacion relevante 2/CITACION-REUNION-ORDINARIA-MARZO-2022.pdf" 
+    },
+    { 
+      f: "02/02/2023", 
+      t: "Códigos Buen Gobierno", 
+      r: "En cumplimiento a la circular externa 028 de 2014 de la SFC, se informa que Castilla Agrícola S.A. diligenció y trasmitió el día 31 de enero de 2023, la encuesta Código País correspondiente al año 2022.", 
+      doc: "informacion relevante 2/PDU-Dic-31_2022_CASTILLA-AGRICOLA (3).pdf" 
+    },
+    { 
+      f: "17/01/2023", 
+      t: "Informes de fin de Ejercicio", 
+      r: "Para conocimiento del Mercado Público de Valores, se adjunta Informe de Gestión al 31 octubre de 2022, incluye, además, Estados Financieros individuales y consolidados, Dictamen de Revisor Fiscal, y Certificaciones de Representante Legal y Contador.", 
+      doc: "informacion relevante 2/Cumplimiento-CE-003_RNVE_CASTILLA-AGRICOLA_Firmado.pdf" 
+    },
+
+    // ================== 2022 ==================
+    { 
+      f: "22/12/2022", 
+      t: "Asamblea Extraordinaria", 
+      r: "Riopaila Agrícola, informa al mercado de valores, la decisión aprobada en reunión extraordinaria de Asamblea General de Accionistas, celebrada de manera mixta el día de hoy 22 de diciembre de 2022.", 
+      doc: "informacion relevante 2/Decisiones-reunion-extraor-Asamblea-General-Accionistas_dic-22-de-2022_CASTILLA.pdf" 
+    },
+    { 
+      f: "22/12/2022", 
+      t: "Proyecto Utilidad", 
+      r: "Se adjunta Proyecto de Distribución de Utilidades Acumuladas de enero a octubre del año 2022, aprobado por la Asamblea General de Accionistas en reunión extraordinaria, celebrada de manera mixta el día de hoy 22 de diciembre de 2022.", 
+      doc: "informacion relevante 2/PDU-_-Castilla-Agricola_Util-ene-a-oct-2022.pdf" 
     }
   ];
 
