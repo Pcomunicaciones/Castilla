@@ -12,7 +12,7 @@ const lineasNegocio = [
     title: "Ganadería Sostenible",
     short: "Crianza de levante y ceba con altos estándares genéticos.",
     details: "Implementamos sistemas silvopastoriles que integran árboles con pasturas, mejorando el bienestar animal y capturando carbono de manera eficiente. Nuestra genética está enfocada en la adaptabilidad y el rendimiento.",
-    image: "/Imagenes/Exportado 2.jpg",
+    image: "/Imagenes/imagen.jpg", // <--- Solo esta sección conserva la imagen
     color: "from-emerald-500/10 to-emerald-600/5"
   },
   {
@@ -21,7 +21,7 @@ const lineasNegocio = [
     title: "Cultivo de Limón",
     short: "Producción citrícola tecnificada y de alta calidad.",
     details: "Manejamos huertos citrícolas bajo estrictos estándares agronómicos y ambientales. Optimizamos el uso del agua mediante riego tecnificado y aplicamos un manejo integrado para garantizar frutos con calidad de exportación.",
-    image: "/Imagenes/Exportado 2.jpg", 
+    // Sin imagen
     color: "from-lime-500/10 to-lime-600/5"
   },
   {
@@ -30,7 +30,7 @@ const lineasNegocio = [
     title: "Cultivo de Mango",
     short: "Variedades seleccionadas con manejo agronómico óptimo.",
     details: "Producimos mangos con excelentes características organolépticas. Nuestras prácticas agrícolas respetan los ciclos naturales, promoviendo la conservación del suelo y la biodiversidad en nuestros campos de cultivo.",
-    image: "/Imagenes/Exportado 2.jpg",
+    // Sin imagen
     color: "from-amber-500/10 to-amber-600/5"
   },
   {
@@ -39,7 +39,7 @@ const lineasNegocio = [
     title: "Cultivo de Arroz",
     short: "Producción eficiente con manejo responsable del recurso hídrico.",
     details: "Desarrollamos cultivos de arroz implementando tecnologías de precisión para optimizar el riego y el manejo de suelos. Producimos granos de alta calidad nutricional e industrial reduciendo nuestra huella ambiental.",
-    image: "/Imagenes/Exportado 2.jpg",
+    // Sin imagen
     color: "from-yellow-500/10 to-yellow-600/5"
   }
 ]
@@ -59,12 +59,12 @@ export default function OtrasLineasPage() {
         <span className="text-castilla-green font-bold text-xs uppercase tracking-[0.3em] mb-2 block">
           Diversificación Estratégica
         </span>
-        <h1 className="text-4xl md:text-5xl font-bold text-castilla-green-dark mb-4 tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-castilla-green-dark mb-4 tracking-tight not-italic">
           Otras Líneas de Negocio
         </h1>
         <p className="text-lg text-castilla-gray font-normal leading-relaxed">
           Nuestra capacidad operativa se extiende a diversos sectores clave, 
-          optimizizando recursos mediante la <span className="text-castilla-green-dark font-bold">economía circular</span> y la excelencia.
+          optimizando recursos mediante la <span className="text-castilla-green-dark font-bold">economía circular</span> y la excelencia.
         </p>
       </motion.div>
 
@@ -92,7 +92,7 @@ export default function OtrasLineasPage() {
             >
               <div className="flex items-center gap-8 relative z-10">
                 <div className={cn(
-                  "w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 shadow-inner",
+                  "w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 shadow-inner shrink-0",
                   expanded === linea.id 
                     ? "bg-castilla-green-dark text-white rotate-6" 
                     : "bg-gray-50 text-castilla-green-dark group-hover:bg-castilla-yellow/20"
@@ -105,7 +105,7 @@ export default function OtrasLineasPage() {
                 </div>
               </div>
 
-              <div className="relative z-10">
+              <div className="relative z-10 shrink-0 ml-4">
                 <div className={cn(
                   "w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all duration-300",
                   expanded === linea.id 
@@ -135,13 +135,17 @@ export default function OtrasLineasPage() {
                   transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
                 >
                   <div className="px-8 md:px-12 pb-10 pt-4 border-t border-gray-50">
+                    
+                    {/* 👇 El contenedor se adapta: Si hay imagen usa 2 columnas, si no, usa 1 👇 */}
                     <div className={cn(
-                      "grid md:grid-cols-2 gap-12 items-center mt-6",
-                      index % 2 !== 0 ? "md:flex-row-reverse" : ""
+                      "grid gap-12 items-center mt-6",
+                      linea.image ? "md:grid-cols-2" : "grid-cols-1"
                     )}>
-                      <div className="space-y-6 order-2 md:order-1">
-                        <p className="text-castilla-gray text-lg leading-relaxed italic border-l-4 border-castilla-yellow pl-6 py-2">
-                          "{linea.details}"
+                      
+                      {/* Textos */}
+                      <div className={cn("space-y-6", linea.image ? "order-2 md:order-1" : "")}>
+                        <p className="text-castilla-gray text-lg leading-relaxed border-l-4 border-castilla-yellow pl-6 py-2">
+                          {linea.details}
                         </p>
                         <div className="flex items-center gap-4 text-xs font-bold text-castilla-green-dark uppercase tracking-widest">
                           <Share2 size={16} className="text-castilla-yellow" />
@@ -149,18 +153,22 @@ export default function OtrasLineasPage() {
                         </div>
                       </div>
                       
-                      <motion.div 
-                        initial={{ scale: 0.9, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        className="relative h-64 md:h-80 rounded-3xl overflow-hidden shadow-2xl order-1 md:order-2"
-                      >
-                        <img 
-                          src={linea.image} 
-                          alt={linea.title} 
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-black/10 hover:bg-black/0 transition-colors duration-500" />
-                      </motion.div>
+                      {/* Imagen (Renderizado Condicional) */}
+                      {linea.image && (
+                        <motion.div 
+                          initial={{ scale: 0.9, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          className="relative h-64 md:h-80 rounded-3xl overflow-hidden shadow-2xl order-1 md:order-2"
+                        >
+                          <img 
+                            src={linea.image} 
+                            alt={linea.title} 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                          <div className="absolute inset-0 bg-black/10 hover:bg-black/0 transition-colors duration-500" />
+                        </motion.div>
+                      )}
+
                     </div>
                   </div>
                 </motion.div>

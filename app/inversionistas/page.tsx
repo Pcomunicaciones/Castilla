@@ -802,7 +802,7 @@ export default function InversionistasPage() {
         {/* ENCABEZADO FIJO */}
         <div className="p-12 pb-8 border-b border-gray-50 shrink-0">
           <span className="text-[10px] font-bold text-[#a3c74a] tracking-[0.3em] uppercase block mb-3">Castilla Agrícola</span>
-          <h2 className="text-3xl font-bold text-[#006437] italic uppercase tracking-tighter leading-none">Inversionistas</h2>
+          <h2 className="text-3xl font-bold text-[#006437] not-italic uppercase tracking-tight leading-none">Inversionistas</h2>
         </div>
         
         {/* ÁREA DE BOTONES CON SCROLL INTERNO */}
@@ -857,7 +857,7 @@ export default function InversionistasPage() {
         {/* 👇 AQUÍ ESTÁ EL CAMBIO: Quité h-[280px] y puse min-h-[160px] con py-10. También ajusté el borde a rounded-3xl 👇 */}
         <div className="relative w-full min-h-[160px] py-10 bg-[#006437] rounded-3xl overflow-hidden mb-10 flex items-center px-10 shadow-xl shadow-green-900/10">
           <div className="relative z-10">
-            <h1 className="text-4xl lg:text-5xl font-bold text-white uppercase italic tracking-tighter leading-none">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white uppercase not-italic tracking-tight leading-none">
               {MENU_STRUCTURE.find(m => m.id === openMenuId)?.label || "INVERSIONISTAS"}
             </h1>
             
