@@ -6,7 +6,7 @@ import { KPICard } from "./KPICard"
 
 const kpiData = [
   { value: 6217, suffix: "+", label: "Hectáreas", description: "De tierra productiva en operación constante." },
-  { value: 269, suffix: "+", label: "Colaboradores", description: "Trabajando por el desarrollo rural integral." },
+  { value: 269, suffix: "+", label: "Trabajadores", description: "Trabajando por el desarrollo rural integral." },
   { value: 108, suffix: "", label: "Años", description: "Construyendo historia agrícola en Colombia." },
   { value: 95, suffix: "%", label: "Eficiencia", description: "En procesos de producción y tecnología." },
 ]
