@@ -198,30 +198,6 @@ export default function BelagroPage() {
           </motion.div>
         ))}
       </motion.div>
-
-      {/* FOOTER / CTA */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mt-20 p-8 rounded-[2rem] bg-castilla-green-dark text-white flex flex-col md:flex-row items-center justify-between gap-6 max-w-7xl mx-auto mx-4 md:mx-auto"
-      >
-        <div className="flex items-center gap-6">
-          <div className="w-16 h-16 rounded-full border-4 border-castilla-yellow flex items-center justify-center font-black text-2xl shrink-0">B</div>
-          <div>
-            <h4 className="text-xl font-bold text-white">¿Busca potenciar su cultivo?</h4>
-            <p className="text-white/60">Conozca nuestro portafolio de fertilizantes líquidos de alta precisión.</p>
-          </div>
-        </div>
-        <motion.button 
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-white text-castilla-green-dark px-10 py-4 rounded-2xl font-black text-sm hover:bg-castilla-yellow transition-colors shadow-xl shrink-0"
-        >
-          CONTACTAR CON BELAGRO
-        </motion.button>
-      </motion.div>
-
     </div>
   )
 }

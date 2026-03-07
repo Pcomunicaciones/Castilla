@@ -11,32 +11,31 @@ const menuItems = [
     name: "Quiénes Somos",
     href: "/compania/quienes-somos",
     icon: Building2,
-    description: "Misión, visión y valores",
+    subtext: "Misión, visión y valores",
   },
   {
     name: "Historia y Evolución",
     href: "/compania/historia",
     icon: History,
-    description: "Nuestra trayectoria",
+    subtext: "Nuestra trayectoria",
   },
   {
     name: "Gobierno Corporativo",
     href: "/compania/gobierno-corporativo",
     icon: Users2,
-    description: "Estructura organizacional",
+    subtext: "Estructura organizacional",
   },
   {
     name: "Políticas y Cumplimiento",
     href: "/compania/politicasycumplimiento", 
     icon: ShieldCheck,
-    description: "Transparencia y ética",
+    subtext: "Transparencia y ética",
   },
-  // 👇 AQUÍ ESTÁ EL NUEVO BOTÓN AGREGADO 👇
   {
     name: "Línea Transparente",
     href: "/compania/linea-transparente",
     icon: ShieldAlert,
-    description: "Canal de denuncias éticas",
+    subtext: "Canal de denuncias éticas",
   },
 ]
 
@@ -44,14 +43,25 @@ export function CompanySidebar() {
   const pathname = usePathname()
 
   return (
-    <nav className="sticky top-28">
-      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-        <div className="bg-castilla-green-dark p-4">
-          <h3 className="text-white font-bold text-lg">Compañía</h3>
-          <p className="text-white/70 text-sm">Navegación</p>
-        </div>
+    <aside 
+      // Forzamos la tipografía Tahoma para todo el Sidebar
+      style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}
+      className="hidden lg:block w-80 flex-shrink-0"
+    >
+      <div className="sticky top-32 bg-[#006437] rounded-[40px] p-8 shadow-2xl">
         
-        <div className="p-2">
+        {/* Encabezado del Sidebar */}
+        <div className="mb-8 pl-2">
+          <h2 className="text-3xl font-black not-italic text-white leading-none tracking-tight">
+            Compañía
+          </h2>
+          <p className="text-[#a3c74a] text-xs font-bold uppercase tracking-widest mt-2">
+            NAVEGACIÓN
+          </p>
+        </div>
+
+        {/* Menú de Navegación */}
+        <nav className="space-y-4">
           {menuItems.map((item, index) => {
             const isActive = pathname === item.href
             
@@ -65,59 +75,54 @@ export function CompanySidebar() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "flex items-center gap-3 p-3 rounded-xl transition-all duration-200 group",
+                    "group flex items-center p-4 rounded-3xl transition-all duration-300",
                     isActive
-                      ? "bg-castilla-green-dark text-white"
-                      : "hover:bg-gray-50 text-castilla-gray"
+                      ? "bg-white shadow-lg"
+                      : "hover:bg-white/10"
                   )}
                 >
-                  <div
-                    className={cn(
-                      "w-10 h-10 rounded-lg flex items-center justify-center transition-colors",
-                      isActive
-                        ? "bg-white/20"
-                        : "bg-castilla-green-dark/10 group-hover:bg-castilla-green-dark/20"
-                    )}
-                  >
-                    <item.icon
-                      className={cn(
-                        "w-5 h-5",
-                        isActive ? "text-white" : "text-castilla-green-dark"
-                      )}
-                    />
+                  {/* Icono con fondo circular suave */}
+                  <div className={cn(
+                    "p-3 rounded-full mr-4 transition-colors shrink-0",
+                    isActive ? "bg-[#e8f5e9] text-[#006437]" : "bg-white/10 text-white"
+                  )}>
+                    <item.icon size={20} />
                   </div>
+
+                  {/* Texto y Subtexto */}
                   <div className="flex-1 min-w-0">
-                    <p
-                      className={cn(
-                        "font-semibold text-sm",
-                        isActive ? "text-white" : "text-castilla-green-dark"
-                      )}
-                    >
+                    <p className={cn(
+                      "text-sm font-bold leading-tight truncate",
+                      isActive ? "text-[#006437]" : "text-white"
+                    )}>
                       {item.name}
                     </p>
-                    <p
-                      className={cn(
-                        "text-xs truncate",
-                        isActive ? "text-white/70" : "text-castilla-gray"
-                      )}
-                    >
-                      {item.description}
+                    <p className={cn(
+                      "text-[10px] mt-0.5 truncate",
+                      isActive ? "text-[#006437]/60" : "text-white/60"
+                    )}>
+                      {item.subtext}
                     </p>
                   </div>
-                  <ChevronRight
-                    className={cn(
-                      "w-4 h-4 transition-transform",
-                      isActive
-                        ? "text-white"
-                        : "text-castilla-gray group-hover:translate-x-1"
-                    )}
-                  />
+
+                  {isActive && (
+                    <ChevronRight size={16} className="text-[#006437] ml-2 shrink-0" />
+                  )}
                 </Link>
               </motion.div>
             )
           })}
+        </nav>
+
+        {/* Footer del Sidebar (Espacio decorativo extra para mantener el balance visual) */}
+        <div className="mt-8 pt-6 border-t border-white/10">
+          <div className="flex items-center text-white/50 text-xs font-bold">
+            <ShieldCheck size={16} className="mr-2" />
+            <span>Navegación Segura</span>
+          </div>
         </div>
+
       </div>
-    </nav>
+    </aside>
   )
 }
