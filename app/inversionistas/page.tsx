@@ -343,43 +343,43 @@ const InfoRelevanteView = () => {
       f: "05/03/2026",
       t: "Otros Eventos",
       r: "Con el fin de garantizar la claridad sobre el periodo ex-dividendo de conformidad con lo establecido en el Reglamento General de la BVC, la Sociedad presenta la actualización del Proyecto de Distribución de Utilidades 2025, el cual será sometido a consideración de la Asamblea General de Accionistas en reunión ordinaria programada para el 25 de marzo de 2026, en la ciudad de Cali, domicilio social de la Sociedad.",
-      doc: "informacion relevante 2/Actualizacion-PDU-2025.pdf" // <-- REEMPLAZAR POR EL PDF REAL
+      doc: "informacion relevante 2/Proyecto-Distribucion-Utilidades-2025_-Castilla-Agricola-Fecha-de-Exdividendos.pdf"
     },
     {
       f: "05/03/2026",
       t: "Decisiones adoptadas por la Asamblea de Inversionistas",
       r: "Castilla Agrícola, informa al mercado de valores las decisiones aprobadas en la reunión extraordinaria de Asamblea General de Accionistas, celebrada de manera mixta (presencial y virtual) el día de hoy 5 de marzo de 2026.",
-      doc: "informacion relevante 2/Decisiones-Asamblea-Extraordinaria-Marzo-5.pdf" // <-- REEMPLAZAR POR EL PDF REAL
+      doc: "informacion relevante 2/REPORTE-DECISIONES-RELEVANTES-_CASTILLA-AGRICOLA-SA.pdf"
     },
     {
       f: "02/03/2026",
       t: "Convocatoria Asamblea de Inversionistas",
       r: "Se adjunta la convocatoria a la reunión ordinaria de la Asamblea de Accionistas de Castilla Agrícola S.A., que se celebrará el día 25 de marzo de 2026, en el domicilio social en Cali, bajo modalidad mixta (presencial y virtual).",
-      doc: "informacion relevante 2/Convocatoria-Asamblea-Ordinaria-Marzo-25.pdf" // <-- REEMPLAZAR POR EL PDF REAL
+      doc: "informacion relevante 2/Citacion-Reunion-Ordinaria-Asamblea-de-Accionistas-Castilla-Agricola_mzo-25_2026.pdf"
     },
     {
       f: "02/03/2026",
       t: "Otros Eventos",
       r: "Se adjunta el Proyecto de Distribución de Utilidades correspondiente al ejercicio 2025, el cual será sometido a consideración de la Asamblea General de Accionistas en su reunión ordinaria programada para el 25 de marzo de 2026, en la ciudad de Cali, domicilio social de la Sociedad.",
-      doc: "informacion relevante 2/PDU-Ejercicio-2025.pdf" // <-- REEMPLAZAR POR EL PDF REAL
+      doc: "informacion relevante 2/Proyecto-Distribucion-Utilidades-2025_-Castilla-Agricola.pdf"
     },
     {
       f: "02/03/2026",
       t: "Otros Eventos",
       r: "Se adjunta comunicado mediante el cual se adoptan medidas y mecanismos orientados a prevenir prácticas ilegales, no autorizadas o inseguras en la representación de los Accionistas, con ocasión de la reunión ordinaria de la Asamblea General que se celebrará el 25 de marzo de 2026, en la ciudad de Cali, domicilio principal de la Sociedad.",
-      doc: "informacion relevante 2/Medidas-Representacion-Asamblea-Marzo-25.pdf" // <-- REEMPLAZAR POR EL PDF REAL
+      doc: "informacion relevante 2/Dcto-CE-003_RNVE_CASTILLA-AGRICOLA_AGA-Mzo-25_2026.pdf"
     },
     {
       f: "02/03/2026",
       t: "Informe de fin de Ejercicio",
       r: "En cumplimiento de la Circular Externa 031 de 2021, se adjunta la información correspondiente al proyecto sobre prácticas, políticas, procesos e indicadores en materia social y ambiental, incluidos los aspectos climáticos, el cual será presentado junto con el Informe de Gestión y Sostenibilidad 2025 en la Asamblea General de Accionistas prevista para el 25 de marzo de 2026.",
-      doc: "informacion relevante 2/Informe-ESG-Climatico-2025.pdf" // <-- REEMPLAZAR POR EL PDF REAL
+      doc: "informacion relevante 2/Proyecto-Asuntos-Sociales-y-Ambientales-incluidos-climaticos-2025_Castilla-Agricola.pdf"
     },
     {
       f: "28/02/2026",
       t: "Otros Eventos",
       r: "Se adjunta comunicado en relación con la convocatoria a la reunión extraordinaria de la Asamblea de Accionistas de Castilla Agrícola S.A., que se celebrará en forma mixta (virtual y presencial), el día 5 de marzo de 2026, en Cali, domicilio de la Sociedad.",
-      doc: "informacion relevante 2/Comunicado-Convocatoria-Extraordinaria-Marzo-5.pdf" // <-- REEMPLAZAR POR EL PDF REAL
+      doc: "informacion relevante 2/Comunicado-Castilla-Agricola_feb-28_2026.pdf"
     },
     
     // --- NOTICIAS ANTERIORES DE 2026 ---
@@ -510,7 +510,7 @@ const InfoRelevanteView = () => {
     {
       f: "04/06/2024",
       t: "Citación a Asamblea",
-      r: "Convocatoria Asamblea General de Accionistas de Castilla Agrícola S.A en reunión extraordinaria, que se celebrará en forma Mixta (virtual y presencial), el 14 de junio de 2024 en Cali, domicilio de la Sociedad. Se someterá a consideración el proyecto de distribución de utilidades por liberación de reservas de utilidades de años anteriores.",
+      r: "Convocatoria Asamblea General de Accionistas de Castilla Agrícola S.A en reunión extraordinaria, que se celebrará en forma Mixta (virtual y presencial), el 14 de junio de 2024 en Cali, domicilio de la Sociedad. Se someterá a consideración el proyecto de distribution de utilidades por liberación de reservas de utilidades de años anteriores.",
       doc: "informacion relevante 2/CASTILLA-AGRICOLA-CITACION-14-JUN.-2024.pdf"
     },
     {
@@ -674,17 +674,17 @@ const InfoRelevanteView = () => {
       <DataCard title="Hechos Relevantes">
         <div className="space-y-4">
           {hechos.map((h, i) => (
-            // Cambiamos el hover border a verde oscuro para mantener la elegancia
+            // Hover border a verde oscuro para mantener la elegancia y coherencia de marca
             <div key={i} className="group relative bg-white border border-gray-100 rounded-2xl p-6 hover:border-[#006437]/30 transition-all shadow-sm hover:shadow-md">
               <div className="flex flex-col md:flex-row justify-between gap-4 mb-3">
                 
-                {/* Fechas y Etiquetas con colores Castilla */}
+                {/* Fechas y Etiquetas con colores de Castilla Agrícola */}
                 <div className="flex items-center gap-3">
                   <span className="text-sm font-bold text-[#004a29]">{h.f}</span>
                   <span className="text-[10px] font-black text-[#006437] uppercase bg-[#a3c74a]/10 border border-[#a3c74a]/20 px-2 py-1 rounded-md">{h.t}</span>
                 </div>
                 
-                {/* Botonera Única con estilo verde y amarillo */}
+                {/* Botón con estilo verde y hover amarillo/verde */}
                 <div className="flex w-full md:w-auto shrink-0">
                   <a
                     href={`/docs/${h.doc}`}
@@ -707,6 +707,7 @@ const InfoRelevanteView = () => {
     </div>
   )
 }
+
 // --- VISTA: CONVOCATORIA (ASAMBLEA DE ACCIONISTAS) ---
 const ConvocatoriaView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
