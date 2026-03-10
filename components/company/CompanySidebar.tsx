@@ -114,13 +114,6 @@ export function CompanySidebar() {
           })}
         </nav>
 
-        {/* Footer del Sidebar (Espacio decorativo extra para mantener el balance visual) */}
-        <div className="mt-8 pt-6 border-t border-white/10">
-          <div className="flex items-center text-white/50 text-xs font-bold">
-            <ShieldCheck size={16} className="mr-2" />
-            <span>Navegación Segura</span>
-          </div>
-        </div>
 
       </div>
     </aside>

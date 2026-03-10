@@ -11,7 +11,9 @@ import {
   ExternalLink 
 } from "lucide-react"
 
-// --- DATOS EXACTOS DE LA TABLA DE ARCHIVOS ---
+// Aquí tenemos nuestra pequeña "base de datos" de documentos oficiales. 
+// Lo hicimos así para que, si el día de mañana el equipo legal necesita agregar o cambiar un PDF, 
+// solo tengas que agregarlo a esta lista y la página construirá la tarjeta sola, sin tocar el diseño.
 const politicasFiles = [
   {
     title: "Política de Conflicto de Interés",
@@ -45,11 +47,14 @@ const politicasFiles = [
   }
 ]
 
+// === PÁGINA PRINCIPAL ===
 export default function PoliticasCumplimientoPage() {
   return (
+    // Forzamos la tipografía Tahoma para mantener la identidad visual del grupo
     <div className="min-h-screen bg-[#f8fafc] pb-24 font-[Tahoma,Verdana,sans-serif]">
       
-      {/* HEADER */}
+      {/* --- ENCABEZADO --- */}
+      {/* Animamos la entrada para que el texto baje suavemente al cargar la página */}
       <motion.section 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -59,25 +64,30 @@ export default function PoliticasCumplimientoPage() {
           <Zap size={14} className="text-yellow-500 fill-yellow-500" />
           <span className="text-[11px] font-bold tracking-[0.2em] text-[#048450] uppercase">Documentación Oficial</span>
         </div>
+        
         <h1 className="text-4xl md:text-6xl font-black text-[#1a2b3c] mb-4 tracking-tight">
           Políticas y <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-500">Cumplimiento</span>
         </h1>
+        
         <p className="text-slate-500 text-lg">
           Acceda y lea los lineamientos éticos y normativos que rigen nuestra operación corporativa.
         </p>
       </motion.section>
 
-      {/* GRID DE ARCHIVOS (CELDAS) */}
+      {/* --- LA CUADRÍCULA DE DOCUMENTOS --- */}
       <section className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Usamos .map() para recorrer nuestra lista de arriba y dibujar una tarjeta por cada archivo */}
         {politicasFiles.map((file, index) => (
           <motion.div
             key={index}
+            // Cada tarjeta entra con un pequeño retraso (delay) para crear un efecto de "ola"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
             className="bg-white p-8 rounded-2xl border-2 border-slate-100 shadow-sm hover:border-[#048450] transition-all group flex flex-col min-h-[220px]"
           >
+            {/* El ícono de la tarjeta. Lo hacemos crecer un poco cuando el usuario le pasa el mouse (hover) */}
             <div className={`w-12 h-12 flex items-center justify-center rounded-xl bg-slate-50 mb-6 ${file.theme === 'emerald' ? 'text-[#048450]' : 'text-slate-400'} group-hover:scale-110 transition-transform`}>
               <file.icon size={24} />
             </div>
@@ -86,7 +96,8 @@ export default function PoliticasCumplimientoPage() {
               {file.title}
             </h3>
             
-            {/* --- BOTÓN ÚNICO DE VISUALIZACIÓN --- */}
+            {/* El botón para abrir el PDF. Le pusimos target="_blank" para que se abra en una pestaña nueva 
+                y el usuario no pierda la página de Castilla en la que estaba navegando. */}
             <div className="w-full mt-auto">
               <a 
                 href={`/docs/${file.fileName}`} 
@@ -102,7 +113,8 @@ export default function PoliticasCumplimientoPage() {
         ))}
       </section>
 
-      {/* SECCIÓN INFORMATIVA FINAL */}
+      {/* --- BLOQUE FINAL DE TRANSPARENCIA --- */}
+      {/* Un mensaje de cierre fuerte para transmitir seguridad y confianza a los visitantes */}
       <section className="max-w-5xl mx-auto px-6 mt-24">
         <motion.div 
           initial={{ scale: 0.95, opacity: 0 }}
@@ -111,25 +123,33 @@ export default function PoliticasCumplimientoPage() {
           className="relative overflow-hidden rounded-[3rem] bg-[#048450] text-white shadow-2xl p-12 md:p-16"
         >
           <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            
+            {/* Textos del lado izquierdo */}
             <div>
               <h2 className="text-3xl font-black mb-6">Compromiso con la Transparencia</h2>
               <p className="text-white/90 leading-relaxed mb-8 font-light">
                 Mantenemos altos estándares de integridad. Si desea reportar alguna irregularidad, puede hacerlo a través de nuestro Canal de Denuncias oficial.
               </p>
+              
+              {/* Pequeño tag indicando que el sistema antifraude está activo */}
               <div className="flex items-center gap-3 bg-white/10 px-4 py-2 rounded-full border border-white/20 w-fit">
                 <CheckCircle2 size={16} className="text-yellow-400" />
                 <span className="text-[10px] font-bold uppercase tracking-widest">Sagrilaft / PTEE Activo</span>
               </div>
             </div>
+
+            {/* Recuadro de cita inspiradora del lado derecho */}
             <div className="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 flex items-center justify-center">
                <ShieldCheck size={80} className="opacity-20 absolute" />
-               <p className="text-center italic font-light opacity-90">
+               <p className="text-center italic font-light opacity-90 relative z-10">
                 "La ética empresarial es el cimiento de nuestra sostenibilidad en el campo colombiano."
                </p>
             </div>
+
           </div>
         </motion.div>
       </section>
+
     </div>
   )
 }
