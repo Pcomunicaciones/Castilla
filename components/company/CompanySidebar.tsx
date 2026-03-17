@@ -44,24 +44,24 @@ export function CompanySidebar() {
 
   return (
     <aside 
-      // Forzamos la tipografía Tahoma para todo el Sidebar
       style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}
-      className="hidden lg:block w-80 flex-shrink-0"
+      // 👇 Reducido de w-80 a w-72 para evitar colisión con el contenido
+      className="hidden lg:block w-72 flex-shrink-0"
     >
-      <div className="sticky top-32 bg-[#006437] rounded-[40px] p-8 shadow-2xl">
+      <div className="sticky top-32 bg-[#006437] rounded-[40px] p-6 shadow-2xl">
         
         {/* Encabezado del Sidebar */}
-        <div className="mb-8 pl-2">
-          <h2 className="text-3xl font-black not-italic text-white leading-none tracking-tight">
+        <div className="mb-8 pl-1">
+          <h2 className="text-2xl font-black not-italic text-white leading-none tracking-tight">
             Compañía
           </h2>
-          <p className="text-[#a3c74a] text-xs font-bold uppercase tracking-widest mt-2">
+          <p className="text-[#a3c74a] text-[10px] font-bold uppercase tracking-widest mt-2">
             NAVEGACIÓN
           </p>
         </div>
 
         {/* Menú de Navegación */}
-        <nav className="space-y-4">
+        <nav className="space-y-3">
           {menuItems.map((item, index) => {
             const isActive = pathname === item.href
             
@@ -75,30 +75,30 @@ export function CompanySidebar() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "group flex items-center p-4 rounded-3xl transition-all duration-300",
+                    "group flex items-center p-3 rounded-[24px] transition-all duration-300",
                     isActive
                       ? "bg-white shadow-lg"
                       : "hover:bg-white/10"
                   )}
                 >
-                  {/* Icono con fondo circular suave */}
+                  {/* Icono con fondo circular suave - Tamaño ligeramente reducido */}
                   <div className={cn(
-                    "p-3 rounded-full mr-4 transition-colors shrink-0",
+                    "p-2.5 rounded-full mr-3 transition-colors shrink-0",
                     isActive ? "bg-[#e8f5e9] text-[#006437]" : "bg-white/10 text-white"
                   )}>
-                    <item.icon size={20} />
+                    <item.icon size={18} />
                   </div>
 
                   {/* Texto y Subtexto */}
                   <div className="flex-1 min-w-0">
                     <p className={cn(
-                      "text-sm font-bold leading-tight truncate",
+                      "text-[13px] font-bold leading-tight truncate",
                       isActive ? "text-[#006437]" : "text-white"
                     )}>
                       {item.name}
                     </p>
                     <p className={cn(
-                      "text-[10px] mt-0.5 truncate",
+                      "text-[9px] mt-0.5 truncate",
                       isActive ? "text-[#006437]/60" : "text-white/60"
                     )}>
                       {item.subtext}
@@ -106,15 +106,13 @@ export function CompanySidebar() {
                   </div>
 
                   {isActive && (
-                    <ChevronRight size={16} className="text-[#006437] ml-2 shrink-0" />
+                    <ChevronRight size={14} className="text-[#006437] ml-1 shrink-0" />
                   )}
                 </Link>
               </motion.div>
             )
           })}
         </nav>
-
-
       </div>
     </aside>
   )
