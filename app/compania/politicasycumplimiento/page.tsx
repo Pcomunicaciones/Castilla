@@ -2,59 +2,58 @@
 
 import { motion } from "framer-motion"
 import { 
-  ShieldCheck, 
-  FileText, 
-  Lock, 
-  AlertTriangle, 
+  FileText, // Icono para RIT (más general)
+  ShieldCheck, // Icono para Conflictos/Ética (más directo, como tu imagen 1)
+  CheckCircle2, // Icono para Certificados/Datos (más de 'check', como tu imagen 2)
   Zap,
-  CheckCircle2,
-  ExternalLink 
+  ExternalLink,
 } from "lucide-react"
 
-// Aquí tenemos nuestra pequeña "base de datos" de documentos oficiales. 
-// Lo hicimos así para que, si el día de mañana el equipo legal necesita agregar o cambiar un PDF, 
-// solo tengas que agregarlo a esta lista y la página construirá la tarjeta sola, sin tocar el diseño.
+// Lista de los 6 documentos exactos que aparecen en tu VS Code, ordenados.
 const politicasFiles = [
+  {
+    title: "Reglamento Interno de Trabajo",
+    fileName: "politicas y cumplimientos/RIT-CASTILLA-AGRICOLA.pdf",
+    icon: FileText, // Icono de documento, arriba a la izquierda
+    theme: "emerald"
+  },
   {
     title: "Política de Conflicto de Interés",
     fileName: "politicas y cumplimientos/GNE1-PO04.pdf",
-    icon: FileText,
-    theme: "slate"
+    icon: ShieldCheck, // Icono de escudo, arriba a la izquierda
+    theme: "emerald"
   },
   {
     title: "Prevención Lavado de Activos y Financiación del Terrorismo",
     fileName: "politicas y cumplimientos/PO-FOF-001-PREVENCION-LAVADO-DE-ACTIVOS-Y-FINANCIACION-DEL-TERRRORISMO.pdf",
-    icon: ShieldCheck,
+    icon: ShieldCheck, // Icono de escudo, arriba a la izquierda
     theme: "emerald"
   },
   {
-    title: "Certificado de Nombramiento Oficial de Cumplimiento",
+    title: "Certificado de Lavado de Activos y SARLAFT",
     fileName: "politicas y cumplimientos/Certificado-Nombramiento-Oficial-de-Cumplimiento-Castilla.pdf",
-    icon: ShieldCheck,
+    icon: CheckCircle2, // Icono de check, arriba a la izquierda
     theme: "slate"
   },
   {
     title: "Política de Tratamiento de Datos Personales",
     fileName: "politicas y cumplimientos/PO-DNE-003-TRATAMIENTO-DATOS-PERSONALES-CASTILLA.pdf",
-    icon: Lock,
+    icon: CheckCircle2, // Icono de check, arriba a la izquierda
     theme: "slate"
   },
   {
     title: "Código de Ética y Conducta Empresarial",
     fileName: "politicas y cumplimientos/PO-BEC-001-CODIGO-DE-ETICA-Y-CONDUCTA-EMPRESARIAL-CAST.pdf",
-    icon: FileText,
+    icon: FileText, // Icono de documento, arriba a la izquierda
     theme: "emerald"
   }
 ]
 
-// === PÁGINA PRINCIPAL ===
 export default function PoliticasCumplimientoPage() {
   return (
-    // Forzamos la tipografía Tahoma para mantener la identidad visual del grupo
-    <div className="min-h-screen bg-[#f8fafc] pb-24 font-[Tahoma,Verdana,sans-serif]">
+    <div className="min-h-screen bg-[#f8fafc] pb-24" style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}>
       
-      {/* --- ENCABEZADO --- */}
-      {/* Animamos la entrada para que el texto baje suavemente al cargar la página */}
+      {/* HEADER */}
       <motion.section 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -62,60 +61,61 @@ export default function PoliticasCumplimientoPage() {
       >
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-green-100 rounded-full mb-8 shadow-sm">
           <Zap size={14} className="text-yellow-500 fill-yellow-500" />
-          <span className="text-[11px] font-bold tracking-[0.2em] text-[#048450] uppercase">Documentación Oficial</span>
+          <span className="text-[11px] font-bold tracking-[0.2em] text-[#048450] uppercase">
+            Documentación Oficial
+          </span>
         </div>
         
-        <h1 className="text-4xl md:text-6xl font-black text-[#1a2b3c] mb-4 tracking-tight">
+        <h1 className="text-4xl md:text-6xl font-black text-[#1a2b3c] mb-4 tracking-tight not-italic">
           Políticas y <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-500">Cumplimiento</span>
         </h1>
         
-        <p className="text-slate-500 text-lg">
+        <p className="text-slate-500 text-lg not-italic">
           Acceda y lea los lineamientos éticos y normativos que rigen nuestra operación corporativa.
         </p>
       </motion.section>
 
-      {/* --- LA CUADRÍCULA DE DOCUMENTOS --- */}
+      {/* GRID DE TODAS LAS POLÍTICAS (Incluido el RIT) */}
       <section className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Usamos .map() para recorrer nuestra lista de arriba y dibujar una tarjeta por cada archivo */}
         {politicasFiles.map((file, index) => (
           <motion.div
             key={index}
-            // Cada tarjeta entra con un pequeño retraso (delay) para crear un efecto de "ola"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="bg-white p-8 rounded-2xl border-2 border-slate-100 shadow-sm hover:border-[#048450] transition-all group flex flex-col min-h-[220px]"
+            // 🔥 El hover border verde es como el tuyo, pero se aplica a todas.
+            className="bg-white p-8 rounded-3xl border-2 border-slate-100 shadow-sm hover:border-[#048450] transition-all group flex flex-col min-h-[260px]"
           >
-            {/* El ícono de la tarjeta. Lo hacemos crecer un poco cuando el usuario le pasa el mouse (hover) */}
-            <div className={`w-12 h-12 flex items-center justify-center rounded-xl bg-slate-50 mb-6 ${file.theme === 'emerald' ? 'text-[#048450]' : 'text-slate-400'} group-hover:scale-110 transition-transform`}>
+            {/* 1. Icono arriba a la izquierda */}
+            <div className={`w-12 h-12 flex items-center justify-center rounded-xl bg-slate-50 mb-6 flex-shrink-0 ${file.theme === 'emerald' ? 'text-[#048450]' : 'text-slate-400'} group-hover:scale-110 transition-transform`}>
               <file.icon size={24} />
             </div>
             
-            <h3 className="text-lg font-bold text-[#1a2b3c] mb-6 flex-grow leading-snug">
+            {/* 2. Título centrado (font-bold text-[#1a2b3c]) */}
+            <h3 className="text-lg font-bold text-[#1a2b3c] mb-6 flex-grow leading-tight not-italic text-center">
               {file.title}
             </h3>
             
-            {/* El botón para abrir el PDF. Le pusimos target="_blank" para que se abra en una pestaña nueva 
-                y el usuario no pierda la página de Castilla en la que estaba navegando. */}
+            {/* 3. Botón verde abajo a la izquierda (como el tuyo) */}
             <div className="w-full mt-auto">
               <a 
-                href={`/docs/${file.fileName}`} 
+                href={`/docs/${file.fileName.replace(/ /g, "%20")}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 p-3 rounded-xl bg-[#f1f8e9] text-[#006437] text-[11px] font-bold hover:bg-[#048450] hover:text-white transition-colors group/btn"
-                title="Abrir en pestaña nueva"
+                // 🔥 Fondo verde clarito, texto verde oscuro, bordes redondeados.
+                className="w-fit flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#f1f8e9] text-[#006437] text-[11px] font-bold hover:bg-[#048450] hover:text-white transition-colors group/btn not-italic"
               >
-                <ExternalLink size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" /> VER DOCUMENTO
+                <ExternalLink size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                VER DOCUMENTO
               </a>
             </div>
           </motion.div>
         ))}
       </section>
 
-      {/* --- BLOQUE FINAL DE TRANSPARENCIA --- */}
-      {/* Un mensaje de cierre fuerte para transmitir seguridad y confianza a los visitantes */}
-      <section className="max-w-5xl mx-auto px-6 mt-24">
+      {/* FOOTER DE COMPROMISO */}
+      <section className="max-w-5xl mx-auto px-6 mt-24 pb-20">
         <motion.div 
           initial={{ scale: 0.95, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -124,24 +124,23 @@ export default function PoliticasCumplimientoPage() {
         >
           <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
             
-            {/* Textos del lado izquierdo */}
-            <div>
+            <div className="not-italic">
               <h2 className="text-3xl font-black mb-6">Compromiso con la Transparencia</h2>
               <p className="text-white/90 leading-relaxed mb-8 font-light">
-                Mantenemos altos estándares de integridad. Si desea reportar alguna irregularidad, puede hacerlo a través de nuestro Canal de Denuncias oficial.
+                Mantenemos altos estándares de integridad empresarial. Nuestra gestión se basa en la honestidad y el cumplimiento riguroso de la ley colombiana.
               </p>
               
-              {/* Pequeño tag indicando que el sistema antifraude está activo */}
               <div className="flex items-center gap-3 bg-white/10 px-4 py-2 rounded-full border border-white/20 w-fit">
                 <CheckCircle2 size={16} className="text-yellow-400" />
-                <span className="text-[10px] font-bold uppercase tracking-widest">Sagrilaft / PTEE Activo</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest">
+                  Sagrilaft / PTEE Certificado
+                </span>
               </div>
             </div>
 
-            {/* Recuadro de cita inspiradora del lado derecho */}
-            <div className="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 flex items-center justify-center">
-               <ShieldCheck size={80} className="opacity-20 absolute" />
-               <p className="text-center italic font-light opacity-90 relative z-10">
+            <div className="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 flex items-center justify-center relative min-h-[160px]">
+               <FileText size={80} className="opacity-10 absolute" />
+               <p className="text-center italic font-light opacity-90 relative z-10 text-sm">
                 "La ética empresarial es el cimiento de nuestra sostenibilidad en el campo colombiano."
                </p>
             </div>
