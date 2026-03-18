@@ -7,7 +7,6 @@ import { Factory, Sprout, Briefcase, Building2, Layers, ChevronRight } from "luc
 
 const menuOperacion = [
   { name: "Cadena de Valor", href: "/Operacion/cadena-de-valor", icon: Factory, desc: "Eficiencia integrada" },
-  { name: "Desarrollo Cultivos", href: "/Operacion/desarrollo-cultivos", icon: Sprout, desc: "Innovación agrícola" },
   { name: "Belagro", href: "/Operacion/belagro", icon: Briefcase, desc: "Insumos y servicios" },
   { name: "Proyectos Inmobiliarios", href: "/Operacion/proyectos-inmobiliarios", icon: Building2, desc: "Visión de territorio" },
   { name: "Otras Líneas", href: "/Operacion/otras-lineas", icon: Layers, desc: "Diversificación" },

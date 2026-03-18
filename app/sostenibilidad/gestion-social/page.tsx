@@ -93,7 +93,7 @@ export default function GestionSocial() {
       >
         <motion.img 
           variants={imageVariants}
-          src="/Imagenes/Exportado 1.jpg" 
+          src="/Imagenes/comunidades.jpeg" 
           alt="Comunidad y Educación" 
           className="w-full h-full object-cover" 
         />

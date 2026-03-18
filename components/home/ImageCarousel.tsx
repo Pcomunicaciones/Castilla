@@ -15,7 +15,7 @@ const carouselItems = [
     id: 2,
     title: "Comunidades",
     description: "Desarrollo social y bienestar para nuestra gente.",
-    image: "/Imagenes/Exportado 2.jpg",
+    image: "/Imagenes/comunidades.jpeg",
   },
   {
     id: 3,

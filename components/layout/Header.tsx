@@ -18,7 +18,6 @@ const companySubmenu = [
 
 const operationSubmenu = [
   { name: "Cadena de Valor", href: "/Operacion/cadena-de-valor" },
-  { name: "Desarrollo Cultivos", href: "/Operacion/desarrollo-cultivos" },
   { name: "Belagro", href: "/Operacion/belagro" },
   { name: "Proyectos Inmobiliarios", href: "/Operacion/proyectos-inmobiliarios" },
   { name: "Otras Líneas", href: "/Operacion/otras-lineas" },
