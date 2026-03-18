@@ -85,7 +85,10 @@ export function Header() {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-500", 
-      isSolid ? "bg-gradient-to-r from-[#04683A]/95 to-[#048450]/90 backdrop-blur-md shadow-lg py-2 border-b border-white/10" : "bg-transparent py-5"
+      // Se agregó border-b border-transparent en el estado inicial para evitar el residuo blanco al subir
+      isSolid 
+        ? "bg-gradient-to-r from-[#04683A]/95 to-[#048450]/90 backdrop-blur-md shadow-lg py-2 border-b border-white/10" 
+        : "bg-transparent py-5 border-b border-transparent"
     )}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
