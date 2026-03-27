@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
+import Image from "next/image"
 
 export function PromoModal() {
   const [isOpen, setIsOpen] = useState(false)
@@ -48,10 +49,12 @@ export function PromoModal() {
             </button>
 
             <div className="relative aspect-square w-full"> {/* CAMBIO: aspect-square para que sea un cuadrado perfecto */}
-              <img 
+              <Image 
                 src="/Imagenes/Exportado 1.jpg" 
                 alt="Castilla Agrícola" 
-                className="object-cover w-full h-full"
+                fill
+                className="object-cover"
+                sizes="(max-width: 384px) 100vw, 384px"
               />
               
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#006437] via-[#006437]/90 to-transparent text-white">

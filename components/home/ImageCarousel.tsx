@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
 const carouselItems = [
   {
@@ -31,6 +32,7 @@ const carouselItems = [
   },
 ]
 
+
 export function ImageCarousel() {
   const [[page, direction], setPage] = useState([0, 0])
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
@@ -41,31 +43,30 @@ export function ImageCarousel() {
     setPage([page + newDirection, newDirection])
   }, [page])
 
+
   useEffect(() => {
     if (!isAutoPlaying) return
-    const interval = setInterval(() => paginate(1), 6000)
+    const interval = setInterval(() => paginate(1), 5000)
     return () => clearInterval(interval)
   }, [isAutoPlaying, paginate])
 
-  // Variantes para el efecto de entrada/salida lateral
+
+  // Variantes optimizadas para mejor rendimiento
   const variants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? 800 : -800,
       opacity: 0,
-      scale: 1.1
     }),
     center: {
       zIndex: 1,
       x: 0,
       opacity: 1,
-      scale: 1
     },
     exit: (direction: number) => ({
       zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
+      x: direction < 0 ? 800 : -800,
       opacity: 0,
-      scale: 0.9,
-      transition: { duration: 0.4 }
+      transition: { duration: 0.3 }
     })
   }
 
@@ -90,7 +91,7 @@ export function ImageCarousel() {
 
         {/* CONTENEDOR PRINCIPAL DEL CARRUSEL */}
         <div
-          className="relative overflow-hidden rounded-[2.5rem] shadow-2xl bg-stone-900 h-[500px] md:h-[650px] group"
+          className="relative overflow-hidden rounded-[2.5rem] shadow-2xl bg-stone-900 h-[350px] md:h-[450px] group"
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
@@ -103,38 +104,44 @@ export function ImageCarousel() {
               animate="center"
               exit="exit"
               transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.5 }
+                x: { type: "spring", stiffness: 350, damping: 40 },
+                opacity: { duration: 0.3 }
               }}
               className="absolute inset-0"
             >
               {/* IMAGEN DE FONDO */}
-              <motion.img 
-                animate={{ scale: [1, 1.1] }}
-                transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
-                src={currentItem.image} 
-                alt={currentItem.title}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+              <motion.div 
+                animate={{ scale: [1, 1.03] }}
+                transition={{ duration: 6, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={currentItem.image} 
+                  alt={currentItem.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1280px) 100vw, 1280px"
+                />
+              </motion.div>
               
               {/* OVERLAY DEGRADADO */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent z-10" />
 
               {/* CONTENIDO DE TEXTO */}
-              {/* Ajuste: pb-24 para dar espacio a los controles inferiores en móvil */}
-              <div className="relative z-20 h-full flex flex-col justify-center pl-10 md:pl-24 pr-10 pb-24 md:pb-0 text-white max-w-4xl">
+              {/* Ajuste: pb-16 para dar espacio a los controles inferiores en móvil */}
+              <div className="relative z-20 h-full flex flex-col justify-center pl-6 md:pl-16 pr-6 pb-16 md:pb-0 text-white max-w-3xl">
                 <motion.div
-                  initial={{ opacity: 0, x: -50 }}
+                  initial={{ opacity: 0, x: -40 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3, duration: 0.8 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
                 >
-                  <span className="inline-block px-4 py-1 bg-castilla-yellow text-castilla-green-dark text-xs font-black uppercase tracking-widest rounded-full mb-6 shadow-md">
+                  <span className="inline-block px-3 py-0.5 bg-castilla-yellow text-castilla-green-dark text-xs font-black uppercase tracking-widest rounded-full mb-4 shadow-md">
                     Castilla en Acción
                   </span>
-                  <h3 className="text-4xl md:text-7xl font-extrabold mb-6 leading-none drop-shadow-lg">
+                  <h3 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight drop-shadow-lg">
                     {currentItem.title}
                   </h3>
-                  <p className="text-lg md:text-2xl text-white/90 font-light max-w-xl border-l-4 border-castilla-yellow pl-6">
+                  <p className="text-base md:text-lg text-white/90 font-light max-w-lg border-l-4 border-castilla-yellow pl-4">
                     {currentItem.description}
                   </p>
                 </motion.div>
@@ -142,13 +149,13 @@ export function ImageCarousel() {
             </motion.div>
           </AnimatePresence>
 
-          {/* BARRA DE PROGRESO INFERIOR (Opcional, se mantiene si te gusta) */}
+          {/* BARRA DE PROGRESO INFERIOR */}
           {isAutoPlaying && (
             <motion.div 
               key={`progress-${currentIndex}`}
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
-              transition={{ duration: 6, ease: "linear" }}
+              transition={{ duration: 5, ease: "linear" }}
               className="absolute bottom-0 left-0 h-1 bg-castilla-yellow z-40"
             />
           )}

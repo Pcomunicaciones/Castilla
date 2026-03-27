@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown, Menu, X, ExternalLink } from "lucide-react"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 // 1. Submenús definidos
 const companySubmenu = [
@@ -95,9 +96,11 @@ export function Header() {
           
           {/* LOGO */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <img 
+            <Image 
               src="/Imagenes/Logo retina.png" 
               alt="Logo Castilla Agrícola" 
+              width={160}
+              height={40}
               className="h-10 w-auto object-contain transition-all duration-300" 
             />
             <div className="hidden sm:block transition-colors text-white">

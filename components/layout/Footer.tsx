@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Linkedin, Facebook, Instagram, MapPin, Phone, Mail, ArrowUpRight } from "lucide-react"
+import Image from "next/image"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -40,9 +41,11 @@ export function Footer() {
               
               {/* 1. Logo (Estático, sin efecto de giro) */}
               <Link href="/">
-                <img 
+                <Image 
                   src="/Imagenes/intento 4.png" 
                   alt="Logo Icono" 
+                  width={60}
+                  height={56}
                   className="h-14 w-auto object-contain cursor-pointer hover:opacity-90 transition-opacity" 
                 />
               </Link>

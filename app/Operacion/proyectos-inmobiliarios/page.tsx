@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, Variants } from "framer-motion"
 import { Building2, MapPin, Home, TrendingUp, CheckCircle, CircleDollarSign, Navigation } from "lucide-react"
+import Image from "next/image"
 
 // Datos de las ubicaciones geográficas con métricas para el tooltip
 const mapLocations = [
@@ -66,10 +67,13 @@ export default function ProyectosInmobiliariosPage() {
         transition={{ duration: 1 }}
         className="relative h-[450px] rounded-[2rem] overflow-hidden flex items-center justify-center text-center shadow-2xl"
       >
-        <img 
+        <Image 
           src="/Imagenes/Exportado 2.jpg" 
           alt="Terrenos y Proyectos"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-[#004a29]/90" />
         
@@ -197,10 +201,12 @@ export default function ProyectosInmobiliariosPage() {
           transition={{ delay: 0.3 }}
           className="relative group h-full min-h-[350px] rounded-[3rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100"
         >
-          <img 
+          <Image 
             src="/Imagenes/proyecto-inmobiliario.png" 
             alt="Vista de Proyectos Inmobiliarios"
-            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 bg-gray-100"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-700 bg-gray-100"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#004a29]/90 via-[#004a29]/20 to-transparent" />
           

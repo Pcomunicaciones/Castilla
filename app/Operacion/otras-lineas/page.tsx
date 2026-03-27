@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Plus, Minus, Beef, Share2, Trees, Wheat, Sprout } from "lucide-react"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 const lineasNegocio = [
   {
@@ -160,10 +161,12 @@ export default function OtrasLineasPage() {
                           animate={{ scale: 1, opacity: 1 }}
                           className="relative h-64 md:h-80 rounded-3xl overflow-hidden shadow-2xl order-1 md:order-2"
                         >
-                          <img 
+                          <Image 
                             src={linea.image} 
                             alt={linea.title} 
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                            sizes="(max-width: 768px) 100vw, 50vw"
                           />
                           <div className="absolute inset-0 bg-black/10 hover:bg-black/0 transition-colors duration-500" />
                         </motion.div>

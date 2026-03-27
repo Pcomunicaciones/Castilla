@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
 import { useRef } from "react"
 import { KPICard } from "./KPICard"
+import Image from "next/image"
 
 const kpiData = [
   { value: 6217, suffix: "+", label: "Hectáreas", description: "De tierra productiva en operación constante." },
@@ -34,11 +35,12 @@ export function KPISection() {
         style={{ y: backgroundY, opacity }}
         className="absolute inset-0 z-0 will-change-[transform,opacity]"
       >
-        <img 
+        <Image 
           src="/Imagenes/Exportado 8.jpg" 
           alt="Cifras Castilla Agrícola"
-          loading="lazy"
-          className="w-full h-full object-cover scale-110"
+          fill
+          className="object-cover scale-110"
+          sizes="100vw"
         />
         {/* Overlays estáticos (CSS puro es más rápido que motion.div si no se animan) */}
         <div className="absolute inset-0 bg-[#002b18]/85 mix-blend-multiply pointer-events-none" />

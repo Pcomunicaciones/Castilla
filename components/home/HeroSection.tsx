@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 const HERO_SLIDES = [
   {
@@ -65,10 +66,13 @@ export function HeroSection() {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          <img
+          <Image
             src={HERO_SLIDES[current].image}
             alt="Fondo Castilla"
-            className="w-full h-full object-cover opacity-80"
+            fill
+            priority
+            className="object-cover opacity-80"
+            sizes="100vw"
           />
           {/* Capas oscuras para mejorar lectura */}
           <div className="absolute inset-0 bg-black/30" />

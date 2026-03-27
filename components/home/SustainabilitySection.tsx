@@ -3,6 +3,7 @@
 import { motion, useInView, useScroll, useTransform, useSpring, useMotionValue, useMotionTemplate } from "framer-motion"
 import { useRef, useEffect } from "react"
 import { Leaf, Droplets, Sun, Users, ArrowUpRight, Sparkles } from "lucide-react"
+import Image from "next/image"
 
 const items = [
   { icon: Leaf, title: "Agricultura Responsable", desc: "Prácticas que regeneran el ecosistema mediante nutrición orgánica.", col: "#a3c74a" },
@@ -62,11 +63,12 @@ export function SustainabilitySection() {
         style={{ y: backgroundY }}
         className="absolute inset-0 z-0 scale-110 will-change-transform"
       >
-        <img 
+        <Image 
           src="/Imagenes/Exportados 7.jpg" 
           alt="Background" 
-          loading="lazy"
-          className="w-full h-full object-cover opacity-50"
+          fill
+          className="object-cover opacity-50"
+          sizes="100vw"
         />
         
         {/* Spotlight Optimizado */}

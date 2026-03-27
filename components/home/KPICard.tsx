@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useInView, useSpring, useTransform, useMotionValue } from "framer-motion"
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, memo } from "react"
 
 interface KPICardProps {
   value: number
@@ -11,7 +11,7 @@ interface KPICardProps {
   delay?: number
 }
 
-export function KPICard({ value, suffix = "", label, description, delay = 0 }: KPICardProps) {
+export const KPICard = memo(function KPICard({ value, suffix = "", label, description, delay = 0 }: KPICardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   
@@ -81,4 +81,4 @@ export function KPICard({ value, suffix = "", label, description, delay = 0 }: K
       <div className="absolute top-0 left-0 w-[2px] h-0 group-hover:h-full bg-gradient-to-b from-transparent via-castilla-yellow to-transparent transition-all duration-700" />
     </motion.div>
   )
-}
+})
