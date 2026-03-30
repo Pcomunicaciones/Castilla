@@ -3,6 +3,10 @@
 import { ExternalLink, Calendar } from "lucide-react"
 import { motion, Variants } from "framer-motion"
 
+/* --- 1. DATOS DE LOS INFORMES --- */
+// Aquí es donde guardamos todos los PDFs. 
+// Cada vez que salga un informe nuevo (como el de 2026), simplemente lo añadimos al principio de este array.
+
 const informes = [
   { 
     year: "2025", 
@@ -36,11 +40,14 @@ const informes = [
   },
 ]
 
+/* --- 2. CONFIGURACIÓN DE ANIMACIONES --- */
+// Definimos cómo queremos que aparezcan los elementos (staggerChildren hace que salgan uno tras otro)
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.15 }, // Crea un efecto de cascada muy elegante
   },
 }
 
@@ -53,19 +60,20 @@ const itemVariants: Variants = {
   },
 }
 
+/* --- 3. COMPONENTE DE LA PÁGINA --- */
+
 export default function InformesPage() {
   return (
     <motion.div 
-      // 👇 Aquí se fuerza el uso de Tahoma para todo este componente
+      // 👇 Forzamos Tahoma/Verdana para mantener la identidad visual del sitio
       style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}
       className="space-y-10"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      {/* Cabecera */}
+      {/* Cabecera de la sección */}
       <motion.div variants={itemVariants}>
-        {/* 👇 Título sin inclinación (not-italic) 👇 */}
         <h1 className="text-4xl font-extrabold text-[#006437] not-italic tracking-tight">
           Centro de Documentación
         </h1>
@@ -74,16 +82,17 @@ export default function InformesPage() {
         </p>
       </motion.div>
 
-      {/* Lista de Documentos */}
+      {/* Listado de Informes: Mapeamos los datos definidos arriba */}
       <div className="space-y-4">
         {informes.map((doc, i) => (
           <motion.div 
             key={i} 
             variants={itemVariants}
-            whileHover={{ x: 8 }}
+            whileHover={{ x: 8 }} // Pequeño efecto visual al pasar el mouse
             className="flex flex-col md:flex-row md:items-center justify-between p-6 bg-white border border-gray-100 rounded-[2rem] hover:shadow-xl hover:shadow-green-900/5 transition-all group"
           >
             <div className="flex items-center gap-5 mb-4 md:mb-0">
+              {/* Icono de calendario con cambio de color en hover */}
               <div className="bg-[#f1f8e9] p-4 rounded-2xl text-[#006437] group-hover:bg-[#006437] group-hover:text-white transition-colors duration-300">
                 <Calendar size={24} />
               </div>
@@ -97,7 +106,7 @@ export default function InformesPage() {
               </div>
             </div>
 
-            {/* Botón de Vista en Pestaña Nueva (Estilo Premium) */}
+            {/* El botón de descarga ahora es "VER DOCUMENTO" (Verde Premium) */}
             <a 
               href={`/docs/informes de gestion/${doc.fileName}`} 
               target="_blank"
@@ -111,7 +120,7 @@ export default function InformesPage() {
         ))}
       </div>
 
-      {/* Nota de pie */}
+      {/* Mensaje de pie con aviso de transparencia */}
       <motion.div 
         variants={itemVariants}
         className="p-8 bg-[#f8f9fa] rounded-[2.5rem] border border-dashed border-gray-200 text-center"
@@ -122,4 +131,4 @@ export default function InformesPage() {
       </motion.div>
     </motion.div>
   )
-}
+}

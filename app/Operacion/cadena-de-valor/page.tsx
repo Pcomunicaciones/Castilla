@@ -3,9 +3,10 @@
 import { motion, Variants } from "framer-motion"
 import { Users, Shield, HeartHandshake, Globe, Truck, CheckCircle2, Sprout, Leaf, Recycle, BarChart3 } from "lucide-react"
 
-/* --------------------------------------------------------------------------
-   CONFIGURACIÓN DE ANIMACIONES
-   -------------------------------------------------------------------------- */
+/* --- 1. CONFIGURACIÓN DE ANIMACIONES --- */
+// Usamos Framer Motion para que los elementos entren con estilo.
+// staggerChildren hace que las tarjetas aparezcan una tras otra.
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -23,7 +24,10 @@ const cardVariants: Variants = {
   }
 }
 
-// --- NUEVOS DATOS EXTRAÍDOS DE LA DIAPOSITIVA ---
+/* --- 2. LOS 6 PILARES DE LA CADENA DE VALOR --- */
+// Estos datos vienen del modelo de negocio de la compañía. 
+// Cada pilar tiene su propio icono, color y mensaje clave.
+
 const procesos = [
   {
     id: "01",
@@ -47,7 +51,7 @@ const procesos = [
     id: "03",
     icon: Truck,
     title: "Proveedores y contratistas locales",
-    description: "Priorizamos la contratación en nuestras zonas de influencia, garantizando empleo digno, pagos oportunos y estabilidad en los procesos.",
+    description: "Priorizamos la contratación en nuestras zonas de influencia, garantizando empleo digno, pagos oportunas y estabilidad en los procesos.",
     tag: "Aliados",
     color: "bg-teal-700", 
     lightColor: "bg-teal-50 text-teal-800"
@@ -81,12 +85,14 @@ const procesos = [
   },
 ]
 
+/* --- 3. COMPONENTE DE LA PÁGINA --- */
+
 export default function CadenaValorPage() {
   return (
-    // Aplicando tipografía Tahoma para Castilla Agrícola
+    // Siempre forzamos Tahoma/Verdana para mantener el branding de Castilla
     <div className="space-y-24 pb-20 font-[Tahoma,Verdana,sans-serif]">
       
-      {/* 1. SECCIÓN: HERO */}
+      {/* SECCIÓN HERO: Título grande y motivador */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -108,7 +114,7 @@ export default function CadenaValorPage() {
         </p>
       </motion.div>
 
-      {/* 2. SECCIÓN: BANNER DE IMPACTO */}
+      {/* SECCIÓN BANNER DE IMPACTO: Resumen rápido de confianza y sostenibilidad */}
       <motion.section
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -135,6 +141,7 @@ export default function CadenaValorPage() {
             </p>
           </div>
 
+          {/* Tarjetas de estadísticas rápidas con efecto hover interactivo */}
           <div className="grid grid-cols-2 gap-4 md:gap-6 w-full lg:w-auto min-w-[300px]">
             <motion.div whileHover={{ scale: 1.05 }} className="bg-white/10 backdrop-blur-sm p-6 rounded-3xl border border-white/10 text-center group flex flex-col items-center justify-center">
               <div className="mb-3 flex justify-center text-yellow-400 group-hover:scale-110 transition-transform">
@@ -155,7 +162,7 @@ export default function CadenaValorPage() {
         </div>
       </motion.section>
 
-      {/* 3. SECCIÓN: LOS 6 PILARES DE LA CADENA DE VALOR */}
+      {/* SECCIÓN: LISTADO DE PILARES */}
       <section className="relative max-w-7xl mx-auto px-4">
         <div className="flex items-end justify-between mb-12 border-b border-gray-100 pb-6">
           <h2 className="text-3xl font-black text-[#006437] uppercase tracking-tighter">
@@ -168,17 +175,15 @@ export default function CadenaValorPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          // Ajustado a 3 columnas para que los 6 items encajen en 2 filas perfectas
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative"
         >
           {procesos.map((proceso) => (
             <motion.div
               key={proceso.title}
               variants={cardVariants}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -10 }} // Efecto de flotación al pasar el mouse
               className="group relative p-8 bg-white rounded-[2.5rem] border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(0,100,55,0.12)] transition-all duration-500 overflow-hidden flex flex-col justify-between min-h-[300px]"
             >
-              {/* Cabecera */}
               <div className="flex justify-between items-start mb-6 relative z-20 w-full">
                 <div className={`w-16 h-16 ${proceso.lightColor} rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500`}>
                   <proceso.icon size={32} />
@@ -188,7 +193,6 @@ export default function CadenaValorPage() {
                 </span>
               </div>
 
-              {/* Contenido */}
               <div className="relative z-20">
                 <h3 className="text-xl font-bold text-[#006437] mb-3 leading-tight">
                   {proceso.title}
@@ -198,7 +202,7 @@ export default function CadenaValorPage() {
                 </p>
               </div>
 
-              {/* Número de fondo (Marca de agua) */}
+              {/* Número ID en el fondo como marca de agua decorativa */}
               <span className="absolute -right-4 -bottom-6 text-[8rem] font-black text-gray-50 opacity-50 select-none group-hover:text-gray-100 transition-colors pointer-events-none z-0">
                 {proceso.id}
               </span>
@@ -207,7 +211,7 @@ export default function CadenaValorPage() {
         </motion.div>
       </section>
 
-      {/* 4. SECCIÓN: CERTIFICACIÓN ÉTICA */}
+      {/* FOOTER DE LA PÁGINA: Nota sobre cumplimiento y ética */}
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

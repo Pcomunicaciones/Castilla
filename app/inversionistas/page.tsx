@@ -1,15 +1,17 @@
-"use client"
+"use client" // Importante: esto le dice a Next.js que el componente tiene interactividad (como el menú que cambia)
 
 import React, { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion" // Para que las animaciones de los menús se vean suaves
 import { 
   FileText, Download, ChevronDown, Menu, X, PieChart, 
   Users, Building2, Scale, Info, Globe, ShieldCheck, 
   Calendar, Tag, Phone, ExternalLink, User, MessageSquare, 
   AlertCircle, Lightbulb, CheckCircle2, MapPin, Mail
-} from "lucide-react"
+} from "lucide-react" // Iconos bonitos y ligeros
 
 /* --- 1. CONFIGURACIÓN DE ESTRUCTURAS --- */
+// Aquí definimos todo el esqueleto del menú lateral. 
+// Cada objeto es una sección principal con su icono y submenús.
 
 const MENU_STRUCTURE = [
   {
@@ -40,7 +42,7 @@ const MENU_STRUCTURE = [
     label: 'ARQUITECTURA DE CONTROL',
     icon: Scale,
     description: "Mecanismos de supervisión y auditoría interna.",
-    subItems: [] // 👈 Dejado vacío para que funcione como botón directo
+    subItems: [] // 👈 Dejado vacío para que funcione como botón directo sin desplegable
   },
   {
     id: 'financiera',
@@ -53,19 +55,20 @@ const MENU_STRUCTURE = [
       { id: 'informes_trimestrales', label: 'INFORMES TRIMESTRALES' }
     ]
   },
-  // 👇 AQUÍ ESTÁ LA NUEVA SECCIÓN AÑADIDA 👇
+  // Esta sección la añadimos para centralizar la atención al usuario
   {
     id: 'atencion',
     label: 'ATENCIÓN AL INVERSIONISTA',
     icon: Phone, 
     description: "Canales de comunicación directa y soporte para nuestros accionistas.",
-    subItems: [] // 👈 Dejado vacío para que funcione como botón directo
+    subItems: [] 
   }
 ]
 
 
-/* --- 2. COMPONENTES DE DISEÑO (TAHOMA) --- */
+/* --- 2. COMPONENTES DE DISEÑO (ESTILO TAHOMA) --- */
 
+// DataCard: El contenedor blanco con bordes redondeados que usamos en casi todo el sitio.
 const DataCard = ({ title, children }: { title: string, children: React.ReactNode }) => (
   <div className="bg-white rounded-[2rem] border border-gray-100 shadow-sm overflow-hidden mb-8" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <div className="bg-[#f8fcf4] px-8 py-5 border-b border-gray-100">
@@ -75,7 +78,7 @@ const DataCard = ({ title, children }: { title: string, children: React.ReactNod
   </div>
 )
 
-// --- COMPONENTE: DocumentCell ACTUALIZADO (Solo vista previa) ---
+// DocumentCell: Representa una fila con un documento PDF y el botón de "VER".
 const DocumentCell = ({ title, fileName }: { title: string, fileName: string }) => (
   <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3 p-3 mt-2 border border-gray-100 bg-white rounded-xl hover:border-[#a3c74a] transition-all group shadow-sm">
     <div className="flex items-center gap-3">
@@ -89,7 +92,7 @@ const DocumentCell = ({ title, fileName }: { title: string, fileName: string }) 
     
     <div className="flex w-full sm:w-auto shrink-0">
       <a
-        href={`/docs/${fileName}`}
+        href={`/docs/${fileName}`} // Ruta donde se guardan los PDFs
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-[#f1f8e9] text-[#006437] hover:bg-[#006437] hover:text-white rounded-lg text-[10px] font-bold transition-colors uppercase"
@@ -102,8 +105,10 @@ const DocumentCell = ({ title, fileName }: { title: string, fileName: string }) 
 )
 
 /* --- 3. VISTAS DE CONTENIDO --- */
+// Cada componente aquí representa una de las páginas que se muestran al hacer clic en el menú.
 
 // --- VISTA: ESTRUCTURA CORPORATIVA (COMPLETA) ---
+// Aquí mostramos quiénes mandan: Representantes legales, Junta y Accionistas.
 const EstructuraView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Representantes Legales">
@@ -276,6 +281,7 @@ const EstructuraView = () => (
 )
 
 // --- VISTA: BUENAS PRÁCTICAS ---
+// Los documentos del "Código País" y otros reglamentos importantes de transparencia.
 const BuenasPracticasView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Buenas Prácticas Corporativas">
@@ -296,6 +302,7 @@ const BuenasPracticasView = () => (
 )
 
 // --- VISTA: CONGLOMERADOS (RECONSTRUIDA CON TODA LA DATA) ---
+// Un resumen histórico de cuándo se empezó a tener control sobre otras empresas.
 const ConglomeradosView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Situación de Control">
@@ -335,6 +342,7 @@ const ConglomeradosView = () => (
 )
 
 // --- VISTA: INFORMACIÓN RELEVANTE ---
+// Básicamente son las noticias oficiales que la empresa tiene que reportar.
 const InfoRelevanteView = () => {
   const hechos = [
     // ================== 2026 ==================
@@ -671,6 +679,7 @@ const InfoRelevanteView = () => {
 
   return (
     <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
+      {/* Esta sección agrupa los "Hechos Relevantes" en un formato de lista elegante */}
       <DataCard title="Hechos Relevantes">
         <div className="space-y-4">
           {hechos.map((h, i) => (
@@ -709,6 +718,7 @@ const InfoRelevanteView = () => {
 }
 
 // --- VISTA: CONVOCATORIA (ASAMBLEA DE ACCIONISTAS) ---
+// Todo lo que el accionista necesita para saber cuándo y cómo asistir a la asamblea.
 const ConvocatoriaView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Convocatoria">
@@ -731,6 +741,7 @@ const ConvocatoriaView = () => (
 )
 
 // --- VISTA: INFORMACIÓN GENERAL (ASAMBLEA DE ACCIONISTAS) ---
+// Reportes de gestión y estados financieros específicos de la asamblea.
 const InfoGeneralView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Información General">
@@ -770,6 +781,7 @@ const ProyectoDividendosView = () => (
   </div>
 )
 // --- VISTA: ARQUITECTURA DE CONTROL (SIN SUBMENÚ) ---
+// Documentos sobre auditoría y gestión de riesgos.
 const ArquitecturaControlView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Arquitectura de Control">
@@ -794,7 +806,8 @@ const ArquitecturaControlView = () => (
     </DataCard>
   </div>
 )
-// VISTA: INFORME DE GESTIÓN 
+// --- VISTA: INFORME DE GESTIÓN ---
+// Aquí cargamos los PDFs de los informes anuales que combinan gestión y sostenibilidad.
 const InformeGestionView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Informes de Gestión Anual">
@@ -827,7 +840,8 @@ const InformeGestionView = () => (
     </DataCard>
   </div>
 )
-//VISTA: ESTADOS FINANCIEROS
+// --- VISTA: ESTADOS FINANCIEROS ---
+// El core de los números: balances y dictámenes del revisor fiscal.
 const EstadosFinancierosView = () => {
   const archivos = [
     { year: "2024", file: "CAST-EEFF-Fin-de-Ejercicio-Diciembre-2024.pdf" },
@@ -858,7 +872,8 @@ const EstadosFinancierosView = () => {
     </div>
   )
 }
- //INFORMES FINANCIEROS TRIMESTRALE
+// --- VISTA: INFORMES FINANCIEROS TRIMESTRALES ---
+// Los cortes parciales que se reportan cada 3 meses a la Superfinanciera.
 const InformesTrimestralesView = () => {
   
   const informesList = [
@@ -923,6 +938,8 @@ const InformesTrimestralesView = () => {
     </div>
   )
 }
+// --- VISTA: ATENCIÓN AL INVERSIONISTA ---
+// El punto de contacto directo y toda la información sobre las PQRS.
 const AtencionInversionistaView = () => {
   return (
     <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
@@ -1050,34 +1067,41 @@ const AtencionInversionistaView = () => {
   )
 }
 
-/* --- 4. LAYOUT PRINCIPAL (TAHOMA FULL) --- */
+/* --- 4. COMPONENTE PRINCIPAL (EL CEREBRO DE LA PÁGINA) --- */
+// Aquí es donde todo se une. Controlamos el estado del menú y qué vista se muestra.
 
 export default function InversionistasPage() {
+  // openMenuId controla cuál sección del sidebar está abierta (ej: 'gobierno')
   const [openMenuId, setOpenMenuId] = useState<string | null>('gobierno')
+  // activeSubItem es el que realmente nos dice qué componente de vista renderizar
   const [activeSubItem, setActiveSubItem] = useState<string>('estructura')
+  // Solo para móviles: controla si la barra lateral está visible o no
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   return (
     <div className="flex bg-[#fcfdfc] min-h-screen" style={{ fontFamily: 'Tahoma, sans-serif' }}>
       
-      {/* SIDEBAR INVERSIONISTAS */}
+      {/* --- SIDEBAR INVERSIONISTAS --- */}
       <aside className={`fixed lg:sticky top-0 lg:top-28 left-0 h-[calc(100vh-8rem)] w-[360px] bg-white border border-gray-100 flex flex-col transition-transform z-40 rounded-r-[2.5rem] shadow-2xl lg:shadow-sm self-start ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         
-        {/* ENCABEZADO FIJO */}
+        {/* Título del sidebar con estilo de marca */}
         <div className="p-12 pb-8 border-b border-gray-50 shrink-0">
           <span className="text-[10px] font-bold text-[#a3c74a] tracking-[0.3em] uppercase block mb-3">Castilla Agrícola</span>
           <h2 className="text-3xl font-bold text-[#006437] not-italic uppercase tracking-tight leading-none">Inversionistas</h2>
         </div>
         
-        {/* ÁREA DE BOTONES CON SCROLL INTERNO */}
+        {/* Navegación del sidebar con scroll interno por si hay muchos ítems */}
         <nav className="p-6 space-y-4 flex-1 overflow-y-auto">
           {MENU_STRUCTURE.map((menu) => (
             <div key={menu.id}>
+              {/* Botón principal de la sección */}
               <button 
                 onClick={() => {
                   if (menu.subItems && menu.subItems.length > 0) {
+                    // Si tiene sud-ítems, abrimos o cerramos el desplegable
                     setOpenMenuId(openMenuId === menu.id ? null : menu.id);
                   } else {
+                    // Si es un botón directo (sin sub-ítems), lo activamos de una
                     setOpenMenuId(menu.id);
                     setActiveSubItem(menu.id);
                     setIsSidebarOpen(false);
@@ -1094,6 +1118,7 @@ export default function InversionistasPage() {
                 )}
               </button>
               
+              {/* Los sub-ítems aparecen con una animación suave de Framer Motion */}
               <AnimatePresence>
                 {openMenuId === menu.id && menu.subItems && menu.subItems.length > 0 && (
                   <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
@@ -1101,7 +1126,10 @@ export default function InversionistasPage() {
                       {menu.subItems.map((sub) => (
                         <button 
                           key={sub.id} 
-                          onClick={() => { setActiveSubItem(sub.id); setIsSidebarOpen(false); }}
+                          onClick={() => { 
+                            setActiveSubItem(sub.id); 
+                            setIsSidebarOpen(false); // Cerramos menú en móvil después de elegir
+                          }}
                           className={`w-full text-left py-2.5 px-4 text-[10px] font-bold uppercase rounded-xl transition-all ${activeSubItem === sub.id ? 'bg-[#a3c74a]/20 text-[#006437]' : 'text-gray-400 hover:text-[#006437]'}`}
                         >
                           {sub.label}
@@ -1116,16 +1144,16 @@ export default function InversionistasPage() {
         </nav>
       </aside>
 
-  {/* ÁREA DE CONTENIDO */}
+  {/* --- ÁREA DE CONTENIDO PRINCIPAL --- */}
       <main className="flex-1 px-8 lg:px-20 pt-32 lg:pt-40 pb-20 overflow-x-hidden">
-        {/* 👇 AQUÍ ESTÁ EL CAMBIO: Quité h-[280px] y puse min-h-[160px] con py-10. También ajusté el borde a rounded-3xl 👇 */}
+        
+        {/* Banner de cabecera que muestra el título y descripción de la sección actual */}
         <div className="relative w-full min-h-[160px] py-10 bg-[#006437] rounded-3xl overflow-hidden mb-10 flex items-center px-10 shadow-xl shadow-green-900/10">
           <div className="relative z-10">
             <h1 className="text-4xl lg:text-5xl font-bold text-white uppercase not-italic tracking-tight leading-none">
               {MENU_STRUCTURE.find(m => m.id === openMenuId)?.label || "INVERSIONISTAS"}
             </h1>
             
-            {/* Le puse un margen superior (mt-4) para que la línea y la descripción se separen bonito del título */}
             {MENU_STRUCTURE.find(m => m.id === openMenuId)?.description && (
               <p className="text-white/80 text-base md:text-lg border-l-4 border-[#a3c74a] pl-5 max-w-2xl mt-4">
                 {MENU_STRUCTURE.find(m => m.id === openMenuId)?.description}
@@ -1134,7 +1162,7 @@ export default function InversionistasPage() {
           </div>
         </div>
 
-        {/* AQUÍ ESTÁN LAS VISTAS CONECTADAS */}
+        {/* LÓGICA DE RENDERIZADO: Aquí decidimos qué vista mostrar según el sub-ítem activo */}
         <AnimatePresence mode="wait">
           {activeSubItem === 'estructura' && <EstructuraView key="estructura" />}
           {activeSubItem === 'buenas_practicas' && <BuenasPracticasView key="buenas_practicas" />}
@@ -1147,11 +1175,9 @@ export default function InversionistasPage() {
           {activeSubItem === 'informe_gestion' && <InformeGestionView key="informe_gestion" />}
           {activeSubItem === 'estados_financieros' && <EstadosFinancierosView key="estados_financieros" />}
           {activeSubItem === 'informes_trimestrales' && <InformesTrimestralesView key="informes_trimestrales" />}
-          
-          {/* 👇 ESTA ES LA LÍNEA QUE FALTABA PARA MOSTRAR LA VISTA 👇 */}
           {activeSubItem === 'atencion' && <AtencionInversionistaView key="atencion" />}
           
-          {/* 👇 TAMBIÉN FALTABA AGREGAR 'atencion' A ESTA LISTA DE EXCLUSIÓN 👇 */}
+          {/* Fallback por si acaso algo falla o está en blanco */}
           {!['estructura', 'buenas_practicas', 'conglomerados', 'info_relevante', 'convocatoria', 'info_general', 'proyecto_dividendos', 'control', 'informe_gestion', 'estados_financieros', 'informes_trimestrales', 'atencion'].includes(activeSubItem) && (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="text-center py-20">
                <Info className="mx-auto text-gray-100 mb-6" size={64} />

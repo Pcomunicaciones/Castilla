@@ -8,7 +8,9 @@ import { ChevronDown, Menu, X, ExternalLink } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 
-// 1. Submenús definidos
+/* --- 1. CONFIGURACIÓN DE MENÚS (SUBMENÚS) --- */
+// Aquí organizamos todos los enlaces que aparecen cuando pasas el mouse por las categorías.
+
 const companySubmenu = [
   { name: "Quienes Somos", href: "/compania/quienes-somos" },
   { name: "Historia y Evolución", href: "/compania/historia" },
@@ -39,6 +41,7 @@ const groupsSubmenu = [
 
 
 export function Header() {
+  // Estados para manejar si bajamos scroll, si el móvil está abierto o qué pestaña desplegamos
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
@@ -46,6 +49,7 @@ export function Header() {
 
   const isHome = pathname === "/"
 
+  // Este efecto detecta cuando el usuario baja la página para poner el fondo sólido al header
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll)
@@ -54,6 +58,7 @@ export function Header() {
 
   const isSolid = !isHome || isScrolled
 
+  // Función ayudante para decidir si renderizamos un link interno o uno externo (que abre en otra pestaña)
   const renderLink = (item: any) => {
     if (item.isExternal) {
       return (
@@ -70,11 +75,11 @@ export function Header() {
     return (
       <Link 
         href={item.href} 
-        onClick={() => setMobileMenuOpen(false)}
+        onClick={() => setMobileMenuOpen(false)} // Cerramos el menú móvil al navegar
         className={cn(
           "block px-4 py-3 text-sm transition-colors", 
           pathname === item.href 
-            ? "bg-castilla-green-dark text-white font-bold" 
+            ? "bg-castilla-green-dark text-white font-bold" // Estilo para el link activo
             : "text-gray-600 hover:bg-castilla-green-light/10 hover:text-castilla-green-dark"
         )}
       >
@@ -86,7 +91,7 @@ export function Header() {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-500", 
-      // Se agregó border-b border-transparent en el estado inicial para evitar el residuo blanco al subir
+      // Si estamos en scroll o fuera del home, el header se vuelve verde sólido con un degradado premium
       isSolid 
         ? "bg-gradient-to-r from-[#04683A]/95 to-[#048450]/90 backdrop-blur-md shadow-lg py-2 border-b border-white/10" 
         : "bg-transparent py-5 border-b border-transparent"
@@ -94,7 +99,7 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
-          {/* LOGO */}
+          {/* SECCIÓN LOGO: Siempre a la izquierda */}
           <Link href="/" className="flex items-center space-x-3 group">
             <Image 
               src="/Imagenes/Logo retina.png" 
@@ -109,7 +114,7 @@ export function Header() {
             </div>
           </Link>
 
-          {/* MENÚ DESKTOP */}
+          {/* --- MENÚ PARA COMPUTADORAS (DESKTOP) --- */}
           <div className="hidden lg:flex items-center space-x-6">
             <Link 
               href="/" 
@@ -118,6 +123,7 @@ export function Header() {
               Inicio
             </Link>
             
+            {/* Generamos las pestañas desplegables dinámicamente */}
             {[
               { label: "Compañía", menu: companySubmenu, id: "compania" },
               { label: "Operación", menu: operationSubmenu, id: "Operacion" },
@@ -130,8 +136,8 @@ export function Header() {
                 <div 
                   key={d.id} 
                   className="relative" 
-                  onMouseEnter={() => setOpenDropdown(d.id)} 
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => setOpenDropdown(d.id)} // Abrir al pasar el mouse
+                  onMouseLeave={() => setOpenDropdown(null)} // Cerrar al quitarlo
                 >
                   <button className={cn(
                     "flex items-center space-x-1 text-sm font-semibold py-2 transition-colors outline-none", 
@@ -141,6 +147,7 @@ export function Header() {
                     <ChevronDown size={14} className={cn("transition-transform duration-300", openDropdown === d.id && "rotate-180")} />
                   </button>
 
+                  {/* El submenú flotante con animación suave */}
                   <AnimatePresence>
                     {openDropdown === d.id && (
                       <motion.div 
@@ -161,7 +168,7 @@ export function Header() {
               );
             })}
 
-            {/* BOTÓN INVERSIONISTAS (DESKTOP) */}
+            {/* BOTÓN INVERSIONISTAS: Destacado con un borde verde claro */}
             <Link 
               href="/inversionistas" 
               className="text-sm font-bold py-2 px-6 rounded-full border-2 transition-all border-[#88c336] text-[#88c336] hover:bg-[#88c336] hover:text-white"
@@ -170,7 +177,7 @@ export function Header() {
             </Link>
           </div>
 
-          {/* BOTÓN MÓVIL */}
+          {/* BOTÓN HAMBURGUESA (Solo se ve en celulares) */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
             className="lg:hidden p-2 transition-colors text-white"
@@ -180,7 +187,7 @@ export function Header() {
         </div>
       </nav>
 
-      {/* MENÚ MÓVIL */}
+      {/* --- MENÚ DESPLEGABLE PARA MÓVILES --- */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
