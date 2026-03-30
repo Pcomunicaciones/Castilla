@@ -7,37 +7,31 @@ const informes = [
   { 
     year: "2025", 
     title: "Informe de gestión y sostenibilidad", 
-    size: "43.8 MB", 
     fileName: "Castilla-ENTREGADOCUMENTOCOMPLETA-21032026N-1.pdf" 
   },
   { 
     year: "2024", 
     title: "Informe de gestión y sostenibilidad", 
-    size: "26.5 MB", 
     fileName: "1-Castilla-Informe-de-gestion-y-sostenibilidad-2024-DEFINITIVO.pdf" 
   },
   { 
     year: "2023", 
     title: "Informe de gestión y sostenibilidad", 
-    size: "43.9 MB", 
     fileName: "Castilla-Informe-de-Gestion-y-Sostenibilidad-2023-3-1.pdf" 
   },
   { 
     year: "2022", 
     title: "Informe de gestión", 
-    size: "11.8 MB", 
     fileName: "CASTILLA-informe-de-gestion-2022_compressed.pdf" 
   },
   { 
     year: "2021", 
     title: "Informe de gestión", 
-    size: "24.7 MB", 
     fileName: "INFORME-GESTION-CASTILLA-2021-ASAMBLEA-1_compressed.pdf" 
   },
   { 
     year: "2020", 
     title: "Informe de gestión", 
-    size: "31.5 MB", 
     fileName: "INFORME-DE-GESTION-CASTILLA-BAJA.pdf" 
   },
 ]
@@ -98,7 +92,7 @@ export default function InformesPage() {
                   {doc.title} <span className="text-[#a3c74a]">{doc.year}</span>
                 </h4>
                 <p className="text-[11px] text-gray-400 font-black uppercase tracking-widest mt-0.5">
-                  PDF • {doc.size}
+                  Documento PDF
                 </p>
               </div>
             </div>
