@@ -1,26 +1,44 @@
 "use client"
 
-import { FileDown, Calendar } from "lucide-react"
+import { ExternalLink, Calendar } from "lucide-react"
 import { motion, Variants } from "framer-motion"
 
 const informes = [
   { 
+    year: "2025", 
+    title: "Informe de gestión y sostenibilidad", 
+    size: "43.8 MB", 
+    fileName: "Castilla-ENTREGADOCUMENTOCOMPLETA-21032026N-1.pdf" 
+  },
+  { 
     year: "2024", 
-    title: "Informe de Sostenibilidad", 
-    size: "4.2 MB", 
-    fileName: "informe-sostenibilidad-2024.pdf" 
+    title: "Informe de gestión y sostenibilidad", 
+    size: "26.5 MB", 
+    fileName: "1-Castilla-Informe-de-gestion-y-sostenibilidad-2024-DEFINITIVO.pdf" 
   },
   { 
     year: "2023", 
-    title: "Reporte de Gestión Ambiental", 
-    size: "3.8 MB", 
-    fileName: "reporte-ambiental-2023.pdf" 
+    title: "Informe de gestión y sostenibilidad", 
+    size: "43.9 MB", 
+    fileName: "Castilla-Informe-de-Gestion-y-Sostenibilidad-2023-3-1.pdf" 
   },
   { 
     year: "2022", 
-    title: "Balance Social Consolidado", 
-    size: "5.1 MB", 
-    fileName: "balance-social-2022.pdf" 
+    title: "Informe de gestión", 
+    size: "11.8 MB", 
+    fileName: "CASTILLA-informe-de-gestion-2022_compressed.pdf" 
+  },
+  { 
+    year: "2021", 
+    title: "Informe de gestión", 
+    size: "24.7 MB", 
+    fileName: "INFORME-GESTION-CASTILLA-2021-ASAMBLEA-1_compressed.pdf" 
+  },
+  { 
+    year: "2020", 
+    title: "Informe de gestión", 
+    size: "31.5 MB", 
+    fileName: "INFORME-DE-GESTION-CASTILLA-BAJA.pdf" 
   },
 ]
 
@@ -85,14 +103,15 @@ export default function InformesPage() {
               </div>
             </div>
 
-            {/* Botón de Descarga Real */}
+            {/* Botón de Vista en Pestaña Nueva (Estilo Premium) */}
             <a 
-              href={`/documentos/informes/${doc.fileName}`} 
-              download={doc.fileName}
-              className="flex items-center justify-center gap-2 bg-[#006437] text-white px-8 py-3 rounded-2xl text-sm font-bold hover:bg-[#a3c74a] hover:text-[#006437] transition-all duration-300 shadow-lg shadow-green-900/10"
+              href={`/docs/informes de gestion/${doc.fileName}`} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 bg-[#006437] text-white px-7 py-3.5 rounded-2xl text-xs font-bold hover:bg-[#1a4a35] transition-all duration-300 shadow-lg shadow-green-900/10 active:scale-95"
             >
-              <FileDown size={18} />
-              Descargar Reporte
+              <ExternalLink size={18} strokeWidth={2.5} />
+              VER DOCUMENTO
             </a>
           </motion.div>
         ))}
