@@ -51,7 +51,6 @@ export default function BelagroPage() {
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="absolute -top-24 -right-24 w-96 h-96 bg-castilla-yellow rounded-full blur-[100px]"
         />
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
       </div>
 
       {/* HEADER DINÁMICO */}
@@ -122,11 +121,9 @@ export default function BelagroPage() {
               <Image
                 src={BELAGRO_IMAGE_PATH}
                 alt="Planta de fertilizantes líquidos Belagro"
-                width={1200}
-                height={600}
-                layout="responsive"
-                objectFit="cover"
-                className="w-full h-auto bg-slate-100 group-hover:scale-105 transition-transform duration-700"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 1200px) 100vw, 1200px"
               />
             </div>
           </motion.div>

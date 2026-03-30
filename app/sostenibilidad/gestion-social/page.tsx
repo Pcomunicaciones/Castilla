@@ -2,6 +2,7 @@
 
 import { Users, ShieldCheck, ArrowRight, Sparkles, GraduationCap, Building2, TrendingDown } from "lucide-react"
 import { motion, Variants } from "framer-motion"
+import Image from "next/image"
 
 /* --------------------------------------------------------------------------
    ANIMACIONES
@@ -91,12 +92,18 @@ export default function GestionSocial() {
         variants={itemVariants}
         className="relative h-[400px] rounded-[3rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,100,55,0.2)] group"
       >
-        <motion.img 
+        <motion.div 
           variants={imageVariants}
-          src="/Imagenes/comunidades.jpeg" 
-          alt="Comunidad y Educación" 
-          className="w-full h-full object-cover" 
-        />
+          className="absolute inset-0 w-full h-full"
+        >
+          <Image 
+            src="/Imagenes/comunidades.jpeg" 
+            alt="Comunidad y Educación" 
+            fill
+            className="object-cover"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+          />
+        </motion.div>
         
         {/* Overlay Inteligente */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#006437] via-[#006437]/60 to-transparent opacity-90" />

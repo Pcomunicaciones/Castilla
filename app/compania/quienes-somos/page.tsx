@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Heart, Shield, Handshake, ChevronDown, Leaf, Users, Scale, Zap } from "lucide-react"
 import { useRef } from "react"
+import Image from "next/image"
 
 // --- LOS ÍCONOS ANIMADOS HECHOS A MANO ---
 // En lugar de usar imágenes o GIFs, dibujamos estos íconos con código SVG.
@@ -215,8 +216,14 @@ export default function QuienesSomosPage() {
         whileInView={{ scale: 1, opacity: 1 }}
         className="relative py-16 px-6 md:px-8 rounded-[2.5rem] overflow-hidden text-center mx-4 md:mx-12"
       >
-        <div className="absolute inset-0 bg-[url('/Imagenes/textura-campo.jpg')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-[#04683A]/95 backdrop-blur-sm" /> 
+        <Image 
+          src="/Imagenes/textura-campo.jpg" 
+          alt="Textura campo"
+          fill
+          className="object-cover -z-10"
+          sizes="(max-width: 1280px) 100vw, 1280px"
+        />
+        <div className="absolute inset-0 bg-[#04683A]/95 backdrop-blur-sm -z-10" /> 
         
         <div className="relative z-10 max-w-4xl mx-auto">
           <Zap size={40} className="text-castilla-yellow mx-auto mb-4" />
