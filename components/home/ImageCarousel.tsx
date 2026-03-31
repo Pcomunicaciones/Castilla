@@ -7,14 +7,6 @@ import Image from "next/image"
 
 const carouselItems = [
   {
-    id: 1,
-    title: "Campos de Caña de Azúcar",
-    description: "Extensas hectáreas cultivadas con las mejores prácticas agrícolas.",
-    // Asegúrate de que la extensión (.jpeg) coincida EXACTAMENTE 
-    // con el archivo en tu carpeta local, respetando mayúsculas/minúsculas.
-    image: "/Imagenes/bf7217f0-7e37-40a4-814d-a18e12457488.jpeg",
-  },
-  {
     id: 2,
     title: "Comunidades",
     description: "Desarrollo social y bienestar para nuestra gente.",
