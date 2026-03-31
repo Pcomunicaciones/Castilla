@@ -10,7 +10,7 @@ const carouselItems = [
     id: 1,
     title: "Campos de Caña de Azúcar",
     description: "Extensas hectáreas cultivadas con las mejores prácticas agrícolas.",
-    image: "/Imagenes/DSC_0131.JPG", 
+    image: "/Imagenes/DSC_0131 (1).JPG",
   },
   {
     id: 2,
@@ -22,13 +22,13 @@ const carouselItems = [
     id: 3,
     title: "Innovación Agrícola",
     description: "Tecnología de punta aplicada al campo colombiano.",
-    image: "/Imagenes/DSC_0094.jpg", 
+    image: "/Imagenes/DSC_0094.jpg",
   },
   {
     id: 4,
     title: "Sostenibilidad",
     description: "Compromiso real con el medio ambiente.",
-    image: "/Imagenes/DSC_0391-2.jpg", 
+    image: "/Imagenes/DSC_0391-2.jpg",
   },
 ]
 
@@ -75,9 +75,9 @@ export function ImageCarousel() {
   return (
     <section className="py-24 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* TÍTULO DE SECCIÓN */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -110,20 +110,20 @@ export function ImageCarousel() {
               className="absolute inset-0"
             >
               {/* IMAGEN DE FONDO */}
-              <motion.div 
+              <motion.div
                 animate={{ scale: [1, 1.03] }}
                 transition={{ duration: 6, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
                 className="absolute inset-0"
               >
                 <Image
-                  src={currentItem.image} 
+                  src={currentItem.image}
                   alt={currentItem.title}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1280px) 100vw, 1280px"
                 />
               </motion.div>
-              
+
               {/* OVERLAY DEGRADADO */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent z-10" />
 
@@ -151,7 +151,7 @@ export function ImageCarousel() {
 
           {/* BARRA DE PROGRESO INFERIOR */}
           {isAutoPlaying && (
-            <motion.div 
+            <motion.div
               key={`progress-${currentIndex}`}
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
@@ -163,15 +163,15 @@ export function ImageCarousel() {
           {/* --- BOTONES DE NAVEGACIÓN (NUEVA UBICACIÓN: ABAJO DERECHA) --- */}
           {/* Ajuste: p-2 md:p-3 para ser más pequeños que en el Hero */}
           <div className="absolute bottom-8 right-8 flex gap-3 z-30">
-            <button 
-              onClick={() => paginate(-1)} 
+            <button
+              onClick={() => paginate(-1)}
               className="p-2 md:p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-castilla-yellow hover:text-castilla-green-dark transition-all active:scale-90 shadow-lg"
               aria-label="Anterior"
             >
               <ChevronLeft size={24} /> {/* Icono un poco más pequeño */}
             </button>
-            <button 
-              onClick={() => paginate(1)} 
+            <button
+              onClick={() => paginate(1)}
               className="p-2 md:p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-castilla-yellow hover:text-castilla-green-dark transition-all active:scale-90 shadow-lg"
               aria-label="Siguiente"
             >
@@ -189,11 +189,10 @@ export function ImageCarousel() {
                   const dir = index > currentIndex ? 1 : -1;
                   setPage([index, dir]);
                 }}
-                className={`transition-all duration-500 rounded-full shadow-sm ${
-                  currentIndex === index 
-                  ? "w-8 h-1.5 bg-castilla-yellow" 
-                  : "w-2 h-1.5 bg-white/40 hover:bg-white"
-                }`}
+                className={`transition-all duration-500 rounded-full shadow-sm ${currentIndex === index
+                    ? "w-8 h-1.5 bg-castilla-yellow"
+                    : "w-2 h-1.5 bg-white/40 hover:bg-white"
+                  }`}
                 aria-label={`Ir a imagen ${index + 1}`}
               />
             ))}

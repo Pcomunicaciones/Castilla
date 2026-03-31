@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 export function PromoModal() {
   const [isOpen, setIsOpen] = useState(false)
@@ -25,7 +26,7 @@ export function PromoModal() {
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -37,11 +38,11 @@ export function PromoModal() {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-           
+
             className="relative w-full max-w-sm bg-white rounded-[2.5rem] overflow-hidden shadow-2xl"
           >
-            {}
-            <button 
+            { }
+            <button
               onClick={closeModal}
               className="absolute top-3 right-3 z-20 p-1.5 bg-black/10 hover:bg-black/30 text-white rounded-full transition-all"
             >
@@ -49,25 +50,26 @@ export function PromoModal() {
             </button>
 
             <div className="relative aspect-square w-full"> {/* CAMBIO: aspect-square para que sea un cuadrado perfecto */}
-              <Image 
-                src="/Imagenes/Exportado 1.jpg" 
-                alt="Castilla Agrícola" 
+              <Image
+                src="/Imagenes/Exportado 1.jpg"
+                alt="Castilla Agrícola"
                 fill
                 className="object-cover"
                 sizes="(max-width: 384px) 100vw, 384px"
               />
-              
+
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#006437] via-[#006437]/90 to-transparent text-white">
-                <h3 className="text-xl font-bold italic leading-tight">Aviso</h3>
-                <p className="text-white/80 mt-1 text-xs">
-                  Bienvenidos a nuestra plataforma.
+                <h3 className="text-xl font-bold italic leading-tight"></h3>
+                <p className="text-white/95 mt-2 text-base font-medium">
+                  Bienvenido a la nueva web de Castilla Agrícola
                 </p>
-                <button 
+                <Link 
+                  href="/"
                   onClick={closeModal}
-                  className="mt-4 w-full py-3 bg-[#a3c74a] text-[#006437] font-black uppercase tracking-widest text-[10px] rounded-xl hover:bg-white transition-colors"
+                  className="mt-4 block text-center w-full py-3 bg-[#a3c74a] text-[#006437] font-black uppercase tracking-widest text-[10px] rounded-xl hover:bg-white transition-colors"
                 >
-                  Entrar
-                </button>
+                  Inicio
+                </Link>
               </div>
             </div>
           </motion.div>
