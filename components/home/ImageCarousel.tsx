@@ -10,7 +10,7 @@ const carouselItems = [
     id: 1,
     title: "Campos de Caña de Azúcar",
     description: "Extensas hectáreas cultivadas con las mejores prácticas agrícolas.",
-    image: "/Imagenes/caña.JPG",
+    image: "/Imagenes/bf7217f0-7e37-40a4-814d-a18e12457488.jpeg",
   },
   {
     id: 2,
