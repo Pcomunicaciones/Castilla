@@ -10,7 +10,7 @@ const carouselItems = [
     id: 1,
     title: "Campos de Caña de Azúcar",
     description: "Extensas hectáreas cultivadas con las mejores prácticas agrícolas.",
-    image: "/Imagenes/DSC_0131 (1).JPG",
+    image: "/Imagenes/caña.JPG",
   },
   {
     id: 2,
@@ -190,8 +190,8 @@ export function ImageCarousel() {
                   setPage([index, dir]);
                 }}
                 className={`transition-all duration-500 rounded-full shadow-sm ${currentIndex === index
-                    ? "w-8 h-1.5 bg-castilla-yellow"
-                    : "w-2 h-1.5 bg-white/40 hover:bg-white"
+                  ? "w-8 h-1.5 bg-castilla-yellow"
+                  : "w-2 h-1.5 bg-white/40 hover:bg-white"
                   }`}
                 aria-label={`Ir a imagen ${index + 1}`}
               />
