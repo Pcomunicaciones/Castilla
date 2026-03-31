@@ -26,8 +26,8 @@ const itemVariants: Variants = {
 
 const pulseVariants: Variants = {
   initial: { scale: 1, opacity: 0.5 },
-  animate: { 
-    scale: [1, 1.1, 1], 
+  animate: {
+    scale: [1, 1.1, 1],
     opacity: [0.5, 0.8, 0.5],
     transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
   }
@@ -64,13 +64,13 @@ export default function ProveedoresPage() {
         variants={itemVariants}
         className="group relative bg-gradient-to-br from-[#006437] to-[#004d2a] text-white p-12 rounded-[3.5rem] shadow-2xl overflow-hidden"
       >
-        <motion.div 
+        <motion.div
           variants={pulseVariants}
           initial="initial"
           animate="animate"
-          className="absolute -top-10 -right-10 w-64 h-64 bg-[#a3c74a]/20 rounded-full blur-3xl" 
+          className="absolute -top-10 -right-10 w-64 h-64 bg-[#a3c74a]/20 rounded-full blur-3xl"
         />
-        
+
         <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-shrink-0 relative">
             <div className="p-8 bg-white/10 backdrop-blur-md rounded-[2.5rem] text-[#a3c74a] group-hover:rotate-6 transition-transform duration-500 border border-white/20">
@@ -80,7 +80,7 @@ export default function ProveedoresPage() {
               <ShieldCheck size={20} />
             </div>
           </div>
-          
+
           <div className="text-center lg:text-left space-y-4">
             <h2 className="text-4xl font-bold tracking-tight">Nuestra Red de Valor</h2>
             <p className="text-white/80 leading-relaxed text-xl max-w-2xl font-light">
@@ -93,9 +93,9 @@ export default function ProveedoresPage() {
       {/* PORTALES Y GESTIÓN (PORTAL DE PROVEEDORES) */}
       <div className="space-y-10">
         <h3 className="text-3xl font-bold text-[#006437] flex items-center gap-4">
-           Portales y Gestión <div className="h-[1px] flex-1 bg-gray-100" />
+          Portales y Gestión <div className="h-[1px] flex-1 bg-gray-100" />
         </h3>
-        
+
         {/* Contenedor Flex para centrar la tarjeta única */}
         <div className="flex justify-center w-full">
           {/* Tarjeta: Portal de Proveedores */}
@@ -111,16 +111,16 @@ export default function ProveedoresPage() {
                 </div>
                 <span className="absolute top-0 right-0 text-[10px] font-black text-gray-300 group-hover:text-[#a3c74a] transition-colors uppercase tracking-widest">Acceso Seguro</span>
               </div>
-              
+
               <div>
                 <h4 className="font-bold text-3xl text-[#006437] mb-3 tracking-tight">Portal de Proveedores</h4>
                 <p className="text-gray-500 text-base font-normal leading-relaxed max-w-xs mx-auto">
                   Acceda a la intranet corporativa para la gestión transparente de sus procesos.
                 </p>
               </div>
-              
+
               <a
-                href="http://201.219.242.106:8283/Intranet-Proveedores/login"
+                href="http://200.29.239.178:8283/Intranet-Proveedores/login"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 w-full py-5 bg-[#f1f8e9] text-[#006437] font-black rounded-2xl text-xs uppercase tracking-widest hover:bg-[#a3c74a] transition-all duration-300 group/btn"
@@ -133,12 +133,12 @@ export default function ProveedoresPage() {
       </div>
 
       {/* FOOTER DE APOYO */}
-      <motion.div 
+      <motion.div
         variants={itemVariants}
         className="text-center"
       >
         <p className="text-xs text-gray-400 font-bold uppercase tracking-[0.2em] hover:text-[#006437] transition-colors cursor-default">
-          ¿Dudas con sus procesos? 
+          ¿Dudas con sus procesos?
         </p>
       </motion.div>
     </motion.div>

@@ -2,10 +2,10 @@
 
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion" // Para que las animaciones de los menús se vean suaves
-import { 
-  FileText, Download, ChevronDown, Menu, X, PieChart, 
-  Users, Building2, Scale, Info, Globe, ShieldCheck, 
-  Calendar, Tag, Phone, ExternalLink, User, MessageSquare, 
+import {
+  FileText, Download, ChevronDown, Menu, X, PieChart,
+  Users, Building2, Scale, Info, Globe, ShieldCheck,
+  Calendar, Tag, Phone, ExternalLink, User, MessageSquare,
   AlertCircle, Lightbulb, CheckCircle2, MapPin, Mail
 } from "lucide-react" // Iconos bonitos y ligeros
 
@@ -37,7 +37,7 @@ const MENU_STRUCTURE = [
       { id: 'proyecto_dividendos', label: 'PROYECTO DISTRIBUCIÓN DE DIVIDENDOS' }
     ]
   },
- {
+  {
     id: 'control',
     label: 'ARQUITECTURA DE CONTROL',
     icon: Scale,
@@ -59,9 +59,9 @@ const MENU_STRUCTURE = [
   {
     id: 'atencion',
     label: 'ATENCIÓN AL INVERSIONISTA',
-    icon: Phone, 
+    icon: Phone,
     description: "Canales de comunicación directa y soporte para nuestros accionistas.",
-    subItems: [] 
+    subItems: []
   }
 ]
 
@@ -89,7 +89,7 @@ const DocumentCell = ({ title, fileName }: { title: string, fileName: string }) 
         {title}
       </span>
     </div>
-    
+
     <div className="flex w-full sm:w-auto shrink-0">
       <a
         href={`/docs/${fileName}`} // Ruta donde se guardan los PDFs
@@ -107,7 +107,7 @@ const DocumentCell = ({ title, fileName }: { title: string, fileName: string }) 
 /* --- 3. VISTAS DE CONTENIDO --- */
 // Cada componente aquí representa una de las páginas que se muestran al hacer clic en el menú.
 
-// --- VISTA: ESTRUCTURA CORPORATIVA (COMPLETA) ---
+// --- VISTA: ESTRUCTURA CORPORATIVA
 // Aquí mostramos quiénes mandan: Representantes legales, Junta y Accionistas.
 const EstructuraView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
@@ -141,15 +141,16 @@ const EstructuraView = () => (
           { p: "MARIANA CAICEDO PÉREZ", s: "RODRIGO CAICEDO LOURIDO" },
           { p: "ANICETO GUZMÁN SÁNCHEZ", s: "MARIANA BOTERO PIEDRAHITA" },
           { p: "FELIPE VICTORIA GONZÁLEZ", s: "MARIA ALEJANDRA CABAL GONZÁLEZ" }
+
         ].map((item, i) => (
           <div key={i} className="space-y-1">
             <div className="flex justify-between border-l-4 border-[#a3c74a] pl-3 py-1 bg-gray-50/30">
               <span className="font-bold text-[#006437] text-sm">{item.p}</span>
               <span className="text-[9px] font-black text-[#a3c74a]">PRINCIPAL</span>
             </div>
-            <div className="flex justify-between border-l-4 border-gray-200 pl-3 py-1">
-              <span className="text-gray-500 text-sm">{item.s}</span>
-              <span className="text-[9px] font-black text-gray-300">SUPLENTE</span>
+            <div className="flex justify-between border-l-4 border-gray-300 pl-3 py-1">
+              <span className="text-gray-600 font-medium text-sm">{item.s}</span>
+              <span className="text-[9px] font-black text-gray-500">SUPLENTE</span>
             </div>
           </div>
         ))}
@@ -163,7 +164,7 @@ const EstructuraView = () => (
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead>
-            <tr className="text-gray-400 font-bold uppercase text-[10px] tracking-[0.2em] border-b border-gray-100">
+            <tr className="text-[#a3c74a] font-bold uppercase text-[10px] tracking-[0.2em] border-b border-gray-100">
               <th className="pb-4 px-2">Accionista</th>
               <th className="pb-4 text-right">Acciones Ordinarias</th>
               <th className="pb-4 text-right">%</th>
@@ -172,31 +173,31 @@ const EstructuraView = () => (
           <tbody className="text-[#006437]">
             {[
               { n: "Santa Carolina Botero S.A.S.", a: "2.032.144", p: "10,38%" },
-{ n: "Alianza Fiduciaria S.A. -Fideicomiso ORUS", a: "1.364.166", p: "6,97%" },
-{ n: "Delta Caicedo S.A.S", a: "1.236.391", p: "6,32%" },
-{ n: "Desarrollos Pacífico S.A.S.", a: "1.236.390", p: "6,32%" },
-{ n: "Titán Gea S.A.S.", a: "1.234.923", p: "6,31%" },
-{ n: "Inversiones Bellavista y Cía. S. en C.", a: "1.021.575", p: "5,22%" },
-{ n: "San Mateo y Cía. S.A.S.", a: "1.019.800", p: "5,21%" },
-{ n: "Aratamma S.A.S.", a: "1.019.800", p: "5,21%" },
-{ n: "San Antonio Botero S.A.S.", a: "1.010.637", p: "5,16%" },
-{ n: "Colombina S. A.", a: "950.904", p: "4,86%" },
-{ n: "González Holmann S.A.S", a: "637.518", p: "3,26%" },
-{ n: "Proyectos González y Cía S.C.A.", a: "637.499", p: "3,26%" },
-{ n: "B.G. Ulloa y Cía S.C.A.", a: "637.492", p: "3,26%" },
-{ n: "F.G. Victoria y Cía. S.C.A.", a: "637.474", p: "3,26%" },
-{ n: "B.G. Garrido S.A.S", a: "637.471", p: "3,26%" },
-{ n: "J.M. C. y Cía. S.A.", a: "602.533", p: "3,08%" },
-{ n: "La Campiña Caicedo & Cía. S. en C.", a: "412.917", p: "2,11%" },
-{ n: "Babilonia Caicedo & Cía. S. en C.", a: "412.881", p: "2,11%" },
-{ n: "Alianza Fiduciaria S.A.-Fideicomiso 3535-1493 Acciones Cali", a: "407.512", p: "2,08%" },
-{ n: "Hacienda La Independencia", a: "392.724", p: "2,01%" },
-{ n: "Inversiones González Garcés y Cía. S.C.A.", a: "318.406", p: "1,63%" },
-{ n: "Inversiones González Cabal y Cía. S.C.A.", a: "318.405", p: "1,63%" },
-{ n: "Inversiones B J González SAS", a: "214.034", p: "1,09%" },
-{ n: "Valores González Peñaranda SAS", a: "201.644", p: "1,03%" },
-{ n: "Valores González Tobón SAS", a: "186.874", p: "0,95%" },
-{ n: "Otros accionistas con menor participación", a: "795.964", p: "4,07%" }
+              { n: "Alianza Fiduciaria S.A. -Fideicomiso ORUS", a: "1.364.166", p: "6,97%" },
+              { n: "Delta Caicedo S.A.S", a: "1.236.391", p: "6,32%" },
+              { n: "Desarrollos Pacífico S.A.S.", a: "1.236.390", p: "6,32%" },
+              { n: "Titán Gea S.A.S.", a: "1.234.923", p: "6,31%" },
+              { n: "Inversiones Bellavista y Cía. S. en C.", a: "1.021.575", p: "5,22%" },
+              { n: "San Mateo y Cía. S.A.S.", a: "1.019.800", p: "5,21%" },
+              { n: "Aratamma S.A.S.", a: "1.019.800", p: "5,21%" },
+              { n: "San Antonio Botero S.A.S.", a: "1.010.637", p: "5,16%" },
+              { n: "Colombina S. A.", a: "950.904", p: "4,86%" },
+              { n: "González Holmann S.A.S", a: "637.518", p: "3,26%" },
+              { n: "Proyectos González y Cía S.C.A.", a: "637.499", p: "3,26%" },
+              { n: "B.G. Ulloa y Cía S.C.A.", a: "637.492", p: "3,26%" },
+              { n: "F.G. Victoria y Cía. S.C.A.", a: "637.474", p: "3,26%" },
+              { n: "B.G. Garrido S.A.S", a: "637.471", p: "3,26%" },
+              { n: "J.M. C. y Cía. S.A.", a: "602.533", p: "3,08%" },
+              { n: "La Campiña Caicedo & Cía. S. en C.", a: "412.917", p: "2,11%" },
+              { n: "Babilonia Caicedo & Cía. S. en C.", a: "412.881", p: "2,11%" },
+              { n: "Alianza Fiduciaria S.A.-Fideicomiso 3535-1493 Acciones Cali", a: "407.512", p: "2,08%" },
+              { n: "Hacienda La Independencia", a: "392.724", p: "2,01%" },
+              { n: "Inversiones González Garcés y Cía. S.C.A.", a: "318.406", p: "1,63%" },
+              { n: "Inversiones González Cabal y Cía. S.C.A.", a: "318.405", p: "1,63%" },
+              { n: "Inversiones B J González SAS", a: "214.034", p: "1,09%" },
+              { n: "Valores González Peñaranda SAS", a: "201.644", p: "1,03%" },
+              { n: "Valores González Tobón SAS", a: "186.874", p: "0,95%" },
+              { n: "Otros accionistas con menor participación", a: "795.964", p: "4,07%" }
             ].map((row, i) => (
               <tr key={i} className="border-b border-gray-50 hover:bg-gray-50">
                 <td className="py-3 px-2 font-bold">{row.n}</td>
@@ -255,17 +256,17 @@ const EstructuraView = () => (
         <div className="space-y-6">
           <div>
             <p className="text-[10px] font-bold text-gray-400 mb-1 tracking-widest uppercase">Revisor Fiscal</p>
-            <p className="font-bold text-[#006437] text-sm">PWC Contadores y Auditores S.A.S.</p>
-            <p className="text-xs text-gray-500 mb-3">NIT. 900.943.048-4</p>
-            
+            <p className="font-bold text-[#006437] text-sm">ERNST & YOUNG AUDIT S.A.S</p>
+            <p className="text-xs text-gray-500 mb-3">NIT. 860.008.890-5</p>
+
             <div className="space-y-2 border-l-2 border-gray-100 pl-3">
               <div>
-                <p className="text-xs font-bold text-gray-700">Principal: Jhon Alexander Pineda Mejía</p>
-                <p className="text-[11px] text-gray-500">C.C. 94.415.859 <span className="mx-1">|</span> T.P. 79093-T</p>
+                <p className="text-xs font-bold text-gray-700">Principal: PAOLA ANDREA VELASCO BETANCOURT</p>
+                <p className="text-[11px] text-gray-500">C.C. 1.107.088.378 <span className="mx-1">|</span> T.P. 327263-T</p>
               </div>
               <div>
-                <p className="text-xs font-bold text-gray-700">Suplente: Fabian Alexis Pardo Higuera</p>
-                <p className="text-[11px] text-gray-500">C.C. 1.018.432.341 <span className="mx-1">|</span> T.P. 258597-T</p>
+                <p className="text-xs font-bold text-gray-700">Suplente: YULIETH YESENIA PENAGOS RENDON</p>
+                <p className="text-[11px] text-gray-500">C.C. 1.143.831.377 <span className="mx-1">|</span> T.P. 233238-T</p>
               </div>
             </div>
           </div>
@@ -295,7 +296,7 @@ const BuenasPracticasView = () => (
         {/* Aquí corregí los nombres de los archivos que estaban cruzados */}
         <DocumentCell title="Estatutos Sociales" fileName="buenas practicas/ESTATUTOS-CASTILLA-0244-4-79.pdf" />
         <DocumentCell title="Código de Mejores Prácticas Corporativas" fileName="buenas practicas/PO-BAC-002-CODIGO-DE-MEJORES-PRACTICAS-CORPORATIVAS-CAST.pdf" />
-        <DocumentCell title="Documentos Anteriores" fileName="buenas practicas/documentos_anteriores.pdf" /> 
+        <DocumentCell title="Documentos Anteriores" fileName="buenas practicas/documentos_anteriores.pdf" />
       </div>
     </DataCard>
   </div>
@@ -348,6 +349,18 @@ const InfoRelevanteView = () => {
     // ================== 2026 ==================
     // --- NUEVAS NOTICIAS AGREGADAS (MARZO Y FEBRERO 2026) ---
     {
+      f: "25/03/2026",
+      t: "Novedades de los Directores y miembros de la Alta Gerencia.",
+      r: "Se adjunta la composición de la nueva Junta Directiva de la sociedad Castilla Agrícola S.A., correspondiente al período comprendido entre abril de 2026 y marzo de 2027, elegida por la Asamblea de Accionistas en la reunión ordinaria celebrada de manera mixta (presencial y virtual) el 25 de marzo de 2026.",
+      doc: "informacion relevante/JUNTA-DIRECTIVA-2026-2027_Castilla-Agricola.pdf"
+    },
+    {
+      f: "25/03/2026",
+      t: "Otros Eventos",
+      r: "Se adjunta Proyecto de Distribución de Utilidades del año 2025, aprobado en la reunión ordinaria de la Asamblea General de Accionistas, celebrada de manera mixta (presencial y virtual) el 25 de marzo de 2026",
+      doc: "informacion relevante/PDU-2025_-Castilla-Agricola-Fecha-de-Exdividendos.pdf"
+    },
+    {
       f: "05/03/2026",
       t: "Otros Eventos",
       r: "Con el fin de garantizar la claridad sobre el periodo ex-dividendo de conformidad con lo establecido en el Reglamento General de la BVC, la Sociedad presenta la actualización del Proyecto de Distribución de Utilidades 2025, el cual será sometido a consideración de la Asamblea General de Accionistas en reunión ordinaria programada para el 25 de marzo de 2026, en la ciudad de Cali, domicilio social de la Sociedad.",
@@ -389,7 +402,7 @@ const InfoRelevanteView = () => {
       r: "Se adjunta comunicado en relación con la convocatoria a la reunión extraordinaria de la Asamblea de Accionistas de Castilla Agrícola S.A., que se celebrará en forma mixta (virtual y presencial), el día 5 de marzo de 2026, en Cali, domicilio de la Sociedad.",
       doc: "informacion relevante 2/Comunicado-Castilla-Agricola_feb-28_2026.pdf"
     },
-    
+
     // --- NOTICIAS ANTERIORES DE 2026 ---
     {
       f: "25/02/2026",
@@ -403,7 +416,7 @@ const InfoRelevanteView = () => {
       r: "Se adjunta comunicado mediante el cual se adoptan medidas y mecanismos orientados a prevenir prácticas ilegales, no autorizadas o inseguras en la representación de los Accionistas, con ocasión de la reunión extraordinaria de la Asamblea General que se celebrará el 5 de marzo de 2026, en la ciudad de Cali, domicilio principal de la Sociedad.",
       doc: "informacion relevante 2/CE-003_RNVE_CASTILLA-AGRICOLA_AGA-Mzo-5_2026.pdf"
     },
-    
+
     // ================== 2025 ==================
     {
       f: "14/11/2025",
@@ -686,13 +699,13 @@ const InfoRelevanteView = () => {
             // Hover border a verde oscuro para mantener la elegancia y coherencia de marca
             <div key={i} className="group relative bg-white border border-gray-100 rounded-2xl p-6 hover:border-[#006437]/30 transition-all shadow-sm hover:shadow-md">
               <div className="flex flex-col md:flex-row justify-between gap-4 mb-3">
-                
+
                 {/* Fechas y Etiquetas con colores de Castilla Agrícola */}
                 <div className="flex items-center gap-3">
                   <span className="text-sm font-bold text-[#004a29]">{h.f}</span>
                   <span className="text-[10px] font-black text-[#006437] uppercase bg-[#a3c74a]/10 border border-[#a3c74a]/20 px-2 py-1 rounded-md">{h.t}</span>
                 </div>
-                
+
                 {/* Botón con estilo verde y hover amarillo/verde */}
                 <div className="flex w-full md:w-auto shrink-0">
                   <a
@@ -706,7 +719,7 @@ const InfoRelevanteView = () => {
                   </a>
                 </div>
               </div>
-              
+
               {/* Descripción del Hecho Relevante */}
               <p className="text-sm text-gray-500 leading-relaxed">{h.r}</p>
             </div>
@@ -723,17 +736,17 @@ const ConvocatoriaView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Convocatoria">
       <div className="grid gap-2">
-        <DocumentCell 
-          title="Citación Asamblea General de Accionistas en reunión ordinaria marzo 26 de 2025" 
-          fileName="convocatoria/CAST.-AGRI-CITACION-REUNION-ORDINARIA-MARZO-2025.pdf" 
+        <DocumentCell
+          title="Citación Asamblea General de Accionistas en reunión ordinaria marzo 26 de 2025"
+          fileName="convocatoria/CAST.-AGRI-CITACION-REUNION-ORDINARIA-MARZO-2025.pdf"
         />
-        <DocumentCell 
-          title="Poder Persona Jurídica" 
-          fileName="convocatoria/CAST.-AGRI-MODELO-PODER-PERSONA-JURIDICA-AGA-ORDINARIA-2025.pdf" 
+        <DocumentCell
+          title="Poder Persona Jurídica"
+          fileName="convocatoria/CAST.-AGRI-MODELO-PODER-PERSONA-JURIDICA-AGA-ORDINARIA-2025.pdf"
         />
-        <DocumentCell 
-          title="Poder Persona Natural" 
-          fileName="convocatoria/CAST-AGRI-MODELO-PODER-AGA-ORDINARIA-MAR.-2025-PERSONA-NATURAL-.pdf" 
+        <DocumentCell
+          title="Poder Persona Natural"
+          fileName="convocatoria/CAST-AGRI-MODELO-PODER-AGA-ORDINARIA-MAR.-2025-PERSONA-NATURAL-.pdf"
         />
       </div>
     </DataCard>
@@ -746,17 +759,17 @@ const InfoGeneralView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Información General">
       <div className="grid gap-2">
-        <DocumentCell 
-          title="Informe de Gestión" 
-          fileName="informacion general/1-Castilla-Informe-de-gestion-y-sostenibilidad-2024-DEFINITIVO.pdf" 
+        <DocumentCell
+          title="Informe de Gestión"
+          fileName="informacion general/1-Castilla-Informe-de-gestion-y-sostenibilidad-2024-DEFINITIVO.pdf"
         />
-        <DocumentCell 
-          title="Estados Financieros Separados al 31 de diciembre de 2025, con notas" 
-          fileName="informacion general/CAST-EEFF-Separados-Dic-2025.pdf" 
+        <DocumentCell
+          title="Estados Financieros Separados al 31 de diciembre de 2025, con notas"
+          fileName="informacion general/CAST-EEFF-Separados-Dic-2025.pdf"
         />
-        <DocumentCell 
-          title="Estados Financieros Consolidados al 31 de diciembre de 2025, con notas" 
-          fileName="informacion general/CAST-EEFF-Consolidados-Dic-2025.pdf" 
+        <DocumentCell
+          title="Estados Financieros Consolidados al 31 de diciembre de 2025, con notas"
+          fileName="informacion general/CAST-EEFF-Consolidados-Dic-2025.pdf"
         />
       </div>
     </DataCard>
@@ -768,13 +781,13 @@ const ProyectoDividendosView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Proyecto Distribución de Utilidades">
       <div className="grid gap-2">
-        <DocumentCell 
-          title="Proyecto de Distribución de Utilidades 2024, aprobado por la Asamblea General de Accionistas en reunión ordinaria el 26 de marzo de 2025" 
-          fileName="proyecto distribucion dividendos/PDU_Castilla_AGA_mzo-26_2025.pdf" 
+        <DocumentCell
+          title="Proyecto de Distribución de Utilidades 2024, aprobado por la Asamblea General de Accionistas en reunión ordinaria el 26 de marzo de 2025"
+          fileName="proyecto distribucion dividendos/PDU_Castilla_AGA_mzo-26_2025.pdf"
         />
-        <DocumentCell 
-          title="Fecha de Ex – Dividendos" 
-          fileName="proyecto distribucion dividendos/CASTILLA_Fecha-Exdividendo_PDU-Utilidades-2024.pdf" 
+        <DocumentCell
+          title="Fecha de Ex – Dividendos"
+          fileName="proyecto distribucion dividendos/CASTILLA_Fecha-Exdividendo_PDU-Utilidades-2024.pdf"
         />
       </div>
     </DataCard>
@@ -786,21 +799,21 @@ const ArquitecturaControlView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Arquitectura de Control">
       <div className="grid gap-2">
-        <DocumentCell 
-          title="Estatutos de Auditoria Interna" 
-          fileName="arquitectura control/Estatuto-Auditoria-Interna.pdf" 
+        <DocumentCell
+          title="Estatutos de Auditoria Interna"
+          fileName="arquitectura control/Estatuto-Auditoria-Interna.pdf"
         />
-        <DocumentCell 
-          title="Reglamento Comité Auditoria y Riesgos" 
-          fileName="arquitectura control/R-BAC-001-Comite-de-Auditoria-y-Riesgo-Castilla.pdf" 
+        <DocumentCell
+          title="Reglamento Comité Auditoria y Riesgos"
+          fileName="arquitectura control/R-BAC-001-Comite-de-Auditoria-y-Riesgo-Castilla.pdf"
         />
-        <DocumentCell 
-          title="Reglamento Comité de Sostenibilidad y Gobierno Corporativo" 
-          fileName="arquitectura control/R-BAC-002-Comite-Sostenibilidad-y-Gobierno-Corporativo-Castilla.pdf" 
+        <DocumentCell
+          title="Reglamento Comité de Sostenibilidad y Gobierno Corporativo"
+          fileName="arquitectura control/R-BAC-002-Comite-Sostenibilidad-y-Gobierno-Corporativo-Castilla.pdf"
         />
-        <DocumentCell 
-          title="Política General de Control y Gestión de Riesgos" 
-          fileName="arquitectura control/PO-BGR-001-General-de-Control-y-de-Riesgos-Cast.pdf" 
+        <DocumentCell
+          title="Política General de Control y Gestión de Riesgos"
+          fileName="arquitectura control/PO-BGR-001-General-de-Control-y-de-Riesgos-Cast.pdf"
         />
       </div>
     </DataCard>
@@ -812,29 +825,29 @@ const InformeGestionView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Informes de Gestión Anual">
       <div className="grid gap-2">
-        <DocumentCell 
-          title="Informe de Gestión 2024" 
-          fileName="informes de gestion/1-Castilla-Informe-de-gestion-y-sostenibilidad-2024-DEFINITIVO.pdf" 
+        <DocumentCell
+          title="Informe de Gestión 2024"
+          fileName="informes de gestion/1-Castilla-Informe-de-gestion-y-sostenibilidad-2024-DEFINITIVO.pdf"
         />
-        <DocumentCell 
-          title="Informe de Gestión y Sostenibilidad 2023" 
-          fileName="informes de gestion/Castilla-Informe-de-Gestion-y-Sostenibilidad-2023-3-1.pdf" 
+        <DocumentCell
+          title="Informe de Gestión y Sostenibilidad 2023"
+          fileName="informes de gestion/Castilla-Informe-de-Gestion-y-Sostenibilidad-2023-3-1.pdf"
         />
-        <DocumentCell 
-          title="Informe de Gestión 2022" 
-          fileName="informes de gestion/CASTILLA-informe-de-gestion-2022_compressed.pdf" 
+        <DocumentCell
+          title="Informe de Gestión 2022"
+          fileName="informes de gestion/CASTILLA-informe-de-gestion-2022_compressed.pdf"
         />
-        <DocumentCell 
-          title="Informe de Gestión 2021" 
-          fileName="informes de gestion/INFORME-GESTION-CASTILLA-2021-ASAMBLEA-1_compressed.pdf" 
+        <DocumentCell
+          title="Informe de Gestión 2021"
+          fileName="informes de gestion/INFORME-GESTION-CASTILLA-2021-ASAMBLEA-1_compressed.pdf"
         />
-        <DocumentCell 
-          title="Informe de Gestión 2020" 
-          fileName="informes de gestion/INFORME-DE-GESTION-CASTILLA-BAJA.pdf" 
+        <DocumentCell
+          title="Informe de Gestión 2020"
+          fileName="informes de gestion/INFORME-DE-GESTION-CASTILLA-BAJA.pdf"
         />
-        <DocumentCell 
-          title="Informe de Gestión 2025" 
-          fileName="informes de gestion/Castilla-ENTREGADOCUMENTOCOMPLETA-21032026N-1.pdf" 
+        <DocumentCell
+          title="Informe de Gestión 2025"
+          fileName="informes de gestion/Castilla-ENTREGADOCUMENTOCOMPLETA-21032026N-1.pdf"
         />
       </div>
     </DataCard>
@@ -856,16 +869,16 @@ const EstadosFinancierosView = () => {
       <DataCard title="Estados Financieros con Notas y Dictamen del Revisor Fiscal">
         <div className="grid gap-2">
           {archivos.map((item) => (
-            <DocumentCell 
+            <DocumentCell
               key={item.year}
-              title={`Año ${item.year}`} 
-              fileName={`estados financieros/${item.file}`} 
+              title={`Año ${item.year}`}
+              fileName={`estados financieros/${item.file}`}
             />
           ))}
-          {}
-          <DocumentCell 
-            title="Históricos" 
-            fileName="estados financieros/historico_estados_financieros.pdf" 
+          { }
+          <DocumentCell
+            title="Históricos"
+            fileName="estados financieros/historico_estados_financieros.pdf"
           />
         </div>
       </DataCard>
@@ -875,14 +888,14 @@ const EstadosFinancierosView = () => {
 // --- VISTA: INFORMES FINANCIEROS TRIMESTRALES ---
 // Los cortes parciales que se reportan cada 3 meses a la Superfinanciera.
 const InformesTrimestralesView = () => {
-  
+
   const informesList = [
     // 2025
     { title: "EEFF Consolidados - Junio 2025", doc: "AS-6868-25-E.F.-Castilla-Agricola-S.A.-y-sus-Subsidiarias-Consolidados-30-jun-2025.pdf" },
     { title: "EEFF Separados - Junio 2025", doc: "AS-6867-25-Castilla-Agricola-S.A.-EEFF-Separados-Junio-2025.pdf" },
     { title: "EEFF Consolidados - Marzo 2025", doc: "AS-4969-25-Castilla-Agricola-EEFF-Completos-Consolidados-al-31-Marzo-2025.pdf" },
     { title: "EEFF Separados - Marzo 2025", doc: "AS-4855-25-Castilla-Agricola-EEFF-completos-Separados-Marzo-2025.pdf" },
-    
+
     // 2024
     { title: "EEFF Consolidados - Septiembre 2024", doc: "CAST-EEFF-Consolidados-Septiembre-2024-PROJD.pdf" },
     { title: "EEFF Separados - Septiembre 2024", doc: "CAST-EEFF-Separados-Septiembre-2024-PROJD.pdf" },
@@ -927,10 +940,10 @@ const InformesTrimestralesView = () => {
         {/* Usamos 'grid gap-2' para forzar una sola columna vertical */}
         <div className="grid gap-2">
           {informesList.map((item, i) => (
-            <DocumentCell 
-              key={i} 
-              title={item.title} 
-              fileName={`informes trimestrales/${item.doc}`} 
+            <DocumentCell
+              key={i}
+              title={item.title}
+              fileName={`informes trimestrales/${item.doc}`}
             />
           ))}
         </div>
@@ -943,7 +956,7 @@ const InformesTrimestralesView = () => {
 const AtencionInversionistaView = () => {
   return (
     <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
-      
+
       {/* TARJETA 1: CONTACTO PRINCIPAL */}
       <DataCard title="Secretaría General">
         <div className="flex items-start gap-4 mb-6 p-6 bg-slate-50 rounded-2xl border border-gray-100">
@@ -953,7 +966,7 @@ const AtencionInversionistaView = () => {
           <div>
             <h4 className="text-lg font-bold text-[#006437]">VICTOR HUGO URDANETA TOLOSA</h4>
             <p className="text-[11px] font-black text-[#a3c74a] uppercase tracking-widest mb-4">Secretario General</p>
-            
+
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm text-gray-600">
                 <Building2 size={16} className="text-gray-400" />
@@ -988,7 +1001,7 @@ const AtencionInversionistaView = () => {
             </div>
             <p className="text-xs text-gray-500 leading-relaxed">Solicitud expresa que presenta el titular de los datos a fin de obtener información o respuesta conforme a los derechos y deberes del titular de la información.</p>
           </div>
-          
+
           <div className="p-5 border border-gray-100 rounded-xl bg-white hover:border-[#a3c74a] transition-colors shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <AlertCircle size={16} className="text-orange-500" />
@@ -1037,7 +1050,7 @@ const AtencionInversionistaView = () => {
         <p className="text-sm text-gray-600 leading-relaxed mb-6">
           Los titulares de los Datos personales podrán en cualquier momento solicitar la actualización, ratificación o supresión de dicha información e incluso revocar la autorización otorgada mediante los siguientes canales:
         </p>
-        
+
         <div className="grid md:grid-cols-2 gap-4">
           <div className="flex items-start gap-4 p-5 bg-white border border-gray-100 rounded-xl shadow-sm">
             <div className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center text-[#006437] shrink-0">
@@ -1080,22 +1093,22 @@ export default function InversionistasPage() {
 
   return (
     <div className="flex bg-[#fcfdfc] min-h-screen" style={{ fontFamily: 'Tahoma, sans-serif' }}>
-      
+
       {/* --- SIDEBAR INVERSIONISTAS --- */}
       <aside className={`fixed lg:sticky top-0 lg:top-28 left-0 h-[calc(100vh-8rem)] w-[360px] bg-white border border-gray-100 flex flex-col transition-transform z-40 rounded-r-[2.5rem] shadow-2xl lg:shadow-sm self-start ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
-        
+
         {/* Título del sidebar con estilo de marca */}
         <div className="p-12 pb-8 border-b border-gray-50 shrink-0">
           <span className="text-[10px] font-bold text-[#a3c74a] tracking-[0.3em] uppercase block mb-3">Castilla Agrícola</span>
           <h2 className="text-3xl font-bold text-[#006437] not-italic uppercase tracking-tight leading-none">Inversionistas</h2>
         </div>
-        
+
         {/* Navegación del sidebar con scroll interno por si hay muchos ítems */}
         <nav className="p-6 space-y-4 flex-1 overflow-y-auto">
           {MENU_STRUCTURE.map((menu) => (
             <div key={menu.id}>
               {/* Botón principal de la sección */}
-              <button 
+              <button
                 onClick={() => {
                   if (menu.subItems && menu.subItems.length > 0) {
                     // Si tiene sud-ítems, abrimos o cerramos el desplegable
@@ -1117,17 +1130,17 @@ export default function InversionistasPage() {
                   <ChevronDown size={16} className={openMenuId === menu.id ? "rotate-180" : ""} />
                 )}
               </button>
-              
+
               {/* Los sub-ítems aparecen con una animación suave de Framer Motion */}
               <AnimatePresence>
                 {openMenuId === menu.id && menu.subItems && menu.subItems.length > 0 && (
                   <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
                     <div className="py-4 px-8 space-y-2">
                       {menu.subItems.map((sub) => (
-                        <button 
-                          key={sub.id} 
-                          onClick={() => { 
-                            setActiveSubItem(sub.id); 
+                        <button
+                          key={sub.id}
+                          onClick={() => {
+                            setActiveSubItem(sub.id);
                             setIsSidebarOpen(false); // Cerramos menú en móvil después de elegir
                           }}
                           className={`w-full text-left py-2.5 px-4 text-[10px] font-bold uppercase rounded-xl transition-all ${activeSubItem === sub.id ? 'bg-[#a3c74a]/20 text-[#006437]' : 'text-gray-400 hover:text-[#006437]'}`}
@@ -1144,16 +1157,16 @@ export default function InversionistasPage() {
         </nav>
       </aside>
 
-  {/* --- ÁREA DE CONTENIDO PRINCIPAL --- */}
+      {/* --- ÁREA DE CONTENIDO PRINCIPAL --- */}
       <main className="flex-1 px-8 lg:px-20 pt-32 lg:pt-40 pb-20 overflow-x-hidden">
-        
+
         {/* Banner de cabecera que muestra el título y descripción de la sección actual */}
         <div className="relative w-full min-h-[160px] py-10 bg-[#006437] rounded-3xl overflow-hidden mb-10 flex items-center px-10 shadow-xl shadow-green-900/10">
           <div className="relative z-10">
             <h1 className="text-4xl lg:text-5xl font-bold text-white uppercase not-italic tracking-tight leading-none">
               {MENU_STRUCTURE.find(m => m.id === openMenuId)?.label || "INVERSIONISTAS"}
             </h1>
-            
+
             {MENU_STRUCTURE.find(m => m.id === openMenuId)?.description && (
               <p className="text-white/80 text-base md:text-lg border-l-4 border-[#a3c74a] pl-5 max-w-2xl mt-4">
                 {MENU_STRUCTURE.find(m => m.id === openMenuId)?.description}
@@ -1176,12 +1189,12 @@ export default function InversionistasPage() {
           {activeSubItem === 'estados_financieros' && <EstadosFinancierosView key="estados_financieros" />}
           {activeSubItem === 'informes_trimestrales' && <InformesTrimestralesView key="informes_trimestrales" />}
           {activeSubItem === 'atencion' && <AtencionInversionistaView key="atencion" />}
-          
+
           {/* Fallback por si acaso algo falla o está en blanco */}
           {!['estructura', 'buenas_practicas', 'conglomerados', 'info_relevante', 'convocatoria', 'info_general', 'proyecto_dividendos', 'control', 'informe_gestion', 'estados_financieros', 'informes_trimestrales', 'atencion'].includes(activeSubItem) && (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="text-center py-20">
-               <Info className="mx-auto text-gray-100 mb-6" size={64} />
-               <p className="text-gray-400 font-bold uppercase text-xs tracking-widest">Información en actualización</p>
+              <Info className="mx-auto text-gray-100 mb-6" size={64} />
+              <p className="text-gray-400 font-bold uppercase text-xs tracking-widest">Información en actualización</p>
             </motion.div>
           )}
         </AnimatePresence>
