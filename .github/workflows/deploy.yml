@@ -1,0 +1,33 @@
+name: Deploy Castilla Agrícola
+
+on:
+  push:
+    branches:
+      - main  # Se activa cuando subes cambios a la rama principal
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Obtener código fuente
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Usa la versión que tengas en tu PC
+
+      - name: 📦 Instalar dependencias
+        run: npm install
+
+      - name: 🏗️ Compilar proyecto (Build)
+        run: npm run build
+
+      - name: 🚀 Subir archivos a Hostinger vía FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/  # IMPORTANTE: Aquí Next.js guarda la web lista
+          server-dir: /public_html/
