@@ -287,7 +287,7 @@ const BuenasPracticasView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Buenas Prácticas Corporativas">
       <div className="grid gap-2">
-        <DocumentCell title="Encuesta Código País año 2025" fileName="buenas practicas/codigo_pais_2025.pdf" />
+        <DocumentCell title="Encuesta Código País año 2025" fileName="buenas practicas/REPORTE-IMPLEMENTACION-CODIGO-PAIS-CASTILLA2.pdf" />
         <DocumentCell title="Encuesta Código País año 2024" fileName="buenas practicas/CAST_Encuesta-Codigo-Pais-2024.pdf" />
         <DocumentCell title="Encuesta Código País año 2023" fileName="buenas practicas/CAS2023CodigoPais.pdf" />
         <DocumentCell title="Encuesta Código País año 2022" fileName="buenas practicas/CAS2022CodigoPais.pdf" />
@@ -296,7 +296,7 @@ const BuenasPracticasView = () => (
         {/* Aquí corregí los nombres de los archivos que estaban cruzados */}
         <DocumentCell title="Estatutos Sociales" fileName="buenas practicas/ESTATUTOS-CASTILLA-0244-4-79.pdf" />
         <DocumentCell title="Código de Mejores Prácticas Corporativas" fileName="buenas practicas/PO-BAC-002-CODIGO-DE-MEJORES-PRACTICAS-CORPORATIVAS-CAST.pdf" />
-        <DocumentCell title="Documentos Anteriores" fileName="buenas practicas/documentos_anteriores.pdf" />
+        <DocumentCell title="Documentos Anteriores" fileName="buenas practicas/PO-BAC-002-CODIGO-DE-MEJORES-PRACTICAS-CORPORATIVAS-CAST (1).pdf" />
       </div>
     </DataCard>
   </div>
@@ -343,11 +343,10 @@ const ConglomeradosView = () => (
 )
 
 // --- VISTA: INFORMACIÓN RELEVANTE ---
-// Básicamente son las noticias oficiales que la empresa tiene que reportar.
 const InfoRelevanteView = () => {
   const hechos = [
     // ================== 2026 ==================
-    // --- NUEVAS NOTICIAS AGREGADAS (MARZO Y FEBRERO 2026) ---
+    //AGREGADAS (MARZO Y FEBRERO 2026) 
     {
       f: "25/03/2026",
       t: "Novedades de los Directores y miembros de la Alta Gerencia.",
@@ -782,6 +781,10 @@ const ProyectoDividendosView = () => (
     <DataCard title="Proyecto Distribución de Utilidades">
       <div className="grid gap-2">
         <DocumentCell
+          title="Proyecto de Distribución de Utilidades 2025, aprobado por la Asamblea General de Accionistas en reunión ordinaria del 25 de marzo de 2026, incluye fecha de exdividendos."
+          fileName="proyecto distribucion dividendos/PDU-2025_-Castilla-Agricola-Fecha-de-Exdividendos.pdf"
+        />
+        <DocumentCell
           title="Proyecto de Distribución de Utilidades 2024, aprobado por la Asamblea General de Accionistas en reunión ordinaria el 26 de marzo de 2025"
           fileName="proyecto distribucion dividendos/PDU_Castilla_AGA_mzo-26_2025.pdf"
         />
@@ -826,7 +829,7 @@ const InformeGestionView = () => (
     <DataCard title="Informes de Gestión Anual">
       <div className="grid gap-2">
         <DocumentCell
-          title="Informe de Gestión 2024"
+          title="Informe de Gestión y Sostenibilidad 2024"
           fileName="informes de gestion/1-Castilla-Informe-de-gestion-y-sostenibilidad-2024-DEFINITIVO.pdf"
         />
         <DocumentCell
@@ -846,7 +849,7 @@ const InformeGestionView = () => (
           fileName="informes de gestion/INFORME-DE-GESTION-CASTILLA-BAJA.pdf"
         />
         <DocumentCell
-          title="Informe de Gestión 2025"
+          title="Informe de Gestión y Sostenibilidad 2025"
           fileName="informes de gestion/Castilla-ENTREGADOCUMENTOCOMPLETA-21032026N-1.pdf"
         />
       </div>
@@ -857,6 +860,7 @@ const InformeGestionView = () => (
 // El core de los números: balances y dictámenes del revisor fiscal.
 const EstadosFinancierosView = () => {
   const archivos = [
+    { year: "2025", file: "CAST-EEFF-Consolidados-Dic-2025.pdf" },
     { year: "2024", file: "CAST-EEFF-Fin-de-Ejercicio-Diciembre-2024.pdf" },
     { year: "2023", file: "Castilla-Estados-Financieros-Ano-2023.pdf" },
     { year: "2022", file: "CASTILLA-EEFF-Separados-y-Consolidados-1.pdf" },
@@ -891,6 +895,8 @@ const InformesTrimestralesView = () => {
 
   const informesList = [
     // 2025
+    { title: "EEFF Consolidados - Septiembre 2025", doc: "AS-8288-25-Castilla-Agricola-EEFF-completos-Consolidados-Septiembre-2025.pdf" },
+    { title: "EEFF Separados - Septiembre 2025", doc: "AS-8287-25-Castilla-EEFF-Separados-completo-Septiembre-2025.pdf" },
     { title: "EEFF Consolidados - Junio 2025", doc: "AS-6868-25-E.F.-Castilla-Agricola-S.A.-y-sus-Subsidiarias-Consolidados-30-jun-2025.pdf" },
     { title: "EEFF Separados - Junio 2025", doc: "AS-6867-25-Castilla-Agricola-S.A.-EEFF-Separados-Junio-2025.pdf" },
     { title: "EEFF Consolidados - Marzo 2025", doc: "AS-4969-25-Castilla-Agricola-EEFF-Completos-Consolidados-al-31-Marzo-2025.pdf" },
