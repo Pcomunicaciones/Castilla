@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // <--- ESTO ES LO QUE FALTA
+  output: 'export',
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -10,3 +10,4 @@ const nextConfig = {
 }
 
 export default nextConfig
+

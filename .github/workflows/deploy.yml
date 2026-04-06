@@ -30,4 +30,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
-          server-dir: ./  # Ajustado para que use la raíz de la cuenta FTP específica
+          server-dir: ./
+          dangerous-clean-slate: true
