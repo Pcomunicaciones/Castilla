@@ -11,9 +11,9 @@ import Image from "next/image"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
-  
+
   // URL embebida de Google Maps apuntando a la sede en Cali
-  const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.656208035345!2d-76.52455038865666!3d3.4598737965099395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ebad0068ec4a81%3A0x9c1cc2b4e3289ba2!2sCra.%201%20%2324-56%2C%20San%20Nicolas%2C%20Cali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1707486000000!5m2!1ses!2sco" 
+  const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.656208035345!2d-76.52455038865666!3d3.4598737965099395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ebad0068ec4a81%3A0x9c1cc2b4e3289ba2!2sCra.%201%20%2324-56%2C%20San%20Nicolas%2C%20Cali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1707486000000!5m2!1ses!2sco"
 
   // Configuración de redes sociales: Fáciles de actualizar si la empresa abre Tiktok o Twitter
   const socialLinks = [
@@ -37,24 +37,24 @@ export function Footer() {
   return (
     <footer className="relative bg-[#04683A] text-white pt-12 pb-8 overflow-hidden border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
+
         <div className="grid lg:grid-cols-12 gap-8 items-start">
-          
+
           {/* --- COLUMNA 1: IDENTIDAD DE MARCA --- */}
           <div className="lg:col-span-4 space-y-6">
-            
+
             <div className="flex items-center gap-4">
               {/* Logo con un ligero hover de opacidad */}
               <Link href="/">
-                <Image 
-                  src="/Imagenes/intento 4.png" 
-                  alt="Logo Icono" 
+                <Image
+                  src="/Imagenes/intento 4.png"
+                  alt="Logo Icono"
                   width={60}
                   height={56}
-                  className="h-14 w-auto object-contain cursor-pointer hover:opacity-90 transition-opacity" 
+                  className="h-14 w-auto object-contain cursor-pointer hover:opacity-90 transition-opacity"
                 />
               </Link>
-              
+
               {/* Nombre de la empresa en Tahoma para consistencia visual */}
               <div className="flex flex-col justify-center font-[Tahoma,sans-serif] select-none">
                 <span className="text-2xl font-bold leading-none tracking-wide text-white cursor-default">
@@ -69,7 +69,7 @@ export function Footer() {
             <p className="text-xs text-white/80 leading-relaxed max-w-xs font-[Tahoma,sans-serif]">
               Sostenibilidad y tradición transformando el campo colombiano.
             </p>
-            
+
             {/* Botones de Redes Sociales con efecto de hover amarillo */}
             <div className="flex gap-2">
               {socialLinks.map((item, i) => (
@@ -101,34 +101,34 @@ export function Footer() {
             <div className="space-y-3">
               <h4 className="text-[#FEB811] font-bold text-[10px] uppercase tracking-[0.2em]">Contacto</h4>
               <div className="text-xs text-white/80 space-y-2">
-                <p className="flex items-center gap-2"><Phone size={12} className="text-[#FEB811]"/> (57)(602)4855974</p>
-                <p className="flex items-center gap-2 truncate"><Mail size={12} className="text-[#FEB811]"/> Administracion.Corp@Agroriocas.Com</p>
+                <p className="flex items-center gap-2"><Phone size={12} className="text-[#FEB811]" /> (57)(602)4855974</p>
+                <p className="flex items-center gap-2 truncate"><Mail size={12} className="text-[#FEB811]" /> administracion.corp@agroriocas.com</p>
               </div>
             </div>
           </div>
 
           {/* --- COLUMNA 3: GOOGLE MAPS (Interactivo) --- */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="lg:col-span-5 relative group h-48 font-[Tahoma,sans-serif]"
           >
             <div className="relative h-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden shadow-2xl">
-              <iframe 
+              <iframe
                 src={mapUrl}
-                width="100%" 
-                height="100%" 
-                style={{ border: 0, filter: "grayscale(0.5) brightness(0.9) contrast(1.1)" }} 
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: "grayscale(0.5) brightness(0.9) contrast(1.1)" }}
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Ubicación Castilla Agrícola"
                 className="opacity-90 group-hover:opacity-100 transition-opacity"
               />
-              
+
               {/* Botón flotante para saltar directamente a Google Maps */}
-              <Link 
-                href={mapUrl} 
+              <Link
+                href={mapUrl}
                 target="_blank"
                 className="absolute top-3 right-3 z-20 bg-[#FEB811] text-black px-3 py-1.5 rounded-lg text-[10px] font-bold flex items-center gap-1.5 hover:scale-105 transition-transform shadow-lg"
               >
