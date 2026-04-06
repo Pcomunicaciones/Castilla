@@ -829,6 +829,11 @@ const InformeGestionView = () => (
     <DataCard title="Informes de Gestión Anual">
       <div className="grid gap-2">
         <DocumentCell
+          title="Informe de Gestión y Sostenibilidad 2025"
+          fileName="informes de gestion/Castilla - FINAL.pdf"
+        />
+
+        <DocumentCell
           title="Informe de Gestión y Sostenibilidad 2024"
           fileName="informes de gestion/1-Castilla-Informe-de-gestion-y-sostenibilidad-2024-DEFINITIVO.pdf"
         />
@@ -848,10 +853,7 @@ const InformeGestionView = () => (
           title="Informe de Gestión 2020"
           fileName="informes de gestion/INFORME-DE-GESTION-CASTILLA-BAJA.pdf"
         />
-        <DocumentCell
-          title="Informe de Gestión y Sostenibilidad 2025"
-          fileName="informes de gestion/Castilla-ENTREGADOCUMENTOCOMPLETA-21032026N-1.pdf"
-        />
+
       </div>
     </DataCard>
   </div>

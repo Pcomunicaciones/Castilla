@@ -8,35 +8,35 @@ import { motion, Variants } from "framer-motion"
 // Cada vez que salga un informe nuevo (como el de 2026), simplemente lo añadimos al principio de este array.
 
 const informes = [
-  { 
-    year: "2025", 
-    title: "Informe de gestión y sostenibilidad", 
-    fileName: "Castilla-ENTREGADOCUMENTOCOMPLETA-21032026N-1.pdf" 
+  {
+    year: "2025",
+    title: "Informe de gestión y sostenibilidad",
+    fileName: "Castilla - FINAL.pdf"
   },
-  { 
-    year: "2024", 
-    title: "Informe de gestión y sostenibilidad", 
-    fileName: "1-Castilla-Informe-de-gestion-y-sostenibilidad-2024-DEFINITIVO.pdf" 
+  {
+    year: "2024",
+    title: "Informe de gestión y sostenibilidad",
+    fileName: "1-Castilla-Informe-de-gestion-y-sostenibilidad-2024-DEFINITIVO.pdf"
   },
-  { 
-    year: "2023", 
-    title: "Informe de gestión y sostenibilidad", 
-    fileName: "Castilla-Informe-de-Gestion-y-Sostenibilidad-2023-3-1.pdf" 
+  {
+    year: "2023",
+    title: "Informe de gestión y sostenibilidad",
+    fileName: "Castilla-Informe-de-Gestion-y-Sostenibilidad-2023-3-1.pdf"
   },
-  { 
-    year: "2022", 
-    title: "Informe de gestión", 
-    fileName: "CASTILLA-informe-de-gestion-2022_compressed.pdf" 
+  {
+    year: "2022",
+    title: "Informe de gestión",
+    fileName: "CASTILLA-informe-de-gestion-2022_compressed.pdf"
   },
-  { 
-    year: "2021", 
-    title: "Informe de gestión", 
-    fileName: "INFORME-GESTION-CASTILLA-2021-ASAMBLEA-1_compressed.pdf" 
+  {
+    year: "2021",
+    title: "Informe de gestión",
+    fileName: "INFORME-GESTION-CASTILLA-2021-ASAMBLEA-1_compressed.pdf"
   },
-  { 
-    year: "2020", 
-    title: "Informe de gestión", 
-    fileName: "INFORME-DE-GESTION-CASTILLA-BAJA.pdf" 
+  {
+    year: "2020",
+    title: "Informe de gestión",
+    fileName: "INFORME-DE-GESTION-CASTILLA-BAJA.pdf"
   },
 ]
 
@@ -64,7 +64,7 @@ const itemVariants: Variants = {
 
 export default function InformesPage() {
   return (
-    <motion.div 
+    <motion.div
       // 👇 Forzamos Tahoma/Verdana para mantener la identidad visual del sitio
       style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}
       className="space-y-10"
@@ -85,8 +85,8 @@ export default function InformesPage() {
       {/* Listado de Informes: Mapeamos los datos definidos arriba */}
       <div className="space-y-4">
         {informes.map((doc, i) => (
-          <motion.div 
-            key={i} 
+          <motion.div
+            key={i}
             variants={itemVariants}
             whileHover={{ x: 8 }} // Pequeño efecto visual al pasar el mouse
             className="flex flex-col md:flex-row md:items-center justify-between p-6 bg-white border border-gray-100 rounded-[2rem] hover:shadow-xl hover:shadow-green-900/5 transition-all group"
@@ -107,8 +107,8 @@ export default function InformesPage() {
             </div>
 
             {/* El botón de descarga ahora es "VER DOCUMENTO" (Verde Premium) */}
-            <a 
-              href={`/docs/informes de gestion/${doc.fileName}`} 
+            <a
+              href={`/docs/informes de gestion/${doc.fileName}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2.5 bg-[#006437] text-white px-7 py-3.5 rounded-2xl text-xs font-bold hover:bg-[#1a4a35] transition-all duration-300 shadow-lg shadow-green-900/10 active:scale-95"
@@ -121,7 +121,7 @@ export default function InformesPage() {
       </div>
 
       {/* Mensaje de pie con aviso de transparencia */}
-      <motion.div 
+      <motion.div
         variants={itemVariants}
         className="p-8 bg-[#f8f9fa] rounded-[2.5rem] border border-dashed border-gray-200 text-center"
       >
@@ -131,4 +131,4 @@ export default function InformesPage() {
       </motion.div>
     </motion.div>
   )
-}
+}
