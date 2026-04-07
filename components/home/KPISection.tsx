@@ -6,18 +6,17 @@ import { KPICard } from "./KPICard"
 import Image from "next/image"
 
 const kpiData = [
-  { value: 6217, suffix: "+", label: "Hectáreas", description: "De tierra productiva en operación constante." },
-  { value: 269, suffix: "+", label: "Trabajadores", description: "Trabajando por el desarrollo rural integral." },
-  { value: 108, suffix: "", label: "Años", description: "Construyendo historia agrícola en Colombia." },
-  { value: 95, suffix: "%", label: "Eficiencia", description: "En procesos de producción y tecnología." },
+  { value: 6217, suffix: "+", label: "Hectáreas", description: "Tierra productiva en operación constante y sostenible." },
+  { value: 269, suffix: "+", label: "Colaboradores", description: "Impulsando el desarrollo rural y el bienestar social." },
+  { value: 81, suffix: "", label: "Años", description: "Más de un siglo cultivando historia y progreso en Colombia." },
 ]
 
 export function KPISection() {
   const containerRef = useRef(null)
-  
+
   // OPTIMIZACIÓN 1: 'once: true' ahorra recursos al no re-animar al scrollear hacia arriba
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -29,14 +28,14 @@ export function KPISection() {
 
   return (
     <section ref={containerRef} className="relative py-40 overflow-hidden bg-black">
-      
+
       {/* 1. IMAGEN DE FONDO (Optimizado con will-change) */}
-      <motion.div 
+      <motion.div
         style={{ y: backgroundY, opacity }}
         className="absolute inset-0 z-0 will-change-[transform,opacity]"
       >
-        <Image 
-          src="/Imagenes/Exportado 8.jpg" 
+        <Image
+          src="/Imagenes/Exportado 8.jpg"
           alt="Cifras Castilla Agrícola"
           fill
           className="object-cover scale-110"
@@ -48,7 +47,7 @@ export function KPISection() {
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <header className="mb-24 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-10">
+        <header className="mb-24 text-center flex flex-col items-center justify-center gap-6">
           <div className="max-w-3xl">
             <motion.div
               initial={{ x: -20, opacity: 0 }}
@@ -60,26 +59,26 @@ export function KPISection() {
               <div className="w-2 h-2 bg-castilla-yellow rounded-full animate-ping" />
               Impacto Real
             </motion.div>
-            
+
             <h2 className="text-5xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter">
               Cifras que <br /> <span className="text-castilla-yellow">trascienden.</span>
             </h2>
           </div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="md:max-w-xs will-change-[transform,opacity]"
+            className="max-w-2xl mx-auto will-change-[transform,opacity]"
           >
-            <p className="text-white/50 text-xl font-light border-l-2 border-castilla-yellow pl-6">
+            <p className="text-white/60 text-xl font-light border-y border-castilla-yellow/30 py-6 px-10">
               Nuestra operación se mide en resultados, pero se vive en el bienestar de nuestra gente.
             </p>
           </motion.div>
         </header>
 
         {/* 2. GRID DE TARJETAS (Renderizado eficiente) */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto justify-items-center">
           {kpiData.map((kpi, index) => (
             <KPICard
               key={kpi.label}
@@ -94,7 +93,7 @@ export function KPISection() {
       </div>
 
       {/* 3. ELEMENTO DECORATIVO (Optimizado) */}
-      <motion.div 
+      <motion.div
         // Usar animate en lugar de style para loops infinitos es correcto, pero...
         // ...aseguramos que use transform: translateX
         animate={{ x: ["-100%", "100%"] }}

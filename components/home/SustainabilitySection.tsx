@@ -6,17 +6,17 @@ import { Leaf, Droplets, Sun, Users, ArrowUpRight, Sparkles } from "lucide-react
 import Image from "next/image"
 
 const items = [
-  { icon: Leaf, title: "Agricultura Responsable", desc: "Prácticas que regeneran el ecosistema mediante nutrición orgánica.", col: "#a3c74a" },
-  { icon: Droplets, title: "Gestión del Agua", desc: "Riego por goteo y monitoreo en tiempo real para preservar acuíferos.", col: "#60a5fa" },
-  { icon: Sun, title: "Energía Limpia", desc: "Paneles solares y biomasa para reducir nuestra huella de carbono.", col: "#fbbf24" },
-  { icon: Users, title: "Impacto Social", desc: "Fortalecemos el tejido social mediante educación y empleo digno.", col: "#f87171" },
+  { icon: Leaf, title: "Agricultura Regenerativa", desc: "Prácticas de nutrición orgánica y sanidad vegetal que restauran la biodiversidad del suelo.", col: "#a3c74a" },
+  { icon: Droplets, title: "Eficiencia Hídrica", desc: "Optimización del recurso con Distrito RIDES y monitoreo en tiempo real (119% mejora hídrica).", col: "#60a5fa" },
+  { icon: Sun, title: "Energía Circular", desc: "Uso de biomasa y paneles solares para reducir nuestra huella y caminar hacia la carbononeutralidad.", col: "#fbbf24" },
+  { icon: Users, title: "Valor Compartido", desc: "Fortalecemos el tejido social mediante educación, empleo dignos y progreso comunitario real.", col: "#f87171" },
 ]
 
 export function SustainabilitySection() {
   const sectionRef = useRef(null)
   // OPTIMIZACIÓN 1: 'once: true' si es posible, o ajustar margen para evitar trigger constante
   const isInView = useInView(sectionRef, { once: false, margin: "-10% 0px" })
-  
+
   // Parallax del fondo
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -28,7 +28,7 @@ export function SustainabilitySection() {
   // Seguimiento del mouse (OPTIMIZADO)
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
-  
+
   // Springs más suaves y eficientes
   const spotlightX = useSpring(mouseX, { stiffness: 40, damping: 25, mass: 0.8 })
   const spotlightY = useSpring(mouseY, { stiffness: 40, damping: 25, mass: 0.8 })
@@ -46,7 +46,7 @@ export function SustainabilitySection() {
         mouseY.set(e.clientY)
       })
     }
-    
+
     // Solo escuchar si el componente está montado
     window.addEventListener("mousemove", handleMouseMove, { passive: true })
     return () => {
@@ -57,31 +57,31 @@ export function SustainabilitySection() {
 
   return (
     <section ref={sectionRef} className="relative py-32 overflow-hidden bg-black min-h-screen flex items-center">
-      
+
       {/* 1. IMAGEN DE FONDO (Optimizado con will-change) */}
-      <motion.div 
+      <motion.div
         style={{ y: backgroundY }}
         className="absolute inset-0 z-0 scale-110 will-change-transform"
       >
-        <Image 
-          src="/Imagenes/Exportados 7.jpg" 
-          alt="Background" 
+        <Image
+          src="/Imagenes/Exportados 7.jpg"
+          alt="Background"
           fill
           className="object-cover opacity-50"
           sizes="100vw"
         />
-        
+
         {/* Spotlight Optimizado */}
-        <motion.div 
+        <motion.div
           className="absolute inset-0 z-10 pointer-events-none will-change-[background]"
           style={{ background: spotlightBackground }}
         />
-        
+
         <div className="absolute inset-0 bg-gradient-to-b from-[#001a0e] via-transparent to-[#001a0e] z-20" />
       </motion.div>
 
       <div className="relative z-30 max-w-7xl mx-auto px-6 w-full">
-        
+
         {/* CABECERA */}
         <div className="mb-24 flex flex-col items-center text-center">
           <motion.div
@@ -106,7 +106,7 @@ export function SustainabilitySection() {
                 {char === " " ? "\u00A0" : char}
               </motion.span>
             ))}
-            <motion.span 
+            <motion.span
               initial={{ scale: 0.5, rotate: -10, opacity: 0 }}
               animate={isInView ? { scale: 1, rotate: 0, opacity: 1 } : {}}
               transition={{ delay: 0.4, type: "spring", stiffness: 200, damping: 15 }}
@@ -132,11 +132,11 @@ export function SustainabilitySection() {
             >
               {/* Rayo de luz (CSS puro para rendimiento) */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
               </div>
 
               <div>
-                <motion.div 
+                <motion.div
                   // OPTIMIZACIÓN 6: Animación continua optimizada
                   animate={{ y: [0, -6, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
@@ -163,7 +163,7 @@ export function SustainabilitySection() {
               </div>
 
               {/* Barra de acento (CSS Transitions son más ligeras que Framer para esto) */}
-              <div 
+              <div
                 className="absolute bottom-0 left-0 h-1.5 w-0 group-hover:w-full transition-all duration-500 ease-out shadow-[0_0_15px_rgba(255,255,255,0.3)]"
                 style={{ backgroundColor: item.col }}
               />
