@@ -6,10 +6,10 @@ import { Leaf, Droplets, Sun, Users, ArrowUpRight, Sparkles } from "lucide-react
 import Image from "next/image"
 
 const items = [
-  { icon: Leaf, title: "Agricultura Regenerativa", desc: "Prácticas de nutrición orgánica y sanidad vegetal que restauran la biodiversidad del suelo.", col: "#a3c74a" },
-  { icon: Droplets, title: "Eficiencia Hídrica", desc: "Optimización del recurso con Distrito RIDES y monitoreo en tiempo real (119% mejora hídrica).", col: "#60a5fa" },
-  { icon: Sun, title: "Energía Circular", desc: "Uso de biomasa y paneles solares para reducir nuestra huella y caminar hacia la carbononeutralidad.", col: "#fbbf24" },
-  { icon: Users, title: "Valor Compartido", desc: "Fortalecemos el tejido social mediante educación, empleo dignos y progreso comunitario real.", col: "#f87171" },
+  { icon: Leaf, title: "Agricultura Sostenible", desc: "Conservación de la base natural y del suelo, proyectando 240 hectáreas restauradas y 760 árboles sembrados.", col: "#a3c74a" },
+  { icon: Droplets, title: "Eficiencia Hídrica", desc: "Contamos con sistemas de Riego Tecnificado en el 97.5% de nuestra área, reduciendo nuestra huella hídrica un 42%.", col: "#60a5fa" },
+  { icon: Sun, title: "Gestión Climática", desc: "Formalización del inventario de Gases de Efecto Invernadero (GEI) y validación de Huella de Carbono norma ISO 14064.", col: "#fbbf24" },
+  { icon: Users, title: "Valor Compartido", desc: "Otorgamos capital semilla mediante el Programa Alianza E e integramos líderes comunitarios reduciendo hurtos un 77%.", col: "#f87171" },
 ]
 
 export function SustainabilitySection() {

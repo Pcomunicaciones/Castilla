@@ -26,7 +26,7 @@ const itemVariants: Variants = {
 
 export default function GestionEconomica() {
   return (
-    <motion.div 
+    <motion.div
       // 👇 Se fuerza el uso estricto de Tahoma
       style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}
       className="space-y-12 pb-16"
@@ -42,7 +42,7 @@ export default function GestionEconomica() {
             <div className="w-2 h-2 rounded-full bg-[#a3c74a] animate-pulse" />
             <span className="text-[#a3c74a] font-bold text-xs uppercase tracking-[0.3em]">Resultados Financieros</span>
           </div>
-          
+
           {/* 👇 Título sin inclinación (not-italic) 👇 */}
           <h1 className="text-5xl font-black text-[#006437] tracking-tight not-italic">
             Gestión Económica
@@ -55,12 +55,12 @@ export default function GestionEconomica() {
           </p>
         </div>
       </motion.div>
-      
+
       {/* GRID PRINCIPAL: BENTO BOX STYLE */}
       <div className="grid lg:grid-cols-3 gap-6">
-        
+
         {/* BLOQUE: EVOLUCIÓN DEL EBITDA (Principal) */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="bg-gradient-to-br from-[#006437] to-[#004d2a] text-white p-10 rounded-[3.5rem] lg:col-span-2 shadow-2xl shadow-green-900/30 relative overflow-hidden group border border-white/5"
         >
@@ -75,10 +75,10 @@ export default function GestionEconomica() {
             </div>
             <h2 className="text-4xl font-bold mb-6 tracking-tight">Evolución del EBITDA</h2>
             <p className="text-white/80 leading-relaxed text-xl max-w-2xl font-normal">
-              La Compañía alcanzó un EBITDA de <span className="text-[#a3c74a] font-bold">$93.641 millones</span>, 
+              La Compañía alcanzó un EBITDA de <span className="text-[#a3c74a] font-bold">$93.641 millones</span>,
               representando un incremento del <strong className="text-white">6.5%</strong> frente a los resultados obtenidos en el año 2024.
             </p>
-            
+
             {/* Comparativa de Cifras */}
             <div className="mt-10 flex gap-12 border-t border-white/10 pt-8">
               <div>
@@ -96,9 +96,9 @@ export default function GestionEconomica() {
             </div>
           </div>
         </motion.div>
-        
+
         {/* BLOQUE: MARGEN EBITDA (Vertical) */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           whileHover={{ y: -8 }}
           className="bg-white border border-gray-100 p-10 rounded-[3.5rem] flex flex-col justify-between shadow-sm hover:shadow-2xl transition-all duration-500 group"
@@ -112,30 +112,54 @@ export default function GestionEconomica() {
               Consolidamos la rentabilidad y eficiencia de nuestras operaciones durante el período reportado.
             </p>
           </div>
-          
+
           <div className="mt-8 p-6 bg-gray-50 rounded-3xl border-2 border-dashed border-[#a3c74a]/40 text-center">
-            <p className="text-5xl font-black text-[#006437]">89%</p>
+            <p className="text-5xl font-black text-[#006437]">77%</p>
             <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-2">Margen EBITDA</p>
           </div>
         </motion.div>
       </div>
 
-      {/* BLOQUE SECUNDARIO: CAJA Y BANCOS (CENTRADO) */}
-      <div className="flex justify-center w-full">
-        <motion.div 
+      {/* BLOQUES SECUNDARIOS */}
+      <div className="grid md:grid-cols-2 gap-6 w-full">
+        
+        {/* BLOQUE: CAJA Y BANCOS */}
+        <motion.div
           variants={itemVariants}
-          className="p-8 bg-gray-50/80 backdrop-blur-sm rounded-[2.5rem] border border-gray-100 flex flex-col md:flex-row items-center gap-8 group hover:bg-white hover:shadow-lg transition-all w-full max-w-3xl"
+          className="p-8 bg-gray-50/80 backdrop-blur-sm rounded-[2.5rem] border border-gray-100 flex flex-col items-center text-center gap-6 group hover:bg-white hover:shadow-lg transition-all w-full"
         >
-          <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-50 group-hover:scale-110 transition-transform shrink-0">
+          <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 group-hover:scale-110 transition-transform shrink-0">
             <Wallet className="text-[#a3c74a]" size={40} />
           </div>
-          <div className="text-center md:text-left">
+          <div>
             <h3 className="font-bold text-[#006437] text-2xl mb-2 tracking-tight">Liquidez y Solidez Financiera</h3>
             <p className="text-gray-500 text-base font-normal leading-relaxed">
-              Cerramos el período con una posición financiera altamente sólida, asegurando la continuidad del negocio con un saldo disponible en la caja y bancos de <strong className="text-[#006437] text-xl">$119 millones</strong>.
+              Cerramos el período con una posición financiera sólida, asegurando la continuidad del negocio con un saldo disponible de <strong className="text-[#006437] text-xl">$119 millones</strong>.
             </p>
           </div>
         </motion.div>
+
+        {/* BLOQUE: UTILIDAD NETA */}
+        <motion.div
+          variants={itemVariants}
+          className="p-8 bg-[#f1f8e9]/40 backdrop-blur-sm rounded-[2.5rem] border border-[#a3c74a]/20 flex flex-col items-center text-center gap-6 group hover:bg-[#f1f8e9]/80 hover:shadow-lg transition-all w-full relative overflow-hidden"
+        >
+          {/* Elemento Decorativo: Gráfico de fondo suave */}
+          <div className="absolute left-0 top-0 opacity-5 pointer-events-none -translate-x-10 -translate-y-10 group-hover:rotate-12 transition-transform duration-1000">
+            <PieChart size={200} />
+          </div>
+          
+          <div className="bg-white p-6 rounded-3xl shadow-sm border border-[#a3c74a]/30 group-hover:scale-110 transition-transform shrink-0 relative z-10">
+            <Briefcase className="text-[#006437]" size={40} />
+          </div>
+          <div className="relative z-10">
+            <h3 className="font-bold text-[#006437] text-2xl mb-2 tracking-tight">Utilidad Neta (+33%)</h3>
+            <p className="text-gray-600 text-base font-normal leading-relaxed">
+              Crecimos alcanzando los <strong className="text-[#006437] text-xl">$36.328 millones</strong>, impulsados por la eficiencia en costos operativos y los ingresos de proyectos inmobiliarios.
+            </p>
+          </div>
+        </motion.div>
+
       </div>
 
     </motion.div>

@@ -14,8 +14,8 @@ const carouselItems = [
   },
   {
     id: 3,
-    title: "Innovación Agrícola",
-    description: "Tecnología de punta aplicada al campo colombiano.",
+    title: "Agricultura Sostenible",
+    description: "Priorizando la conservación del entorno y el uso de bio-insumos.",
     image: "/Imagenes/DSC_0094.jpg",
   },
   {

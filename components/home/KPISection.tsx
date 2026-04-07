@@ -6,7 +6,7 @@ import { KPICard } from "./KPICard"
 import Image from "next/image"
 
 const kpiData = [
-  { value: 6217, suffix: "+", label: "Hectáreas", description: "Tierra productiva en operación constante y sostenible." },
+  { value: 7900, suffix: "+", label: "Hectáreas", description: "Tierra productiva en operación constante y sostenible." },
   { value: 269, suffix: "+", label: "Colaboradores", description: "Impulsando el desarrollo rural y el bienestar social." },
   { value: 81, suffix: "", label: "Años", description: "Más de un siglo cultivando historia y progreso en Colombia." },
 ]

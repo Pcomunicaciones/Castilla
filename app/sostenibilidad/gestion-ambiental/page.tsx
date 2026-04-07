@@ -18,7 +18,7 @@ const AnimatedNumber = ({ end, decimals = 0, duration = 2000 }: { end: number, d
     const updateCounter = (timestamp: number) => {
       if (!startTime) startTime = timestamp
       const progress = Math.min((timestamp - startTime) / duration, 1)
-      
+
       const easeProgress = 1 - Math.pow(1 - progress, 4)
       setValue(end * easeProgress)
 
@@ -59,7 +59,8 @@ const itemVariants: Variants = {
 export default function GestionAmbiental() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes dropFall {
           0% { top: -10%; opacity: 0; transform: scaleY(0.5); }
           20% { opacity: 1; transform: scaleY(1); }
@@ -89,23 +90,23 @@ export default function GestionAmbiental() {
               Sostenibilidad Estratégica
             </span>
           </div>
-          
+
           <h1 className="text-5xl md:text-6xl font-black text-[#006437] tracking-tight not-italic">
             Gestión Ambiental
           </h1>
-          
+
           <p className="text-gray-600 mt-8 text-xl leading-relaxed max-w-3xl font-normal">
             Integramos la sostenibilidad en la toma de decisiones mediante <span className="text-[#006437] font-bold">tres ejes estratégicos</span>. Propiciamos acciones para mitigar impactos y adaptarnos a un entorno climático desafiante.
           </p>
         </motion.div>
 
         {/* ================= EJE 1: GESTIÓN HÍDRICA (ORDEN VERTICAL ESTRICTO) ================= */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="group relative bg-white rounded-[3rem] p-1 md:p-2 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden"
         >
           <div className="bg-gray-50/50 rounded-[2.8rem] p-8 md:p-12 flex flex-col gap-10">
-            
+
             {/* 1. TEXTOS (ARRIBA) */}
             <div className="w-full">
               <div className="inline-flex items-center gap-2 bg-[#f0f7ff] text-[#2563eb] px-4 py-1.5 rounded-full text-xs font-bold mb-4 shadow-sm">
@@ -121,7 +122,7 @@ export default function GestionAmbiental() {
 
             {/* 2. ANIMACIONES DE BALDE (MEDIO) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-              
+
               {/* Balde 1: Riego Tecnificado */}
               <div className="flex items-center gap-6 bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm hover:border-blue-100 transition-all">
                 <div className="relative w-16 h-24 border-[3px] border-gray-200 rounded-b-xl rounded-t-[4px] overflow-hidden shrink-0 bg-gray-50 shadow-inner">
@@ -140,7 +141,7 @@ export default function GestionAmbiental() {
                 </div>
                 <div className="flex flex-col min-w-0">
                   <div className="flex items-center gap-2 text-[14px] font-bold text-[#006437] mb-1">
-                    <Droplets size={16} className="shrink-0"/> <span className="truncate">Riego Tecnificado</span>
+                    <Droplets size={16} className="shrink-0" /> <span className="truncate">Riego Tecnificado</span>
                   </div>
                   <p className="text-3xl font-black text-blue-600 leading-none mb-2">
                     <AnimatedNumber end={97.5} decimals={1} />%
@@ -167,7 +168,7 @@ export default function GestionAmbiental() {
                 </div>
                 <div className="flex flex-col min-w-0">
                   <div className="flex items-center gap-2 text-[14px] font-bold text-[#006437] mb-1">
-                    <BarChart3 size={16} className="shrink-0"/> <span className="truncate">Consumo (m³/Ha)</span>
+                    <BarChart3 size={16} className="shrink-0" /> <span className="truncate">Consumo (m³/Ha)</span>
                   </div>
                   <p className="text-3xl font-black text-[#a3c74a] leading-none mb-2">
                     <AnimatedNumber end={1066} decimals={0} />
@@ -180,9 +181,9 @@ export default function GestionAmbiental() {
 
             {/* 3. TARJETAS DE INFORMACIÓN (ABAJO) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-              
+
               {/* Tarjeta Blanca */}
-              <motion.div 
+              <motion.div
                 whileHover={{ y: -5 }}
                 className="bg-white p-8 lg:p-12 rounded-[2.5rem] text-center border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col justify-center min-h-[180px]"
               >
@@ -193,7 +194,7 @@ export default function GestionAmbiental() {
               </motion.div>
 
               {/* Tarjeta Verde */}
-              <motion.div 
+              <motion.div
                 whileHover={{ y: -5 }}
                 className="bg-[#006437] p-8 lg:p-12 rounded-[2.5rem] text-center shadow-[0_10px_40px_rgba(0,100,55,0.25)] relative overflow-hidden group flex flex-col justify-center min-h-[180px]"
               >
@@ -201,7 +202,7 @@ export default function GestionAmbiental() {
                   <Droplets size={120} />
                 </div>
                 <p className="text-5xl lg:text-7xl font-black text-white mb-3 tracking-tight relative z-10">
-                  <AnimatedNumber end={31.4} decimals={1} />%
+                  <AnimatedNumber end={42} decimals={1} />%
                 </p>
                 <p className="text-[12px] uppercase font-bold text-white/90 tracking-[0.15em] relative z-10 leading-snug">
                   PORCENTAJE DE REDUCCIÓN
@@ -215,7 +216,7 @@ export default function GestionAmbiental() {
 
         {/* ================= EJES 2 y 3: TARJETAS INTERACTIVAS ================= */}
         <div className="grid md:grid-cols-2 gap-8">
-          
+
           {/* EJE 2: Agricultura Sostenible */}
           <motion.div
             variants={itemVariants}
@@ -230,7 +231,7 @@ export default function GestionAmbiental() {
               <p className="text-gray-500 font-normal leading-relaxed mb-8">
                 Conservación estricta de la base natural y del suelo, priorizando la restauración de ecosistemas y corredores biológicos.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
                   <p className="text-2xl font-black text-[#a3c74a]">
@@ -245,25 +246,25 @@ export default function GestionAmbiental() {
                   <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-tight mt-1">Ha Restauradas (2025)</p>
                 </div>
               </div>
-              
+
               {/* === ANIMACIÓN DE ÁRBOLES CRECIENDO === */}
               <div className="mt-6">
                 <div className="flex justify-between text-xs font-bold text-gray-600 mb-2">
                   <span>Árboles Nativos Sembrados</span>
                   <span className="text-[#006437]">760 Unds.</span>
                 </div>
-                
+
                 <div className="relative h-16 w-full rounded-xl bg-green-50 border border-green-100 overflow-hidden mb-3 p-3 flex gap-4 items-end justify-center">
                   {[...Array(5)].map((_, i) => (
                     <div key={i} className="flex flex-col items-center">
-                      <motion.div 
+                      <motion.div
                         className="w-5 h-5 bg-[#006437] rounded-full border border-green-100/50 shadow-inner"
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
                         transition={{ delay: 0.4 + i * 0.15, duration: 0.5, ease: "easeOut" }}
                         viewport={{ once: true }}
                       />
-                      <motion.div 
+                      <motion.div
                         className="w-1.5 bg-[#006437] rounded-t-sm"
                         initial={{ height: 0 }}
                         whileInView={{ height: "20px" }}
@@ -274,9 +275,9 @@ export default function GestionAmbiental() {
                   ))}
                   <Sun className="absolute top-2 right-2 h-4 w-4 text-amber-400 animate-[pulse_3s_ease-in-out_infinite]" />
                 </div>
-                
+
                 <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden relative">
-                  <motion.div 
+                  <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: "100%" }}
                     transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
@@ -295,7 +296,7 @@ export default function GestionAmbiental() {
             className="group relative flex flex-col justify-between gap-6 p-10 bg-white rounded-[3rem] border border-gray-100 hover:border-amber-400/40 transition-all shadow-sm hover:shadow-xl overflow-hidden"
           >
             <div className="absolute -bottom-10 -right-10 opacity-[0.03] group-hover:scale-110 transition-transform duration-700">
-               <Factory size={250} />
+              <Factory size={250} />
             </div>
 
             <div className="relative z-10">
@@ -306,7 +307,7 @@ export default function GestionAmbiental() {
               <p className="text-gray-500 font-normal leading-relaxed mb-6">
                 Mitigación activa de impactos ambientales y planes de adaptación estructurados frente a un entorno climático cada vez más desafiante.
               </p>
-              
+
               <div className="bg-gradient-to-br from-slate-50 to-white p-6 rounded-2xl border border-slate-100 shadow-inner">
                 <div className="flex items-center gap-3 mb-3">
                   <Cloud size={20} className="text-amber-500" />
@@ -315,7 +316,7 @@ export default function GestionAmbiental() {
                 <p className="text-sm text-slate-500 leading-relaxed mb-4">
                   Formalizamos el inventario de <strong>Gases de Efecto Invernadero (GEI)</strong> bajo los más estrictos estándares internacionales.
                 </p>
-                
+
                 <div className="relative pt-4 mt-4 border-t border-slate-200/60">
                   <div className="flex justify-between items-center relative z-10">
                     <div className="bg-white border-2 border-amber-500 text-amber-600 font-bold text-xs px-3 py-1 rounded-full shadow-sm">Hoy</div>
@@ -330,7 +331,7 @@ export default function GestionAmbiental() {
         </div>
 
         {/* PIE DE SECCIÓN: REPORTE */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="flex flex-col md:flex-row items-center justify-between p-8 bg-[#f1f8e9]/50 rounded-[2rem] border border-[#a3c74a]/10"
         >
@@ -340,9 +341,9 @@ export default function GestionAmbiental() {
             </div>
             <p className="text-sm font-bold text-[#006437] italic">Construyendo un futuro sostenible hectárea a hectárea.</p>
           </div>
-          
-          <Link 
-            href="/sostenibilidad/informes" 
+
+          <Link
+            href="/sostenibilidad/informes"
             className="text-xs font-black uppercase tracking-widest text-[#006437] hover:text-[#a3c74a] transition-colors border-b-2 border-[#a3c74a]"
           >
             Ver Informe de Sostenibilidad
@@ -356,7 +357,7 @@ export default function GestionAmbiental() {
 function Cloud(props: any) {
   return (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+      <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
     </svg>
   )
 }

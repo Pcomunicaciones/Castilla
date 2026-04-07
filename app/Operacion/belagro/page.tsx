@@ -117,7 +117,7 @@ export default function BelagroPage() {
             {/* Marco Beige */}
             <div className="absolute -inset-3 md:-inset-5 bg-[#fef4e3] rounded-[2.5rem] md:rounded-[3rem] z-0"></div>
             
-            <div className="relative z-10 rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-xl border-[6px] md:border-[8px] border-white group">
+            <div className="relative z-10 w-full h-[300px] md:h-[500px] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-xl border-[6px] md:border-[8px] border-white group">
               <Image
                 src={BELAGRO_IMAGE_PATH}
                 alt="Planta de fertilizantes líquidos Belagro"
