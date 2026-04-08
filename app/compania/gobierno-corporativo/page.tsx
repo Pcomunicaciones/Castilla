@@ -58,16 +58,16 @@ const OrgCard = ({ data, delay, className = "" }: { data: any, delay: number, cl
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true, margin: "-5%" }}
       // Effect spring para que el movimiento se sienta natural y elegante
-      transition={{ 
-        type: "spring", 
-        stiffness: 220, 
-        damping: 18, 
-        delay: delay 
+      transition={{
+        type: "spring",
+        stiffness: 220,
+        damping: 18,
+        delay: delay
       }}
       // Cuando pasas el mouse, la tarjeta se eleva y crece ligeramente
-      whileHover={{ 
-        y: -8, 
-        scale: 1.03, 
+      whileHover={{
+        y: -8,
+        scale: 1.03,
         boxShadow: "0 20px 35px -8px rgba(0, 0, 0, 0.15)"
       }}
       // En dispositivos táctiles, permite que la tarjeta responda al toque
@@ -78,7 +78,7 @@ const OrgCard = ({ data, delay, className = "" }: { data: any, delay: number, cl
       <div className={`w-11 h-11 flex items-center justify-center rounded-lg mb-3 bg-gradient-to-br from-slate-50 to-white shadow-md group-hover:scale-125 group-hover:shadow-lg transition-all duration-300`}>
         <IconComponent size={22} className="currentColor" />
       </div>
-      
+
       {/* Título del cargo/posición */}
       <h3 className="text-[13px] font-black text-[#1a2b3c] text-center leading-snug w-full px-1">
         {data.title}
@@ -109,9 +109,9 @@ const MiniOrgCard = ({ title, delay }: { title: string, delay: number }) => {
       // Transición más rápida para un efecto ágil
       transition={{ type: "spring", stiffness: 280, damping: 22, delay: delay }}
       // Al pasar el mouse, cambia de color y se eleva ligeramente
-      whileHover={{ 
-        y: -4, 
-        borderColor: '#048450', 
+      whileHover={{
+        y: -4,
+        borderColor: '#048450',
         color: '#048450',
         boxShadow: "0 10px 25px -5px rgba(4, 132, 80, 0.1)"
       }}
@@ -133,12 +133,12 @@ const GrowLineVertical = ({ height = "h-10", delay }: { height?: string, delay: 
   <div className={`w-[2.5px] ${height} bg-gradient-to-b from-green-100 to-green-50 relative mx-auto z-0`}>
     {/* Animación: la línea crece desde el origen (arriba) */}
     {/* Crea un efecto visual de "dibujarse" en los diagramas */}
-    <motion.div 
-      initial={{ scaleY: 0 }} 
-      whileInView={{ scaleY: 1 }} 
-      viewport={{ once: true }} 
-      transition={{ duration: 0.7, delay, ease: [0.34, 1.56, 0.64, 1] }} 
-      className="w-full h-full bg-gradient-to-b from-[#048450] to-[#036b3d] origin-top" 
+    <motion.div
+      initial={{ scaleY: 0 }}
+      whileInView={{ scaleY: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, delay, ease: [0.34, 1.56, 0.64, 1] }}
+      className="w-full h-full bg-gradient-to-b from-[#048450] to-[#036b3d] origin-top"
     />
   </div>
 )
@@ -149,12 +149,12 @@ const GrowLineHorizontal = ({ width = "w-[420px]", delay }: { width?: string, de
   <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${width} h-[2.5px] bg-gradient-to-r from-green-100 via-green-50 to-green-100 z-0`}>
     {/* Animación: la línea se expande desde el centro */}
     {/* Se dibuja hacia ambos lados simultáneamente para mantener balance visual */}
-    <motion.div 
-      initial={{ scaleX: 0 }} 
-      whileInView={{ scaleX: 1 }} 
-      viewport={{ once: true }} 
-      transition={{ duration: 0.9, delay, ease: [0.34, 1.56, 0.64, 1] }} 
-      className="w-full h-full bg-gradient-to-r from-[#048450] via-[#06a86d] to-[#048450] origin-center" 
+    <motion.div
+      initial={{ scaleX: 0 }}
+      whileInView={{ scaleX: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.9, delay, ease: [0.34, 1.56, 0.64, 1] }}
+      className="w-full h-full bg-gradient-to-r from-[#048450] via-[#06a86d] to-[#048450] origin-center"
     />
   </div>
 )
@@ -170,37 +170,37 @@ export default function GobiernoCorporativoPage() {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-[#f8fafc] via-white to-[#f0f5f3] overflow-hidden font-[Tahoma,Verdana,sans-serif] selection:bg-castilla-yellow selection:text-black">
-      
+
       {/* ======================== */}
       {/* SECCIÓN: ENCABEZADO */}
       {/* ======================== */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0, y: -25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
         className="relative z-10 pt-20 px-6 text-center max-w-4xl mx-auto mb-12"
       >
-         {/* Badge con etiqueta de "Estructura Oficial" */}
-         <motion.div 
-           initial={{ opacity: 0, scale: 0.9 }}
-           animate={{ opacity: 1, scale: 1 }}
-           transition={{ delay: 0.2, duration: 0.6 }}
-           className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/80 backdrop-blur-sm border border-green-200 rounded-full mb-6 shadow-md hover:shadow-lg transition-shadow"
-         >
-            {/* Ícono de energía para destacar la importancia */}
-            <Zap size={13} className="text-castilla-yellow fill-castilla-yellow" />
-            {/* Etiqueta visual de la sección */}
-            <span className="text-[10px] font-bold tracking-[0.15em] text-[#048450] uppercase">Estructura Oficial</span>
-         </motion.div>
-         {/* Título principal con gradient atractivo */}
-         <motion.h1 
-           initial={{ opacity: 0, y: 15 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ delay: 0.3, duration: 0.7 }}
-           className="text-3xl md:text-5xl font-black text-[#1a2b3c] mb-2 leading-tight tracking-tight"
-         >
-            Gobierno <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-red-500 to-red-600">Corporativo</span>
-         </motion.h1>
+        {/* Badge con etiqueta de "Estructura Oficial" */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/80 backdrop-blur-sm border border-green-200 rounded-full mb-6 shadow-md hover:shadow-lg transition-shadow"
+        >
+          {/* Ícono de energía para destacar la importancia */}
+          <Zap size={13} className="text-castilla-yellow fill-castilla-yellow" />
+          {/* Etiqueta visual de la sección */}
+          <span className="text-[10px] font-bold tracking-[0.15em] text-[#048450] uppercase">Estructura Oficial</span>
+        </motion.div>
+        {/* Título principal con gradient atractivo */}
+        <motion.h1
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          className="text-3xl md:text-5xl font-black text-[#1a2b3c] mb-2 leading-tight tracking-tight"
+        >
+          Gobierno <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-green-500 to-green-600">Corporativo</span>
+        </motion.h1>
       </motion.section>
 
       {/* ======================== */}
@@ -212,25 +212,25 @@ export default function GobiernoCorporativoPage() {
           {/* NIVEL 1: Máxima Autoridad */}
           {/* Asamblea General - punto de partida de toda la toma de decisiones */}
           <OrgCard data={mainOrgDataMemo.asamblea} delay={0.1} />
-          
+
           {/* Línea conectora entre autoridad máxima y órganos de control */}
           <GrowLineVertical height="h-9" delay={0.5} />
 
           {/* NIVEL 2: Órganos de Control y Dirección Estratégica */}
           {/* Tres pilares funcionan en paralelo: vigilancia independiente, decisiones estratégicas y auditoría interna */}
           <div className="relative w-full flex justify-center items-center py-4">
-             {/* Línea horizontal que conecta los tres órganos de control */}
-             {/* Se dibuja desde el centro hacia ambos lados para un efecto visual equilibrado */}
-             <GrowLineHorizontal width="w-[450px]" delay={0.75} />
+            {/* Línea horizontal que conecta los tres órganos de control */}
+            {/* Se dibuja desde el centro hacia ambos lados para un efecto visual equilibrado */}
+            <GrowLineHorizontal width="w-[450px]" delay={0.75} />
 
-             <div className="flex items-center gap-4 z-10">
-                {/* Revisoría Fiscal - Control independiente */}
-                <OrgCard data={mainOrgDataMemo.revisoria} delay={1.0} />
-                {/* Junta Directiva - Define rumbo estratégico */}
-                <OrgCard data={mainOrgDataMemo.junta} delay={0.85} />
-                {/* Comité de Auditoría - Supervisa riesgos y controles internos */}
-                <OrgCard data={mainOrgDataMemo.auditoria} delay={1.05} />
-             </div>
+            <div className="flex items-center gap-4 z-10">
+              {/* Revisoría Fiscal - Control independiente */}
+              <OrgCard data={mainOrgDataMemo.revisoria} delay={1.0} />
+              {/* Junta Directiva - Define rumbo estratégico */}
+              <OrgCard data={mainOrgDataMemo.junta} delay={0.85} />
+              {/* Comité de Auditoría - Supervisa riesgos y controles internos */}
+              <OrgCard data={mainOrgDataMemo.auditoria} delay={1.05} />
+            </div>
           </div>
 
           {/* Línea conectora hacia la gerencia operativa */}
@@ -248,21 +248,21 @@ export default function GobiernoCorporativoPage() {
       {/* ======================== */}
       <section className="max-w-4xl mx-auto px-6 pb-28 relative z-10">
         {/* Encabezado de la sección de órganos de soporte */}
-        <motion.div 
-          initial={{ opacity: 0, y: 10 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }} 
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ delay: 1.85, duration: 0.6 }}
           className="text-center mb-8"
         >
-            {/* Título descriptivo de los órganos administrativos */}
-            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 letter-spacing px-2">Órganos de Soporte y Gestión</h3>
+          {/* Título descriptivo de los órganos administrativos */}
+          <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 letter-spacing px-2">Órganos de Soporte y Gestión</h3>
         </motion.div>
         {/* Lista de comités de apoyo que se animan uno por uno */}
         <div className="flex flex-wrap justify-center gap-3">
-            {supportCommitteesMemo.map((name, i) => (
-                <MiniOrgCard key={i} title={name} delay={1.95 + (i * 0.12)} />
-            ))}
+          {supportCommitteesMemo.map((name, i) => (
+            <MiniOrgCard key={i} title={name} delay={1.95 + (i * 0.12)} />
+          ))}
         </div>
       </section>
 
@@ -273,7 +273,7 @@ export default function GobiernoCorporativoPage() {
       <section className="py-24 bg-gradient-to-br from-white via-slate-50 to-white relative z-10 border-t border-slate-200/50">
         <div className="max-w-6xl mx-auto px-6">
           {/* Encabezado con título y línea decorativa */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -289,37 +289,67 @@ export default function GobiernoCorporativoPage() {
           <div className="grid md:grid-cols-4 gap-6">
             {/* Los cuatro valores principales de la empresa */}
             {[
-              { icon: Eye, title: "Transparencia", color: "bg-gradient-to-br from-blue-50 to-blue-100 text-blue-600" },
-              { icon: Scale, title: "Equidad", color: "bg-gradient-to-br from-amber-50 to-amber-100 text-amber-600" },
-              { icon: Shield, title: "Integridad", color: "bg-gradient-to-br from-emerald-50 to-emerald-100 text-emerald-600" },
-              { icon: FileText, title: "Responsabilidad", color: "bg-gradient-to-br from-purple-50 to-purple-100 text-purple-600" }
+              { 
+                icon: Eye, 
+                title: "Transparencia y Ética", 
+                iconColor: "bg-white text-[#048450]", 
+                bgColor: "#048450", // Color forzado inline para evitar que Tailwind lo purgue
+                borderColor: "#048450",
+                textColor: "text-white group-hover:text-castilla-yellow" 
+              },
+              { 
+                icon: Scale, 
+                title: "Equidad", 
+                iconColor: "bg-gradient-to-br from-amber-50 to-amber-100 text-amber-600",
+                bgColor: "#ffffff",
+                borderColor: "#e2e8f0", // slate-200
+                textColor: "text-[#1a2b3c] group-hover:text-[#048450]" 
+              },
+              { 
+                icon: Shield, 
+                title: "Integridad", 
+                iconColor: "bg-gradient-to-br from-emerald-50 to-emerald-100 text-emerald-600",
+                bgColor: "#ffffff",
+                borderColor: "#e2e8f0",
+                textColor: "text-[#1a2b3c] group-hover:text-[#048450]" 
+              },
+              { 
+                icon: FileText, 
+                title: "Responsabilidad", 
+                iconColor: "bg-gradient-to-br from-purple-50 to-purple-100 text-purple-600",
+                bgColor: "#ffffff",
+                borderColor: "#e2e8f0",
+                textColor: "text-[#1a2b3c] group-hover:text-[#048450]" 
+              }
             ].map((p, i) => {
               const PillarIcon = p.icon;
               return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 35, scale: 0.85 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 220, damping: 18, delay: i * 0.12 }}
-                whileHover={{ y: -8, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.12)" }}
-                whileTap={{ scale: 0.96 }}
-                className="p-7 rounded-2xl border border-slate-200 bg-white text-center group cursor-pointer transition-all duration-300"
-              >
-                {/* Contenedor del ícono con fondo degradado personalizado */}
-                {/* El ícono rota y crece al pasar el mouse */}
-                <div className={`w-14 h-14 rounded-xl mx-auto mb-5 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 ${p.color}`}>
-                   <PillarIcon size={26} />
-                </div>
-                {/* Título del valor fundamental de la empresa */}
-                {/* Cambia de color al interactuar con la tarjeta */}
-                <h3 className="font-bold text-[#1a2b3c] text-base leading-snug group-hover:text-[#048450] transition-colors">{p.title}</h3>
-              </motion.div>
-            )})}
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 35, scale: 0.85 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 220, damping: 18, delay: i * 0.12 }}
+                  whileHover={{ y: -8, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.12)" }}
+                  whileTap={{ scale: 0.96 }}
+                  style={{ backgroundColor: p.bgColor, borderColor: p.borderColor }}
+                  className={`p-7 rounded-2xl border text-center group cursor-pointer transition-all duration-300`}
+                >
+                  {/* Contenedor del ícono con fondo degradado personalizado */}
+                  {/* El ícono rota y crece al pasar el mouse */}
+                  <div className={`w-14 h-14 rounded-xl mx-auto mb-5 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 ${p.iconColor}`}>
+                    <PillarIcon size={26} />
+                  </div>
+                  {/* Título del valor fundamental de la empresa */}
+                  {/* Cambia de color al interactuar con la tarjeta */}
+                  <h3 className={`font-bold text-base leading-snug transition-colors ${p.textColor}`}>{p.title}</h3>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
-     
+
     </div>
   )
 }

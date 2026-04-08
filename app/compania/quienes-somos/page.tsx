@@ -210,28 +210,29 @@ export default function QuienesSomosPage() {
       </div>
 
       {/* --- EL BANNER ESTRATÉGICO --- */}
-      {/* Una franja muy visual con una foto de campo de fondo y un cristal verde encima (backdrop-blur) */}
+      {/* Una franja muy visual con un verde fuerte y firme, independiente de las clases dinámicas de Tailwind */}
       <motion.section
         initial={{ scale: 0.95, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
-        className="relative py-16 px-6 md:px-8 rounded-[2.5rem] overflow-hidden text-center mx-4 md:mx-12"
+        viewport={{ once: true }}
+        style={{ backgroundColor: '#04683A' }} // FORZAMOS EL BACKGROUND VERDE CORPORATIVO
+        className="relative py-16 px-6 md:px-8 rounded-[2.5rem] overflow-hidden text-center mx-4 md:mx-12 shadow-xl"
       >
         <Image 
           src="/Imagenes/textura-campo.jpg" 
           alt="Textura campo"
           fill
-          className="object-cover -z-10"
+          className="object-cover opacity-20" // La imagen se hace semi-transparente sobre el verde forzado
           sizes="(max-width: 1280px) 100vw, 1280px"
         />
-        <div className="absolute inset-0 bg-[#04683A]/95 backdrop-blur-sm -z-10" /> 
         
         <div className="relative z-10 max-w-4xl mx-auto">
           <Zap size={40} className="text-castilla-yellow mx-auto mb-4" />
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Direccionamiento Estratégico
           </h2>
-          <p className="text-lg text-white/90 font-light leading-relaxed">
-            Trabajamos con excelencia para garantizar la sanidad del cultivo, optimizar el recurso hídrico y afianzar relaciones con nuestras comunidades vecinas, guiados siempre por la <span className="text-castilla-yellow font-bold">transparencia y la conducta ética</span>.
+          <p className="text-xl md:text-2xl text-white font-medium leading-relaxed drop-shadow-md">
+            Trabajamos con excelencia para garantizar la sanidad del cultivo, optimizar el recurso hídrico y afianzar relaciones con nuestras comunidades vecinas, guiados siempre por la <span className="text-castilla-yellow font-extrabold text-2xl md:text-3xl block mt-3 drop-shadow-lg">transparencia y la conducta ética</span>.
           </p>
         </div>
       </motion.section>
