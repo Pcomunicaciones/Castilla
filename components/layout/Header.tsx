@@ -40,6 +40,10 @@ const groupsSubmenu = [
 ]
 
 
+const contactSubmenu = [
+  { name: "Protección Datos Personales", href: "/contacto/proteccion-datos" },
+]
+
 export function Header() {
   // Estados para manejar si bajamos scroll, si el móvil está abierto o qué pestaña desplegamos
   const [isScrolled, setIsScrolled] = useState(false)
@@ -132,6 +136,7 @@ export function Header() {
               { label: "Operación", menu: operationSubmenu, id: "Operacion" },
               { label: "Sostenibilidad", menu: sustainabilitySubmenu, id: "sostenibilidad" },
               { label: "Grupos de Interés", menu: groupsSubmenu, id: "grupos-de-interes" },
+              { label: "Contacto", menu: contactSubmenu, id: "contacto" },
             ].map((d) => {
               const isActive = pathname.startsWith(`/${d.id}`);
 
@@ -219,6 +224,7 @@ export function Header() {
                 { label: "Operación", menu: operationSubmenu, id: "Operacion" },
                 { label: "Sostenibilidad", menu: sustainabilitySubmenu, id: "sostenibilidad" },
                 { label: "Grupos de Interés", menu: groupsSubmenu, id: "grupos-de-interes" },
+                { label: "Contacto", menu: contactSubmenu, id: "contacto" },
               ].map((section, idx) => {
                 const isOpen = mobileActiveSection === section.id;
 
