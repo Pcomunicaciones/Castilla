@@ -12,9 +12,9 @@ const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { 
-      staggerChildren: 0.12, 
-      delayChildren: 0.2 
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.2
     },
   },
 }
@@ -25,8 +25,8 @@ const itemVariants: Variants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { 
-      duration: 0.8, 
+    transition: {
+      duration: 0.8,
       ease: [0.16, 1, 0.3, 1] // Cubic-bezier suave
     },
   },
@@ -36,10 +36,10 @@ const floatingAnimation: Variants = {
   initial: { y: 0 },
   animate: {
     y: [-10, 0, -10],
-    transition: { 
-      duration: 4, 
-      repeat: Infinity, 
-      ease: "easeInOut" 
+    transition: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut"
     }
   }
 }
@@ -61,7 +61,7 @@ const BENEFICIOS: Beneficio[] = [
 
 export default function TalentoPage() {
   return (
-    <motion.div 
+    <motion.div
       // 👇 Aquí forzamos la tipografía Tahoma para todo el componente
       style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}
       className="space-y-20 pb-20"
@@ -76,12 +76,12 @@ export default function TalentoPage() {
           <div className="h-[2px] w-12 bg-[#a3c74a]" />
           <span className="text-[#a3c74a] font-bold text-xs uppercase tracking-[0.4em]">Cultura Castilla</span>
         </div>
-        
+
         {/* 👇 Título sin inclinación (not-italic) 👇 */}
         <h1 className="text-5xl md:text-7xl font-black text-[#006437] not-italic tracking-tighter leading-none">
           Trabaja con nosotros
         </h1>
-        
+
         {/* 👇 Párrafo sin inclinación (not-italic) 👇 */}
         <p className="text-xl text-gray-500 max-w-2xl leading-relaxed font-normal not-italic border-l-4 border-[#f1f8e9] pl-6">
           Valoramos el talento humano como motor de innovación. Buscamos mentes creativas.
@@ -91,7 +91,7 @@ export default function TalentoPage() {
       {/* GRID DE BENEFICIOS */}
       <div className="grid md:grid-cols-3 gap-8">
         {BENEFICIOS.map((benefit, i) => (
-          <motion.div 
+          <motion.div
             key={i}
             variants={itemVariants}
             whileHover={{ y: -12, backgroundColor: "#ffffff" }}
@@ -107,12 +107,12 @@ export default function TalentoPage() {
       </div>
 
       {/* PORTAL DE BUK */}
-      <motion.div 
+      <motion.div
         variants={itemVariants}
         className="relative group bg-gradient-to-br from-[#006437] to-[#004d2a] rounded-[4rem] p-1 shadow-2xl overflow-hidden"
       >
         <div className="relative z-10 bg-[#006437]/40 backdrop-blur-sm rounded-[3.9rem] p-12 md:p-16 flex flex-col items-center text-center">
-          <motion.div 
+          <motion.div
             variants={floatingAnimation}
             initial="initial"
             animate="animate"
@@ -123,9 +123,9 @@ export default function TalentoPage() {
 
           {/* 👇 Título sin inclinación (not-italic) 👇 */}
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight not-italic">Portal de Candidatos</h3>
-          
-          <a 
-            href="https://castillaagricola.buk.co/trabaja-con-nosotros" 
+
+          <a
+            href="https://agricolas.buk.co/trabaja-con-nosotros"
             target="_blank"
             rel="noopener noreferrer"
             className="group/btn flex items-center gap-4 px-10 py-5 bg-[#a3c74a] text-[#006437] font-black uppercase tracking-[0.2em] text-xs rounded-2xl hover:bg-white hover:scale-105 transition-all duration-300 shadow-xl"
