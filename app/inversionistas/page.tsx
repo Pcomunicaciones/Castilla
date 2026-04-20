@@ -348,6 +348,12 @@ const InfoRelevanteView = () => {
     // ================== 2026 ==================
     //AGREGADAS (MARZO Y FEBRERO 2026) 
     {
+      f: "17/04/2026",
+      t: "Informe de fin de Ejercicio",
+      r: "En cumplimiento de lo dispuesto en las Circulares Externas 012 y 031, emitidas por la Superintendencia Financiera de Colombia, se publica el informe periódico de fin de ejercicio con corte al 31 de diciembre de 2025, aprobado por la Asamblea General de Accionistas el 25 de marzo de 2026.",
+      doc: "informes de gestion/Castilla - FINAL.pdf"
+    },
+    {
       f: "25/03/2026",
       t: "Novedades de los Directores y miembros de la Alta Gerencia.",
       r: "Se adjunta la composición de la nueva Junta Directiva de la sociedad Castilla Agrícola S.A., correspondiente al período comprendido entre abril de 2026 y marzo de 2027, elegida por la Asamblea de Accionistas en la reunión ordinaria celebrada de manera mixta (presencial y virtual) el 25 de marzo de 2026.",
