@@ -38,10 +38,8 @@ export function PromoModal() {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-
             className="relative w-full max-w-sm bg-white rounded-[2.5rem] overflow-hidden shadow-2xl"
           >
-            { }
             <button
               onClick={closeModal}
               className="absolute top-3 right-3 z-20 p-1.5 bg-black/10 hover:bg-black/30 text-white rounded-full transition-all"
@@ -49,28 +47,39 @@ export function PromoModal() {
               <X size={18} />
             </button>
 
-            <div className="relative aspect-square w-full"> {/* CAMBIO: aspect-square para que sea un cuadrado perfecto */}
+            {/* Imagen */}
+            <div className="relative w-full" style={{ aspectRatio: "1 / 0.75" }}>
               <Image
-                src="/Imagenes/Exportado 1.jpg"
+                src="/Imagenes/caña.jpg"
                 alt="Castilla Agrícola"
                 fill
                 className="object-cover"
                 sizes="(max-width: 384px) 100vw, 384px"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#006437]/60 to-transparent" />
+            </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#006437] via-[#006437]/90 to-transparent text-white">
-                <h3 className="text-xl font-bold italic leading-tight"></h3>
-                <p className="text-white/95 mt-2 text-base font-medium">
-                  Bienvenido a la nueva web de Castilla Agrícola
-                </p>
-                <Link 
-                  href="/"
+            {/* Sección proveedores */}
+            <div className="px-6 py-5 border-t border-gray-100 bg-[#f8fdf4]">
+              <p className="text-sm text-gray-600 leading-relaxed text-center">
+                ¿Eres proveedor y necesitas descargar los certificados de retención? Accede a nuestro portal desde la sección{" "}
+                <Link
+                  href="/grupos-de-interes/proveedores-clientes"
                   onClick={closeModal}
-                  className="mt-4 block text-center w-full py-3 bg-[#a3c74a] text-[#006437] font-black uppercase tracking-widest text-[10px] rounded-xl hover:bg-white transition-colors"
+                  className="text-[#006437] font-bold underline hover:text-[#a3c74a] transition-colors"
                 >
-                  Inicio
-                </Link>
-              </div>
+                  Grupos de Interés
+                </Link>{" "}
+                o presionando el siguiente link:
+              </p>
+              <a
+                href="http://200.29.239.178:8283/Intranet-Proveedores/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 flex items-center justify-center gap-2 w-full py-3 bg-[#006437] text-white font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-[#004d2a] transition-colors"
+              >
+                Ir al Portal de Proveedores
+              </a>
             </div>
           </motion.div>
         </div>
