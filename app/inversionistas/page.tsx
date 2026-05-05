@@ -130,17 +130,17 @@ const EstructuraView = () => (
       <DocumentCell title="Nombramiento Representante Legal" fileName="estructura corporativa/PDF.pdf" />
     </DataCard>
 
-    <DataCard title="Junta Directiva 2025 - 2026">
+    <DataCard title="Junta Directiva 2026 - 2027">
       <p className="text-[11px] text-gray-500 mb-8 italic border-l-4 border-[#a3c74a] pl-4">
-        La Junta Directiva mencionada está conformada en su totalidad por miembros independientes (Ley 964 de 2005). Elegida el 26 de marzo de 2025.
+        La Junta Directiva mencionada está conformada en su totalidad por miembros independientes (Ley 964 de 2005). Elegida el 25 de marzo de 2026.
       </p>
       <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
         {[
-          { p: "RAFAEL GONZÁLEZ ULLOA", s: "BELISARIO CAICEDO CAPURRO" },
-          { p: "JUAN GUILLERMO SALAZAR VALLECILLA", s: "SEBASTIAN ESTEBAN ALVAREZ CAICEDO" },
           { p: "MARIANA CAICEDO PÉREZ", s: "RODRIGO CAICEDO LOURIDO" },
-          { p: "ANICETO GUZMÁN SÁNCHEZ", s: "MARIANA BOTERO PIEDRAHITA" },
-          { p: "FELIPE VICTORIA GONZÁLEZ", s: "MARIA ALEJANDRA CABAL GONZÁLEZ" }
+          { p: "SANTIAGO CABAL GONZÁLEZ", s: "MATEO ARÉVALO BOTERO" },
+          { p: "FELIPE VICTORIA GONZÁLEZ", s: "MAURICIO CAICEDO ARISTIZÁBAL" },
+          { p: "JUAN GUILLERMO SALAZAR VALLECILLA", s: "SEBASTIÁN ESTEBAN ÁLVAREZ CAICEDO" },
+          { p: "ANICETO GUZMÁN SÁNCHEZ", s: "MARIANA BOTERO PIEDRAHITA" }
 
         ].map((item, i) => (
           <div key={i} className="space-y-1">
@@ -222,9 +222,9 @@ const EstructuraView = () => (
           <div>
             <p className="text-[10px] font-black text-[#a3c74a] uppercase mb-3 tracking-widest">Comité Auditoría y Riesgos</p>
             <div className="text-sm font-bold text-[#006437] space-y-2 mb-4">
-              <p>Maria Alejandra Cabal González</p>
+              <p>Mariana Caicedo Pérez</p>
               <p>Juan Guillermo Salazar Vallecilla</p>
-              <p>Rodrigo Caicedo Lourido</p>
+              <p>Santiago Cabal González</p>
             </div>
             <DocumentCell title="Reglamento Comité Auditoría y Riesgos" fileName="estructura corporativa/425.pdf" />
           </div>
@@ -236,16 +236,13 @@ const EstructuraView = () => (
             <p className="text-[10px] font-black text-[#a3c74a] uppercase mb-3 tracking-widest">Sostenibilidad y Gobierno</p>
             <div className="space-y-3 mb-4">
               <div className="border-l-2 border-gray-100 pl-3">
+                <p className="text-sm font-bold text-[#006437]">Mariana Caicedo Pérez</p>
+              </div>
+              <div className="border-l-2 border-gray-100 pl-3">
                 <p className="text-sm font-bold text-[#006437]">Felipe Victoria González</p>
-                <p className="text-[11px] text-gray-500 font-medium">Principal <span className="mx-1">|</span> C.C. 16.828.594</p>
               </div>
               <div className="border-l-2 border-gray-100 pl-3">
                 <p className="text-sm font-bold text-[#006437]">Juan Guillermo Salazar Vallecilla</p>
-                <p className="text-[11px] text-gray-500 font-medium">Principal <span className="mx-1">|</span> C.C. 94.400.436</p>
-              </div>
-              <div className="border-l-2 border-gray-100 pl-3">
-                <p className="text-sm font-bold text-[#006437]">Rodrigo Caicedo Lourido</p>
-                <p className="text-[11px] text-gray-500 font-medium">Principal <span className="mx-1">|</span> C.C. 14.960.455</p>
               </div>
             </div>
             <DocumentCell title="Reglamento Comité Sostenibilidad" fileName="estructura corporativa/426.pdf" />
