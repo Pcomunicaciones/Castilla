@@ -1,27 +1,30 @@
-# Configuración para Next.js Static Export
+# Configuración para Next.js Static Export con trailingSlash: true
 DirectoryIndex index.html
 
-# Manejo de rutas SPA y archivos .html
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # 1. Redirigir /ruta.html a /ruta (Clean URLs)
+  # 1. Si se solicita un archivo .html directamente, redirigir a la versión limpia (opcional pero recomendado)
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
-  RewriteRule ^ %1 [R=301,L]
+  RewriteRule ^ %1/ [R=301,L]
 
-  # 2. Servir archivo .html si existe (pero fue solicitado sin extensión)
+  # 2. Manejo de errores 404
+  # Si el archivo o carpeta no existe, mostrar el 404.html de Next.js
+  RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME}\.html -f
-  RewriteRule ^(.*)$ $1.html [L]
+  RewriteRule . /404.html [L]
 
-  # 3. Manejo de errores 404 (redirigir al 404.html generado por Next.js)
-  ErrorDocument 404 /404.html
-
-  # 4. Asegurar DirectoryIndex para carpetas (trailing slash)
+  # 3. Asegurar que las carpetas siempre tengan el slash final para que Apache encuentre el index.html
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^(.+[^/])$ /$1/ [R=301,L]
 </IfModule>
 
-# Prevención de errores 403 Forbidden en carpetas
+# Impedir listado de directorios (evita el 403 si falta el index.html)
 Options -Indexes
+
+# Asegurar permisos correctos (opcional, algunos servidores lo ignoran)
+<Files ".htaccess">
+  Order allow,deny
+  Deny from all
+</Files>
