@@ -303,13 +303,12 @@ const BuenasPracticasView = () => (
 // Un resumen histórico de cuándo se empezó a tener control sobre otras empresas.
 const ConglomeradosView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
-    <DataCard title="Situación de Control">
+    <DataCard title="Situación de Control y Grupo Empresarial">
       <div className="space-y-6">
         {[
-          { fecha: "21 de Octubre de 2011", desc: "Se configura situación de control con las empresas: Agro Avelina S.A.S.; Agro La Balsa S.A.S.; Agro El Venado S.A.S.; Agro La Pampa S.A.S." },
+          //{ fecha: "21 de Octubre de 2011", desc: "Se configura situación de control con las empresas: Agro Avelina S.A.S.; Agro La Balsa S.A.S.; Agro El Venado S.A.S.; Agro La Pampa S.A.S." },
           { fecha: "28 de Diciembre de 2012", desc: "Se configura situación de control con la empresa Bengala Agrícola S.A.S., inscrita ante cámara de comercio de Cali el 5 de marzo de 2013 bajo el No. 2472 de Libro IX." },
-          { fecha: "27 de Septiembre de 2016", desc: "Se configura situación de control con la empresa Belmonte Agrícola S.A.S., inscrita ante la cámara de comercio de Cali el 9 de septiembre de 2016 bajo el No. 14665 del libro IX." },
-          { fecha: "28 de Diciembre de 2012", desc: "Se configura situación de control con la empresa Bengala Agrícola S.A.S., inscrita ante cámara de comercio de Cali el 5 de marzo de 2013 bajo el No. 2473 de Libro IX." }
+          // { fecha: "28 de Diciembre de 2012", desc: "Se configura situación de control con la empresa Bengala Agrícola S.A.S., inscrita ante cámara de comercio de Cali el 5 de marzo de 2013 bajo el No. 2473 de Libro IX." }
         ].map((item, i) => (
           <div key={i} className="flex gap-4 border-l-4 border-[#a3c74a] pl-6 py-2">
             <div>
@@ -319,13 +318,11 @@ const ConglomeradosView = () => (
           </div>
         ))}
       </div>
-    </DataCard>
 
-    <DataCard title="Grupo Empresarial">
       <div className="space-y-6">
         {[
-          { fecha: "03 de Julio del 2012", desc: "La compañía configuró Grupo Empresarial con las sociedades: Agro Avelina S.A.S.; Agro El Venado S.A.S; Agro La Pampa S.A.S.; Agro La Balsa S.A.S.; Cauca Grande S.A. Inscripción 19 de julio 2012 bajo el número 8772 del libro IX." },
-          { fecha: "28 de Diciembre de 2012", desc: "Se configura Grupo Empresarial con la empresa Bengala Agrícola S.A.S., inscrita ante cámara de comercio de Cali el 5 de marzo de 2013 bajo el No. 2472 de Libro IX." }
+          // { fecha: "03 de Julio del 2012", desc: "La compañía configuró Grupo Empresarial con las sociedades: Agro Avelina S.A.S.; Agro El Venado S.A.S; Agro La Pampa S.A.S.; Agro La Balsa S.A.S.; Cauca Grande S.A. Inscripción 19 de julio 2012 bajo el número 8772 del libro IX." },
+          //   { fecha: "28 de Diciembre de 2012", desc: "Se configura Grupo Empresarial con la empresa Bengala Agrícola S.A.S., inscrita ante cámara de comercio de Cali el 5 de marzo de 2013 bajo el No. 2472 de Libro IX." }
         ].map((item, i) => (
           <div key={i} className="flex gap-4 border-l-4 border-[#006437] pl-6 py-2">
             <div>
@@ -341,6 +338,8 @@ const ConglomeradosView = () => (
 
 // --- VISTA: INFORMACIÓN RELEVANTE ---
 const InfoRelevanteView = () => {
+  const [showHistory, setShowHistory] = useState(false)
+
   const hechos = [
     // ================== 2026 ==================
     //AGREGADAS (MARZO Y FEBRERO 2026) 
@@ -395,7 +394,7 @@ const InfoRelevanteView = () => {
     {
       f: "02/03/2026",
       t: "Informe de fin de Ejercicio",
-      r: "En cumplimiento de la Circular Externa 031 de 2021, se adjunta la información correspondiente al proyecto sobre prácticas, políticas, procesos e indicadores en materia social y ambiental, incluidos los aspectos climáticos, el cual será presentado junto con el Informe de Gestión y Sostenibilidad 2025 en la Asamblea General de Accionistas prevista para el 25 de marzo de 2026.",
+      r: "En cumplimiento de la Circular Externas 031 de 2021, se adjunta la información correspondiente al proyecto sobre prácticas, políticas, procesos e indicadores en materia social y ambiental, incluidos los aspectos climáticos, el cual será presentado junto con el Informe de Gestión y Sostenibilidad 2025 en la Asamblea General de Accionistas prevista para el 25 de marzo de 2026.",
       doc: "informacion relevante 2/Proyecto-Asuntos-Sociales-y-Ambientales-incluidos-climaticos-2025_Castilla-Agricola.pdf"
     },
     {
@@ -661,7 +660,7 @@ const InfoRelevanteView = () => {
     {
       f: "06/03/2023",
       t: "Otros Eventos",
-      r: "Se adjunta comunicado que adopta medidas y mecanismos orientados a evitar prácticas ilegales, no autorizadas e inseguras en la representación de los Accionistas en reunión de Asamblea General el 29 de marzo de 2023, en Cali, domicilio de la Sociedad.",
+      r: "Se adjunta comunicado que adopta medidas y mecanismos orientados a evitar prácticas ilegales, no autorizadas e inseguras en la representation de los Accionistas en reunión de Asamblea General el 29 de marzo de 2023, en Cali, domicilio de la Sociedad.",
       doc: "informacion relevante 2/CITACION-REUNION-ORDINARIA-MARZO-2022.pdf"
     },
     {
@@ -690,42 +689,84 @@ const InfoRelevanteView = () => {
       r: "Se adjunta Proyecto de Distribución de Utilidades Acumuladas de enero a octubre del año 2022, aprobado por la Asamblea General de Accionistas en reunión extraordinaria, celebrada de manera mixta el día de hoy 22 de diciembre de 2022.",
       doc: "informacion relevante 2/PDU-_-Castilla-Agricola_Util-ene-a-oct-2022.pdf"
     }
-  ];
+  ]
+
+  // Separamos los hechos por año (2024+ vs 2023-)
+  const actuales = hechos.filter(h => {
+    const year = parseInt(h.f.split('/').pop() || "0")
+    return year > 2023
+  })
+
+  const historicos = hechos.filter(h => {
+    const year = parseInt(h.f.split('/').pop() || "0")
+    return year <= 2023
+  })
+
+  // Componente para renderizar una tarjeta de hecho relevante
+  const HechoCard = ({ h, i }: { h: any, i: number }) => (
+    <div key={i} className="group relative bg-white border border-gray-100 rounded-2xl p-6 hover:border-[#006437]/30 transition-all shadow-sm hover:shadow-md">
+      <div className="flex flex-col md:flex-row justify-between gap-4 mb-3">
+        <div className="flex items-center gap-3">
+          <span className="text-sm font-bold text-[#004a29]">{h.f}</span>
+          <span className="text-[10px] font-black text-[#006437] uppercase bg-[#a3c74a]/10 border border-[#a3c74a]/20 px-2 py-1 rounded-md">{h.t}</span>
+        </div>
+        <div className="flex w-full md:w-auto shrink-0">
+          <a
+            href={`/docs/${h.doc}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-[#f1f8e9] text-[#006437] hover:bg-[#006437] hover:text-white rounded-lg text-[10px] font-bold transition-colors uppercase"
+          >
+            <ExternalLink size={14} /> VER DOCUMENTO
+          </a>
+        </div>
+      </div>
+      <p className="text-sm text-gray-500 leading-relaxed">{h.r}</p>
+    </div>
+  )
 
   return (
     <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
-      {/* Esta sección agrupa los "Hechos Relevantes" en un formato de lista elegante */}
       <DataCard title="Hechos Relevantes">
         <div className="space-y-4">
-          {hechos.map((h, i) => (
-            // Hover border a verde oscuro para mantener la elegancia y coherencia de marca
-            <div key={i} className="group relative bg-white border border-gray-100 rounded-2xl p-6 hover:border-[#006437]/30 transition-all shadow-sm hover:shadow-md">
-              <div className="flex flex-col md:flex-row justify-between gap-4 mb-3">
-
-                {/* Fechas y Etiquetas con colores de Castilla Agrícola */}
-                <div className="flex items-center gap-3">
-                  <span className="text-sm font-bold text-[#004a29]">{h.f}</span>
-                  <span className="text-[10px] font-black text-[#006437] uppercase bg-[#a3c74a]/10 border border-[#a3c74a]/20 px-2 py-1 rounded-md">{h.t}</span>
-                </div>
-
-                {/* Botón con estilo verde y hover amarillo/verde */}
-                <div className="flex w-full md:w-auto shrink-0">
-                  <a
-                    href={`/docs/${h.doc}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-[#f1f8e9] text-[#006437] hover:bg-[#006437] hover:text-white rounded-lg text-[10px] font-bold transition-colors uppercase"
-                    title="Abrir documento en pestaña nueva"
-                  >
-                    <ExternalLink size={14} /> VER DOCUMENTO
-                  </a>
-                </div>
-              </div>
-
-              {/* Descripción del Hecho Relevante */}
-              <p className="text-sm text-gray-500 leading-relaxed">{h.r}</p>
-            </div>
+          {/* Renderizar actuales */}
+          {actuales.map((h, i) => (
+            <HechoCard key={`curr-${i}`} h={h} i={i} />
           ))}
+
+          {/* Sección Histórica */}
+          {historicos.length > 0 && (
+            <div className="mt-8">
+              <button
+                onClick={() => setShowHistory(!showHistory)}
+                className="w-full flex items-center justify-between p-4 bg-[#f8fcf4] border border-[#a3c74a]/30 rounded-xl text-[#006437] font-bold text-xs uppercase tracking-widest hover:bg-[#edf5e6] transition-colors"
+              >
+                <span>Históricos</span>
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform duration-300 ${showHistory ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              <AnimatePresence>
+                {showHistory && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="space-y-4 pt-4">
+                      {historicos.map((h, i) => (
+                        <HechoCard key={`hist-${i}`} h={h} i={i} />
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          )}
         </div>
       </DataCard>
     </div>
@@ -737,7 +778,7 @@ const InfoRelevanteView = () => {
 const ConvocatoriaView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Convocatoria">
-      <div className="grid gap-2">
+      {/* <div className="grid gap-2">
         <DocumentCell
           title="Citación Asamblea General de Accionistas en reunión ordinaria marzo 26 de 2025"
           fileName="convocatoria/CAST.-AGRI-CITACION-REUNION-ORDINARIA-MARZO-2025.pdf"
@@ -750,7 +791,8 @@ const ConvocatoriaView = () => (
           title="Poder Persona Natural"
           fileName="convocatoria/CAST-AGRI-MODELO-PODER-AGA-ORDINARIA-MAR.-2025-PERSONA-NATURAL-.pdf"
         />
-      </div>
+      </div> */}
+      <div className="text-gray-400 text-xs italic"></div>
     </DataCard>
   </div>
 )
@@ -760,7 +802,7 @@ const ConvocatoriaView = () => (
 const InfoGeneralView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Información General">
-      <div className="grid gap-2">
+      {/* <div className="grid gap-2">
         <DocumentCell
           title="Informe de Gestión"
           fileName="informacion general/1-Castilla-Informe-de-gestion-y-sostenibilidad-2024-DEFINITIVO.pdf"
@@ -773,7 +815,8 @@ const InfoGeneralView = () => (
           title="Estados Financieros Consolidados al 31 de diciembre de 2025, con notas"
           fileName="informacion general/CAST-EEFF-Consolidados-Dic-2025.pdf"
         />
-      </div>
+      </div> */}
+      <div className="text-gray-400 text-xs italic"></div>
     </DataCard>
   </div>
 )
@@ -782,7 +825,7 @@ const InfoGeneralView = () => (
 const ProyectoDividendosView = () => (
   <div className="animate-in fade-in duration-700 pb-20" style={{ fontFamily: 'Tahoma, sans-serif' }}>
     <DataCard title="Proyecto Distribución de Utilidades">
-      <div className="grid gap-2">
+      {/* <div className="grid gap-2">
         <DocumentCell
           title="Proyecto de Distribución de Utilidades 2025, aprobado por la Asamblea General de Accionistas en reunión ordinaria del 25 de marzo de 2026, incluye fecha de exdividendos."
           fileName="proyecto distribucion dividendos/PDU-2025_-Castilla-Agricola-Fecha-de-Exdividendos.pdf"
@@ -795,7 +838,8 @@ const ProyectoDividendosView = () => (
           title="Fecha de Ex – Dividendos"
           fileName="proyecto distribucion dividendos/CASTILLA_Fecha-Exdividendo_PDU-Utilidades-2024.pdf"
         />
-      </div>
+      </div> */}
+      <div className="text-gray-400 text-xs italic"></div>
     </DataCard>
   </div>
 )
@@ -819,7 +863,7 @@ const ArquitecturaControlView = () => (
         />
         <DocumentCell
           title="Política General de Control y Gestión de Riesgos"
-          fileName="arquitectura control/PO-BGR-001-General-de-Control-y-de-Riesgos-Cast.pdf"
+          fileName="arquitectura control/Modelo Integral de Gestion de Riesgos.pdf"
         />
       </div>
     </DataCard>

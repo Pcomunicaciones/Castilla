@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { 
+import {
   FileText, // Icono para RIT (más general)
   ShieldCheck, // Icono para Conflictos/Ética (más directo, como tu imagen 1)
   CheckCircle2, // Icono para Certificados/Datos (más de 'check', como tu imagen 2)
@@ -37,7 +37,7 @@ const politicasFiles = [
   },
   {
     title: "Política de Tratamiento de Datos Personales",
-    fileName: "politicas y cumplimientos/PO-DNE-003-TRATAMIENTO-DATOS-PERSONALES-CASTILLA.pdf",
+    fileName: "politicas y cumplimientos/GNE1-PO08 Politica tratamiento de datos.pdf",
     icon: CheckCircle2, // Icono de check, arriba a la izquierda
     theme: "slate"
   },
@@ -52,9 +52,9 @@ const politicasFiles = [
 export default function PoliticasCumplimientoPage() {
   return (
     <div className="min-h-screen bg-[#f8fafc] pb-24" style={{ fontFamily: 'Tahoma, Geneva, sans-serif' }}>
-      
+
       {/* HEADER */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         className="pt-20 px-6 text-center max-w-4xl mx-auto mb-16"
@@ -65,11 +65,11 @@ export default function PoliticasCumplimientoPage() {
             Documentación Oficial
           </span>
         </div>
-        
+
         <h1 className="text-4xl md:text-6xl font-black text-[#1a2b3c] mb-4 tracking-tight not-italic">
           Políticas y <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-500">Cumplimiento</span>
         </h1>
-        
+
         <p className="text-slate-500 text-lg not-italic">
           Acceda y lea los lineamientos éticos y normativos que rigen nuestra operación corporativa.
         </p>
@@ -91,17 +91,17 @@ export default function PoliticasCumplimientoPage() {
             <div className={`w-12 h-12 flex items-center justify-center rounded-xl bg-slate-50 mb-6 flex-shrink-0 ${file.theme === 'emerald' ? 'text-[#048450]' : 'text-slate-400'} group-hover:scale-110 transition-transform`}>
               <file.icon size={24} />
             </div>
-            
+
             {/* 2. Título centrado (font-bold text-[#1a2b3c]) */}
             <h3 className="text-lg font-bold text-[#1a2b3c] mb-6 flex-grow leading-tight not-italic text-center">
               {file.title}
             </h3>
-            
+
             {/* 3. Botón verde abajo a la izquierda (como el tuyo) */}
             <div className="w-full mt-auto">
-              <a 
-                href={`/docs/${file.fileName.replace(/ /g, "%20")}`} 
-                target="_blank" 
+              <a
+                href={`/docs/${file.fileName.replace(/ /g, "%20")}`}
+                target="_blank"
                 rel="noopener noreferrer"
                 // 🔥 Fondo verde clarito, texto verde oscuro, bordes redondeados.
                 className="w-fit flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#f1f8e9] text-[#006437] text-[11px] font-bold hover:bg-[#048450] hover:text-white transition-colors group/btn not-italic"
@@ -116,20 +116,20 @@ export default function PoliticasCumplimientoPage() {
 
       {/* FOOTER DE COMPROMISO */}
       <section className="max-w-5xl mx-auto px-6 mt-24 pb-20">
-        <motion.div 
+        <motion.div
           initial={{ scale: 0.95, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
           className="relative overflow-hidden rounded-[3rem] bg-[#048450] text-white shadow-2xl p-12 md:p-16"
         >
           <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-            
+
             <div className="not-italic">
               <h2 className="text-3xl font-black mb-6">Compromiso con la Transparencia</h2>
               <p className="text-white/90 leading-relaxed mb-8 font-light">
                 Mantenemos altos estándares de integridad empresarial. Nuestra gestión se basa en la honestidad y el cumplimiento riguroso de la ley colombiana.
               </p>
-              
+
               <div className="flex items-center gap-3 bg-white/10 px-4 py-2 rounded-full border border-white/20 w-fit">
                 <CheckCircle2 size={16} className="text-yellow-400" />
                 <span className="text-[10px] font-bold uppercase tracking-widest">
@@ -139,10 +139,10 @@ export default function PoliticasCumplimientoPage() {
             </div>
 
             <div className="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 flex items-center justify-center relative min-h-[160px]">
-               <FileText size={80} className="opacity-10 absolute" />
-               <p className="text-center italic font-light opacity-90 relative z-10 text-sm">
+              <FileText size={80} className="opacity-10 absolute" />
+              <p className="text-center italic font-light opacity-90 relative z-10 text-sm">
                 "La ética empresarial es el cimiento de nuestra sostenibilidad en el campo colombiano."
-               </p>
+              </p>
             </div>
 
           </div>
