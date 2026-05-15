@@ -943,6 +943,9 @@ const EstadosFinancierosView = () => {
 const InformesTrimestralesView = () => {
 
   const informesList = [
+    //2026
+    { title: "EEFF Consolidados - Marzo 2026", doc: "CAST EEFF Consolidados Marzo 2026.pdf" },
+    { title: "EEFF Separados - Marzo 2026", doc: "CAST EEFF Separados Marzo 2026.pdf" },
     // 2025
     { title: "EEFF Consolidados - Septiembre 2025", doc: "AS-8288-25-Castilla-Agricola-EEFF-completos-Consolidados-Septiembre-2025.pdf" },
     { title: "EEFF Separados - Septiembre 2025", doc: "AS-8287-25-Castilla-EEFF-Separados-completo-Septiembre-2025.pdf" },
