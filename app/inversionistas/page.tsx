@@ -343,6 +343,13 @@ const InfoRelevanteView = () => {
   const hechos = [
     // ================== 2026 ==================
     //AGREGADAS (MARZO Y FEBRERO 2026) 
+    //15-05-2026
+    {
+      f: "15/05/2026",
+      t: "Informe de fin de Ejercicio",
+      r: "En cumplimiento de lo dispuesto en las Circulares Externas 012 y 031, emitidas por la Superintendencia Financiera de Colombia, se publica el informe periódico de fin de ejercicio con corte al 31 de diciembre de 2025, aprobado por la Asamblea General de Accionistas el 25 de marzo de 2026.",
+      doc: "informacion relevante/Castilla Agrícola_ I Trimestre 2026.pdf"
+    },
     {
       f: "17/04/2026",
       t: "Informe de fin de Ejercicio",
