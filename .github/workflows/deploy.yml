@@ -3,32 +3,45 @@ name: Deploy Castilla Agrícola
 on:
   push:
     branches:
-      - main  # Se activa cuando subes cambios a la rama principal
+      - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 🚚 Obtener código fuente
+      - name: Obtener código fuente
         uses: actions/checkout@v4
 
-      - name: ⚙️ Configurar Node.js
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
-      - name: 📦 Instalar dependencias
-        run: npm install
+      - name: Instalar dependencias
+        run: npm ci
 
-      - name: 🏗️ Compilar proyecto (Build)
+      - name: Compilar proyecto
         run: npm run build
 
-      - name: 🚀 Subir archivos a Hostinger vía FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Subir archivos compilados al servidor
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
-          server-dir: public_html/
-
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
+          source: ".next/,public/,package.json,package-lock.json,next.config.mjs"
+          target: ${{ secrets.APP_PATH }}
+          strip_components: 0
+
+      - name: Instalar dependencias de producción en el servidor
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
+          script: |
+            cd ${{ secrets.APP_PATH }}
+            npm ci --omit=dev

@@ -129,35 +129,89 @@ const MiniOrgCard = ({ title, delay }: { title: string, delay: number }) => {
 
 // Línea vertical con animación de crecimiento gradual
 // Se expande de arriba hacia abajo con un efecto suave
-const GrowLineVertical = ({ height = "h-10", delay }: { height?: string, delay: number }) => (
-  <div className={`w-[2.5px] ${height} bg-gradient-to-b from-green-100 to-green-50 relative mx-auto z-0`}>
-    {/* Animación: la línea crece desde el origen (arriba) */}
-    {/* Crea un efecto visual de "dibujarse" en los diagramas */}
-    <motion.div
-      initial={{ scaleY: 0 }}
-      whileInView={{ scaleY: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7, delay, ease: [0.34, 1.56, 0.64, 1] }}
-      className="w-full h-full bg-gradient-to-b from-[#048450] to-[#036b3d] origin-top"
-    />
-  </div>
-)
+const GrowLineVertical = ({ height = "h-10", delay, dashed = false }: { height?: string, delay: number, dashed?: boolean }) => {
+  if (dashed) {
+    return (
+      <div className={`w-[3px] ${height} relative mx-auto z-0 flex justify-center`}>
+        {/* Línea de fondo tenue (track) */}
+        <div className="absolute inset-0 border-l-[3px] border-dashed border-green-200/60" />
+        {/* Línea animada activa */}
+        <motion.div
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay, ease: [0.34, 1.56, 0.64, 1] }}
+          className="absolute inset-0 border-l-[3px] border-dashed border-[#048450] origin-top"
+        />
+      </div>
+    )
+  }
+  return (
+    <div className={`w-[2.5px] ${height} bg-gradient-to-b from-green-100 to-green-50 relative mx-auto z-0`}>
+      {/* Animación: la línea crece desde el origen (arriba) */}
+      {/* Crea un efecto visual de "dibujarse" en los diagramas */}
+      <motion.div
+        initial={{ scaleY: 0 }}
+        whileInView={{ scaleY: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay, ease: [0.34, 1.56, 0.64, 1] }}
+        className="w-full h-full bg-gradient-to-b from-[#048450] to-[#036b3d] origin-top"
+      />
+    </div>
+  )
+}
 
 // Línea horizontal con expansión desde el centro
 // Se expande simultáneamente hacia ambos lados para un efecto equilibrado
-const GrowLineHorizontal = ({ width = "w-[420px]", delay }: { width?: string, delay: number }) => (
-  <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${width} h-[2.5px] bg-gradient-to-r from-green-100 via-green-50 to-green-100 z-0`}>
-    {/* Animación: la línea se expande desde el centro */}
-    {/* Se dibuja hacia ambos lados simultáneamente para mantener balance visual */}
-    <motion.div
-      initial={{ scaleX: 0 }}
-      whileInView={{ scaleX: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.9, delay, ease: [0.34, 1.56, 0.64, 1] }}
-      className="w-full h-full bg-gradient-to-r from-[#048450] via-[#06a86d] to-[#048450] origin-center"
-    />
-  </div>
-)
+const GrowLineHorizontal = ({ 
+  width = "w-[225px]", 
+  delay, 
+  side = "both", 
+  dashed = false 
+}: { 
+  width?: string, 
+  delay: number, 
+  side?: "left" | "right" | "both", 
+  dashed?: boolean 
+}) => {
+  const positionClass = 
+    side === "left" 
+      ? "right-1/2 origin-right" 
+      : side === "right" 
+        ? "left-1/2 origin-left" 
+        : "-translate-x-1/2 origin-center left-1/2"
+
+  if (dashed) {
+    return (
+      <div className={`absolute top-1/2 -translate-y-1/2 ${width} h-[3px] z-0 ${positionClass}`}>
+        {/* Línea de fondo tenue punteada */}
+        <div className="absolute inset-0 border-t-[3px] border-dashed border-green-200/60" />
+        {/* Línea animada activa punteada */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, delay, ease: [0.34, 1.56, 0.64, 1] }}
+          className="absolute inset-0 border-t-[3px] border-dashed border-[#048450]"
+          style={{ transformOrigin: side === "left" ? "right" : side === "right" ? "left" : "center" }}
+        />
+      </div>
+    )
+  }
+
+  return (
+    <div className={`absolute top-1/2 -translate-y-1/2 ${width} h-[2.5px] bg-gradient-to-r from-green-100 via-green-50 to-green-100 z-0 ${positionClass}`}>
+      <motion.div
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.9, delay, ease: [0.34, 1.56, 0.64, 1] }}
+        className="w-full h-full bg-gradient-to-r from-[#048450] via-[#06a86d] to-[#048450]"
+        style={{ transformOrigin: side === "left" ? "right" : side === "right" ? "left" : "center" }}
+      />
+    </div>
+  )
+}
 
 
 // ========================
@@ -219,9 +273,11 @@ export default function GobiernoCorporativoPage() {
           {/* NIVEL 2: Órganos de Control y Dirección Estratégica */}
           {/* Tres pilares funcionan en paralelo: vigilancia independiente, decisiones estratégicas y auditoría interna */}
           <div className="relative w-full flex justify-center items-center py-4">
-            {/* Línea horizontal que conecta los tres órganos de control */}
-            {/* Se dibuja desde el centro hacia ambos lados para un efecto visual equilibrado */}
-            <GrowLineHorizontal width="w-[450px]" delay={0.75} />
+            {/* Conexión Revisoría Fiscal (Izquierda) -> Junta Directiva - Punteada */}
+            <GrowLineHorizontal width="w-[225px]" side="left" dashed={true} delay={0.75} />
+            
+            {/* Conexión Junta Directiva -> Comité de Auditoría (Derecha) - Sólida/Normal */}
+            <GrowLineHorizontal width="w-[225px]" side="right" dashed={false} delay={0.75} />
 
             <div className="flex items-center gap-4 z-10">
               {/* Revisoría Fiscal - Control independiente */}
