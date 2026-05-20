@@ -1,12 +1,15 @@
-name: Deploy Castilla Agrícola
+name: Build Castilla Agrícola
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Obtener código fuente
@@ -21,27 +24,6 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Compilar proyecto
+      - name: Compilar proyecto (Build)
         run: npm run build
 
-      - name: Subir archivos compilados al servidor
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          port: 22
-          source: ".next/,public/,package.json,package-lock.json,next.config.mjs"
-          target: ${{ secrets.APP_PATH }}
-          strip_components: 0
-
-      - name: Instalar dependencias de producción en el servidor
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          port: 22
-          script: |
-            cd ${{ secrets.APP_PATH }}
-            npm ci --omit=dev
