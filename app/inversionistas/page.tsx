@@ -916,8 +916,7 @@ const InformeGestionView = () => (
 // El core de los números: balances y dictámenes del revisor fiscal.
 const EstadosFinancierosView = () => {
   const archivos = [
-    { year: "2025 Separados", file: "Castilla EEFF Año 2025.pdf" },
-    { year: "2025 Consolidados", file: "CAST-EEFF-Consolidados-Dic-2025.pdf" },
+    { year: "2025", file: "Castilla EEFF Año 2025.pdf" },
     { year: "2024", file: "CAST-EEFF-Fin-de-Ejercicio-Diciembre-2024.pdf" },
     { year: "2023", file: "Castilla-Estados-Financieros-Ano-2023.pdf" },
     { year: "2022", file: "CASTILLA-EEFF-Separados-y-Consolidados-1.pdf" },
