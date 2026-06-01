@@ -62,7 +62,7 @@ export function PromoModal() {
             {/* Sección proveedores */}
             <div className="px-6 py-5 border-t border-gray-100 bg-[#f8fdf4]">
               <p className="text-sm text-gray-600 leading-relaxed text-center">
-                ¿Eres proveedor una  y necesitas descargar los certificados de retención? Accede a nuestro portal desde la sección{" "}
+                ¿Eres proveedor y necesitas descargar los certificados de retención? Accede a nuestro portal desde la sección{" "}
                 <Link
                   href="/grupos-de-interes/proveedores-clientes"
                   onClick={closeModal}
