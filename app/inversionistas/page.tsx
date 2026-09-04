@@ -951,6 +951,8 @@ const InformesTrimestralesView = () => {
 
   const informesList = [
     //2026
+    { title: "EEFF Consolidados - Junio 2026", doc: "CAST EEFF Consolidados Junio 2026.pdf" },
+    { title: "EEFF Separados - Junio 2026", doc: "CAST EEFF Separados Junio 2026.pdf" },
     { title: "EEFF Consolidados - Marzo 2026", doc: "CAST EEFF Consolidados Marzo 2026.pdf" },
     { title: "EEFF Separados - Marzo 2026", doc: "CAST EEFF Separados Marzo 2026.pdf" },
     // 2025
