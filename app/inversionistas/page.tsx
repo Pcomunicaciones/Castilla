@@ -347,9 +347,9 @@ const InfoRelevanteView = () => {
       f: "14/08/2026",
       t: "Informes de fin de Ejercicio",
       r: "Se presenta el informe correspondiente al segundo trimestre de 2026, en cumplimiento de lo dispuesto en las Circulares Externas 012 de 2022 y 031 de 2021 emitidas por la Superintendencia Financiera de Colombia.",
-      doc: "Cast Inf Periodico II Trimestre 2026.pdf"
+      doc: "informacion relevante/Castilla Agrícola_ I Trimestre 2026.pdf"
     },
-    //AGREGADAS (MARZO Y FEBRERO 2026) 
+    //AGREGADAS (MARZO Y FEBRERO 2026) Cast Inf Periodico II Trimestre 2026.pdf
     //15-05-2026
     {
       f: "15/05/2026",
